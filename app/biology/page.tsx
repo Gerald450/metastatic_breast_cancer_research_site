@@ -7,7 +7,7 @@ export default function BiologyPage() {
     <div className="py-12">
       <Section title="Biology">
         <div className="space-y-8">
-          <Placeholder text="TODO: Add biology content (PLACEHOLDER)" />
+          <Placeholder label="TODO: Add biology content (PLACEHOLDER)" />
           
           <div>
             <h3 className="mb-4 text-xl font-semibold text-gray-900 dark:text-white">
@@ -23,7 +23,7 @@ export default function BiologyPage() {
             <h3 className="mb-4 text-xl font-semibold text-gray-900 dark:text-white">
               Pathophysiology
             </h3>
-            <Placeholder text="TODO: Add pathophysiology content" />
+            <Placeholder label="TODO: Add pathophysiology content" />
           </div>
         </div>
       </Section>

@@ -8,7 +8,7 @@ export default function ClinicalOutcomesPage() {
     <div className="py-12">
       <Section title="Clinical Outcomes">
         <div className="space-y-8">
-          <Placeholder text="TODO: Add clinical outcomes content" />
+          <Placeholder label="TODO: Add clinical outcomes content" />
           
           <CitationCallout citation="TODO: Add citation">
             {/* TODO: Add important clinical outcome information */}

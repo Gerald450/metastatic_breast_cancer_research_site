@@ -7,7 +7,7 @@ export default function DemographicsPage() {
     <div className="py-12">
       <Section title="Demographics">
         <div className="space-y-8">
-          <Placeholder text="TODO: Add demographics content" />
+          <Placeholder label="TODO: Add demographics content" />
           
           <div>
             <h3 className="mb-4 text-xl font-semibold text-gray-900 dark:text-white">

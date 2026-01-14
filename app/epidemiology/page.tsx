@@ -7,7 +7,7 @@ export default function EpidemiologyPage() {
     <div className="py-12">
       <Section title="Epidemiology">
         <div className="space-y-8">
-          <Placeholder text="TODO: Add epidemiology content" />
+          <Placeholder label="TODO: Add epidemiology content" />
           
           <div>
             <h3 className="mb-4 text-xl font-semibold text-gray-900 dark:text-white">

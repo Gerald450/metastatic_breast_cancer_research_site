@@ -7,13 +7,13 @@ export default function TreatmentPage() {
     <div className="py-12">
       <Section title="Treatment">
         <div className="space-y-8">
-          <Placeholder text="TODO: Add treatment content (PLACEHOLDER)" />
+          <Placeholder label="TODO: Add treatment content (PLACEHOLDER)" />
           
           <div>
             <h3 className="mb-4 text-xl font-semibold text-gray-900 dark:text-white">
               Treatment Options
             </h3>
-            <Placeholder text="TODO: Add treatment options content" />
+            <Placeholder label="TODO: Add treatment options content" />
           </div>
 
           <div>

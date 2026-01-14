@@ -6,7 +6,7 @@ export default function DefinitionPage() {
     <div className="py-12">
       <Section title="Definition">
         <div className="space-y-6">
-          <Placeholder text="TODO: Add definition content" />
+          <Placeholder label="TODO: Add definition content" />
           
           {/* TODO: Add definition sections */}
           <div className="space-y-4">

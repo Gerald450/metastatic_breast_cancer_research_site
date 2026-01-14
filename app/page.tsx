@@ -16,7 +16,7 @@ export default function Home() {
             </p>
           </div>
 
-          <Placeholder text="TODO: Add home page content" />
+          <Placeholder label="TODO: Add home page content" />
 
           <div className="mt-8">
             <VisualPlaceholder

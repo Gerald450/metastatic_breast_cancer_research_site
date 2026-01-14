@@ -7,7 +7,7 @@ export default function PublicHealthPage() {
     <div className="py-12">
       <Section title="Public Health">
         <div className="space-y-8">
-          <Placeholder text="TODO: Add public health content" />
+          <Placeholder label="TODO: Add public health content" />
           
           <div>
             <h3 className="mb-4 text-xl font-semibold text-gray-900 dark:text-white">
@@ -26,7 +26,7 @@ export default function PublicHealthPage() {
             <h3 className="mb-4 text-xl font-semibold text-gray-900 dark:text-white">
               Prevention Strategies
             </h3>
-            <Placeholder text="TODO: Add prevention strategies content" />
+            <Placeholder label="TODO: Add prevention strategies content" />
           </div>
         </div>
       </Section>
