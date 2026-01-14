@@ -6,36 +6,94 @@ import CitationCallout from '@/components/CitationCallout';
 export default function ClinicalOutcomesPage() {
   return (
     <div className="py-12">
-      <Section title="Clinical Outcomes">
-        <div className="space-y-8">
-          <Placeholder label="TODO: Add clinical outcomes content" />
-          
+      <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+        <h1 className="mb-8 text-4xl font-bold text-gray-900 dark:text-white">
+          Clinical Outcomes
+        </h1>
+      </div>
+
+      <Section title="Survival Outcomes">
+        <div className="space-y-6">
+          <Placeholder
+            label="Survival rate analysis"
+            notes={[
+              'Overall survival rates',
+              'Disease-specific survival',
+              'Progression-free survival',
+            ]}
+          />
+          <VisualPlaceholder
+            title="Survival curves over time"
+            type="chart"
+            description="Kaplan-Meier survival curves showing overall and progression-free survival"
+          />
+        </div>
+      </Section>
+
+      <Section title="Disease Progression">
+        <div className="space-y-6">
+          <Placeholder
+            label="Progression patterns and timelines"
+            notes={[
+              'Time to progression metrics',
+              'Patterns of disease advancement',
+              'Factors influencing progression',
+            ]}
+          />
+          <VisualPlaceholder
+            title="Progression timeline diagram"
+            type="diagram"
+            description="Visual representation of typical disease progression pathways"
+          />
+        </div>
+      </Section>
+
+      <Section title="Quality of Life Measures">
+        <div className="space-y-6">
+          <Placeholder
+            label="Patient-reported outcomes"
+            notes={[
+              'Quality of life assessments',
+              'Symptom burden and management',
+              'Functional status measures',
+            ]}
+          />
+        </div>
+      </Section>
+
+      <Section title="Treatment Response Outcomes">
+        <div className="space-y-6">
           <CitationCallout citation="TODO: Add citation">
             {/* TODO: Add important clinical outcome information */}
           </CitationCallout>
+          <Placeholder
+            label="Response rates and outcomes"
+            notes={[
+              'Treatment response metrics',
+              'Duration of response',
+              'Outcome predictors',
+            ]}
+          />
+          <VisualPlaceholder
+            title="Treatment response outcomes table"
+            type="table"
+            description="Comparative response rates across different treatment approaches"
+          />
+        </div>
+      </Section>
 
-          <div>
-            <h3 className="mb-4 text-xl font-semibold text-gray-900 dark:text-white">
-              Outcome Metrics
-            </h3>
-            <VisualPlaceholder
-              height="350px"
-              label="TODO: Add outcome metrics visualization"
-            />
-          </div>
-
-          <div>
-            <h3 className="mb-4 text-xl font-semibold text-gray-900 dark:text-white">
-              Survival Rates
-            </h3>
-            <VisualPlaceholder
-              height="350px"
-              label="TODO: Add survival rate charts"
-            />
-          </div>
+      <Section title="References used on this page">
+        <div className="space-y-2">
+          <Placeholder
+            label="Reference list placeholder"
+            notes={[
+              'TODO: Add survival outcome study citations',
+              'TODO: Add progression analysis sources',
+              'TODO: Add quality of life measure references',
+            ]}
+          />
         </div>
       </Section>
     </div>
   );
 }
-
