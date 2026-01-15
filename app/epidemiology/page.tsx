@@ -1,6 +1,8 @@
 import Section from '@/components/Section';
 import Placeholder from '@/components/Placeholder';
 import VisualPlaceholder from '@/components/VisualPlaceholder';
+import ReferenceList from '@/components/ReferenceList';
+import { references } from '@/lib/references';
 
 export default function EpidemiologyPage() {
   return (
@@ -78,16 +80,13 @@ export default function EpidemiologyPage() {
         </div>
       </Section>
 
-      <Section title="References used on this page">
-        <div className="space-y-2">
-          <Placeholder
-            label="Reference list placeholder"
-            notes={[
-              'TODO: Add prevalence and incidence study citations',
-              'TODO: Add geographic distribution sources',
-              'TODO: Add temporal trend references',
-            ]}
-          />
+      <Section title="References Used">
+        <div className="space-y-4">
+          <p className="text-sm italic text-gray-600 dark:text-gray-400">
+            Page highlights are listed as notes and must be verified against the
+            PDF pages.
+          </p>
+          <ReferenceList references={references} filterBy="epidemiology" />
         </div>
       </Section>
     </div>

@@ -1,6 +1,8 @@
 import Section from '@/components/Section';
 import Placeholder from '@/components/Placeholder';
 import VisualPlaceholder from '@/components/VisualPlaceholder';
+import ReferenceList from '@/components/ReferenceList';
+import { references } from '@/lib/references';
 
 export default function PublicHealthPage() {
   return (
@@ -73,16 +75,13 @@ export default function PublicHealthPage() {
         </div>
       </Section>
 
-      <Section title="References used on this page">
-        <div className="space-y-2">
-          <Placeholder
-            label="Reference list placeholder"
-            notes={[
-              'TODO: Add public health impact study citations',
-              'TODO: Add screening program sources',
-              'TODO: Add prevention strategy references',
-            ]}
-          />
+      <Section title="References Used">
+        <div className="space-y-4">
+          <p className="text-sm italic text-gray-600 dark:text-gray-400">
+            Page highlights are listed as notes and must be verified against the
+            PDF pages.
+          </p>
+          <ReferenceList references={references} filterBy="public-health" />
         </div>
       </Section>
     </div>

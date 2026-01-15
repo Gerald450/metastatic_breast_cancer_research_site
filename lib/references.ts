@@ -26,7 +26,7 @@ export const references: Reference[] = [
     filename: 'pky062.pdf',
     localUrl: '/pdfs/Caswell_et_al.pdf',
     doi: '10.1093/jncics/pky062',
-    usedFor: [],
+    usedFor: ['clinical-outcomes'],
     highlightNotes: [
       'Improved population-level survival over time',
       'Most metastatic disease arises from recurrence, not de novo stage IV',
@@ -45,7 +45,7 @@ export const references: Reference[] = [
     filename: 'e026414.full.pdf',
     localUrl: '/pdfs/Lord_et_al.pdf',
     doi: '10.1136/bmjopen-2018-026414',
-    usedFor: [],
+    usedFor: ['epidemiology', 'clinical-outcomes'],
     highlightNotes: [
       'Population-based survival trends',
       'Heterogeneity in metastatic outcomes',
@@ -64,7 +64,7 @@ export const references: Reference[] = [
     filename: '809.pdf',
     localUrl: '/pdfs/Jing_Lu_et_al.pdf',
     doi: null,
-    usedFor: [],
+    usedFor: ['epidemiology', 'public-health'],
     highlightNotes: [
       'Global population burden',
       'Incidence and mortality projections',
@@ -82,7 +82,7 @@ export const references: Reference[] = [
     filename: 's43856-023-00304-x.pdf',
     localUrl: '/pdfs/Hudock_et_al.pdf',
     doi: '10.1038/s43856-023-00304-x',
-    usedFor: [],
+    usedFor: ['epidemiology', 'clinical-outcomes'],
     highlightNotes: [
       'Metastatic cancer survivorship growth',
       'Reframing metastatic cancer as a chronic condition',
@@ -100,7 +100,7 @@ export const references: Reference[] = [
     filename: 'Cancer - 2021 - Hendrick - Age distributions...',
     localUrl: '/pdfs/Hendrick_et_al.pdf',
     doi: '10.1002/cncr.33846',
-    usedFor: [],
+    usedFor: ['demographics'],
     highlightNotes: [
       'Racial and age-based disparities',
       'Higher metastatic burden among non-Hispanic Black women',
@@ -118,7 +118,7 @@ export const references: Reference[] = [
     filename: 's10549-018-4956-y.pdf',
     localUrl: '/pdfs/Bonotto_et_al.pdf',
     doi: '10.1007/s10549-018-4956-y',
-    usedFor: [],
+    usedFor: ['clinical-outcomes'],
     highlightNotes: [
       'Site-specific metastatic prognosis',
       'Brain, liver, lung, bone outcome differences',
@@ -136,7 +136,7 @@ export const references: Reference[] = [
     filename: 'Cancer Medicine - 2018 - Xiao...',
     localUrl: '/pdfs/Xiao_et_al.pdf',
     doi: '10.1002/cam4.1370',
-    usedFor: [],
+    usedFor: ['clinical-outcomes'],
     highlightNotes: [
       'Lung metastasis survival variability',
       'Subtype-specific outcomes',
@@ -154,7 +154,7 @@ export const references: Reference[] = [
     filename: 's12672-025-02140-y.pdf',
     localUrl: '/pdfs/Zhao_et_al.pdf',
     doi: '10.1007/s12672-025-02140-y',
-    usedFor: [],
+    usedFor: ['epidemiology', 'demographics'],
     highlightNotes: [
       'Male breast cancer epidemiology',
       'Delayed diagnosis and poorer outcomes',
@@ -172,7 +172,7 @@ export const references: Reference[] = [
     filename: 'bcr1983.pdf',
     localUrl: '/pdfs/Robinson_et_al.pdf',
     doi: '10.1186/bcr1983',
-    usedFor: [],
+    usedFor: ['definition'],
     highlightNotes: [
       'Research gaps',
       'Metastatic progression mechanisms',
@@ -190,7 +190,7 @@ export const references: Reference[] = [
     filename: '2013-the-national-prevention-strategy...',
     localUrl: '/pdfs/Marcus_Plescia.pdf',
     doi: null,
-    usedFor: [],
+    usedFor: ['public-health'],
     highlightNotes: [
       'Screening and public health prevention',
       'Population-level policy implications',
@@ -208,7 +208,7 @@ export const references: Reference[] = [
     filename: 'PIIS2589537022000128.pdf',
     localUrl: '/pdfs/Mariotto_et_al.pdf',
     doi: null,
-    usedFor: [],
+    usedFor: ['epidemiology', 'public-health'],
     highlightNotes: [
       'Prevalence projections',
       'Survivorship burden',
@@ -226,7 +226,7 @@ export const references: Reference[] = [
     filename: 'oncolo_19_6_608.pdf',
     localUrl: '/pdfs/Thompson_et_al.pdf',
     doi: '10.1186/bcr1983',
-    usedFor: [],
+    usedFor: ['definition', 'clinical-outcomes'],
     highlightNotes: [
       'Metastatic progression',
       'Dormancy and reactivation',
@@ -242,9 +242,9 @@ export const references: Reference[] = [
     year: '2021',
     journal: 'Aging',
     filename: 'aging-13-202502.pdf',
-    localUrl: '/pdfs/Jin-Xiao_Ren_et_al.pdf',
+    localUrl: '/pdfs/Jin_Xiao_Ren_et_al.pdf',
     doi: null,
-    usedFor: [],
+    usedFor: ['demographics', 'clinical-outcomes'],
     highlightNotes: [
       'Socioeconomic disparities',
       'Insurance and survival differences',

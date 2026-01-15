@@ -2,6 +2,8 @@ import Section from '@/components/Section';
 import Placeholder from '@/components/Placeholder';
 import VisualPlaceholder from '@/components/VisualPlaceholder';
 import CitationCallout from '@/components/CitationCallout';
+import ReferenceList from '@/components/ReferenceList';
+import { references } from '@/lib/references';
 
 export default function ClinicalOutcomesPage() {
   return (
@@ -82,16 +84,13 @@ export default function ClinicalOutcomesPage() {
         </div>
       </Section>
 
-      <Section title="References used on this page">
-        <div className="space-y-2">
-          <Placeholder
-            label="Reference list placeholder"
-            notes={[
-              'TODO: Add survival outcome study citations',
-              'TODO: Add progression analysis sources',
-              'TODO: Add quality of life measure references',
-            ]}
-          />
+      <Section title="References Used">
+        <div className="space-y-4">
+          <p className="text-sm italic text-gray-600 dark:text-gray-400">
+            Page highlights are listed as notes and must be verified against the
+            PDF pages.
+          </p>
+          <ReferenceList references={references} filterBy="clinical-outcomes" />
         </div>
       </Section>
     </div>
