@@ -28,9 +28,23 @@ export const references: Reference[] = [
     doi: '10.1093/jncics/pky062',
     usedFor: ['clinical-outcomes'],
     highlightNotes: [
-      'Improved population-level survival over time',
-      'Most metastatic disease arises from recurrence, not de novo stage IV',
-      'Cancer registries under-capture recurrent metastatic burden',
+      {
+        section: 'Clinical Outcomes',
+        pages: 'TBD',
+        excerptHint: 'Improved population-level survival over time',
+      },
+      {
+        section: 'Clinical Outcomes',
+        pages: 'TBD',
+        excerptHint:
+          'Most metastatic disease arises from recurrence, not de novo stage IV',
+      },
+      {
+        section: 'Clinical Outcomes',
+        pages: 'TBD',
+        excerptHint:
+          'Cancer registries under-capture recurrent metastatic burden',
+      },
     ],
   },
 
@@ -47,9 +61,21 @@ export const references: Reference[] = [
     doi: '10.1136/bmjopen-2018-026414',
     usedFor: ['epidemiology', 'clinical-outcomes'],
     highlightNotes: [
-      'Population-based survival trends',
-      'Heterogeneity in metastatic outcomes',
-      'Registry limitations',
+      {
+        section: 'Epidemiology',
+        pages: 'TBD',
+        excerptHint: 'Population-based survival trends',
+      },
+      {
+        section: 'Clinical Outcomes',
+        pages: 'TBD',
+        excerptHint: 'Heterogeneity in metastatic outcomes',
+      },
+      {
+        section: 'Epidemiology',
+        pages: 'TBD',
+        excerptHint: 'Registry limitations',
+      },
     ],
   },
 
@@ -66,8 +92,16 @@ export const references: Reference[] = [
     doi: null,
     usedFor: ['epidemiology', 'public-health'],
     highlightNotes: [
-      'Global population burden',
-      'Incidence and mortality projections',
+      {
+        section: 'Epidemiology',
+        pages: 'TBD',
+        excerptHint: 'Global population burden',
+      },
+      {
+        section: 'Public Health',
+        pages: 'TBD',
+        excerptHint: 'Incidence and mortality projections',
+      },
     ],
   },
 
@@ -84,8 +118,16 @@ export const references: Reference[] = [
     doi: '10.1038/s43856-023-00304-x',
     usedFor: ['epidemiology', 'clinical-outcomes'],
     highlightNotes: [
-      'Metastatic cancer survivorship growth',
-      'Reframing metastatic cancer as a chronic condition',
+      {
+        section: 'Epidemiology',
+        pages: 'TBD',
+        excerptHint: 'Metastatic cancer survivorship growth',
+      },
+      {
+        section: 'Clinical Outcomes',
+        pages: 'TBD',
+        excerptHint: 'Reframing metastatic cancer as a chronic condition',
+      },
     ],
   },
 
@@ -102,8 +144,17 @@ export const references: Reference[] = [
     doi: '10.1002/cncr.33846',
     usedFor: ['demographics'],
     highlightNotes: [
-      'Racial and age-based disparities',
-      'Higher metastatic burden among non-Hispanic Black women',
+      {
+        section: 'Demographics',
+        pages: 'TBD',
+        excerptHint: 'Racial and age-based disparities',
+      },
+      {
+        section: 'Demographics',
+        pages: 'TBD',
+        excerptHint:
+          'Higher metastatic burden among non-Hispanic Black women',
+      },
     ],
   },
 
@@ -120,8 +171,16 @@ export const references: Reference[] = [
     doi: '10.1007/s10549-018-4956-y',
     usedFor: ['clinical-outcomes'],
     highlightNotes: [
-      'Site-specific metastatic prognosis',
-      'Brain, liver, lung, bone outcome differences',
+      {
+        section: 'Clinical Outcomes',
+        pages: 'TBD',
+        excerptHint: 'Site-specific metastatic prognosis',
+      },
+      {
+        section: 'Clinical Outcomes',
+        pages: 'TBD',
+        excerptHint: 'Brain, liver, lung, bone outcome differences',
+      },
     ],
   },
 
@@ -138,8 +197,16 @@ export const references: Reference[] = [
     doi: '10.1002/cam4.1370',
     usedFor: ['clinical-outcomes'],
     highlightNotes: [
-      'Lung metastasis survival variability',
-      'Subtype-specific outcomes',
+      {
+        section: 'Clinical Outcomes',
+        pages: 'TBD',
+        excerptHint: 'Lung metastasis survival variability',
+      },
+      {
+        section: 'Clinical Outcomes',
+        pages: 'TBD',
+        excerptHint: 'Subtype-specific outcomes',
+      },
     ],
   },
 
@@ -156,8 +223,16 @@ export const references: Reference[] = [
     doi: '10.1007/s12672-025-02140-y',
     usedFor: ['epidemiology', 'demographics'],
     highlightNotes: [
-      'Male breast cancer epidemiology',
-      'Delayed diagnosis and poorer outcomes',
+      {
+        section: 'Epidemiology',
+        pages: 'TBD',
+        excerptHint: 'Male breast cancer epidemiology',
+      },
+      {
+        section: 'Demographics',
+        pages: 'TBD',
+        excerptHint: 'Delayed diagnosis and poorer outcomes',
+      },
     ],
   },
 
@@ -174,8 +249,16 @@ export const references: Reference[] = [
     doi: '10.1186/bcr1983',
     usedFor: ['definition'],
     highlightNotes: [
-      'Research gaps',
-      'Metastatic progression mechanisms',
+      {
+        section: 'Definition',
+        pages: 'TBD',
+        excerptHint: 'Research gaps',
+      },
+      {
+        section: 'Definition',
+        pages: 'TBD',
+        excerptHint: 'Metastatic progression mechanisms',
+      },
     ],
   },
 
@@ -192,8 +275,16 @@ export const references: Reference[] = [
     doi: null,
     usedFor: ['public-health'],
     highlightNotes: [
-      'Screening and public health prevention',
-      'Population-level policy implications',
+      {
+        section: 'Public Health',
+        pages: 'TBD',
+        excerptHint: 'Screening and public health prevention',
+      },
+      {
+        section: 'Public Health',
+        pages: 'TBD',
+        excerptHint: 'Population-level policy implications',
+      },
     ],
   },
 
@@ -210,8 +301,16 @@ export const references: Reference[] = [
     doi: null,
     usedFor: ['epidemiology', 'public-health'],
     highlightNotes: [
-      'Prevalence projections',
-      'Survivorship burden',
+      {
+        section: 'Epidemiology',
+        pages: 'TBD',
+        excerptHint: 'Prevalence projections',
+      },
+      {
+        section: 'Public Health',
+        pages: 'TBD',
+        excerptHint: 'Survivorship burden',
+      },
     ],
   },
 
@@ -228,8 +327,16 @@ export const references: Reference[] = [
     doi: '10.1186/bcr1983',
     usedFor: ['definition', 'clinical-outcomes'],
     highlightNotes: [
-      'Metastatic progression',
-      'Dormancy and reactivation',
+      {
+        section: 'Definition',
+        pages: 'TBD',
+        excerptHint: 'Metastatic progression',
+      },
+      {
+        section: 'Clinical Outcomes',
+        pages: 'TBD',
+        excerptHint: 'Dormancy and reactivation',
+      },
     ],
   },
 
@@ -246,8 +353,16 @@ export const references: Reference[] = [
     doi: null,
     usedFor: ['demographics', 'clinical-outcomes'],
     highlightNotes: [
-      'Socioeconomic disparities',
-      'Insurance and survival differences',
+      {
+        section: 'Demographics',
+        pages: 'TBD',
+        excerptHint: 'Socioeconomic disparities',
+      },
+      {
+        section: 'Clinical Outcomes',
+        pages: 'TBD',
+        excerptHint: 'Insurance and survival differences',
+      },
     ],
   },
 ];
