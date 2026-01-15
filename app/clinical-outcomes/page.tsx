@@ -29,6 +29,7 @@ export default function ClinicalOutcomesPage() {
             type="chart"
             description="Kaplan-Meier survival curves showing overall and progression-free survival"
           />
+          {/* TODO: replace with final chart */}
         </div>
       </Section>
 

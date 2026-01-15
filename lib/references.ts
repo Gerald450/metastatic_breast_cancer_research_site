@@ -11,7 +11,7 @@ export type Reference = {
   highlightNotes?: (
     | string
     | { section: string; pages?: string; excerptHint: string }
-  )[];
+  )[]; // TODO: insert verified page numbers
 };
 
 export const references: Reference[] = [

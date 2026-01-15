@@ -15,6 +15,7 @@ export default function PublicHealthPage() {
 
       <Section title="Public Health Impact">
         <div className="space-y-6">
+          {/* TODO: add disease background section */}
           <Placeholder
             label="Population health burden"
             notes={[
@@ -28,6 +29,7 @@ export default function PublicHealthPage() {
             type="chart"
             description="Comprehensive view of disease burden and healthcare utilization"
           />
+          {/* TODO: replace with final chart */}
         </div>
       </Section>
 

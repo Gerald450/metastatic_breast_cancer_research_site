@@ -59,6 +59,7 @@ export default function CitationCallout({
         {pageRanges && (
           <div>
             <span className="font-medium">Pages:</span> {pageRanges}
+            {/* TODO: insert verified page numbers */}
           </div>
         )}
         <div className="mt-2 text-xs italic text-gray-600 dark:text-gray-400">

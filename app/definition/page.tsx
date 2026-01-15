@@ -13,6 +13,7 @@ export default function DefinitionPage() {
         </h1>
       </div>
 
+      {/* TODO: add disease background section */}
       <Section title="Overview" subtitle="Understanding the condition">
         <div className="space-y-6">
           <Placeholder

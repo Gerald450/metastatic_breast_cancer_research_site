@@ -99,7 +99,7 @@ export default function VisualPlaceholder({
           </p>
         )}
         <p className="text-xs italic text-gray-500 dark:text-gray-500">
-          TODO: Replace with real visualization
+          TODO: replace with final chart
         </p>
       </div>
 

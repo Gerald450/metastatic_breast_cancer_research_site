@@ -28,6 +28,7 @@ export default function EpidemiologyPage() {
             type="chart"
             description="Temporal trends in prevalence rates across different populations"
           />
+          {/* TODO: replace with final chart */}
         </div>
       </Section>
 
