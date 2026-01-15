@@ -126,11 +126,17 @@ export default function ReferenceList({
                     <div className="mt-2 space-y-1 text-xs text-gray-600 dark:text-gray-400">
                       {ref.highlightNotes.map((note, idx) => (
                         <div key={idx} className="pl-2">
-                          <span className="font-medium">{note.section}</span>
-                          {note.pages && (
-                            <span> (pages {note.pages})</span>
+                          {typeof note === 'string' ? (
+                            <span>{note}</span>
+                          ) : (
+                            <>
+                              <span className="font-medium">{note.section}</span>
+                              {note.pages && (
+                                <span> (pages {note.pages})</span>
+                              )}
+                              : {note.excerptHint}
+                            </>
                           )}
-                          : {note.excerptHint}
                         </div>
                       ))}
                     </div>
