@@ -1,30 +1,30 @@
 'use client';
 
 import { useState } from 'react';
-import type { Reference } from '@/lib/references';
+import type { Reference, SiteSection } from '@/lib/references';
 
 interface ReferenceListProps {
   references: Reference[];
-  filterBy?: string; // usedFor tag to filter by
+  filterBy?: SiteSection; // usedFor tag to filter by
 }
 
 export default function ReferenceList({
   references,
   filterBy,
 }: ReferenceListProps) {
-  const [selectedFilter, setSelectedFilter] = useState<string | undefined>(
-    filterBy
+  const [selectedFilter, setSelectedFilter] = useState<SiteSection | 'all' | undefined>(
+    filterBy || undefined
   );
 
   // Get all unique usedFor tags
   const allTags = Array.from(
     new Set(references.flatMap((ref) => ref.usedFor))
-  ).sort();
+  ).sort() as SiteSection[];
 
   // Filter references if a tag is selected
   const filteredReferences =
     selectedFilter && selectedFilter !== 'all'
-      ? references.filter((ref) => ref.usedFor.includes(selectedFilter))
+      ? references.filter((ref) => ref.usedFor.includes(selectedFilter as SiteSection))
       : references;
 
   return (
@@ -44,7 +44,7 @@ export default function ReferenceList({
           {allTags.map((tag) => (
             <button
               key={tag}
-              onClick={() => setSelectedFilter(tag)}
+              onClick={() => setSelectedFilter(tag as SiteSection)}
               className={`rounded-md px-3 py-1.5 text-sm font-medium transition-colors ${
                 selectedFilter === tag
                   ? 'bg-gray-900 text-white dark:bg-gray-100 dark:text-gray-900'
@@ -126,17 +126,11 @@ export default function ReferenceList({
                     <div className="mt-2 space-y-1 text-xs text-gray-600 dark:text-gray-400">
                       {ref.highlightNotes.map((note, idx) => (
                         <div key={idx} className="pl-2">
-                          {typeof note === 'string' ? (
-                            <span>{note}</span>
-                          ) : (
-                            <>
-                              <span className="font-medium">{note.section}</span>
-                              {note.pages && (
-                                <span> (pages {note.pages})</span>
-                              )}
-                              : {note.excerptHint}
-                            </>
+                          <span className="font-medium">{note.section}</span>
+                          {note.pages && (
+                            <span> (pages {note.pages})</span>
                           )}
+                          : {note.excerptHint}
                         </div>
                       ))}
                     </div>

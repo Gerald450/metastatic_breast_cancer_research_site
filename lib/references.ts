@@ -1,3 +1,18 @@
+export type SiteSection =
+  | 'definition'
+  | 'epidemiology'
+  | 'demographics'
+  | 'clinical-outcomes'
+  | 'public-health'
+  | 'biology'
+  | 'treatment';
+
+export type HighlightNote = {
+  section: string;
+  pages?: string;
+  excerptHint: string;
+};
+
 export type Reference = {
   id: string;
   title: string;
@@ -7,11 +22,8 @@ export type Reference = {
   filename: string; // exact uploaded filename
   localUrl?: string; // e.g., "/pdfs/pky062.pdf"
   doi?: string | null;
-  usedFor: string[]; // site sections
-  highlightNotes?: (
-    | string
-    | { section: string; pages?: string; excerptHint: string }
-  )[]; // TODO: insert verified page numbers
+  usedFor: SiteSection[];
+  highlightNotes?: HighlightNote[]; // TODO: insert verified page numbers
 };
 
 export const references: Reference[] = [
