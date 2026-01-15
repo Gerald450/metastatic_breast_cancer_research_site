@@ -65,6 +65,7 @@ export default function MetastaticSiteOutcomesFigure() {
       description="Outcomes by metastatic site location"
       sources={sources}
       status={status}
+      caption="Data extracted from uploaded PDFs; verify page ranges"
     >
       {metricNames.length > 1 && (
         <div className="mb-4">

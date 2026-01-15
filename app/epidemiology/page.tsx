@@ -3,6 +3,8 @@ import Placeholder from '@/components/Placeholder';
 import VisualPlaceholder from '@/components/VisualPlaceholder';
 import ReferenceList from '@/components/ReferenceList';
 import { references } from '@/lib/references';
+import SurvivalTrendsFigure from '@/components/figures/SurvivalTrendsFigure';
+import SurvivorshipBurdenFigure from '@/components/figures/SurvivorshipBurdenFigure';
 
 export default function EpidemiologyPage() {
   return (
@@ -23,12 +25,7 @@ export default function EpidemiologyPage() {
               'Regional and global variations',
             ]}
           />
-          <VisualPlaceholder
-            title="Prevalence trends over time"
-            type="chart"
-            description="Temporal trends in prevalence rates across different populations"
-          />
-          {/* TODO: replace with final chart */}
+          <SurvivorshipBurdenFigure />
         </div>
       </Section>
 
@@ -60,11 +57,7 @@ export default function EpidemiologyPage() {
               'Projected future trends',
             ]}
           />
-          <VisualPlaceholder
-            title="Incidence trends chart"
-            type="chart"
-            description="Long-term incidence trends and projections"
-          />
+          <SurvivalTrendsFigure />
         </div>
       </Section>
 

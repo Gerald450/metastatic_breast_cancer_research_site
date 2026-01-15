@@ -66,6 +66,7 @@ export default function AgeRaceDistributionFigure() {
       description="Demographic breakdowns by age range and race/ethnicity"
       sources={sources}
       status={status}
+      caption="Data extracted from uploaded PDFs; verify page ranges"
     >
       {(hasGroupLabel || hasAgeRange) && (
         <div className="mb-4">

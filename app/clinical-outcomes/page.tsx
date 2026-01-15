@@ -4,6 +4,7 @@ import VisualPlaceholder from '@/components/VisualPlaceholder';
 import CitationCallout from '@/components/CitationCallout';
 import ReferenceList from '@/components/ReferenceList';
 import { references } from '@/lib/references';
+import MetastaticSiteOutcomesFigure from '@/components/figures/MetastaticSiteOutcomesFigure';
 
 export default function ClinicalOutcomesPage() {
   return (
@@ -24,12 +25,7 @@ export default function ClinicalOutcomesPage() {
               'Progression-free survival',
             ]}
           />
-          <VisualPlaceholder
-            title="Survival curves over time"
-            type="chart"
-            description="Kaplan-Meier survival curves showing overall and progression-free survival"
-          />
-          {/* TODO: replace with final chart */}
+          <MetastaticSiteOutcomesFigure />
         </div>
       </Section>
 

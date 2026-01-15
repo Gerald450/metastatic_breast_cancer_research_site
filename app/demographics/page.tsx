@@ -3,6 +3,7 @@ import Placeholder from '@/components/Placeholder';
 import VisualPlaceholder from '@/components/VisualPlaceholder';
 import ReferenceList from '@/components/ReferenceList';
 import { references } from '@/lib/references';
+import AgeRaceDistributionFigure from '@/components/figures/AgeRaceDistributionFigure';
 
 export default function DemographicsPage() {
   return (
@@ -23,11 +24,7 @@ export default function DemographicsPage() {
               'Variations across age groups',
             ]}
           />
-          <VisualPlaceholder
-            title="Age distribution chart"
-            type="chart"
-            description="Distribution of cases across different age groups"
-          />
+          <AgeRaceDistributionFigure />
         </div>
       </Section>
 

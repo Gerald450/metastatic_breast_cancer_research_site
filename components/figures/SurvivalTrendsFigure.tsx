@@ -71,6 +71,7 @@ export default function SurvivalTrendsFigure() {
       description="Survival metrics tracked across time periods"
       sources={sources}
       status={status}
+      caption="Data extracted from uploaded PDFs; verify page ranges"
     >
       {metricNames.length > 1 && (
         <div className="mb-4">

@@ -84,6 +84,7 @@ export default function SurvivorshipBurdenFigure() {
       description="Prevalence estimates and survivorship burden metrics over time"
       sources={sources}
       status={status}
+      caption="Data extracted from uploaded PDFs; verify page ranges"
     >
       {useLineChart ? (
         <LineTimeSeriesChart
