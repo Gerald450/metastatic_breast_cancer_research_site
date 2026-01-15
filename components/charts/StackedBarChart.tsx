@@ -65,7 +65,6 @@ export default function StackedBarChart({
             border: '1px solid #e5e7eb',
             borderRadius: '0.375rem',
           }}
-          className="dark:bg-gray-800 dark:border-gray-700"
         />
         <Legend
           wrapperStyle={{

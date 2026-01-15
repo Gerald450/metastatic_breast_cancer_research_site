@@ -51,7 +51,6 @@ export default function BarCategoryChart({
             border: '1px solid #e5e7eb',
             borderRadius: '0.375rem',
           }}
-          className="dark:bg-gray-800 dark:border-gray-700"
         />
         <Bar dataKey={yKey} radius={[4, 4, 0, 0]} />
       </BarChart>
