@@ -8,7 +8,7 @@ export default function PublicHealthPage() {
   return (
     <div className="py-12">
       <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
-        <h1 className="mb-8 text-4xl font-bold text-gray-900 dark:text-white">
+        <h1 className="mb-8 text-4xl font-bold leading-tight text-gray-900 dark:text-white sm:text-5xl">
           Public Health
         </h1>
       </div>

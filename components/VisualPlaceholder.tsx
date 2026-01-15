@@ -82,7 +82,7 @@ export default function VisualPlaceholder({
   sources,
 }: VisualPlaceholderProps) {
   return (
-    <div className="rounded-lg border-2 border-dashed border-gray-300 bg-gray-50 p-6 dark:border-gray-700 dark:bg-gray-800/50">
+    <div className="rounded-lg border border-gray-200 bg-gray-50/50 p-6 shadow-sm dark:border-gray-700/50 dark:bg-gray-800/30">
       <div className="flex flex-col items-center text-center">
         <div className="mb-4">{getIcon(type)}</div>
         <div className="mb-2">
@@ -90,11 +90,11 @@ export default function VisualPlaceholder({
             {getTypeLabel(type)}
           </span>
         </div>
-        <h3 className="mb-2 text-lg font-semibold text-gray-900 dark:text-white">
+        <h3 className="mb-2 text-lg font-semibold leading-tight text-gray-900 dark:text-white">
           {title}
         </h3>
         {description && (
-          <p className="mb-4 max-w-2xl text-sm text-gray-600 dark:text-gray-400">
+          <p className="mb-4 max-w-2xl text-sm leading-relaxed text-gray-600 dark:text-gray-400">
             {description}
           </p>
         )}
@@ -104,7 +104,7 @@ export default function VisualPlaceholder({
       </div>
 
       {sources && sources.length > 0 && (
-        <div className="mt-6 border-t border-gray-300 pt-4 dark:border-gray-700">
+        <div className="mt-6 border-t border-gray-200 pt-4 dark:border-gray-700/50">
           <h4 className="mb-3 text-sm font-semibold text-gray-900 dark:text-white">
             Source Notes (to verify in PDF)
           </h4>

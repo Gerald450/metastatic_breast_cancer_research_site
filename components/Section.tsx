@@ -16,15 +16,15 @@ export default function Section({
   className = '',
 }: SectionProps) {
   return (
-    <section className={`py-8 ${className}`}>
+    <section className={`py-12 ${className}`}>
       <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
-        <div className="mb-6 flex flex-col gap-2 sm:flex-row sm:items-start sm:justify-between">
+        <div className="mb-8 flex flex-col gap-2 sm:flex-row sm:items-start sm:justify-between">
           <div className="flex-1">
-            <h2 className="text-2xl font-semibold text-gray-900 dark:text-white">
+            <h2 className="text-2xl font-semibold leading-tight text-gray-900 dark:text-white sm:text-3xl">
               {title}
             </h2>
             {subtitle && (
-              <p className="mt-2 text-base text-gray-600 dark:text-gray-400">
+              <p className="mt-3 text-base leading-relaxed text-gray-600 dark:text-gray-400">
                 {subtitle}
               </p>
             )}
@@ -37,7 +37,7 @@ export default function Section({
             </div>
           )}
         </div>
-        <div className="prose prose-gray max-w-none dark:prose-invert">
+        <div className="prose prose-gray max-w-none dark:prose-invert prose-headings:font-semibold prose-p:leading-relaxed prose-p:text-gray-700 dark:prose-p:text-gray-300">
           {children}
         </div>
       </div>
