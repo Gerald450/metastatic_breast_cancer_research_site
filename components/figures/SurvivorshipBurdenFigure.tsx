@@ -50,16 +50,23 @@ export default function SurvivorshipBurdenFigure() {
         if (!grouped.has(year)) {
           grouped.set(year, []);
         }
-        if (entry.value !== null) {
+        // Check for both null and undefined, and ensure value is a valid number
+        if (entry.value !== null && entry.value !== undefined && typeof entry.value === 'number' && !isNaN(entry.value)) {
           grouped.get(year)!.push(entry.value);
         }
       });
 
       return Array.from(grouped.entries())
-        .map(([year, values]) => ({
-          yearOrRange: year,
-          value: values.length > 0 ? values.reduce((a, b) => a + b, 0) / values.length : 0,
-        }))
+        .map(([year, values]) => {
+          const avg = values.length > 0 
+            ? values.reduce((a, b) => a + b, 0) / values.length 
+            : 0;
+          return {
+            yearOrRange: year,
+            value: isNaN(avg) ? 0 : avg,
+          };
+        })
+        .filter((item) => item.value !== 0 || item.yearOrRange !== 'Unknown') // Filter out invalid data
         .sort((a, b) => {
           const yearA = parseInt(a.yearOrRange);
           const yearB = parseInt(b.yearOrRange);
@@ -77,22 +84,29 @@ export default function SurvivorshipBurdenFigure() {
         if (!grouped.has(key)) {
           grouped.set(key, []);
         }
-        if (entry.value !== null) {
+        // Check for both null and undefined, and ensure value is a valid number
+        if (entry.value !== null && entry.value !== undefined && typeof entry.value === 'number' && !isNaN(entry.value)) {
           grouped.get(key)!.push(entry.value);
         }
       });
 
       return Array.from(grouped.entries())
-        .map(([key, values]) => ({
-          category: key,
-          value: values.length > 0 ? values.reduce((a, b) => a + b, 0) / values.length : 0,
-        }))
+        .map(([key, values]) => {
+          const avg = values.length > 0 
+            ? values.reduce((a, b) => a + b, 0) / values.length 
+            : 0;
+          return {
+            category: key,
+            value: isNaN(avg) ? 0 : avg,
+          };
+        })
+        .filter((item) => item.value !== 0 || item.category !== 'Unknown') // Filter out invalid data
         .slice(0, 20); // Limit to top 20 for readability
     }
   }, [data, useLineChart]);
 
   const status: FigureStatus = hasReviewFlag ? 'Needs Review' : 'Verified';
-  const unit = data[0]?.unit || 'Value';
+  const unit = (data[0]?.unit && typeof data[0].unit === 'string') ? data[0].unit : 'Value';
 
   if (loading) {
     return (

@@ -46,16 +46,20 @@ export default function AgeRaceDistributionFigure() {
       if (!grouped.has(key)) {
         grouped.set(key, []);
       }
-      if (entry.value !== null) {
+      // Check for both null and undefined, and ensure value is a valid number
+      if (entry.value !== null && entry.value !== undefined && typeof entry.value === 'number' && !isNaN(entry.value)) {
         grouped.get(key)!.push(entry.value);
       }
     });
 
     return Array.from(grouped.entries())
-      .map(([key, values]) => ({
-        category: key,
-        value: values.length > 0 ? values.reduce((a, b) => a + b, 0) / values.length : 0,
-      }))
+      .map(([key, values]) => {
+        const avg = values.length > 0 ? values.reduce((a, b) => a + b, 0) / values.length : 0;
+        return {
+          category: key,
+          value: isNaN(avg) ? 0 : avg,
+        };
+      })
       .filter((item) => item.category !== 'Unknown')
       .sort((a, b) => {
         // Sort age ranges numerically if possible
@@ -74,7 +78,7 @@ export default function AgeRaceDistributionFigure() {
   const status: FigureStatus = hasReviewFlag ? 'Needs Review' : 'Verified';
   const hasGroupLabel = data.some((entry) => entry.groupLabel);
   const hasAgeRange = data.some((entry) => entry.ageRange);
-  const unit = data[0]?.unit || 'Value';
+  const unit = (data[0]?.unit && typeof data[0].unit === 'string') ? data[0].unit : 'Value';
 
   if (loading) {
     return (

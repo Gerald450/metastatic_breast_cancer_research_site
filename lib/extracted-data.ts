@@ -65,6 +65,7 @@ const COLLECTIONS = {
 /**
  * Convert Firestore document to typed entry
  * Handles undefined fields (Firestore doesn't store null) by converting to null
+ * Also ensures numeric fields are properly typed
  */
 function convertFirestoreDoc<T>(doc: any): T {
   const data = doc.data();
@@ -72,7 +73,15 @@ function convertFirestoreDoc<T>(doc: any): T {
   
   for (const [key, value] of Object.entries(data)) {
     // Convert undefined back to null for consistency with TypeScript types
-    converted[key] = value === undefined ? null : value;
+    // Ensure numeric values are actual numbers
+    if (value === undefined) {
+      converted[key] = null;
+    } else if (typeof value === 'number' && isNaN(value)) {
+      // Convert NaN to null
+      converted[key] = null;
+    } else {
+      converted[key] = value;
+    }
   }
   
   return converted as T;

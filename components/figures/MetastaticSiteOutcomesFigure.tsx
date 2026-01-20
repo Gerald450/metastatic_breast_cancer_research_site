@@ -57,23 +57,27 @@ export default function MetastaticSiteOutcomesFigure() {
       if (!grouped.has(site)) {
         grouped.set(site, []);
       }
-      if (entry.value !== null) {
+      // Check for both null and undefined, and ensure value is a valid number
+      if (entry.value !== null && entry.value !== undefined && typeof entry.value === 'number' && !isNaN(entry.value)) {
         grouped.get(site)!.push(entry.value);
       }
     });
 
     return Array.from(grouped.entries())
-      .map(([site, values]) => ({
-        site: site,
-        value: values.length > 0 ? values.reduce((a, b) => a + b, 0) / values.length : 0,
-      }))
+      .map(([site, values]) => {
+        const avg = values.length > 0 ? values.reduce((a, b) => a + b, 0) / values.length : 0;
+        return {
+          site: site,
+          value: isNaN(avg) ? 0 : avg,
+        };
+      })
       .filter((item) => item.site !== 'Unknown')
       .sort((a, b) => b.value - a.value) // Sort by value descending
       .slice(0, 20); // Limit for readability
   }, [filteredData]);
 
   const status: FigureStatus = hasReviewFlag ? 'Needs Review' : 'Verified';
-  const unit = filteredData[0]?.unit || 'Value';
+  const unit = (filteredData[0]?.unit && typeof filteredData[0].unit === 'string') ? filteredData[0].unit : 'Value';
 
   if (loading) {
     return (

@@ -31,9 +31,31 @@ export default function LineTimeSeriesChart({
     );
   }
 
+  // Sanitize data to ensure no NaN values
+  const sanitizedData = data.map((item) => {
+    const sanitized = { ...item };
+    const value = sanitized[yKey];
+    if (typeof value === 'number' && isNaN(value)) {
+      sanitized[yKey] = 0;
+    }
+    return sanitized;
+  }).filter((item) => {
+    // Filter out items where the value is invalid
+    const value = item[yKey];
+    return value !== null && value !== undefined && (typeof value !== 'number' || !isNaN(value));
+  });
+
+  if (sanitizedData.length === 0) {
+    return (
+      <div className="flex h-64 items-center justify-center text-sm text-gray-500 dark:text-gray-400">
+        No valid data points available.
+      </div>
+    );
+  }
+
   return (
     <ResponsiveContainer width="100%" height={400}>
-      <LineChart data={data} margin={{ top: 5, right: 20, left: 10, bottom: 5 }}>
+      <LineChart data={sanitizedData} margin={{ top: 5, right: 20, left: 10, bottom: 5 }}>
         <CartesianGrid strokeDasharray="3 3" className="stroke-gray-200 dark:stroke-gray-700" />
         <XAxis
           dataKey={xKey}
@@ -41,7 +63,7 @@ export default function LineTimeSeriesChart({
           tick={{ fill: 'currentColor' }}
         />
         <YAxis
-          label={yLabel ? { value: yLabel, angle: -90, position: 'insideLeft' } : undefined}
+          label={yLabel ? { value: String(yLabel || ''), angle: -90, position: 'insideLeft' } : undefined}
           className="text-xs text-gray-600 dark:text-gray-400"
           tick={{ fill: 'currentColor' }}
         />

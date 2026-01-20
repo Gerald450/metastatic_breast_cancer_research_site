@@ -57,17 +57,21 @@ export default function SurvivalTrendsFigure() {
       if (!grouped.has(period)) {
         grouped.set(period, []);
       }
-      if (entry.value !== null) {
+      // Check for both null and undefined, and ensure value is a valid number
+      if (entry.value !== null && entry.value !== undefined && typeof entry.value === 'number' && !isNaN(entry.value)) {
         grouped.get(period)!.push(entry.value);
       }
     });
 
     // Convert to array and calculate average if multiple values per period
     return Array.from(grouped.entries())
-      .map(([period, values]) => ({
-        timePeriod: period,
-        value: values.length > 0 ? values.reduce((a, b) => a + b, 0) / values.length : 0,
-      }))
+      .map(([period, values]) => {
+        const avg = values.length > 0 ? values.reduce((a, b) => a + b, 0) / values.length : 0;
+        return {
+          timePeriod: period,
+          value: isNaN(avg) ? 0 : avg,
+        };
+      })
       .sort((a, b) => {
         // Sort by year if it's a year string
         const yearA = parseInt(a.timePeriod);
@@ -128,7 +132,7 @@ export default function SurvivalTrendsFigure() {
         data={chartData}
         xKey="timePeriod"
         yKey="value"
-        yLabel={filteredData[0]?.unit || 'Value'}
+        yLabel={(filteredData[0]?.unit && typeof filteredData[0].unit === 'string') ? filteredData[0].unit : 'Value'}
       />
     </Figure>
   );
