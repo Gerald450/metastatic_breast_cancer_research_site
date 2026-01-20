@@ -1,14 +1,30 @@
 'use client';
 
-import { useMemo, useState } from 'react';
+import { useMemo, useState, useEffect } from 'react';
 import Figure, { FigureStatus } from '@/components/Figure';
 import BarCategoryChart from '@/components/charts/BarCategoryChart';
-import { getDemographicsAgeRace, getSourceRefIds } from '@/lib/extracted-data';
+import { getDemographicsAgeRace, getSourceRefIds, type DemographicsAgeRaceEntry } from '@/lib/extracted-data';
 
 type GroupByOption = 'groupLabel' | 'ageRange';
 
 export default function AgeRaceDistributionFigure() {
-  const data = getDemographicsAgeRace();
+  const [data, setData] = useState<(DemographicsAgeRaceEntry & { hasReviewFlag: boolean })[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    async function fetchData() {
+      try {
+        const fetchedData = await getDemographicsAgeRace();
+        setData(fetchedData);
+      } catch (error) {
+        console.error('Error fetching demographics age/race data:', error);
+      } finally {
+        setLoading(false);
+      }
+    }
+    fetchData();
+  }, []);
+
   const sources = getSourceRefIds(data);
   const hasReviewFlag = data.some((entry) => entry.hasReviewFlag);
 
@@ -59,6 +75,22 @@ export default function AgeRaceDistributionFigure() {
   const hasGroupLabel = data.some((entry) => entry.groupLabel);
   const hasAgeRange = data.some((entry) => entry.ageRange);
   const unit = data[0]?.unit || 'Value';
+
+  if (loading) {
+    return (
+      <Figure
+        title="Age and Race Distribution"
+        description="Demographic breakdowns by age range and race/ethnicity"
+        sources={[]}
+        status="Verified"
+        caption="Loading data..."
+      >
+        <div className="flex items-center justify-center h-64">
+          <p className="text-gray-500 dark:text-gray-400">Loading data...</p>
+        </div>
+      </Figure>
+    );
+  }
 
   return (
     <Figure

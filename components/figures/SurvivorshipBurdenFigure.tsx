@@ -1,13 +1,29 @@
 'use client';
 
-import { useMemo } from 'react';
+import { useMemo, useState, useEffect } from 'react';
 import Figure, { FigureStatus } from '@/components/Figure';
 import LineTimeSeriesChart from '@/components/charts/LineTimeSeriesChart';
 import BarCategoryChart from '@/components/charts/BarCategoryChart';
-import { getPrevalenceBurden, getSourceRefIds } from '@/lib/extracted-data';
+import { getPrevalenceBurden, getSourceRefIds, type PrevalenceBurdenEntry } from '@/lib/extracted-data';
 
 export default function SurvivorshipBurdenFigure() {
-  const data = getPrevalenceBurden();
+  const [data, setData] = useState<(PrevalenceBurdenEntry & { hasReviewFlag: boolean })[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    async function fetchData() {
+      try {
+        const fetchedData = await getPrevalenceBurden();
+        setData(fetchedData);
+      } catch (error) {
+        console.error('Error fetching prevalence burden data:', error);
+      } finally {
+        setLoading(false);
+      }
+    }
+    fetchData();
+  }, []);
+
   const sources = getSourceRefIds(data);
   const hasReviewFlag = data.some((entry) => entry.hasReviewFlag);
 
@@ -77,6 +93,22 @@ export default function SurvivorshipBurdenFigure() {
 
   const status: FigureStatus = hasReviewFlag ? 'Needs Review' : 'Verified';
   const unit = data[0]?.unit || 'Value';
+
+  if (loading) {
+    return (
+      <Figure
+        title="Prevalence and Survivorship Burden"
+        description="Prevalence estimates and survivorship burden metrics over time"
+        sources={[]}
+        status="Verified"
+        caption="Loading data..."
+      >
+        <div className="flex items-center justify-center h-64">
+          <p className="text-gray-500 dark:text-gray-400">Loading data...</p>
+        </div>
+      </Figure>
+    );
+  }
 
   return (
     <Figure

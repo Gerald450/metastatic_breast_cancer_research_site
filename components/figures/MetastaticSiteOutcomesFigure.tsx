@@ -1,12 +1,28 @@
 'use client';
 
-import { useMemo, useState } from 'react';
+import { useMemo, useState, useEffect } from 'react';
 import Figure, { FigureStatus } from '@/components/Figure';
 import BarCategoryChart from '@/components/charts/BarCategoryChart';
-import { getMetastaticSiteOutcomes, getSourceRefIds } from '@/lib/extracted-data';
+import { getMetastaticSiteOutcomes, getSourceRefIds, type MetastaticSiteOutcomesEntry } from '@/lib/extracted-data';
 
 export default function MetastaticSiteOutcomesFigure() {
-  const data = getMetastaticSiteOutcomes();
+  const [data, setData] = useState<(MetastaticSiteOutcomesEntry & { hasReviewFlag: boolean })[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    async function fetchData() {
+      try {
+        const fetchedData = await getMetastaticSiteOutcomes();
+        setData(fetchedData);
+      } catch (error) {
+        console.error('Error fetching metastatic site outcomes data:', error);
+      } finally {
+        setLoading(false);
+      }
+    }
+    fetchData();
+  }, []);
+
   const sources = getSourceRefIds(data);
   const hasReviewFlag = data.some((entry) => entry.hasReviewFlag);
 
@@ -58,6 +74,22 @@ export default function MetastaticSiteOutcomesFigure() {
 
   const status: FigureStatus = hasReviewFlag ? 'Needs Review' : 'Verified';
   const unit = filteredData[0]?.unit || 'Value';
+
+  if (loading) {
+    return (
+      <Figure
+        title="Metastatic Site Outcomes"
+        description="Outcomes by metastatic site location"
+        sources={[]}
+        status="Verified"
+        caption="Loading data..."
+      >
+        <div className="flex items-center justify-center h-64">
+          <p className="text-gray-500 dark:text-gray-400">Loading data...</p>
+        </div>
+      </Figure>
+    );
+  }
 
   return (
     <Figure

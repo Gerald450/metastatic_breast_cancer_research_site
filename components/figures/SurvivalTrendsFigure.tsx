@@ -1,12 +1,28 @@
 'use client';
 
-import { useMemo, useState } from 'react';
+import { useMemo, useState, useEffect } from 'react';
 import Figure, { FigureStatus } from '@/components/Figure';
 import LineTimeSeriesChart from '@/components/charts/LineTimeSeriesChart';
-import { getSurvivalOverTime, getSourceRefIds } from '@/lib/extracted-data';
+import { getSurvivalOverTime, getSourceRefIds, type SurvivalOverTimeEntry } from '@/lib/extracted-data';
 
 export default function SurvivalTrendsFigure() {
-  const data = getSurvivalOverTime();
+  const [data, setData] = useState<(SurvivalOverTimeEntry & { hasReviewFlag: boolean })[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    async function fetchData() {
+      try {
+        const fetchedData = await getSurvivalOverTime();
+        setData(fetchedData);
+      } catch (error) {
+        console.error('Error fetching survival over time data:', error);
+      } finally {
+        setLoading(false);
+      }
+    }
+    fetchData();
+  }, []);
+
   const sources = getSourceRefIds(data);
   const hasReviewFlag = data.some((entry) => entry.hasReviewFlag);
 
@@ -64,6 +80,22 @@ export default function SurvivalTrendsFigure() {
   }, [filteredData]);
 
   const status: FigureStatus = hasReviewFlag ? 'Needs Review' : 'Verified';
+
+  if (loading) {
+    return (
+      <Figure
+        title="Survival Trends Over Time"
+        description="Survival metrics tracked across time periods"
+        sources={[]}
+        status="Verified"
+        caption="Loading data..."
+      >
+        <div className="flex items-center justify-center h-64">
+          <p className="text-gray-500 dark:text-gray-400">Loading data...</p>
+        </div>
+      </Figure>
+    );
+  }
 
   return (
     <Figure

@@ -50,17 +50,55 @@ export type MetastaticSiteOutcomesEntry = {
   needsManualReview: boolean;
 };
 
-// Import JSON files (Next.js will bundle these at build time)
-import survivalOverTimeRaw from '@/data/extracted/survival_over_time.json';
-import prevalenceBurdenRaw from '@/data/extracted/prevalence_or_survivorship_burden.json';
-import demographicsAgeRaceRaw from '@/data/extracted/demographics_age_race.json';
-import metastaticSiteOutcomesRaw from '@/data/extracted/metastatic_site_outcomes.json';
+// Firebase imports
+import { collection, getDocs, query, where, QueryConstraint } from 'firebase/firestore';
+import { db } from './firebase';
 
-// Type assertions
-const survivalOverTime = survivalOverTimeRaw as SurvivalOverTimeEntry[];
-const prevalenceBurden = prevalenceBurdenRaw as PrevalenceBurdenEntry[];
-const demographicsAgeRace = demographicsAgeRaceRaw as DemographicsAgeRaceEntry[];
-const metastaticSiteOutcomes = metastaticSiteOutcomesRaw as MetastaticSiteOutcomesEntry[];
+// Collection names
+const COLLECTIONS = {
+  SURVIVAL_OVER_TIME: 'survival_over_time',
+  PREVALENCE_BURDEN: 'prevalence_burden',
+  DEMOGRAPHICS_AGE_RACE: 'demographics_age_race',
+  METASTATIC_SITE_OUTCOMES: 'metastatic_site_outcomes',
+} as const;
+
+/**
+ * Convert Firestore document to typed entry
+ * Handles undefined fields (Firestore doesn't store null) by converting to null
+ */
+function convertFirestoreDoc<T>(doc: any): T {
+  const data = doc.data();
+  const converted: any = { id: doc.id };
+  
+  for (const [key, value] of Object.entries(data)) {
+    // Convert undefined back to null for consistency with TypeScript types
+    converted[key] = value === undefined ? null : value;
+  }
+  
+  return converted as T;
+}
+
+/**
+ * Fetch all documents from a Firestore collection with optional filters
+ */
+async function fetchCollection<T>(
+  collectionName: string,
+  filters: QueryConstraint[] = []
+): Promise<T[]> {
+  try {
+    const collectionRef = collection(db, collectionName);
+    const q = filters.length > 0 
+      ? query(collectionRef, ...filters)
+      : query(collectionRef);
+    
+    const querySnapshot = await getDocs(q);
+    return querySnapshot.docs.map((doc) => convertFirestoreDoc<T>(doc));
+  } catch (error) {
+    console.error(`Error fetching ${collectionName}:`, error);
+    // Fallback to empty array on error
+    return [];
+  }
+}
 
 /**
  * Normalize and filter dataset entries
@@ -89,41 +127,53 @@ export function getSourceRefIds<T extends { sourceRefId: string }>(
 
 /**
  * Get normalized survival over time data
+ * Can be called from both server and client components
  */
-export function getSurvivalOverTime() {
-  return normalizeDataset(survivalOverTime);
+export async function getSurvivalOverTime(): Promise<(SurvivalOverTimeEntry & { hasReviewFlag: boolean })[]> {
+  const data = await fetchCollection<SurvivalOverTimeEntry>(COLLECTIONS.SURVIVAL_OVER_TIME);
+  return normalizeDataset(data);
 }
 
 /**
  * Get normalized prevalence/burden data
  */
-export function getPrevalenceBurden() {
-  return normalizeDataset(prevalenceBurden);
+export async function getPrevalenceBurden(): Promise<(PrevalenceBurdenEntry & { hasReviewFlag: boolean })[]> {
+  const data = await fetchCollection<PrevalenceBurdenEntry>(COLLECTIONS.PREVALENCE_BURDEN);
+  return normalizeDataset(data);
 }
 
 /**
  * Get normalized demographics age/race data
  */
-export function getDemographicsAgeRace() {
-  return normalizeDataset(demographicsAgeRace);
+export async function getDemographicsAgeRace(): Promise<(DemographicsAgeRaceEntry & { hasReviewFlag: boolean })[]> {
+  const data = await fetchCollection<DemographicsAgeRaceEntry>(COLLECTIONS.DEMOGRAPHICS_AGE_RACE);
+  return normalizeDataset(data);
 }
 
 /**
  * Get normalized metastatic site outcomes data
  */
-export function getMetastaticSiteOutcomes() {
-  return normalizeDataset(metastaticSiteOutcomes);
+export async function getMetastaticSiteOutcomes(): Promise<(MetastaticSiteOutcomesEntry & { hasReviewFlag: boolean })[]> {
+  const data = await fetchCollection<MetastaticSiteOutcomesEntry>(COLLECTIONS.METASTATIC_SITE_OUTCOMES);
+  return normalizeDataset(data);
 }
 
 /**
  * Get all datasets with normalization
  */
-export function getAllDatasets() {
+export async function getAllDatasets() {
+  const [survivalOverTime, prevalenceBurden, demographicsAgeRace, metastaticSiteOutcomes] = 
+    await Promise.all([
+      getSurvivalOverTime(),
+      getPrevalenceBurden(),
+      getDemographicsAgeRace(),
+      getMetastaticSiteOutcomes(),
+    ]);
+
   return {
-    survivalOverTime: getSurvivalOverTime(),
-    prevalenceBurden: getPrevalenceBurden(),
-    demographicsAgeRace: getDemographicsAgeRace(),
-    metastaticSiteOutcomes: getMetastaticSiteOutcomes(),
+    survivalOverTime,
+    prevalenceBurden,
+    demographicsAgeRace,
+    metastaticSiteOutcomes,
   };
 }
-
