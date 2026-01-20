@@ -10,7 +10,7 @@
  */
 
 import { initializeApp } from 'firebase/app';
-import { getFirestore, collection, doc, setDoc, writeBatch } from 'firebase/firestore';
+import { getFirestore, collection, doc, setDoc, writeBatch, getDocs, query, limit } from 'firebase/firestore';
 import { readFileSync, existsSync } from 'fs';
 import { fileURLToPath } from 'url';
 import { dirname, join } from 'path';
@@ -137,9 +137,26 @@ async function importCollection(collectionName, data, transformFn = null) {
   // Execute all batches
   console.log(`   Executing ${batches.length} batch(es)...`);
   for (let i = 0; i < batches.length; i++) {
-    await batches[i].commit();
-    importedCount += Math.min(BATCH_SIZE, data.length - (i * BATCH_SIZE));
-    console.log(`   ✓ Batch ${i + 1}/${batches.length} committed (${importedCount}/${data.length} records)`);
+    try {
+      await batches[i].commit();
+      importedCount += Math.min(BATCH_SIZE, data.length - (i * BATCH_SIZE));
+      console.log(`   ✓ Batch ${i + 1}/${batches.length} committed (${importedCount}/${data.length} records)`);
+    } catch (error) {
+      console.error(`   ❌ Batch ${i + 1}/${batches.length} failed:`, error.message);
+      
+      // Check for common errors and provide helpful messages
+      if (error.message && error.message.includes('PERMISSION_DENIED')) {
+        if (error.message.includes('Cloud Firestore API has not been used')) {
+          console.error('\n⚠️  Firestore API is not enabled for your project!');
+          console.error('   Please enable it at:');
+          console.error(`   https://console.developers.google.com/apis/api/firestore.googleapis.com/overview?project=${process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID}`);
+          console.error('   Then wait a few minutes and try again.\n');
+        } else {
+          console.error('\n⚠️  Permission denied. Check your Firestore security rules and authentication.\n');
+        }
+      }
+      throw error;
+    }
   }
 
   console.log(`✅ Successfully imported ${data.length} records to ${collectionName}`);
@@ -179,10 +196,71 @@ function transformEntry(entry) {
 }
 
 /**
+ * Verify Firestore connection
+ */
+async function verifyFirestoreConnection() {
+  try {
+    // Try to read from a test collection to verify connection
+    const testCollection = collection(db, '_test');
+    await getDocs(query(testCollection, limit(1)));
+    return true;
+  } catch (error) {
+    const errorMsg = error.message || error.code || '';
+    
+    if (errorMsg.includes('PERMISSION_DENIED') || errorMsg.includes('permission') || errorMsg.includes('Missing or insufficient permissions')) {
+      if (errorMsg.includes('Cloud Firestore API has not been used')) {
+        console.error('\n❌ Firestore API is not enabled!');
+        console.error('   Please enable it at:');
+        console.error(`   https://console.developers.google.com/apis/api/firestore.googleapis.com/overview?project=${process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID}`);
+        console.error('   Then wait a few minutes and try again.\n');
+      } else {
+        console.error('\n❌ Permission denied - Firestore security rules are blocking access!');
+        console.error('\n   To fix this:');
+        console.error('   1. Go to https://console.firebase.google.com/');
+        console.error(`   2. Select project: ${process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID}`);
+        console.error('   3. Go to Build → Firestore Database → Rules');
+        console.error('   4. Temporarily set rules to allow writes (for migration only):');
+        console.error('\n   rules_version = \'2\';');
+        console.error('   service cloud.firestore {');
+        console.error('     match /databases/{database}/documents {');
+        console.error('       match /{document=**} {');
+        console.error('         allow read, write: if true;');
+        console.error('       }');
+        console.error('     }');
+        console.error('   }\n');
+        console.error('   5. Click "Publish"');
+        console.error('   6. Wait a few seconds and try the migration again');
+        console.error('   7. IMPORTANT: After migration, update rules for production!\n');
+      }
+    } else if (errorMsg.includes('NOT_FOUND')) {
+      console.error('\n❌ Firestore database not found!');
+      console.error('   Please create a Firestore database:');
+      console.error('   1. Go to https://console.firebase.google.com/');
+      console.error(`   2. Select project: ${process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID}`);
+      console.error('   3. Go to Build → Firestore Database');
+      console.error('   4. Click "Create database"');
+      console.error('   5. Choose "Start in test mode" (easier for migration)');
+      console.error('   6. Select a location and click "Enable"\n');
+    } else {
+      console.error('\n❌ Error connecting to Firestore:', error.message || error.code);
+    }
+    return false;
+  }
+}
+
+/**
  * Main migration function
  */
 async function main() {
   console.log('🚀 Starting Firebase migration...\n');
+
+  // Verify connection first
+  console.log('🔍 Verifying Firestore connection...');
+  const canConnect = await verifyFirestoreConnection();
+  if (!canConnect) {
+    process.exit(1);
+  }
+  console.log('✅ Firestore connection verified\n');
 
   try {
     // Load JSON files
