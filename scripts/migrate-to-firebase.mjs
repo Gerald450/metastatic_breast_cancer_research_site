@@ -11,22 +11,58 @@
 
 import { initializeApp } from 'firebase/app';
 import { getFirestore, collection, doc, setDoc, writeBatch } from 'firebase/firestore';
-import { readFileSync } from 'fs';
+import { readFileSync, existsSync } from 'fs';
 import { fileURLToPath } from 'url';
 import { dirname, join } from 'path';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
-// Load environment variables
+// Load environment variables from .env.local
+function loadEnvFile() {
+  const envPath = join(__dirname, '..', '.env.local');
+  
+  if (existsSync(envPath)) {
+    const envContent = readFileSync(envPath, 'utf-8');
+    const lines = envContent.split('\n');
+    
+    for (const line of lines) {
+      // Skip comments and empty lines
+      const trimmed = line.trim();
+      if (!trimmed || trimmed.startsWith('#')) continue;
+      
+      // Parse KEY=VALUE format
+      const match = trimmed.match(/^([^=]+)=(.*)$/);
+      if (match) {
+        const key = match[1].trim();
+        let value = match[2].trim();
+        
+        // Remove quotes if present
+        if ((value.startsWith('"') && value.endsWith('"')) || 
+            (value.startsWith("'") && value.endsWith("'"))) {
+          value = value.slice(1, -1);
+        }
+        
+        // Only set if not already in process.env (system env takes precedence)
+        if (!process.env[key]) {
+          process.env[key] = value;
+        }
+      }
+    }
+    console.log('✓ Loaded environment variables from .env.local');
+  } else {
+    console.log('⚠ .env.local not found. Using system environment variables.');
+  }
+}
+
 // Try to load dotenv if available (optional dependency)
-let dotenv;
 try {
-  dotenv = (await import('dotenv')).default;
+  const dotenv = (await import('dotenv')).default;
   dotenv.config({ path: join(__dirname, '..', '.env.local') });
+  console.log('✓ Loaded environment variables using dotenv');
 } catch (e) {
-  // dotenv not installed, assume environment variables are set
-  console.log('Note: dotenv not found. Using environment variables from system.');
+  // Fallback to manual parsing
+  loadEnvFile();
 }
 
 const firebaseConfig = {
