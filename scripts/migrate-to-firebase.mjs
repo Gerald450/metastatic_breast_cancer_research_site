@@ -184,25 +184,44 @@ function extractReferences(datasets) {
 }
 
 /**
- * Transform entry for Firestore (convert null to undefined for cleaner storage)
+ * Transform entry for Firestore (remove null and undefined fields)
+ * Firestore doesn't accept undefined values, and we'll omit null values for cleaner storage
  */
 function transformEntry(entry) {
   const transformed = {};
   for (const [key, value] of Object.entries(entry)) {
-    // Firestore doesn't store null, so convert to undefined
-    transformed[key] = value === null ? undefined : value;
+    // Only include fields that are not null or undefined
+    // Firestore doesn't accept undefined, and we'll omit null for cleaner storage
+    if (value !== null && value !== undefined) {
+      transformed[key] = value;
+    }
   }
   return transformed;
 }
 
 /**
- * Verify Firestore connection
+ * Verify Firestore connection and write permissions
  */
 async function verifyFirestoreConnection() {
   try {
     // Try to read from a test collection to verify connection
     const testCollection = collection(db, '_test');
     await getDocs(query(testCollection, limit(1)));
+    
+    // Try to write to verify write permissions
+    const testDoc = doc(db, '_test', 'migration_test');
+    const testBatch = writeBatch(db);
+    testBatch.set(testDoc, { 
+      timestamp: new Date().toISOString(),
+      test: true 
+    });
+    await testBatch.commit();
+    
+    // Clean up test document
+    const deleteBatch = writeBatch(db);
+    deleteBatch.delete(testDoc);
+    await deleteBatch.commit();
+    
     return true;
   } catch (error) {
     const errorMsg = error.message || error.code || '';
@@ -214,23 +233,26 @@ async function verifyFirestoreConnection() {
         console.error(`   https://console.developers.google.com/apis/api/firestore.googleapis.com/overview?project=${process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID}`);
         console.error('   Then wait a few minutes and try again.\n');
       } else {
-        console.error('\n❌ Permission denied - Firestore security rules are blocking access!');
-        console.error('\n   To fix this:');
-        console.error('   1. Go to https://console.firebase.google.com/');
+        console.error('\n❌ Permission denied - Firestore security rules are blocking WRITES!');
+        console.error('\n   Your database allows reads but not writes. To fix this:');
+        console.error('\n   1. Go to https://console.firebase.google.com/');
         console.error(`   2. Select project: ${process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID}`);
         console.error('   3. Go to Build → Firestore Database → Rules');
-        console.error('   4. Temporarily set rules to allow writes (for migration only):');
+        console.error('   4. Update your rules to temporarily allow writes:');
         console.error('\n   rules_version = \'2\';');
         console.error('   service cloud.firestore {');
         console.error('     match /databases/{database}/documents {');
         console.error('       match /{document=**} {');
-        console.error('         allow read, write: if true;');
+        console.error('         allow read: if true;');
+        console.error('         allow write: if true;  // ← ADD THIS LINE for migration');
         console.error('       }');
         console.error('     }');
         console.error('   }\n');
         console.error('   5. Click "Publish"');
-        console.error('   6. Wait a few seconds and try the migration again');
-        console.error('   7. IMPORTANT: After migration, update rules for production!\n');
+        console.error('   6. Wait 10-15 seconds for rules to propagate');
+        console.error('   7. Run the migration again: npm run migrate-to-firebase');
+        console.error('\n   ⚠️  IMPORTANT: After migration completes, REMOVE the write rule!');
+        console.error('      Set "allow write: if false;" for production security.\n');
       }
     } else if (errorMsg.includes('NOT_FOUND')) {
       console.error('\n❌ Firestore database not found!');
