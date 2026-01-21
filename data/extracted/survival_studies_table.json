@@ -1,0 +1,24 @@
+[
+  {
+    "diagnosisPeriod": "1974-1994",
+    "recurrenceTimePeriodsCompared": "1974-1979 to 1995-2000",
+    "diseaseStatus": "Recurrent (90%) & stage IV",
+    "sourcePopulation": "Adjuvant clinical trials, MD Anderson Cancer Center",
+    "sampleSize": 70,
+    "medianSurvival": "15 to 58",
+    "statisticalSignificance": "UV & MV",
+    "references": "Giordano et al. (25)",
+    "notes": ""
+  },
+  {
+    "diagnosisPeriod": "Any year",
+    "recurrenceTimePeriodsCompared": "1976-1982 to 1996-2006",
+    "diseaseStatus": "Recurrent (85%) & stage IV",
+    "sourcePopulation": "Single center, US",
+    "sampleSize": 15438,
+    "medianSurvival": "26 to 33",
+    "statisticalSignificance": "UV & MV",
+    "references": "Vogel et al., Zeichner et al. (49,50)",
+    "notes": ""
+  }
+]

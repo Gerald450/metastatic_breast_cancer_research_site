@@ -5,6 +5,8 @@ import CitationCallout from '@/components/CitationCallout';
 import ReferenceList from '@/components/ReferenceList';
 import { references } from '@/lib/references';
 import MetastaticSiteOutcomesFigure from '@/components/figures/MetastaticSiteOutcomesFigure';
+import SurvivalTrendsFigure from '@/components/figures/SurvivalTrendsFigure';
+import SurvivalStudiesTable from '@/components/figures/SurvivalStudiesTable';
 
 export default function ClinicalOutcomesPage() {
   return (
@@ -17,14 +19,14 @@ export default function ClinicalOutcomesPage() {
 
       <Section title="Survival Outcomes">
         <div className="space-y-6">
-          <Placeholder
-            label="Survival rate analysis"
-            notes={[
-              'Overall survival rates',
-              'Disease-specific survival',
-              'Progression-free survival',
-            ]}
-          />
+          <CitationCallout citation="Multiple studies">
+            <p className="text-gray-700 dark:text-gray-300">
+              Studies have shown improvements in survival over time for patients with metastatic breast cancer, 
+              with median survival increasing across different time periods and study populations.
+            </p>
+          </CitationCallout>
+          <SurvivalTrendsFigure />
+          <SurvivalStudiesTable />
           <MetastaticSiteOutcomesFigure />
         </div>
       </Section>

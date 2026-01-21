@@ -21,18 +21,40 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
 // Reference mapping - maps author names to sourceRefId
-// You'll need to update this based on your actual references
+// IMPORTANT: Update this based on your actual references from lib/references.ts
+// The table uses citation numbers (e.g., "Giordano et al. (25)") - you need to map
+// the author names to your reference IDs (ref-001, ref-002, etc.)
 const REFERENCE_MAP = {
-  'Giordano': 'ref-001', // Update with actual mapping
-  'Vogel': 'ref-001',
-  'Zeichner': 'ref-001',
-  // Add more mappings as needed
+  // Example mappings - UPDATE THESE:
+  'Giordano': 'ref-001',  // If Giordano et al. corresponds to ref-001
+  'Vogel': 'ref-002',     // If Vogel et al. corresponds to ref-002
+  'Zeichner': 'ref-002',  // If Zeichner is in the same paper as Vogel
+  'Caswell': 'ref-001',   // Caswell-Jin et al.
+  'Lord': 'ref-002',      // Lord et al.
+  'Hudock': 'ref-004',    // Hudock et al.
+  'Hendrick': 'ref-005',  // Hendrick et al.
+  'Bonotto': 'ref-006',   // Bonotto et al.
+  'Xiao': 'ref-007',      // Xiao et al.
+  'Mariotto': 'ref-011',  // Mariotto et al.
+  // Add more mappings as you identify them from your table
 };
 
 // Filename mapping - maps sourceRefId to filename
+// This should match the filenames in lib/references.ts
 const FILENAME_MAP = {
   'ref-001': 'Caswell_et_al.pdf',
-  // Add more mappings as needed
+  'ref-002': 'Lord_et_al.pdf',
+  'ref-003': 'Jing_Lu_et_al.pdf',
+  'ref-004': 'Hudock_et_al.pdf',
+  'ref-005': 'Hendrick_et_al.pdf',
+  'ref-006': 'Bonotto_et_al.pdf',
+  'ref-007': 'Xiao_et_al.pdf',
+  'ref-008': 'unknown.pdf',  // Update as needed
+  'ref-009': 'unknown.pdf',  // Update as needed
+  'ref-010': 'unknown.pdf',  // Update as needed
+  'ref-011': 'Mariotto_et_al.pdf',
+  'ref-012': 'unknown.pdf',  // Update as needed
+  'ref-013': 'unknown.pdf',  // Update as needed
 };
 
 /**
@@ -139,14 +161,16 @@ function parseSampleSize(sampleSize) {
  * Extract source reference ID from references string
  */
 function extractSourceRefId(references) {
-  // Try to match author names in REFERENCE_MAP
+  // Try to match author names in REFERENCE_MAP (case-insensitive)
+  const refLower = references.toLowerCase();
   for (const [author, refId] of Object.entries(REFERENCE_MAP)) {
-    if (references.includes(author)) {
+    if (refLower.includes(author.toLowerCase())) {
       return refId;
     }
   }
   
-  // Default fallback
+  // Default fallback - will need manual review
+  console.warn(`   ⚠️  Could not map reference: "${references}" - using ref-unknown`);
   return 'ref-unknown';
 }
 

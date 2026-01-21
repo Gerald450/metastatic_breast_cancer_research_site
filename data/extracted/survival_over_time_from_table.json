@@ -1,0 +1,50 @@
+[
+  {
+    "sourceRefId": "ref-001",
+    "filename": "Caswell_et_al.pdf",
+    "metricName": "median survival",
+    "timePeriod": "1974-1979",
+    "value": 15,
+    "unit": "months",
+    "population": "Adjuvant clinical trials, MD Anderson Cancer Center | Recurrent (90%) & stage IV | N=70",
+    "notes": "Start period: 1974-1979. 15 to 58. Statistical significance: UV & MV. Reference: Giordano et al. (25). ",
+    "pageHint": 0,
+    "needsManualReview": false
+  },
+  {
+    "sourceRefId": "ref-001",
+    "filename": "Caswell_et_al.pdf",
+    "metricName": "median survival",
+    "timePeriod": "1995-2000",
+    "value": 58,
+    "unit": "months",
+    "population": "Adjuvant clinical trials, MD Anderson Cancer Center | Recurrent (90%) & stage IV | N=70",
+    "notes": "End period: 1995-2000. 15 to 58. Statistical significance: UV & MV. Reference: Giordano et al. (25). ",
+    "pageHint": 0,
+    "needsManualReview": false
+  },
+  {
+    "sourceRefId": "ref-002",
+    "filename": "Lord_et_al.pdf",
+    "metricName": "median survival",
+    "timePeriod": "1976-1982",
+    "value": 26,
+    "unit": "months",
+    "population": "Single center, US | Recurrent (85%) & stage IV | N=15438",
+    "notes": "Start period: 1976-1982. 26 to 33. Statistical significance: UV & MV. Reference: Vogel et al., Zeichner et al. (49,50). ",
+    "pageHint": 0,
+    "needsManualReview": false
+  },
+  {
+    "sourceRefId": "ref-002",
+    "filename": "Lord_et_al.pdf",
+    "metricName": "median survival",
+    "timePeriod": "1996-2006",
+    "value": 33,
+    "unit": "months",
+    "population": "Single center, US | Recurrent (85%) & stage IV | N=15438",
+    "notes": "End period: 1996-2006. 26 to 33. Statistical significance: UV & MV. Reference: Vogel et al., Zeichner et al. (49,50). ",
+    "pageHint": 0,
+    "needsManualReview": false
+  }
+]
