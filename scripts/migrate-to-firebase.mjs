@@ -289,9 +289,18 @@ async function main() {
     const dataDir = join(__dirname, '..', 'data', 'extracted');
     
     console.log('📂 Loading JSON files...');
-    const survivalOverTime = JSON.parse(
+    let survivalOverTime = JSON.parse(
       readFileSync(join(dataDir, 'survival_over_time.json'), 'utf-8')
     );
+    
+    // Optionally merge survival studies table data if it exists
+    const tableDataPath = join(dataDir, 'survival_over_time_from_table.json');
+    if (existsSync(tableDataPath)) {
+      console.log('   📊 Found survival studies table data, merging...');
+      const tableData = JSON.parse(readFileSync(tableDataPath, 'utf-8'));
+      survivalOverTime = [...survivalOverTime, ...tableData];
+      console.log(`   ✓ Merged ${tableData.length} records from table data`);
+    }
     const prevalenceBurden = JSON.parse(
       readFileSync(join(dataDir, 'prevalence_or_survivorship_burden.json'), 'utf-8')
     );
