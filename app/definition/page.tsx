@@ -1,19 +1,23 @@
 import Section from '@/components/Section';
 import Placeholder from '@/components/Placeholder';
-import VisualPlaceholder from '@/components/VisualPlaceholder';
 import ReferenceList from '@/components/ReferenceList';
 import { references } from '@/lib/references';
+import PageHero from '@/components/PageHero';
+import DefinitionIllustration from '@/components/illustrations/DefinitionIllustration';
+import ClassificationSchemaDiagram from '@/components/figures/ClassificationSchemaDiagram';
 
 export default function DefinitionPage() {
   return (
     <div className="py-12">
       <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
-        <h1 className="mb-8 text-4xl font-bold leading-tight text-gray-900 dark:text-white sm:text-5xl">
-          Definition
-        </h1>
+        <PageHero
+          title="Definition"
+          description="Clinical definition, diagnostic criteria, classification systems, and key terminology for metastatic breast cancer."
+          theme="definition"
+          illustration={<DefinitionIllustration />}
+        />
       </div>
 
-      {/* TODO: add disease background section */}
       <Section title="Overview" subtitle="Understanding the condition">
         <div className="space-y-6">
           <Placeholder
@@ -40,13 +44,13 @@ export default function DefinitionPage() {
         </div>
       </Section>
 
-      <Section title="Classification Systems">
+      <Section
+        title="Classification Systems"
+        subtitle="Staging and subtypes"
+        className="bg-gray-50/70 dark:bg-gray-800/40"
+      >
         <div className="space-y-6">
-          <VisualPlaceholder
-            title="Classification schema diagram"
-            type="diagram"
-            description="Visual representation of classification systems and their relationships"
-          />
+          <ClassificationSchemaDiagram />
           <Placeholder
             label="Classification framework details"
             notes={[

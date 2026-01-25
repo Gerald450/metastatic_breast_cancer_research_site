@@ -3,19 +3,27 @@ import Placeholder from '@/components/Placeholder';
 import VisualPlaceholder from '@/components/VisualPlaceholder';
 import ReferenceList from '@/components/ReferenceList';
 import { references } from '@/lib/references';
+import PageHero from '@/components/PageHero';
+import PublicHealthIllustration from '@/components/illustrations/PublicHealthIllustration';
+import SurvivorshipBurdenFigure from '@/components/figures/SurvivorshipBurdenFigure';
 
 export default function PublicHealthPage() {
   return (
     <div className="py-12">
       <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
-        <h1 className="mb-8 text-4xl font-bold leading-tight text-gray-900 dark:text-white sm:text-5xl">
-          Public Health
-        </h1>
+        <PageHero
+          title="Public Health"
+          description="Population burden, screening, prevention, and healthcare resource utilization in metastatic breast cancer."
+          theme="public-health"
+          illustration={<PublicHealthIllustration />}
+        />
       </div>
 
-      <Section title="Public Health Impact">
+      <Section
+        title="Public Health Impact"
+        className="bg-gray-50/70 dark:bg-gray-800/40"
+      >
         <div className="space-y-6">
-          {/* TODO: add disease background section */}
           <Placeholder
             label="Population health burden"
             notes={[
@@ -24,12 +32,12 @@ export default function PublicHealthPage() {
               'Economic and social costs',
             ]}
           />
+          <SurvivorshipBurdenFigure />
           <VisualPlaceholder
             title="Public health burden visualization"
             type="chart"
             description="Comprehensive view of disease burden and healthcare utilization"
           />
-          {/* TODO: replace with final chart */}
         </div>
       </Section>
 
@@ -46,7 +54,10 @@ export default function PublicHealthPage() {
         </div>
       </Section>
 
-      <Section title="Prevention Strategies">
+      <Section
+        title="Prevention Strategies"
+        className="bg-gray-50/70 dark:bg-gray-800/40"
+      >
         <div className="space-y-6">
           <Placeholder
             label="Prevention and risk reduction"

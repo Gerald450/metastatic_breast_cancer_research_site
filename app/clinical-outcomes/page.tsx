@@ -7,17 +7,26 @@ import { references } from '@/lib/references';
 import MetastaticSiteOutcomesFigure from '@/components/figures/MetastaticSiteOutcomesFigure';
 import SurvivalTrendsFigure from '@/components/figures/SurvivalTrendsFigure';
 import SurvivalStudiesTable from '@/components/figures/SurvivalStudiesTable';
+import PageHero from '@/components/PageHero';
+import ClinicalIllustration from '@/components/illustrations/ClinicalIllustration';
+import ProgressionPathwayDiagram from '@/components/figures/ProgressionPathwayDiagram';
 
 export default function ClinicalOutcomesPage() {
   return (
     <div className="py-12">
       <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
-        <h1 className="mb-8 text-4xl font-bold leading-tight text-gray-900 dark:text-white sm:text-5xl">
-          Clinical Outcomes
-        </h1>
+        <PageHero
+          title="Clinical Outcomes"
+          description="Survival, disease progression, quality of life, and treatment response in metastatic breast cancer."
+          theme="clinical"
+          illustration={<ClinicalIllustration />}
+        />
       </div>
 
-      <Section title="Survival Outcomes">
+      <Section
+        title="Survival Outcomes"
+        className="bg-gray-50/70 dark:bg-gray-800/40"
+      >
         <div className="space-y-6">
           <CitationCallout citation="Multiple studies">
             <p className="text-gray-700 dark:text-gray-300">
@@ -33,6 +42,7 @@ export default function ClinicalOutcomesPage() {
 
       <Section title="Disease Progression">
         <div className="space-y-6">
+          <ProgressionPathwayDiagram />
           <Placeholder
             label="Progression patterns and timelines"
             notes={[
@@ -41,15 +51,13 @@ export default function ClinicalOutcomesPage() {
               'Factors influencing progression',
             ]}
           />
-          <VisualPlaceholder
-            title="Progression timeline diagram"
-            type="diagram"
-            description="Visual representation of typical disease progression pathways"
-          />
         </div>
       </Section>
 
-      <Section title="Quality of Life Measures">
+      <Section
+        title="Quality of Life Measures"
+        className="bg-gray-50/70 dark:bg-gray-800/40"
+      >
         <div className="space-y-6">
           <Placeholder
             label="Patient-reported outcomes"

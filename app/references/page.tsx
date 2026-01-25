@@ -1,6 +1,7 @@
 import Section from '@/components/Section';
 import ReferenceList from '@/components/ReferenceList';
 import { references } from '@/lib/references';
+import ReferencesBySectionChart from '@/components/figures/ReferencesBySectionChart';
 
 export default function ReferencesPage() {
   return (
@@ -10,6 +11,14 @@ export default function ReferencesPage() {
           References
         </h1>
       </div>
+
+      <Section
+        title="Literature overview"
+        subtitle="Source coverage across site sections"
+        className="bg-gray-50/70 dark:bg-gray-800/40"
+      >
+        <ReferencesBySectionChart />
+      </Section>
 
       <Section title="All References">
         <div className="space-y-6">

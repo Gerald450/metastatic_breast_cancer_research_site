@@ -1,22 +1,32 @@
 import Section from '@/components/Section';
 import Placeholder from '@/components/Placeholder';
-import VisualPlaceholder from '@/components/VisualPlaceholder';
 import ReferenceList from '@/components/ReferenceList';
 import { references } from '@/lib/references';
 import SurvivalTrendsFigure from '@/components/figures/SurvivalTrendsFigure';
 import SurvivorshipBurdenFigure from '@/components/figures/SurvivorshipBurdenFigure';
+import PageHero from '@/components/PageHero';
+import EpidemiologyIllustration from '@/components/illustrations/EpidemiologyIllustration';
+import EpidemiologyKeyStats from '@/components/figures/EpidemiologyKeyStats';
+import GeographicEvidenceVisual from '@/components/figures/GeographicEvidenceVisual';
 
 export default function EpidemiologyPage() {
   return (
     <div className="py-12">
       <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
-        <h1 className="mb-8 text-4xl font-bold leading-tight text-gray-900 dark:text-white sm:text-5xl">
-          Epidemiology
-        </h1>
+        <PageHero
+          title="Epidemiology"
+          description="Prevalence, incidence, geographic distribution, and temporal trends in metastatic breast cancer."
+          theme="epidemiology"
+          illustration={<EpidemiologyIllustration />}
+        />
       </div>
 
-      <Section title="Prevalence and Incidence">
+      <Section
+        title="Prevalence and Incidence"
+        className="bg-gray-50/70 dark:bg-gray-800/40"
+      >
         <div className="space-y-6">
+          <EpidemiologyKeyStats />
           <Placeholder
             label="Population-level occurrence data"
             notes={[
@@ -31,11 +41,7 @@ export default function EpidemiologyPage() {
 
       <Section title="Geographic Distribution">
         <div className="space-y-6">
-          <VisualPlaceholder
-            title="Geographic distribution map"
-            type="diagram"
-            description="Global and regional distribution patterns"
-          />
+          <GeographicEvidenceVisual />
           <Placeholder
             label="Geographic variation analysis"
             notes={[
@@ -47,7 +53,11 @@ export default function EpidemiologyPage() {
         </div>
       </Section>
 
-      <Section title="Temporal Trends">
+      <Section
+        title="Temporal Trends"
+        subtitle="Changes over time"
+        className="bg-gray-50/70 dark:bg-gray-800/40"
+      >
         <div className="space-y-6">
           <Placeholder
             label="Changes over time"

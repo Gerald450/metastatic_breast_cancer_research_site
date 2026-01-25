@@ -1,20 +1,28 @@
 import Section from '@/components/Section';
 import Placeholder from '@/components/Placeholder';
-import VisualPlaceholder from '@/components/VisualPlaceholder';
 import ReferenceList from '@/components/ReferenceList';
 import { references } from '@/lib/references';
 import AgeRaceDistributionFigure from '@/components/figures/AgeRaceDistributionFigure';
+import PageHero from '@/components/PageHero';
+import DemographicsIllustration from '@/components/illustrations/DemographicsIllustration';
+import DemographicSegmentsVisual from '@/components/figures/DemographicSegmentsVisual';
 
 export default function DemographicsPage() {
   return (
     <div className="py-12">
       <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
-        <h1 className="mb-8 text-4xl font-bold leading-tight text-gray-900 dark:text-white sm:text-5xl">
-          Demographics
-        </h1>
+        <PageHero
+          title="Demographics"
+          description="Age, sex, race, ethnicity, and socioeconomic patterns in metastatic breast cancer."
+          theme="demographics"
+          illustration={<DemographicsIllustration />}
+        />
       </div>
 
-      <Section title="Age Distribution">
+      <Section
+        title="Age Distribution"
+        className="bg-gray-50/70 dark:bg-gray-800/40"
+      >
         <div className="space-y-6">
           <Placeholder
             label="Age-related patterns and characteristics"
@@ -30,6 +38,7 @@ export default function DemographicsPage() {
 
       <Section title="Sex and Gender Patterns">
         <div className="space-y-6">
+          <DemographicSegmentsVisual />
           <Placeholder
             label="Sex and gender distribution"
             notes={[
@@ -38,15 +47,13 @@ export default function DemographicsPage() {
               'Hormonal and biological factors',
             ]}
           />
-          <VisualPlaceholder
-            title="Sex distribution comparison table"
-            type="table"
-            description="Comparative data across sex and gender categories"
-          />
         </div>
       </Section>
 
-      <Section title="Socioeconomic Factors">
+      <Section
+        title="Socioeconomic Factors"
+        className="bg-gray-50/70 dark:bg-gray-800/40"
+      >
         <div className="space-y-6">
           <Placeholder
             label="Socioeconomic associations"
