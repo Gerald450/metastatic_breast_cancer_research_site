@@ -15,8 +15,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Academic Site",
-  description: "Academic research website",
+  title: "MBC Research Site",
+  description: "Metastatic Breast Cancer Research Site",
 };
 
 export default function RootLayout({

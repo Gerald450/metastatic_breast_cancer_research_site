@@ -1,6 +1,8 @@
 import Section from '@/components/Section';
-import Placeholder from '@/components/Placeholder';
-import VisualPlaceholder from '@/components/VisualPlaceholder';
+import HomeHero from '@/components/HomeHero';
+import KeyStatsCards from '@/components/KeyStatsCards';
+import TopicExploreGrid from '@/components/TopicExploreGrid';
+import SurvivalTrendsFigure from '@/components/figures/SurvivalTrendsFigure';
 
 export default function Home() {
   return (
@@ -13,26 +15,30 @@ export default function Home() {
           </p>
         </div>
 
-        <h1 className="mb-6 text-4xl font-bold leading-tight text-gray-900 dark:text-white sm:text-5xl">
-          Welcome
-        </h1>
-        <p className="mb-12 text-lg leading-relaxed text-gray-700 dark:text-gray-300">
-          {/* TODO: Add introduction content */}
-        </p>
+        <HomeHero />
       </div>
 
-      <Section title="Overview">
-        <div className="space-y-8">
-          <Placeholder label="TODO: Add home page content" />
+      <Section
+        title="Key metrics"
+        subtitle="Notable findings from the literature"
+        className="bg-gray-50/70 dark:bg-gray-800/40"
+      >
+        <KeyStatsCards />
+      </Section>
 
-          <div className="mt-8">
-            <VisualPlaceholder
-              title="Hero visualization placeholder"
-              type="diagram"
-              description="TODO: Add hero image or visual"
-            />
-          </div>
-        </div>
+      <Section
+        title="Survival at a glance"
+        subtitle="Median survival over time from selected studies"
+      >
+        <SurvivalTrendsFigure />
+      </Section>
+
+      <Section
+        title="Explore by topic"
+        subtitle="Browse evidence by category"
+        className="bg-gray-50/70 dark:bg-gray-800/40"
+      >
+        <TopicExploreGrid />
       </Section>
     </div>
   );
