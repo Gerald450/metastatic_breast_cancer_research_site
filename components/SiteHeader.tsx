@@ -72,7 +72,7 @@ export default function SiteHeader() {
               href="/"
               className="text-xl font-semibold text-gray-900 dark:text-white hover:text-gray-700 dark:hover:text-gray-300 transition-colors"
             >
-              Academic Site
+              MBC Research Site
             </Link>
           </div>
 
