@@ -1,6 +1,7 @@
 import Section from '@/components/Section';
 import Placeholder from '@/components/Placeholder';
 import ReferenceList from '@/components/ReferenceList';
+import TabSummary from '@/components/TabSummary';
 import { references } from '@/lib/references';
 import AgeRaceDistributionFigure from '@/components/figures/AgeRaceDistributionFigure';
 import PageHero from '@/components/PageHero';
@@ -17,6 +18,7 @@ export default function DemographicsPage() {
           theme="demographics"
           illustration={<DemographicsIllustration />}
         />
+        <TabSummary section="demographics" />
       </div>
 
       <Section

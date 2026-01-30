@@ -1,6 +1,7 @@
 import Section from '@/components/Section';
 import Placeholder from '@/components/Placeholder';
 import ReferenceList from '@/components/ReferenceList';
+import TabSummary from '@/components/TabSummary';
 import { references } from '@/lib/references';
 import SurvivorshipBurdenFigure from '@/components/figures/SurvivorshipBurdenFigure';
 import PageHero from '@/components/PageHero';
@@ -18,6 +19,7 @@ export default function EpidemiologyPage() {
           theme="epidemiology"
           illustration={<EpidemiologyIllustration />}
         />
+        <TabSummary section="epidemiology" />
       </div>
 
       <Section

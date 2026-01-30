@@ -1,6 +1,7 @@
 import Section from '@/components/Section';
 import Placeholder from '@/components/Placeholder';
 import ReferenceList from '@/components/ReferenceList';
+import TabSummary from '@/components/TabSummary';
 import { references } from '@/lib/references';
 import PageHero from '@/components/PageHero';
 import DefinitionIllustration from '@/components/illustrations/DefinitionIllustration';
@@ -16,6 +17,7 @@ export default function DefinitionPage() {
           theme="definition"
           illustration={<DefinitionIllustration />}
         />
+        <TabSummary section="definition" />
       </div>
 
       <Section title="Overview" subtitle="Understanding the condition">

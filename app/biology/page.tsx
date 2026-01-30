@@ -1,6 +1,7 @@
 import Section from '@/components/Section';
 import Placeholder from '@/components/Placeholder';
 import VisualPlaceholder from '@/components/VisualPlaceholder';
+import TabSummary from '@/components/TabSummary';
 import PageHero from '@/components/PageHero';
 import BiologyIllustration from '@/components/illustrations/BiologyIllustration';
 
@@ -14,6 +15,7 @@ export default function BiologyPage() {
           theme="biology"
           illustration={<BiologyIllustration />}
         />
+        <TabSummary section="biology" />
       </div>
 
       <Section title="Metastatic Cascade">

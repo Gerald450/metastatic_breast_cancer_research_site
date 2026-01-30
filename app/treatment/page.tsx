@@ -1,6 +1,7 @@
 import Section from '@/components/Section';
 import Placeholder from '@/components/Placeholder';
 import VisualPlaceholder from '@/components/VisualPlaceholder';
+import TabSummary from '@/components/TabSummary';
 import PageHero from '@/components/PageHero';
 import TreatmentIllustration from '@/components/illustrations/TreatmentIllustration';
 
@@ -14,6 +15,7 @@ export default function TreatmentPage() {
           theme="treatment"
           illustration={<TreatmentIllustration />}
         />
+        <TabSummary section="treatment" />
       </div>
 
       <Section title="Therapy Overview">

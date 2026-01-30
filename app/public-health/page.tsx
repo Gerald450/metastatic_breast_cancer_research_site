@@ -2,6 +2,7 @@ import Section from '@/components/Section';
 import Placeholder from '@/components/Placeholder';
 import VisualPlaceholder from '@/components/VisualPlaceholder';
 import ReferenceList from '@/components/ReferenceList';
+import TabSummary from '@/components/TabSummary';
 import { references } from '@/lib/references';
 import PageHero from '@/components/PageHero';
 import PublicHealthIllustration from '@/components/illustrations/PublicHealthIllustration';
@@ -17,6 +18,7 @@ export default function PublicHealthPage() {
           theme="public-health"
           illustration={<PublicHealthIllustration />}
         />
+        <TabSummary section="public-health" />
       </div>
 
       <Section

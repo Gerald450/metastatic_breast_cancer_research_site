@@ -1,0 +1,60 @@
+import Link from 'next/link';
+import type { SiteSection } from '@/lib/references';
+import { references } from '@/lib/references';
+import { getTabSummary } from '@/lib/tab-summaries';
+
+interface TabSummaryProps {
+  section: SiteSection;
+  /** Optional: show a "Summary" heading above the block */
+  showHeading?: boolean;
+}
+
+/** Short author label: "S. Caswell-Jin, H. Plevritis, et al." -> "Caswell-Jin et al."; "Alastair Thompson et al." -> "Thompson et al." */
+function shortAuthorLabel(authors: string | undefined): string {
+  if (!authors) return 'n.d.';
+  const first = authors.split(',')[0]?.trim() ?? '';
+  const hasEtAl = /et\s+al\.?/i.test(authors);
+  const cleaned = first.replace(/^[A-Z]\.?\s*/i, '').trim() || first;
+  const words = cleaned.split(/\s+/);
+  const surname = hasEtAl && words.length > 1 && /et\s+al\.?/i.test(cleaned)
+    ? words[words.findIndex((w) => /^et$/i.test(w)) - 1] ?? words[words.length - 1]
+    : words[0] ?? cleaned;
+  if (hasEtAl) return `${surname} et al.`;
+  return surname;
+}
+
+export default function TabSummary({ section, showHeading = true }: TabSummaryProps) {
+  const { summary, sourceRefIds } = getTabSummary(section);
+  const refs = sourceRefIds
+    .map((id) => references.find((r) => r.id === id))
+    .filter(Boolean) as typeof references;
+
+  return (
+    <div className="mb-10 rounded-lg border border-gray-200 bg-gray-50/80 p-5 dark:border-gray-700 dark:bg-gray-800/50">
+      {showHeading && (
+        <h2 className="mb-3 text-lg font-semibold text-gray-900 dark:text-white">
+          Summary for researchers
+        </h2>
+      )}
+      <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
+        {summary}
+      </p>
+      {refs.length > 0 && (
+        <p className="mt-3 text-sm text-gray-600 dark:text-gray-400">
+          <span className="font-medium">Key sources (from PDFs): </span>
+          {refs.map((ref, idx) => (
+            <span key={ref.id}>
+              {idx > 0 && '; '}
+              <Link
+                href={`/references#${ref.id}`}
+                className="text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300 underline"
+              >
+                {shortAuthorLabel(ref.authors)} ({ref.year})
+              </Link>
+            </span>
+          ))}
+        </p>
+      )}
+    </div>
+  );
+}

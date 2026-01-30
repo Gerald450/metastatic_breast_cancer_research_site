@@ -3,6 +3,7 @@ import Placeholder from '@/components/Placeholder';
 import VisualPlaceholder from '@/components/VisualPlaceholder';
 import CitationCallout from '@/components/CitationCallout';
 import ReferenceList from '@/components/ReferenceList';
+import TabSummary from '@/components/TabSummary';
 import { references } from '@/lib/references';
 import MetastaticSiteOutcomesFigure from '@/components/figures/MetastaticSiteOutcomesFigure';
 import SurvivalTrendsFigure from '@/components/figures/SurvivalTrendsFigure';
@@ -23,6 +24,7 @@ export default function ClinicalOutcomesPage() {
           theme="clinical"
           illustration={<ClinicalIllustration />}
         />
+        <TabSummary section="clinical-outcomes" />
       </div>
 
       <Section
