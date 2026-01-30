@@ -1,19 +1,29 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useMemo } from 'react';
 import type { Reference, SiteSection } from '@/lib/references';
+import { getFigureSourceIdsForSection } from '@/lib/section-figure-sources';
 
 interface ReferenceListProps {
   references: Reference[];
   filterBy?: SiteSection; // usedFor tag to filter by
+  /** Ref IDs that must appear when filterBy is set (e.g. sources from figures on this tab). Ensures visuals' sources match the list. */
+  ensureIds?: string[];
 }
 
 export default function ReferenceList({
   references,
   filterBy,
+  ensureIds,
 }: ReferenceListProps) {
   const [selectedFilter, setSelectedFilter] = useState<SiteSection | 'all' | undefined>(
     filterBy || undefined
+  );
+
+  // Ref IDs that must be included when showing this section (from figures on this tab)
+  const requiredIds = useMemo(
+    () => new Set(ensureIds ?? (filterBy ? getFigureSourceIdsForSection(filterBy) : [])),
+    [filterBy, ensureIds]
   );
 
   // Get all unique usedFor tags
@@ -21,11 +31,18 @@ export default function ReferenceList({
     new Set(references.flatMap((ref) => ref.usedFor))
   ).sort() as SiteSection[];
 
-  // Filter references if a tag is selected
-  const filteredReferences =
-    selectedFilter && selectedFilter !== 'all'
-      ? references.filter((ref) => ref.usedFor.includes(selectedFilter as SiteSection))
-      : references;
+  // Filter references: (usedFor includes section) OR (id in requiredIds) so visuals' sources match the list
+  const filteredReferences = useMemo(() => {
+    if (!selectedFilter || selectedFilter === 'all') return references;
+    const bySection = references.filter((ref) => ref.usedFor.includes(selectedFilter as SiteSection));
+    const byFigureSources = references.filter((ref) => requiredIds.has(ref.id));
+    const seen = new Set<string>();
+    return [...bySection, ...byFigureSources].filter((ref) => {
+      if (seen.has(ref.id)) return false;
+      seen.add(ref.id);
+      return true;
+    });
+  }, [references, selectedFilter, requiredIds]);
 
   return (
     <div className="space-y-4">

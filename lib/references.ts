@@ -38,7 +38,7 @@ export const references: Reference[] = [
     filename: 'pky062.pdf',
     localUrl: '/pdfs/Caswell_et_al.pdf',
     doi: '10.1093/jncics/pky062',
-    usedFor: ['clinical-outcomes'],
+    usedFor: ['clinical-outcomes', 'demographics'],
     highlightNotes: [
       {
         section: 'Clinical Outcomes',
@@ -71,7 +71,7 @@ export const references: Reference[] = [
     filename: 'e026414.full.pdf',
     localUrl: '/pdfs/Lord_et_ al.pdf',
     doi: '10.1136/bmjopen-2018-026414',
-    usedFor: ['epidemiology', 'clinical-outcomes'],
+    usedFor: ['epidemiology', 'clinical-outcomes', 'public-health', 'demographics'],
     highlightNotes: [
       {
         section: 'Epidemiology',
@@ -128,7 +128,7 @@ export const references: Reference[] = [
     filename: 's43856-023-00304-x.pdf',
     localUrl: '/pdfs/Hudock_et_al.pdf',
     doi: '10.1038/s43856-023-00304-x',
-    usedFor: ['epidemiology', 'clinical-outcomes'],
+    usedFor: ['epidemiology', 'clinical-outcomes', 'public-health', 'demographics'],
     highlightNotes: [
       {
         section: 'Epidemiology',
@@ -154,7 +154,7 @@ export const references: Reference[] = [
     filename: 'Cancer - 2021 - Hendrick - Age distributions...',
     localUrl: '/pdfs/Hendrick_et_al.pdf',
     doi: '10.1002/cncr.33846',
-    usedFor: ['demographics'],
+    usedFor: ['demographics', 'clinical-outcomes', 'public-health'],
     highlightNotes: [
       {
         section: 'Demographics',
@@ -181,7 +181,7 @@ export const references: Reference[] = [
     filename: 's10549-018-4956-y.pdf',
     localUrl: '/pdfs/Bonotto_et_al.pdf',
     doi: '10.1007/s10549-018-4956-y',
-    usedFor: ['clinical-outcomes'],
+    usedFor: ['clinical-outcomes', 'demographics'],
     highlightNotes: [
       {
         section: 'Clinical Outcomes',
@@ -207,7 +207,7 @@ export const references: Reference[] = [
     filename: 'Cancer Medicine - 2018 - Xiao...',
     localUrl: '/pdfs/Xiao_et_al.pdf',
     doi: '10.1002/cam4.1370',
-    usedFor: ['clinical-outcomes'],
+    usedFor: ['clinical-outcomes', 'public-health', 'demographics'],
     highlightNotes: [
       {
         section: 'Clinical Outcomes',
@@ -311,7 +311,7 @@ export const references: Reference[] = [
     filename: 'PIIS2589537022000128.pdf',
     localUrl: '/pdfs/Mariotto_et_al.pdf',
     doi: null,
-    usedFor: ['epidemiology', 'public-health'],
+    usedFor: ['epidemiology', 'public-health', 'clinical-outcomes', 'demographics'],
     highlightNotes: [
       {
         section: 'Epidemiology',

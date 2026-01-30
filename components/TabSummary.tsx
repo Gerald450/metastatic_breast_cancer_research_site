@@ -9,20 +9,6 @@ interface TabSummaryProps {
   showHeading?: boolean;
 }
 
-/** Short author label: "S. Caswell-Jin, H. Plevritis, et al." -> "Caswell-Jin et al."; "Alastair Thompson et al." -> "Thompson et al." */
-function shortAuthorLabel(authors: string | undefined): string {
-  if (!authors) return 'n.d.';
-  const first = authors.split(',')[0]?.trim() ?? '';
-  const hasEtAl = /et\s+al\.?/i.test(authors);
-  const cleaned = first.replace(/^[A-Z]\.?\s*/i, '').trim() || first;
-  const words = cleaned.split(/\s+/);
-  const surname = hasEtAl && words.length > 1 && /et\s+al\.?/i.test(cleaned)
-    ? words[words.findIndex((w) => /^et$/i.test(w)) - 1] ?? words[words.length - 1]
-    : words[0] ?? cleaned;
-  if (hasEtAl) return `${surname} et al.`;
-  return surname;
-}
-
 export default function TabSummary({ section, showHeading = true }: TabSummaryProps) {
   const { summary, sourceRefIds } = getTabSummary(section);
   const refs = sourceRefIds
@@ -49,7 +35,7 @@ export default function TabSummary({ section, showHeading = true }: TabSummaryPr
                 href={`/references#${ref.id}`}
                 className="text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300 underline"
               >
-                {shortAuthorLabel(ref.authors)} ({ref.year})
+                {ref.id}
               </Link>
             </span>
           ))}
