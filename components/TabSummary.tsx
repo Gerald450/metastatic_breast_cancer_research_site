@@ -5,11 +5,9 @@ import { getTabSummary } from '@/lib/tab-summaries';
 
 interface TabSummaryProps {
   section: SiteSection;
-  /** Optional: show a "Summary" heading above the block */
-  showHeading?: boolean;
 }
 
-export default function TabSummary({ section, showHeading = true }: TabSummaryProps) {
+export default function TabSummary({ section }: TabSummaryProps) {
   const { summary, sourceRefIds } = getTabSummary(section);
   const refs = sourceRefIds
     .map((id) => references.find((r) => r.id === id))
@@ -17,11 +15,6 @@ export default function TabSummary({ section, showHeading = true }: TabSummaryPr
 
   return (
     <div className="card card-hover mb-10 rounded-xl border border-gray-200 bg-gray-50/90 p-5 dark:border-gray-700 dark:bg-gray-800/60">
-      {showHeading && (
-        <h2 className="mb-3 text-lg font-semibold text-gray-900 dark:text-white">
-          Summary for researchers
-        </h2>
-      )}
       <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
         {summary}
       </p>

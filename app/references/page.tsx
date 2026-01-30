@@ -11,9 +11,6 @@ export default function ReferencesPage() {
           References
         </h1>
         <div className="card card-hover mb-10 rounded-xl border border-gray-200 bg-gray-50/90 p-5 dark:border-gray-700 dark:bg-gray-800/60">
-          <h2 className="mb-3 text-lg font-semibold text-gray-900 dark:text-white">
-            Summary for researchers
-          </h2>
           <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
             This page lists all literature sources (PDFs) used across the site. References are tagged by topic (Definition, Epidemiology, Demographics, Clinical Outcomes, Public Health). Each entry includes title, authors, year, journal, and a link to the local PDF where available. Page highlights and excerpt hints are listed as notes and should be verified against the PDFs.
           </p>
