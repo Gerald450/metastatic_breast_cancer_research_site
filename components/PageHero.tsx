@@ -2,7 +2,7 @@
 
 import { ReactNode } from 'react';
 
-type Theme = 'definition' | 'epidemiology' | 'demographics' | 'clinical' | 'public-health';
+type Theme = 'definition' | 'epidemiology' | 'demographics' | 'clinical' | 'public-health' | 'biology' | 'treatment';
 
 const gradientClasses: Record<Theme, string> = {
   definition:
@@ -15,6 +15,10 @@ const gradientClasses: Record<Theme, string> = {
     'bg-gradient-to-br from-slate-50 via-rose-50/50 to-pink-50/50 dark:from-gray-800/80 dark:via-rose-900/10 dark:to-pink-900/10',
   'public-health':
     'bg-gradient-to-br from-slate-50 via-cyan-50/50 to-blue-50/50 dark:from-gray-800/80 dark:via-cyan-900/10 dark:to-blue-900/10',
+  biology:
+    'bg-gradient-to-br from-slate-50 via-violet-50/50 to-fuchsia-50/50 dark:from-gray-800/80 dark:via-violet-900/10 dark:to-fuchsia-900/10',
+  treatment:
+    'bg-gradient-to-br from-slate-50 via-sky-50/50 to-blue-50/50 dark:from-gray-800/80 dark:via-sky-900/10 dark:to-blue-900/10',
 };
 
 interface PageHeroProps {

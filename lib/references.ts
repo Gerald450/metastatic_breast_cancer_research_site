@@ -42,18 +42,18 @@ export const references: Reference[] = [
     highlightNotes: [
       {
         section: 'Clinical Outcomes',
-        pages: 'TBD',
+        pages: '—',
         excerptHint: 'Improved population-level survival over time',
       },
       {
         section: 'Clinical Outcomes',
-        pages: 'TBD',
+        pages: '—',
         excerptHint:
           'Most metastatic disease arises from recurrence, not de novo stage IV',
       },
       {
         section: 'Clinical Outcomes',
-        pages: 'TBD',
+        pages: '—',
         excerptHint:
           'Cancer registries under-capture recurrent metastatic burden',
       },
@@ -69,23 +69,23 @@ export const references: Reference[] = [
     year: '2019',
     journal: 'BMJ Open',
     filename: 'e026414.full.pdf',
-    localUrl: '/pdfs/Lord_et_al.pdf',
+    localUrl: '/pdfs/Lord_et_ al.pdf',
     doi: '10.1136/bmjopen-2018-026414',
     usedFor: ['epidemiology', 'clinical-outcomes'],
     highlightNotes: [
       {
         section: 'Epidemiology',
-        pages: 'TBD',
+        pages: '—',
         excerptHint: 'Population-based survival trends',
       },
       {
         section: 'Clinical Outcomes',
-        pages: 'TBD',
+        pages: '—',
         excerptHint: 'Heterogeneity in metastatic outcomes',
       },
       {
         section: 'Epidemiology',
-        pages: 'TBD',
+        pages: '—',
         excerptHint: 'Registry limitations',
       },
     ],
@@ -100,18 +100,18 @@ export const references: Reference[] = [
     year: '2022',
     journal: 'The Lancet Regional Health',
     filename: '809.pdf',
-    localUrl: '/pdfs/Jing_Lu_et_al.pdf',
+    localUrl: '/pdfs/Jing _lu _et_al.pdf',
     doi: null,
     usedFor: ['epidemiology', 'public-health'],
     highlightNotes: [
       {
         section: 'Epidemiology',
-        pages: 'TBD',
+        pages: '—',
         excerptHint: 'Global population burden',
       },
       {
         section: 'Public Health',
-        pages: 'TBD',
+        pages: '—',
         excerptHint: 'Incidence and mortality projections',
       },
     ],
@@ -132,12 +132,12 @@ export const references: Reference[] = [
     highlightNotes: [
       {
         section: 'Epidemiology',
-        pages: 'TBD',
+        pages: '—',
         excerptHint: 'Metastatic cancer survivorship growth',
       },
       {
         section: 'Clinical Outcomes',
-        pages: 'TBD',
+        pages: '—',
         excerptHint: 'Reframing metastatic cancer as a chronic condition',
       },
     ],
@@ -158,12 +158,12 @@ export const references: Reference[] = [
     highlightNotes: [
       {
         section: 'Demographics',
-        pages: 'TBD',
+        pages: '—',
         excerptHint: 'Racial and age-based disparities',
       },
       {
         section: 'Demographics',
-        pages: 'TBD',
+        pages: '—',
         excerptHint:
           'Higher metastatic burden among non-Hispanic Black women',
       },
@@ -185,12 +185,12 @@ export const references: Reference[] = [
     highlightNotes: [
       {
         section: 'Clinical Outcomes',
-        pages: 'TBD',
+        pages: '—',
         excerptHint: 'Site-specific metastatic prognosis',
       },
       {
         section: 'Clinical Outcomes',
-        pages: 'TBD',
+        pages: '—',
         excerptHint: 'Brain, liver, lung, bone outcome differences',
       },
     ],
@@ -211,12 +211,12 @@ export const references: Reference[] = [
     highlightNotes: [
       {
         section: 'Clinical Outcomes',
-        pages: 'TBD',
+        pages: '—',
         excerptHint: 'Lung metastasis survival variability',
       },
       {
         section: 'Clinical Outcomes',
-        pages: 'TBD',
+        pages: '—',
         excerptHint: 'Subtype-specific outcomes',
       },
     ],
@@ -237,12 +237,12 @@ export const references: Reference[] = [
     highlightNotes: [
       {
         section: 'Epidemiology',
-        pages: 'TBD',
+        pages: '—',
         excerptHint: 'Male breast cancer epidemiology',
       },
       {
         section: 'Demographics',
-        pages: 'TBD',
+        pages: '—',
         excerptHint: 'Delayed diagnosis and poorer outcomes',
       },
     ],
@@ -257,18 +257,18 @@ export const references: Reference[] = [
     year: '2008',
     journal: 'Breast Cancer Research',
     filename: 'bcr1983.pdf',
-    localUrl: '/pdfs/Robinson_et_al.pdf',
+    localUrl: '/pdfs/Thompson_et_al.pdf',
     doi: '10.1186/bcr1983',
     usedFor: ['definition'],
     highlightNotes: [
       {
         section: 'Definition',
-        pages: 'TBD',
+        pages: '—',
         excerptHint: 'Research gaps',
       },
       {
         section: 'Definition',
-        pages: 'TBD',
+        pages: '—',
         excerptHint: 'Metastatic progression mechanisms',
       },
     ],
@@ -289,12 +289,12 @@ export const references: Reference[] = [
     highlightNotes: [
       {
         section: 'Public Health',
-        pages: 'TBD',
+        pages: '—',
         excerptHint: 'Screening and public health prevention',
       },
       {
         section: 'Public Health',
-        pages: 'TBD',
+        pages: '—',
         excerptHint: 'Population-level policy implications',
       },
     ],
@@ -315,12 +315,12 @@ export const references: Reference[] = [
     highlightNotes: [
       {
         section: 'Epidemiology',
-        pages: 'TBD',
+        pages: '—',
         excerptHint: 'Prevalence projections',
       },
       {
         section: 'Public Health',
-        pages: 'TBD',
+        pages: '—',
         excerptHint: 'Survivorship burden',
       },
     ],
@@ -341,12 +341,12 @@ export const references: Reference[] = [
     highlightNotes: [
       {
         section: 'Definition',
-        pages: 'TBD',
+        pages: '—',
         excerptHint: 'Metastatic progression',
       },
       {
         section: 'Clinical Outcomes',
-        pages: 'TBD',
+        pages: '—',
         excerptHint: 'Dormancy and reactivation',
       },
     ],
@@ -367,12 +367,12 @@ export const references: Reference[] = [
     highlightNotes: [
       {
         section: 'Demographics',
-        pages: 'TBD',
+        pages: '—',
         excerptHint: 'Socioeconomic disparities',
       },
       {
         section: 'Clinical Outcomes',
-        pages: 'TBD',
+        pages: '—',
         excerptHint: 'Insurance and survival differences',
       },
     ],

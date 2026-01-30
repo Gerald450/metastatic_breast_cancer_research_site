@@ -14,7 +14,7 @@ export default function TableFallback({
   if (!data || data.length === 0) {
     return (
       <div className="flex h-64 items-center justify-center text-sm text-gray-500 dark:text-gray-400">
-        No verified values available yet.
+        No data available for this figure yet.
       </div>
     );
   }

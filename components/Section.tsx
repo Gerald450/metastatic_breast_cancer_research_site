@@ -1,6 +1,7 @@
 import { ReactNode } from 'react';
 
 interface SectionProps {
+  id?: string;
   title: string;
   subtitle?: string;
   children: ReactNode;
@@ -9,6 +10,7 @@ interface SectionProps {
 }
 
 export default function Section({
+  id,
   title,
   subtitle,
   children,
@@ -16,7 +18,7 @@ export default function Section({
   className = '',
 }: SectionProps) {
   return (
-    <section className={`py-12 ${className}`}>
+    <section id={id} className={`py-12 ${className}`}>
       <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
         <div className="mb-8 flex flex-col gap-2 sm:flex-row sm:items-start sm:justify-between">
           <div className="flex-1">

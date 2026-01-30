@@ -107,6 +107,10 @@ export default function SurvivorshipBurdenFigure() {
 
   const status: FigureStatus = hasReviewFlag ? 'Needs Review' : 'Verified';
   const unit = (data[0]?.unit && typeof data[0].unit === 'string') ? data[0].unit : 'Value';
+  const hasData = chartData.length > 0;
+  const caption = hasData
+    ? 'Data extracted from uploaded PDFs; verify page ranges.'
+    : 'No data available for this figure yet.';
 
   if (loading) {
     return (
@@ -130,22 +134,28 @@ export default function SurvivorshipBurdenFigure() {
       description="Prevalence estimates and survivorship burden metrics over time"
       sources={sources}
       status={status}
-      caption="Data extracted from uploaded PDFs; verify page ranges"
+      caption={caption}
     >
-      {useLineChart ? (
-        <LineTimeSeriesChart
-          data={chartData}
-          xKey="yearOrRange"
-          yKey="value"
-          yLabel={unit}
-        />
+      {hasData ? (
+        useLineChart ? (
+          <LineTimeSeriesChart
+            data={chartData}
+            xKey="yearOrRange"
+            yKey="value"
+            yLabel={unit}
+          />
+        ) : (
+          <BarCategoryChart
+            data={chartData}
+            xKey="category"
+            yKey="value"
+            yLabel={unit}
+          />
+        )
       ) : (
-        <BarCategoryChart
-          data={chartData}
-          xKey="category"
-          yKey="value"
-          yLabel={unit}
-        />
+        <div className="flex h-64 items-center justify-center text-sm text-gray-500 dark:text-gray-400">
+          No data available for this figure yet.
+        </div>
       )}
     </Figure>
   );

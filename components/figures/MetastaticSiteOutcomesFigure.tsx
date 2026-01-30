@@ -91,6 +91,10 @@ export default function MetastaticSiteOutcomesFigure() {
 
   const status: FigureStatus = hasReviewFlag ? 'Needs Review' : 'Verified';
   const unit = (filteredData[0]?.unit && typeof filteredData[0].unit === 'string') ? filteredData[0].unit : 'Value';
+  const hasData = chartData.length > 0;
+  const caption = hasData
+    ? 'Data extracted from uploaded PDFs; verify page ranges.'
+    : 'No data available for this figure yet.';
 
   if (loading) {
     return (
@@ -114,9 +118,9 @@ export default function MetastaticSiteOutcomesFigure() {
       description="Outcomes by metastatic site location"
       sources={sources}
       status={status}
-      caption="Data extracted from uploaded PDFs; verify page ranges"
+      caption={caption}
     >
-      {metricNames.length > 1 && (
+      {hasData && metricNames.length > 1 && (
         <div className="mb-4">
           <label htmlFor="metric-select" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
             Select Metric:
@@ -135,12 +139,18 @@ export default function MetastaticSiteOutcomesFigure() {
           </select>
         </div>
       )}
-      <BarCategoryChart
-        data={chartData}
-        xKey="site"
-        yKey="value"
-        yLabel={unit}
-      />
+      {hasData ? (
+        <BarCategoryChart
+          data={chartData}
+          xKey="site"
+          yKey="value"
+          yLabel={unit}
+        />
+      ) : (
+        <div className="flex h-64 items-center justify-center text-sm text-gray-500 dark:text-gray-400">
+          No data available for this figure yet.
+        </div>
+      )}
     </Figure>
   );
 }

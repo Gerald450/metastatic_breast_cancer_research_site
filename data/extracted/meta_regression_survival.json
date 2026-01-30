@@ -1,0 +1,106 @@
+{
+  "recurrentDisease": {
+    "title": "Recurrent disease",
+    "studies": [
+      { "year": 1977, "medianSurvival": 15, "yearError": 2, "recurrenceType": "locoregional", "colorIndex": 0 },
+      { "year": 1980, "medianSurvival": 25, "yearError": 2, "recurrenceType": "locoregional", "colorIndex": 1 },
+      { "year": 1985, "medianSurvival": 20, "yearError": 2, "recurrenceType": "locoregional", "colorIndex": 2 },
+      { "year": 1988, "medianSurvival": 22, "yearError": 2, "recurrenceType": "distant", "colorIndex": 3 },
+      { "year": 1995, "medianSurvival": 27, "yearError": 2, "recurrenceType": "locoregional", "colorIndex": 4 },
+      { "year": 1998, "medianSurvival": 33, "yearError": 2, "recurrenceType": "locoregional", "colorIndex": 5 },
+      { "year": 2000, "medianSurvival": 60, "yearError": 2, "recurrenceType": "locoregional", "colorIndex": 4 },
+      { "year": 2003, "medianSurvival": 50, "yearError": 2, "recurrenceType": "distant", "colorIndex": 6 },
+      { "year": 2005, "medianSurvival": 38, "yearError": 2, "recurrenceType": "distant", "colorIndex": 7 },
+      { "year": 2010, "medianSurvival": 55, "yearError": 2.5, "recurrenceType": "distant", "colorIndex": 6 }
+    ],
+    "regression": [
+      { "year": 1975, "medianSurvival": 20 }, { "year": 1980, "medianSurvival": 19.5 }, { "year": 1985, "medianSurvival": 18.5 },
+      { "year": 1990, "medianSurvival": 19 }, { "year": 1995, "medianSurvival": 24 }, { "year": 2000, "medianSurvival": 32 },
+      { "year": 2005, "medianSurvival": 40 }, { "year": 2010, "medianSurvival": 45 }, { "year": 2015, "medianSurvival": 52 }
+    ],
+    "confidenceInterval": [
+      { "year": 1975, "lower": 14, "upper": 26 }, { "year": 1980, "lower": 14, "upper": 25 }, { "year": 1985, "lower": 14, "upper": 23 },
+      { "year": 1990, "lower": 15, "upper": 23 }, { "year": 1995, "lower": 19, "upper": 29 }, { "year": 2000, "lower": 26, "upper": 38 },
+      { "year": 2005, "lower": 33, "upper": 47 }, { "year": 2010, "lower": 38, "upper": 52 }, { "year": 2015, "lower": 42, "upper": 62 }
+    ]
+  },
+  "recurrentERPlus": {
+    "title": "Recurrent ER+ disease",
+    "studies": [
+      { "year": 1978, "medianSurvival": 55, "yearError": 2, "recurrenceType": "locoregional", "colorIndex": 1 },
+      { "year": 1978, "medianSurvival": 47, "yearError": 2, "recurrenceType": "locoregional", "colorIndex": 2 },
+      { "year": 1980, "medianSurvival": 18, "yearError": 2, "recurrenceType": "distant", "colorIndex": 6 },
+      { "year": 1985, "medianSurvival": 50, "yearError": 2, "recurrenceType": "locoregional", "colorIndex": 2 },
+      { "year": 1992, "medianSurvival": 20, "yearError": 2, "recurrenceType": "distant", "colorIndex": 3 },
+      { "year": 1998, "medianSurvival": 28, "yearError": 2, "recurrenceType": "locoregional", "colorIndex": 2 },
+      { "year": 1999, "medianSurvival": 40, "yearError": 2, "recurrenceType": "locoregional", "colorIndex": 1 },
+      { "year": 2000, "medianSurvival": 47, "yearError": 2, "recurrenceType": "locoregional", "colorIndex": 6 },
+      { "year": 2003, "medianSurvival": 30, "yearError": 2, "recurrenceType": "distant", "colorIndex": 7 },
+      { "year": 2005, "medianSurvival": 55, "yearError": 2, "recurrenceType": "locoregional", "colorIndex": 1 },
+      { "year": 2008, "medianSurvival": 52, "yearError": 2, "recurrenceType": "locoregional", "colorIndex": 5 },
+      { "year": 2010, "medianSurvival": 58, "yearError": 2.5, "recurrenceType": "locoregional", "colorIndex": 3 }
+    ],
+    "regression": [
+      { "year": 1975, "medianSurvival": 30 }, { "year": 1980, "medianSurvival": 30 }, { "year": 1985, "medianSurvival": 30 },
+      { "year": 1990, "medianSurvival": 30 }, { "year": 1995, "medianSurvival": 31 }, { "year": 1998, "medianSurvival": 34 },
+      { "year": 2000, "medianSurvival": 42 }, { "year": 2005, "medianSurvival": 52 }, { "year": 2010, "medianSurvival": 60 }, { "year": 2015, "medianSurvival": 65 }
+    ],
+    "confidenceInterval": [
+      { "year": 1975, "lower": 18, "upper": 42 }, { "year": 1980, "lower": 20, "upper": 40 }, { "year": 1985, "lower": 22, "upper": 38 },
+      { "year": 1990, "lower": 23, "upper": 37 }, { "year": 1995, "lower": 24, "upper": 38 }, { "year": 1998, "lower": 28, "upper": 40 },
+      { "year": 2000, "lower": 34, "upper": 50 }, { "year": 2005, "lower": 44, "upper": 60 }, { "year": 2010, "lower": 50, "upper": 70 }, { "year": 2015, "lower": 52, "upper": 78 }
+    ]
+  },
+  "recurrentERMinus": {
+    "title": "Recurrent ER- disease",
+    "studies": [
+      { "year": 1978, "medianSurvival": 15, "yearError": 2, "recurrenceType": "locoregional", "colorIndex": 5 },
+      { "year": 1978, "medianSurvival": 18, "yearError": 2, "recurrenceType": "locoregional", "colorIndex": 6 },
+      { "year": 1985, "medianSurvival": 12, "yearError": 2, "recurrenceType": "locoregional", "colorIndex": 2 },
+      { "year": 1988, "medianSurvival": 18, "yearError": 2, "recurrenceType": "distant", "colorIndex": 3 },
+      { "year": 1995, "medianSurvival": 17, "yearError": 2, "recurrenceType": "locoregional", "colorIndex": 4 },
+      { "year": 1998, "medianSurvival": 30, "yearError": 2, "recurrenceType": "locoregional", "colorIndex": 2 },
+      { "year": 2000, "medianSurvival": 40, "yearError": 2, "recurrenceType": "distant", "colorIndex": 6 },
+      { "year": 2003, "medianSurvival": 30, "yearError": 2, "recurrenceType": "locoregional", "colorIndex": 7 },
+      { "year": 2005, "medianSurvival": 45, "yearError": 2, "recurrenceType": "distant", "colorIndex": 1 },
+      { "year": 2010, "medianSurvival": 50, "yearError": 2.5, "recurrenceType": "distant", "colorIndex": 6 }
+    ],
+    "regression": [
+      { "year": 1975, "medianSurvival": 20 }, { "year": 1980, "medianSurvival": 17 }, { "year": 1985, "medianSurvival": 15 },
+      { "year": 1990, "medianSurvival": 16 }, { "year": 1995, "medianSurvival": 20 }, { "year": 2000, "medianSurvival": 28 },
+      { "year": 2005, "medianSurvival": 38 }, { "year": 2010, "medianSurvival": 45 }, { "year": 2015, "medianSurvival": 52 }
+    ],
+    "confidenceInterval": [
+      { "year": 1975, "lower": 12, "upper": 28 }, { "year": 1980, "lower": 11, "upper": 23 }, { "year": 1985, "lower": 10, "upper": 20 },
+      { "year": 1990, "lower": 11, "upper": 21 }, { "year": 1995, "lower": 15, "upper": 25 }, { "year": 2000, "lower": 22, "upper": 34 },
+      { "year": 2005, "lower": 31, "upper": 45 }, { "year": 2010, "lower": 38, "upper": 52 }, { "year": 2015, "lower": 42, "upper": 62 }
+    ]
+  },
+  "deNovoStageIV": {
+    "title": "De novo stage IV disease",
+    "studies": [
+      { "year": 1978, "medianSurvival": 25, "yearError": 2, "recurrenceType": "locoregional", "colorIndex": 5 },
+      { "year": 1980, "medianSurvival": 17, "yearError": 2, "recurrenceType": "distant", "colorIndex": 6 },
+      { "year": 1985, "medianSurvival": 18, "yearError": 2, "recurrenceType": "locoregional", "colorIndex": 2 },
+      { "year": 1995, "medianSurvival": 30, "yearError": 2, "recurrenceType": "locoregional", "colorIndex": 1 },
+      { "year": 1995, "medianSurvival": 18, "yearError": 2, "recurrenceType": "distant", "colorIndex": 6 },
+      { "year": 1998, "medianSurvival": 25, "yearError": 2, "recurrenceType": "distant", "colorIndex": 3 },
+      { "year": 1998, "medianSurvival": 28, "yearError": 2, "recurrenceType": "locoregional", "colorIndex": 2 },
+      { "year": 2000, "medianSurvival": 35, "yearError": 2, "recurrenceType": "locoregional", "colorIndex": 1 },
+      { "year": 2003, "medianSurvival": 22, "yearError": 2, "recurrenceType": "locoregional", "colorIndex": 7 },
+      { "year": 2005, "medianSurvival": 30, "yearError": 2, "recurrenceType": "distant", "colorIndex": 4 },
+      { "year": 2008, "medianSurvival": 28, "yearError": 2, "recurrenceType": "locoregional", "colorIndex": 5 },
+      { "year": 2008, "medianSurvival": 38, "yearError": 2, "recurrenceType": "distant", "colorIndex": 3 }
+    ],
+    "regression": [
+      { "year": 1975, "medianSurvival": 18 }, { "year": 1980, "medianSurvival": 18.5 }, { "year": 1985, "medianSurvival": 19 },
+      { "year": 1990, "medianSurvival": 19 }, { "year": 1995, "medianSurvival": 21 }, { "year": 1998, "medianSurvival": 24 },
+      { "year": 2000, "medianSurvival": 27 }, { "year": 2005, "medianSurvival": 31 }, { "year": 2010, "medianSurvival": 35 }, { "year": 2015, "medianSurvival": 39 }
+    ],
+    "confidenceInterval": [
+      { "year": 1975, "lower": 14, "upper": 22 }, { "year": 1980, "lower": 15, "upper": 22 }, { "year": 1985, "lower": 15, "upper": 23 },
+      { "year": 1990, "lower": 15, "upper": 23 }, { "year": 1995, "lower": 17, "upper": 25 }, { "year": 1998, "lower": 20, "upper": 28 },
+      { "year": 2000, "lower": 22, "upper": 32 }, { "year": 2005, "lower": 26, "upper": 36 }, { "year": 2010, "lower": 29, "upper": 41 }, { "year": 2015, "lower": 32, "upper": 46 }
+    ]
+  }
+}

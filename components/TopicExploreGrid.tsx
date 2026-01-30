@@ -2,7 +2,14 @@
 
 import Link from 'next/link';
 
-const topics = [
+const topics: Array<{
+  href: string;
+  label: string;
+  description: string;
+  icon: React.ReactNode;
+  color: string;
+  planned?: boolean;
+}> = [
   {
     href: '/definition',
     label: 'Definition',
@@ -59,6 +66,30 @@ const topics = [
     color: 'cyan',
   },
   {
+    href: '/biology',
+    label: 'Biology',
+    description: 'Metastatic cascade, tumor evolution, resistance (planned)',
+    icon: (
+      <svg className="h-8 w-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden>
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
+      </svg>
+    ),
+    color: 'violet',
+    planned: true,
+  },
+  {
+    href: '/treatment',
+    label: 'Treatment',
+    description: 'Therapy overview, targeted therapy, sequencing (planned)',
+    icon: (
+      <svg className="h-8 w-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden>
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+      </svg>
+    ),
+    color: 'sky',
+    planned: true,
+  },
+  {
     href: '/references',
     label: 'References',
     description: 'Literature and source citations',
@@ -102,6 +133,11 @@ const colorClasses: Record<string, { bg: string; text: string; border: string }>
     text: 'text-violet-600 dark:text-violet-400',
     border: 'border-violet-200 dark:border-violet-800/50',
   },
+  sky: {
+    bg: 'bg-sky-100 dark:bg-sky-900/30',
+    text: 'text-sky-600 dark:text-sky-400',
+    border: 'border-sky-200 dark:border-sky-800/50',
+  },
 };
 
 export default function TopicExploreGrid() {
@@ -123,6 +159,11 @@ export default function TopicExploreGrid() {
                 {topic.label}
               </h3>
               <p className="mt-1 text-sm text-gray-600 dark:text-gray-400">{topic.description}</p>
+              {topic.planned && (
+                <span className="mt-2 inline-block rounded bg-gray-100 px-2 py-0.5 text-xs font-medium text-gray-600 dark:bg-gray-700 dark:text-gray-400">
+                  Coming soon
+                </span>
+              )}
             </div>
             <svg
               className="h-5 w-5 shrink-0 text-gray-400 transition group-hover:translate-x-1 group-hover:text-gray-600 dark:group-hover:text-gray-300"

@@ -111,7 +111,7 @@ export default function ReferenceList({
                           {ref.filename}
                         </span>
                         <span className="text-xs italic text-gray-500 dark:text-gray-500">
-                          TODO: add local PDF link
+                          PDF not yet available
                         </span>
                       </div>
                     )}
@@ -133,7 +133,7 @@ export default function ReferenceList({
                       {ref.highlightNotes.map((note, idx) => (
                         <div key={idx} className="pl-2">
                           <span className="font-medium">{note.section}</span>
-                          {note.pages && (
+                          {note.pages && note.pages !== '—' && (
                             <span> (pages {note.pages})</span>
                           )}
                           : {note.excerptHint}

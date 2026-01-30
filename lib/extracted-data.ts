@@ -54,6 +54,10 @@ export type MetastaticSiteOutcomesEntry = {
 import { collection, getDocs, query, where, QueryConstraint } from 'firebase/firestore';
 import { db } from './firebase';
 
+// Data source: Firebase is the primary source for figure data. When env vars are missing or
+// collections are empty, fetchCollection returns [] and figures show "No data available".
+// The survival studies *table* uses data/extracted/survival_studies_table.json only (see SurvivalStudiesTable.tsx).
+
 // Collection names
 const COLLECTIONS = {
   SURVIVAL_OVER_TIME: 'survival_over_time',

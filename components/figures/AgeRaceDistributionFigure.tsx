@@ -1,6 +1,6 @@
 'use client';
 
-import { useMemo, useState, useEffect } from 'react';
+import { useMemo, useState, useEffect, useRef } from 'react';
 import Figure, { FigureStatus } from '@/components/Figure';
 import BarCategoryChart from '@/components/charts/BarCategoryChart';
 import { getDemographicsAgeRace, getSourceRefIds, type DemographicsAgeRaceEntry } from '@/lib/extracted-data';
@@ -28,11 +28,18 @@ export default function AgeRaceDistributionFigure() {
   const sources = getSourceRefIds(data);
   const hasReviewFlag = data.some((entry) => entry.hasReviewFlag);
 
-  const [groupBy, setGroupBy] = useState<GroupByOption>(() => {
-    // Default to groupLabel if available, otherwise ageRange
+  const [groupBy, setGroupBy] = useState<GroupByOption>('ageRange');
+  const hasAdaptedDefault = useRef(false);
+
+  // When data loads, prefer groupLabel if present so default adapts to available dimensions (once)
+  useEffect(() => {
+    if (loading || data.length === 0 || hasAdaptedDefault.current) return;
     const hasGroupLabel = data.some((entry) => entry.groupLabel);
-    return hasGroupLabel ? 'groupLabel' : 'ageRange';
-  });
+    if (hasGroupLabel) {
+      setGroupBy('groupLabel');
+      hasAdaptedDefault.current = true;
+    }
+  }, [loading, data]);
 
   // Transform data for chart
   const chartData = useMemo(() => {
@@ -96,15 +103,20 @@ export default function AgeRaceDistributionFigure() {
     );
   }
 
+  const hasData = chartData.length > 0;
+  const caption = hasData
+    ? 'Data extracted from uploaded PDFs; verify page ranges.'
+    : 'No data available for this figure yet.';
+
   return (
     <Figure
       title="Age and Race Distribution"
       description="Demographic breakdowns by age range and race/ethnicity"
       sources={sources}
       status={status}
-      caption="Data extracted from uploaded PDFs; verify page ranges"
+      caption={caption}
     >
-      {(hasGroupLabel || hasAgeRange) && (
+      {hasData && (hasGroupLabel || hasAgeRange) && (
         <div className="mb-4">
           <label htmlFor="groupby-select" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
             Group By:
@@ -120,12 +132,18 @@ export default function AgeRaceDistributionFigure() {
           </select>
         </div>
       )}
+      {hasData ? (
       <BarCategoryChart
         data={chartData}
         xKey="category"
         yKey="value"
         yLabel={unit}
       />
+      ) : (
+        <div className="flex h-64 items-center justify-center text-sm text-gray-500 dark:text-gray-400">
+          No demographic breakdown in this extract.
+        </div>
+      )}
     </Figure>
   );
 }

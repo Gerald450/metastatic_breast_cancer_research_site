@@ -1,14 +1,19 @@
 import Section from '@/components/Section';
 import Placeholder from '@/components/Placeholder';
 import VisualPlaceholder from '@/components/VisualPlaceholder';
+import PageHero from '@/components/PageHero';
+import TreatmentIllustration from '@/components/illustrations/TreatmentIllustration';
 
 export default function TreatmentPage() {
   return (
     <div className="py-12">
       <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
-        <h1 className="mb-8 text-4xl font-bold leading-tight text-gray-900 dark:text-white sm:text-5xl">
-          Treatment
-        </h1>
+        <PageHero
+          title="Treatment"
+          description="Therapy overview, targeted therapy, treatment sequencing, and modalities (content in development)."
+          theme="treatment"
+          illustration={<TreatmentIllustration />}
+        />
       </div>
 
       <Section title="Therapy Overview">

@@ -34,7 +34,7 @@ export default function GeographicEvidenceVisual() {
           </svg>
         </div>
         <p className="mt-4 text-center text-sm italic text-gray-500 dark:text-gray-400">
-          Evidence coverage varies by region; site content emphasizes US, UK, and global registry data where available.
+          Evidence coverage by region; specific data is from US, UK, and global registries where noted elsewhere.
         </p>
       </div>
     </figure>

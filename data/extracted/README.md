@@ -138,6 +138,12 @@ The following PDFs are processed by the extraction script:
 4. Update `value`, `unit`, or other fields as needed
 5. Set `needsManualReview: false` once verified
 
+## Which data feeds which UI
+
+- **Survival studies table** (Studies of change in survival over time): Uses **`survival_studies_table.json`** only. The table component reads this file directly; it is the single source for “Table 1” study-level rows (e.g. Giordano et al., Vogel et al.).
+- **Survival trends chart** (time-series): Uses **Firebase** collection `survival_over_time` (or fallback when configured). The time-series chart shows metric/time/value points, not the study-level table.
+- Other figures (prevalence/burden, demographics, metastatic site outcomes) use Firebase collections; see `lib/extracted-data.ts`.
+
 ## Notes
 
 - Page numbers are estimated based on text distribution and may not be 100% accurate

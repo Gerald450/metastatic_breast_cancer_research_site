@@ -2,7 +2,6 @@ import Section from '@/components/Section';
 import Placeholder from '@/components/Placeholder';
 import ReferenceList from '@/components/ReferenceList';
 import { references } from '@/lib/references';
-import SurvivalTrendsFigure from '@/components/figures/SurvivalTrendsFigure';
 import SurvivorshipBurdenFigure from '@/components/figures/SurvivorshipBurdenFigure';
 import PageHero from '@/components/PageHero';
 import EpidemiologyIllustration from '@/components/illustrations/EpidemiologyIllustration';
@@ -67,7 +66,13 @@ export default function EpidemiologyPage() {
               'Projected future trends',
             ]}
           />
-          <SurvivalTrendsFigure />
+          <p className="text-sm text-gray-600 dark:text-gray-400">
+            For survival trends over time from selected studies, see{' '}
+            <a href="/clinical-outcomes#survival" className="font-medium text-emerald-600 dark:text-emerald-400 underline hover:no-underline">
+              Survival outcomes
+            </a>{' '}
+            on the Clinical Outcomes page.
+          </p>
         </div>
       </Section>
 

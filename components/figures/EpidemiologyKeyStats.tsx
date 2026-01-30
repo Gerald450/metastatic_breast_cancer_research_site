@@ -32,7 +32,9 @@ const stats = [
 
 export default function EpidemiologyKeyStats() {
   return (
-    <div className="my-6 grid gap-4 sm:grid-cols-3">
+    <div className="my-6">
+      <p className="mb-3 text-sm font-medium text-gray-700 dark:text-gray-300">Topics covered</p>
+      <div className="grid gap-4 sm:grid-cols-3">
       {stats.map((s) => (
         <div
           key={s.value}
@@ -47,6 +49,7 @@ export default function EpidemiologyKeyStats() {
           </div>
         </div>
       ))}
+      </div>
     </div>
   );
 }

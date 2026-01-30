@@ -1,14 +1,19 @@
 import Section from '@/components/Section';
 import Placeholder from '@/components/Placeholder';
 import VisualPlaceholder from '@/components/VisualPlaceholder';
+import PageHero from '@/components/PageHero';
+import BiologyIllustration from '@/components/illustrations/BiologyIllustration';
 
 export default function BiologyPage() {
   return (
     <div className="py-12">
       <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
-        <h1 className="mb-8 text-4xl font-bold leading-tight text-gray-900 dark:text-white sm:text-5xl">
-          Biology
-        </h1>
+        <PageHero
+          title="Biology"
+          description="Metastatic cascade, tumor evolution, heterogeneity, and resistance mechanisms (content in development)."
+          theme="biology"
+          illustration={<BiologyIllustration />}
+        />
       </div>
 
       <Section title="Metastatic Cascade">

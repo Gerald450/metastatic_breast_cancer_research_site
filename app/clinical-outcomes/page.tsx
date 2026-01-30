@@ -7,9 +7,11 @@ import { references } from '@/lib/references';
 import MetastaticSiteOutcomesFigure from '@/components/figures/MetastaticSiteOutcomesFigure';
 import SurvivalTrendsFigure from '@/components/figures/SurvivalTrendsFigure';
 import SurvivalStudiesTable from '@/components/figures/SurvivalStudiesTable';
+import MetaRegressionSurvivalFigure from '@/components/figures/MetaRegressionSurvivalFigure';
 import PageHero from '@/components/PageHero';
 import ClinicalIllustration from '@/components/illustrations/ClinicalIllustration';
 import ProgressionPathwayDiagram from '@/components/figures/ProgressionPathwayDiagram';
+import metaRegressionSurvivalData from '@/data/extracted/meta_regression_survival.json';
 
 export default function ClinicalOutcomesPage() {
   return (
@@ -24,6 +26,7 @@ export default function ClinicalOutcomesPage() {
       </div>
 
       <Section
+        id="survival"
         title="Survival Outcomes"
         className="bg-gray-50/70 dark:bg-gray-800/40"
       >
@@ -36,6 +39,27 @@ export default function ClinicalOutcomesPage() {
           </CitationCallout>
           <SurvivalTrendsFigure />
           <SurvivalStudiesTable />
+
+          <div id="meta-regression-survival" className="space-y-10">
+            <h2 className="text-2xl font-semibold leading-tight text-gray-900 dark:text-white sm:text-3xl">
+              Improvement in median survival time after metastasis over time
+            </h2>
+            <div className="grid gap-10 sm:grid-cols-1 lg:grid-cols-2">
+              <MetaRegressionSurvivalFigure
+                plotData={metaRegressionSurvivalData.recurrentDisease as Parameters<typeof MetaRegressionSurvivalFigure>[0]['plotData']}
+              />
+              <MetaRegressionSurvivalFigure
+                plotData={metaRegressionSurvivalData.recurrentERPlus as Parameters<typeof MetaRegressionSurvivalFigure>[0]['plotData']}
+              />
+              <MetaRegressionSurvivalFigure
+                plotData={metaRegressionSurvivalData.recurrentERMinus as Parameters<typeof MetaRegressionSurvivalFigure>[0]['plotData']}
+              />
+              <MetaRegressionSurvivalFigure
+                plotData={metaRegressionSurvivalData.deNovoStageIV as Parameters<typeof MetaRegressionSurvivalFigure>[0]['plotData']}
+              />
+            </div>
+          </div>
+
           <MetastaticSiteOutcomesFigure />
         </div>
       </Section>
@@ -72,8 +96,10 @@ export default function ClinicalOutcomesPage() {
 
       <Section title="Treatment Response Outcomes">
         <div className="space-y-6">
-          <CitationCallout citation="TODO: Add citation">
-            {/* TODO: Add important clinical outcome information */}
+          <CitationCallout citation="Bonotto et al.; Xiao et al.; refs in Clinical Outcomes">
+            <p className="text-gray-700 dark:text-gray-300">
+              Treatment response and duration vary by metastatic site and subtype. See site-specific outcomes (e.g. bone, liver, lung, brain) in the figures above and in the references listed for this section.
+            </p>
           </CitationCallout>
           <Placeholder
             label="Response rates and outcomes"
