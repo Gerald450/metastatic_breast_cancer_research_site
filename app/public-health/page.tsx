@@ -23,7 +23,7 @@ export default function PublicHealthPage() {
 
       <Section
         title="Public Health Impact"
-        className="bg-gray-50/70 dark:bg-gray-800/40"
+        className="section-alt"
       >
         <div className="space-y-6">
           <Placeholder
@@ -35,11 +35,6 @@ export default function PublicHealthPage() {
             ]}
           />
           <SurvivorshipBurdenFigure />
-          <VisualPlaceholder
-            title="Public health burden visualization"
-            type="chart"
-            description="Comprehensive view of disease burden and healthcare utilization"
-          />
         </div>
       </Section>
 
@@ -58,7 +53,7 @@ export default function PublicHealthPage() {
 
       <Section
         title="Prevention Strategies"
-        className="bg-gray-50/70 dark:bg-gray-800/40"
+        className="section-alt"
       >
         <div className="space-y-6">
           <Placeholder

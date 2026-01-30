@@ -39,11 +39,12 @@ export default function SiteHeader() {
       <Link
         href={item.href}
         className={`
-          relative block px-3 py-2 text-sm font-medium transition-colors
+          relative block rounded-md px-3 py-2 text-sm font-medium transition-all duration-200
+          md:px-3 md:py-1.5
           ${
             active
-              ? 'text-gray-900 dark:text-white'
-              : 'text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white'
+              ? 'text-gray-900 dark:text-white md:bg-white md:shadow-sm dark:md:bg-gray-700'
+              : 'text-gray-600 hover:text-gray-900 hover:bg-gray-200/60 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-700/60 md:hover:bg-gray-200/80 dark:md:hover:bg-gray-700/50'
           }
         `}
         onClick={() => setMobileMenuOpen(false)}
@@ -56,28 +57,25 @@ export default function SiteHeader() {
             </span>
           )}
         </span>
-        {active && (
-          <span className="absolute bottom-0 left-0 right-0 h-0.5 bg-gray-900 dark:bg-white" />
-        )}
       </Link>
     );
   };
 
   return (
-    <header className="sticky top-0 z-50 border-b border-gray-200 bg-white shadow-sm dark:border-gray-800 dark:bg-gray-900">
+    <header className="sticky top-0 z-50 border-b border-gray-200/80 bg-white/80 dark:border-gray-800/80 dark:bg-gray-900/80 backdrop-blur-md supports-[backdrop-filter]:bg-white/90 dark:supports-[backdrop-filter]:bg-gray-900/90 shadow-sm">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="flex h-16 items-center justify-between">
+        <div className="flex h-14 items-center justify-between md:h-16">
           <div className="flex items-center">
             <Link
               href="/"
-              className="text-xl font-semibold text-gray-900 dark:text-white hover:text-gray-700 dark:hover:text-gray-300 transition-colors"
+              className="text-lg font-semibold text-gray-900 dark:text-white hover:text-gray-600 dark:hover:text-gray-300 transition-colors duration-200 md:text-xl"
             >
-              MBC Research Site
+              MBC Research
             </Link>
           </div>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex md:space-x-1">
+          <nav className="hidden md:flex md:items-center md:gap-0.5 md:rounded-lg md:bg-gray-100/80 dark:md:bg-gray-800/50 md:p-1">
             {navItems.map((item) => (
               <NavLink key={item.href} item={item} />
             ))}
@@ -85,7 +83,7 @@ export default function SiteHeader() {
 
           {/* Mobile menu button */}
           <button
-            className="md:hidden rounded-md p-2 text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-800 transition-colors"
+            className="md:hidden rounded-lg p-2.5 text-gray-600 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-400 dark:hover:bg-gray-800 dark:hover:text-white transition-colors duration-200"
             aria-label="Toggle menu"
             aria-expanded={mobileMenuOpen}
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
@@ -120,8 +118,8 @@ export default function SiteHeader() {
 
         {/* Mobile Navigation */}
         {mobileMenuOpen && (
-          <nav className="border-t border-gray-200 py-4 md:hidden dark:border-gray-800">
-            <div className="space-y-1">
+          <nav className="border-t border-gray-200 py-3 md:hidden dark:border-gray-800">
+            <div className="space-y-0.5">
               {navItems.map((item) => (
                 <NavLink key={item.href} item={item} />
               ))}

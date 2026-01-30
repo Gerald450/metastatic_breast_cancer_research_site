@@ -53,7 +53,7 @@ export default function KeyStatsCards() {
       {stats.map((stat, i) => (
         <div
           key={i}
-          className="group flex flex-col rounded-xl border border-gray-200 bg-white p-5 shadow-sm transition hover:border-rose-200 hover:shadow-md dark:border-gray-700/50 dark:bg-gray-800/50 dark:hover:border-rose-800/50"
+          className="card card-hover group flex flex-col rounded-xl border border-gray-200 bg-white p-5 dark:border-gray-700/50 dark:bg-gray-800/50"
         >
           <div className="mb-3 flex h-10 w-10 items-center justify-center rounded-lg bg-rose-100 text-rose-600 dark:bg-rose-900/30 dark:text-rose-400">
             {stat.icon}

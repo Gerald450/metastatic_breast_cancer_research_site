@@ -10,7 +10,7 @@ export default function Home() {
     <div className="py-12">
       <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
         {/* Project Status Banner */}
-        <div className="mb-8 rounded-lg border border-amber-200 bg-amber-50/50 px-4 py-3 shadow-sm dark:border-amber-800/50 dark:bg-amber-900/10">
+        <div className="mb-8 rounded-xl border border-amber-200/80 bg-amber-50/80 px-4 py-3 shadow-sm dark:border-amber-800/50 dark:bg-amber-900/20">
           <p className="text-sm font-medium text-amber-800 dark:text-amber-300">
             Draft — content placeholders included
           </p>
@@ -18,7 +18,7 @@ export default function Home() {
 
         <HomeHero />
 
-        <div className="mb-10 rounded-lg border border-gray-200 bg-gray-50/80 p-5 dark:border-gray-700 dark:bg-gray-800/50">
+        <div className="card card-hover mb-10 rounded-xl border border-gray-200 bg-gray-50/90 p-5 dark:border-gray-700 dark:bg-gray-800/60">
           <h2 className="mb-3 text-lg font-semibold text-gray-900 dark:text-white">
             Summary for researchers
           </h2>
@@ -31,7 +31,7 @@ export default function Home() {
       <Section
         title="Key metrics"
         subtitle="Notable findings from the literature"
-        className="bg-gray-50/70 dark:bg-gray-800/40"
+        className="section-alt"
       >
         <KeyStatsCards />
       </Section>
@@ -46,7 +46,7 @@ export default function Home() {
       <Section
         title="Explore by topic"
         subtitle="Browse evidence by category"
-        className="bg-gray-50/70 dark:bg-gray-800/40"
+        className="section-alt"
       >
         <TopicExploreGrid />
       </Section>

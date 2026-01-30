@@ -1,8 +1,26 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
+  --background: #fafafa;
   --foreground: #171717;
+  --card: #ffffff;
+  --card-border: #e5e7eb;
+  --radius: 12px;
+  --radius-lg: 16px;
+  --shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+  --shadow-hover: 0 4px 12px rgba(0, 0, 0, 0.08);
+  --transition: 180ms ease;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+    --card: rgba(17, 24, 39, 0.6);
+    --card-border: rgba(55, 65, 81, 0.6);
+    --shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+    --shadow-hover: 0 4px 12px rgba(0, 0, 0, 0.25);
+  }
 }
 
 @theme inline {
@@ -12,15 +30,50 @@
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+* {
+  scroll-margin-top: 5rem;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: var(--font-geist-sans), sans-serif;
+  font-family: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+}
+
+/* Interactive focus for accessibility */
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 2px;
+}
+
+/* Card-style surfaces */
+.card {
+  border-radius: var(--radius);
+  border: 1px solid var(--card-border);
+  background: var(--card);
+  box-shadow: var(--shadow);
+  transition: box-shadow var(--transition), border-color var(--transition);
+}
+
+.card-hover:hover {
+  box-shadow: var(--shadow-hover);
+  border-color: rgba(0, 0, 0, 0.1);
+}
+
+@media (prefers-color-scheme: dark) {
+  .card-hover:hover {
+    border-color: rgba(255, 255, 255, 0.08);
+  }
+}
+
+/* Section alternating background */
+.section-alt {
+  background: linear-gradient(180deg, rgba(249, 250, 251, 0.8) 0%, transparent 100%);
+}
+
+@media (prefers-color-scheme: dark) {
+  .section-alt {
+    background: linear-gradient(180deg, rgba(31, 41, 55, 0.4) 0%, transparent 100%);
+  }
 }

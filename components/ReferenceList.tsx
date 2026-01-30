@@ -33,9 +33,9 @@ export default function ReferenceList({
         <div className="flex flex-wrap gap-2">
           <button
             onClick={() => setSelectedFilter('all')}
-            className={`rounded-md px-3 py-1.5 text-sm font-medium transition-colors ${
+            className={`rounded-lg px-3 py-1.5 text-sm font-medium transition-all duration-200 ${
               (!selectedFilter || selectedFilter === 'all')
-                ? 'bg-gray-900 text-white dark:bg-gray-100 dark:text-gray-900'
+                ? 'bg-gray-900 text-white shadow-sm dark:bg-gray-100 dark:text-gray-900'
                 : 'bg-gray-100 text-gray-700 hover:bg-gray-200 dark:bg-gray-800 dark:text-gray-300 dark:hover:bg-gray-700'
             }`}
           >
@@ -45,9 +45,9 @@ export default function ReferenceList({
             <button
               key={tag}
               onClick={() => setSelectedFilter(tag as SiteSection)}
-              className={`rounded-md px-3 py-1.5 text-sm font-medium transition-colors ${
+              className={`rounded-lg px-3 py-1.5 text-sm font-medium transition-all duration-200 ${
                 selectedFilter === tag
-                  ? 'bg-gray-900 text-white dark:bg-gray-100 dark:text-gray-900'
+                  ? 'bg-gray-900 text-white shadow-sm dark:bg-gray-100 dark:text-gray-900'
                   : 'bg-gray-100 text-gray-700 hover:bg-gray-200 dark:bg-gray-800 dark:text-gray-300 dark:hover:bg-gray-700'
               }`}
             >

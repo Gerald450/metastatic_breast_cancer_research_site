@@ -4,7 +4,7 @@ import Link from 'next/link';
 
 export default function HomeHero() {
   return (
-    <div className="relative overflow-hidden rounded-2xl border border-gray-200 bg-gradient-to-br from-slate-50 via-rose-50/40 to-indigo-50/50 px-6 py-12 shadow-sm dark:border-gray-700/50 dark:from-gray-800/80 dark:via-rose-900/10 dark:to-indigo-900/10 sm:px-10 sm:py-16 lg:px-14 lg:py-20">
+    <div className="relative overflow-hidden rounded-2xl border border-gray-200/80 bg-gradient-to-br from-slate-50 via-rose-50/40 to-indigo-50/50 px-6 py-12 shadow-sm transition-shadow duration-200 hover:shadow-md dark:border-gray-700/50 dark:from-gray-800/80 dark:via-rose-900/10 dark:to-indigo-900/10 sm:px-10 sm:py-16 lg:px-14 lg:py-20">
       {/* Subtle grid pattern */}
       <div
         className="pointer-events-none absolute inset-0 opacity-[0.03] dark:opacity-[0.06]"
@@ -100,13 +100,13 @@ export default function HomeHero() {
         <div className="flex flex-wrap gap-3">
           <Link
             href="/definition"
-            className="inline-flex items-center rounded-lg bg-gray-900 px-5 py-2.5 text-sm font-medium text-white shadow-sm transition hover:bg-gray-800 dark:bg-white dark:text-gray-900 dark:hover:bg-gray-100"
+            className="inline-flex items-center rounded-xl bg-gray-900 px-5 py-2.5 text-sm font-medium text-white shadow-sm transition-all duration-200 hover:bg-gray-800 hover:shadow-md dark:bg-white dark:text-gray-900 dark:hover:bg-gray-100"
           >
             Start with Definition
           </Link>
           <Link
             href="/clinical-outcomes"
-            className="inline-flex items-center rounded-lg border border-gray-300 bg-white px-5 py-2.5 text-sm font-medium text-gray-700 shadow-sm transition hover:bg-gray-50 dark:border-gray-600 dark:bg-gray-800 dark:text-gray-200 dark:hover:bg-gray-700"
+            className="inline-flex items-center rounded-xl border border-gray-300 bg-white px-5 py-2.5 text-sm font-medium text-gray-700 shadow-sm transition-all duration-200 hover:bg-gray-50 hover:shadow-md dark:border-gray-600 dark:bg-gray-800 dark:text-gray-200 dark:hover:bg-gray-700"
           >
             Clinical outcomes
           </Link>

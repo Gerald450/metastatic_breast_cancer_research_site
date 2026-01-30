@@ -49,7 +49,7 @@ export default function DefinitionPage() {
       <Section
         title="Classification Systems"
         subtitle="Staging and subtypes"
-        className="bg-gray-50/70 dark:bg-gray-800/40"
+        className="section-alt"
       >
         <div className="space-y-6">
           <ClassificationSchemaDiagram />

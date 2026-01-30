@@ -36,7 +36,7 @@ export default function PageHero({
 }: PageHeroProps) {
   return (
     <div
-      className={`relative overflow-hidden rounded-2xl border border-gray-200 px-6 py-10 shadow-sm dark:border-gray-700/50 sm:px-10 sm:py-12 lg:px-14 lg:py-14 ${gradientClasses[theme]}`}
+      className={`relative overflow-hidden rounded-2xl border border-gray-200/80 px-6 py-8 shadow-sm transition-shadow duration-200 hover:shadow-md dark:border-gray-700/50 sm:px-10 sm:py-12 lg:px-14 lg:py-14 ${gradientClasses[theme]}`}
     >
       <div
         className="pointer-events-none absolute inset-0 opacity-[0.03] dark:opacity-[0.06]"

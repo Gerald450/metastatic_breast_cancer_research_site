@@ -30,7 +30,7 @@ export default function TabSummary({ section, showHeading = true }: TabSummaryPr
     .filter(Boolean) as typeof references;
 
   return (
-    <div className="mb-10 rounded-lg border border-gray-200 bg-gray-50/80 p-5 dark:border-gray-700 dark:bg-gray-800/50">
+    <div className="card card-hover mb-10 rounded-xl border border-gray-200 bg-gray-50/90 p-5 dark:border-gray-700 dark:bg-gray-800/60">
       {showHeading && (
         <h2 className="mb-3 text-lg font-semibold text-gray-900 dark:text-white">
           Summary for researchers

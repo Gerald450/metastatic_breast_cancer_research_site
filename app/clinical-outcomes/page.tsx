@@ -7,7 +7,6 @@ import TabSummary from '@/components/TabSummary';
 import { references } from '@/lib/references';
 import MetastaticSiteOutcomesFigure from '@/components/figures/MetastaticSiteOutcomesFigure';
 import SurvivalTrendsFigure from '@/components/figures/SurvivalTrendsFigure';
-import SurvivalStudiesTable from '@/components/figures/SurvivalStudiesTable';
 import MetaRegressionSurvivalFigure from '@/components/figures/MetaRegressionSurvivalFigure';
 import PageHero from '@/components/PageHero';
 import ClinicalIllustration from '@/components/illustrations/ClinicalIllustration';
@@ -30,7 +29,7 @@ export default function ClinicalOutcomesPage() {
       <Section
         id="survival"
         title="Survival Outcomes"
-        className="bg-gray-50/70 dark:bg-gray-800/40"
+        className="section-alt"
       >
         <div className="space-y-6">
           <CitationCallout citation="Multiple studies">
@@ -40,7 +39,6 @@ export default function ClinicalOutcomesPage() {
             </p>
           </CitationCallout>
           <SurvivalTrendsFigure />
-          <SurvivalStudiesTable />
 
           <div id="meta-regression-survival" className="space-y-10">
             <h2 className="text-2xl font-semibold leading-tight text-gray-900 dark:text-white sm:text-3xl">
@@ -82,7 +80,7 @@ export default function ClinicalOutcomesPage() {
 
       <Section
         title="Quality of Life Measures"
-        className="bg-gray-50/70 dark:bg-gray-800/40"
+        className="section-alt"
       >
         <div className="space-y-6">
           <Placeholder

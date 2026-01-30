@@ -6,7 +6,6 @@ import { references } from '@/lib/references';
 import AgeRaceDistributionFigure from '@/components/figures/AgeRaceDistributionFigure';
 import PageHero from '@/components/PageHero';
 import DemographicsIllustration from '@/components/illustrations/DemographicsIllustration';
-import DemographicSegmentsVisual from '@/components/figures/DemographicSegmentsVisual';
 
 export default function DemographicsPage() {
   return (
@@ -23,7 +22,7 @@ export default function DemographicsPage() {
 
       <Section
         title="Age Distribution"
-        className="bg-gray-50/70 dark:bg-gray-800/40"
+        className="section-alt"
       >
         <div className="space-y-6">
           <Placeholder
@@ -40,7 +39,6 @@ export default function DemographicsPage() {
 
       <Section title="Sex and Gender Patterns">
         <div className="space-y-6">
-          <DemographicSegmentsVisual />
           <Placeholder
             label="Sex and gender distribution"
             notes={[
@@ -54,7 +52,7 @@ export default function DemographicsPage() {
 
       <Section
         title="Socioeconomic Factors"
-        className="bg-gray-50/70 dark:bg-gray-800/40"
+        className="section-alt"
       >
         <div className="space-y-6">
           <Placeholder
@@ -68,7 +66,7 @@ export default function DemographicsPage() {
         </div>
       </Section>
 
-      <Section title="Ethnic and Racial Patterns">
+      <Section title="Ethnic and Racial Patterns" className="section-alt">
         <div className="space-y-6">
           <Placeholder
             label="Ethnic and racial distribution"

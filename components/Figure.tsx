@@ -52,7 +52,7 @@ export default function Figure({
       </div>
 
       {/* Chart Area */}
-      <div className="rounded-lg border border-gray-200 bg-white p-4 shadow-sm dark:border-gray-700 dark:bg-gray-800/50">
+      <div className="card rounded-xl border border-gray-200 bg-white p-4 sm:p-5 dark:border-gray-700 dark:bg-gray-800/50">
         {children}
       </div>
 

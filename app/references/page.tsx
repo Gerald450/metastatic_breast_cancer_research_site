@@ -10,7 +10,7 @@ export default function ReferencesPage() {
         <h1 className="mb-4 text-4xl font-bold leading-tight text-gray-900 dark:text-white sm:text-5xl">
           References
         </h1>
-        <div className="mb-10 rounded-lg border border-gray-200 bg-gray-50/80 p-5 dark:border-gray-700 dark:bg-gray-800/50">
+        <div className="card card-hover mb-10 rounded-xl border border-gray-200 bg-gray-50/90 p-5 dark:border-gray-700 dark:bg-gray-800/60">
           <h2 className="mb-3 text-lg font-semibold text-gray-900 dark:text-white">
             Summary for researchers
           </h2>
@@ -23,7 +23,7 @@ export default function ReferencesPage() {
       <Section
         title="Literature overview"
         subtitle="Source coverage across site sections"
-        className="bg-gray-50/70 dark:bg-gray-800/40"
+        className="section-alt"
       >
         <ReferencesBySectionChart />
       </Section>

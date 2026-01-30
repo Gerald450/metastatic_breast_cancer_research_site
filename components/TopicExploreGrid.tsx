@@ -149,7 +149,7 @@ export default function TopicExploreGrid() {
           <Link
             key={topic.href}
             href={topic.href}
-            className={`group flex items-start gap-4 rounded-xl border bg-white p-5 shadow-sm transition hover:shadow-md dark:bg-gray-800/50 ${c.border} hover:border-opacity-80`}
+            className={`card card-hover group flex items-start gap-4 rounded-xl border bg-white p-5 dark:bg-gray-800/50 ${c.border} transition-all duration-200 hover:-translate-y-0.5`}
           >
             <div className={`flex h-14 w-14 shrink-0 items-center justify-center rounded-xl ${c.bg} ${c.text}`}>
               {topic.icon}

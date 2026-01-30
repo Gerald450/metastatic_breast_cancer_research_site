@@ -3,11 +3,8 @@ import Placeholder from '@/components/Placeholder';
 import ReferenceList from '@/components/ReferenceList';
 import TabSummary from '@/components/TabSummary';
 import { references } from '@/lib/references';
-import SurvivorshipBurdenFigure from '@/components/figures/SurvivorshipBurdenFigure';
 import PageHero from '@/components/PageHero';
 import EpidemiologyIllustration from '@/components/illustrations/EpidemiologyIllustration';
-import EpidemiologyKeyStats from '@/components/figures/EpidemiologyKeyStats';
-import GeographicEvidenceVisual from '@/components/figures/GeographicEvidenceVisual';
 
 export default function EpidemiologyPage() {
   return (
@@ -24,10 +21,9 @@ export default function EpidemiologyPage() {
 
       <Section
         title="Prevalence and Incidence"
-        className="bg-gray-50/70 dark:bg-gray-800/40"
+        className="section-alt"
       >
         <div className="space-y-6">
-          <EpidemiologyKeyStats />
           <Placeholder
             label="Population-level occurrence data"
             notes={[
@@ -36,28 +32,19 @@ export default function EpidemiologyPage() {
               'Regional and global variations',
             ]}
           />
-          <SurvivorshipBurdenFigure />
-        </div>
-      </Section>
-
-      <Section title="Geographic Distribution">
-        <div className="space-y-6">
-          <GeographicEvidenceVisual />
-          <Placeholder
-            label="Geographic variation analysis"
-            notes={[
-              'Regional differences in occurrence',
-              'Factors influencing geographic patterns',
-              'International comparison data',
-            ]}
-          />
+          <p className="text-sm text-gray-600 dark:text-gray-400">
+            For prevalence and survivorship burden figures, see{' '}
+            <a href="/public-health" className="font-medium text-emerald-600 dark:text-emerald-400 hover:underline">
+              Public Health
+            </a>.
+          </p>
         </div>
       </Section>
 
       <Section
         title="Temporal Trends"
         subtitle="Changes over time"
-        className="bg-gray-50/70 dark:bg-gray-800/40"
+        className="section-alt"
       >
         <div className="space-y-6">
           <Placeholder
@@ -78,7 +65,7 @@ export default function EpidemiologyPage() {
         </div>
       </Section>
 
-      <Section title="Epidemiological Factors">
+      <Section title="Epidemiological Factors" className="section-alt">
         <div className="space-y-6">
           <Placeholder
             label="Risk factors and associations"
