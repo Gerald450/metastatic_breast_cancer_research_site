@@ -4,6 +4,7 @@ import { useMemo, useState, useEffect } from 'react';
 import Figure, { FigureStatus } from '@/components/Figure';
 import BarCategoryChart from '@/components/charts/BarCategoryChart';
 import { getMetastaticSiteOutcomes, getSourceRefIds, type MetastaticSiteOutcomesEntry } from '@/lib/extracted-data';
+import { filterOutlierValues, isYearLike, PERCENT_MIN, PERCENT_MAX, SURVIVAL_MONTHS_MAX } from '@/lib/chart-utils';
 
 export default function MetastaticSiteOutcomesFigure() {
   const [data, setData] = useState<(MetastaticSiteOutcomesEntry & { hasReviewFlag: boolean })[]>([]);
@@ -61,32 +62,31 @@ export default function MetastaticSiteOutcomesFigure() {
     return data.filter((entry) => entry.metricName && entry.metricName.toLowerCase() === key);
   }, [data, selectedMetric]);
 
-  // Transform data for chart: group by site
+  // Transform data for chart: group by site; exclude year-like and other outliers
   const chartData = useMemo(() => {
     const grouped = new Map<string, number[]>();
-    
     filteredData.forEach((entry) => {
       const site = entry.site || 'Unknown';
-      if (!grouped.has(site)) {
-        grouped.set(site, []);
-      }
-      // Check for both null and undefined, and ensure value is a valid number
-      if (entry.value !== null && entry.value !== undefined && typeof entry.value === 'number' && !isNaN(entry.value)) {
-        grouped.get(site)!.push(entry.value);
-      }
+      const v = entry.value;
+      if (v === null || v === undefined || typeof v !== 'number' || isNaN(v) || isYearLike(v)) return;
+      const unit = (entry.unit ?? '').toLowerCase();
+      const isPercent = unit.includes('%') || unit === 'percent';
+      const isMonths = unit.includes('month') || unit.includes('year');
+      if (isPercent && (v < PERCENT_MIN || v > PERCENT_MAX)) return;
+      if (isMonths && (v < 0 || v > SURVIVAL_MONTHS_MAX)) return;
+      if (!grouped.has(site)) grouped.set(site, []);
+      grouped.get(site)!.push(v);
     });
 
     return Array.from(grouped.entries())
       .map(([site, values]) => {
-        const avg = values.length > 0 ? values.reduce((a, b) => a + b, 0) / values.length : 0;
-        return {
-          site: site,
-          value: isNaN(avg) ? 0 : avg,
-        };
+        const cleaned = filterOutlierValues(values, { excludeYearLike: true, useIQR: values.length >= 4 });
+        const avg = cleaned.length > 0 ? cleaned.reduce((a, b) => a + b, 0) / cleaned.length : 0;
+        return { site, value: isNaN(avg) ? 0 : avg };
       })
-      .filter((item) => item.site !== 'Unknown')
-      .sort((a, b) => b.value - a.value) // Sort by value descending
-      .slice(0, 20); // Limit for readability
+      .filter((item) => item.site !== 'Unknown' && item.value > 0)
+      .sort((a, b) => b.value - a.value)
+      .slice(0, 20);
   }, [filteredData]);
 
   const status: FigureStatus = hasReviewFlag ? 'Needs Review' : 'Verified';

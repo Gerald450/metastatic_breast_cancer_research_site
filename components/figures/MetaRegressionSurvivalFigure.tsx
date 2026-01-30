@@ -13,6 +13,7 @@ import {
   Legend,
   ReferenceArea,
 } from 'recharts';
+import { SURVIVAL_MONTHS_MIN, SURVIVAL_MONTHS_MAX } from '@/lib/chart-utils';
 
 export type MetaRegressionDiseaseKey =
   | 'recurrentDisease'
@@ -45,6 +46,14 @@ const STUDY_COLORS = [
 ];
 
 function buildChartData(plotData: MetaRegressionPlotData) {
+  // Exclude study points outside plausible survival range so chart scale stays consistent
+  const studies = plotData.studies.filter(
+    (s) =>
+      typeof s.medianSurvival === 'number' &&
+      s.medianSurvival >= SURVIVAL_MONTHS_MIN &&
+      s.medianSurvival <= SURVIVAL_MONTHS_MAX
+  );
+
   const yearSet = new Set<number>();
   plotData.regression.forEach((p) => yearSet.add(p.year));
   plotData.confidenceInterval.forEach((p) => yearSet.add(p.year));
@@ -66,7 +75,7 @@ function buildChartData(plotData: MetaRegressionPlotData) {
     };
   });
 
-  const studyRows = plotData.studies.map((s) => ({
+  const studyRows = studies.map((s) => ({
     year: s.year,
     medianSurvival: s.medianSurvival,
     yearError: s.yearError,

@@ -4,6 +4,7 @@ import { useMemo, useState, useEffect, useRef } from 'react';
 import Figure, { FigureStatus } from '@/components/Figure';
 import BarCategoryChart from '@/components/charts/BarCategoryChart';
 import { getDemographicsAgeRace, getSourceRefIds, type DemographicsAgeRaceEntry } from '@/lib/extracted-data';
+import { filterOutlierValues, isYearLike, PERCENT_MIN, PERCENT_MAX } from '@/lib/chart-utils';
 
 type GroupByOption = 'groupLabel' | 'ageRange';
 
@@ -41,45 +42,36 @@ export default function AgeRaceDistributionFigure() {
     }
   }, [loading, data]);
 
-  // Transform data for chart
+  // Transform data for chart; exclude outliers for consistent scale
   const chartData = useMemo(() => {
     const grouped = new Map<string, number[]>();
-    
     data.forEach((entry) => {
-      const key = groupBy === 'groupLabel' 
-        ? (entry.groupLabel || 'Unknown')
-        : (entry.ageRange || 'Unknown');
-      
-      if (!grouped.has(key)) {
-        grouped.set(key, []);
-      }
-      // Check for both null and undefined, and ensure value is a valid number
-      if (entry.value !== null && entry.value !== undefined && typeof entry.value === 'number' && !isNaN(entry.value)) {
-        grouped.get(key)!.push(entry.value);
-      }
+      const key = groupBy === 'groupLabel' ? (entry.groupLabel || 'Unknown') : (entry.ageRange || 'Unknown');
+      const v = entry.value;
+      if (v === null || v === undefined || typeof v !== 'number' || isNaN(v) || isYearLike(v)) return;
+      const unit = (entry.unit ?? '').toLowerCase();
+      const isPercent = unit.includes('%') || unit === 'percent';
+      if (isPercent && (v < PERCENT_MIN || v > PERCENT_MAX)) return;
+      if (!grouped.has(key)) grouped.set(key, []);
+      grouped.get(key)!.push(v);
     });
 
     return Array.from(grouped.entries())
       .map(([key, values]) => {
-        const avg = values.length > 0 ? values.reduce((a, b) => a + b, 0) / values.length : 0;
-        return {
-          category: key,
-          value: isNaN(avg) ? 0 : avg,
-        };
+        const cleaned = filterOutlierValues(values, { excludeYearLike: true, useIQR: values.length >= 4 });
+        const avg = cleaned.length > 0 ? cleaned.reduce((a, b) => a + b, 0) / cleaned.length : 0;
+        return { category: key, value: isNaN(avg) ? 0 : avg };
       })
-      .filter((item) => item.category !== 'Unknown')
+      .filter((item) => item.category !== 'Unknown' && item.value > 0)
       .sort((a, b) => {
-        // Sort age ranges numerically if possible
         if (groupBy === 'ageRange') {
           const ageA = parseInt(a.category.split('-')[0]);
           const ageB = parseInt(b.category.split('-')[0]);
-          if (!isNaN(ageA) && !isNaN(ageB)) {
-            return ageA - ageB;
-          }
+          if (!isNaN(ageA) && !isNaN(ageB)) return ageA - ageB;
         }
         return a.category.localeCompare(b.category);
       })
-      .slice(0, 30); // Limit for readability
+      .slice(0, 30);
   }, [data, groupBy]);
 
   const status: FigureStatus = hasReviewFlag ? 'Needs Review' : 'Verified';

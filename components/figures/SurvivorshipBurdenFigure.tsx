@@ -5,6 +5,7 @@ import Figure, { FigureStatus } from '@/components/Figure';
 import LineTimeSeriesChart from '@/components/charts/LineTimeSeriesChart';
 import BarCategoryChart from '@/components/charts/BarCategoryChart';
 import { getPrevalenceBurden, getSourceRefIds, type PrevalenceBurdenEntry } from '@/lib/extracted-data';
+import { filterOutlierValues, isYearLike, PERCENT_MIN, PERCENT_MAX } from '@/lib/chart-utils';
 
 export default function SurvivorshipBurdenFigure() {
   const [data, setData] = useState<(PrevalenceBurdenEntry & { hasReviewFlag: boolean })[]>([]);
@@ -39,69 +40,56 @@ export default function SurvivorshipBurdenFigure() {
     return hasYearData && data.length > 3; // Use line if we have year data and enough points
   }, [data]);
 
-  // Transform data for chart
+  // Transform data for chart; exclude outliers for consistent scale
   const chartData = useMemo(() => {
+    const pushValue = (map: Map<string, number[]>, key: string, v: number, unit?: string | null) => {
+      if (isYearLike(v)) return;
+      const u = (unit ?? '').toLowerCase();
+      const isPercent = u.includes('%') || u === 'percent';
+      if (isPercent && (v < PERCENT_MIN || v > PERCENT_MAX)) return;
+      if (!map.has(key)) map.set(key, []);
+      map.get(key)!.push(v);
+    };
+
     if (useLineChart) {
-      // Group by yearOrRange for line chart
       const grouped = new Map<string, number[]>();
-      
       data.forEach((entry) => {
         const year = entry.yearOrRange || 'Unknown';
-        if (!grouped.has(year)) {
-          grouped.set(year, []);
-        }
-        // Check for both null and undefined, and ensure value is a valid number
-        if (entry.value !== null && entry.value !== undefined && typeof entry.value === 'number' && !isNaN(entry.value)) {
-          grouped.get(year)!.push(entry.value);
-        }
+        const v = entry.value;
+        if (v === null || v === undefined || typeof v !== 'number' || isNaN(v)) return;
+        pushValue(grouped, year, v, entry.unit);
       });
 
       return Array.from(grouped.entries())
         .map(([year, values]) => {
-          const avg = values.length > 0 
-            ? values.reduce((a, b) => a + b, 0) / values.length 
-            : 0;
-          return {
-            yearOrRange: year,
-            value: isNaN(avg) ? 0 : avg,
-          };
+          const cleaned = filterOutlierValues(values, { excludeYearLike: true, useIQR: values.length >= 4 });
+          const avg = cleaned.length > 0 ? cleaned.reduce((a, b) => a + b, 0) / cleaned.length : 0;
+          return { yearOrRange: year, value: isNaN(avg) ? 0 : avg };
         })
-        .filter((item) => item.value !== 0 || item.yearOrRange !== 'Unknown') // Filter out invalid data
+        .filter((item) => item.value > 0 && item.yearOrRange !== 'Unknown')
         .sort((a, b) => {
           const yearA = parseInt(a.yearOrRange);
           const yearB = parseInt(b.yearOrRange);
-          if (!isNaN(yearA) && !isNaN(yearB)) {
-            return yearA - yearB;
-          }
+          if (!isNaN(yearA) && !isNaN(yearB)) return yearA - yearB;
           return a.yearOrRange.localeCompare(b.yearOrRange);
         });
     } else {
-      // Use bar chart for categorical data
       const grouped = new Map<string, number[]>();
-      
       data.forEach((entry) => {
         const key = entry.yearOrRange || entry.metricName || 'Unknown';
-        if (!grouped.has(key)) {
-          grouped.set(key, []);
-        }
-        // Check for both null and undefined, and ensure value is a valid number
-        if (entry.value !== null && entry.value !== undefined && typeof entry.value === 'number' && !isNaN(entry.value)) {
-          grouped.get(key)!.push(entry.value);
-        }
+        const v = entry.value;
+        if (v === null || v === undefined || typeof v !== 'number' || isNaN(v)) return;
+        pushValue(grouped, key, v, entry.unit);
       });
 
       return Array.from(grouped.entries())
         .map(([key, values]) => {
-          const avg = values.length > 0 
-            ? values.reduce((a, b) => a + b, 0) / values.length 
-            : 0;
-          return {
-            category: key,
-            value: isNaN(avg) ? 0 : avg,
-          };
+          const cleaned = filterOutlierValues(values, { excludeYearLike: true, useIQR: values.length >= 4 });
+          const avg = cleaned.length > 0 ? cleaned.reduce((a, b) => a + b, 0) / cleaned.length : 0;
+          return { category: key, value: isNaN(avg) ? 0 : avg };
         })
-        .filter((item) => item.value !== 0 || item.category !== 'Unknown') // Filter out invalid data
-        .slice(0, 20); // Limit to top 20 for readability
+        .filter((item) => item.value > 0 && item.category !== 'Unknown')
+        .slice(0, 20);
     }
   }, [data, useLineChart]);
 

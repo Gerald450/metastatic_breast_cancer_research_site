@@ -4,6 +4,7 @@ import { useMemo, useState, useEffect } from 'react';
 import Figure, { FigureStatus } from '@/components/Figure';
 import LineTimeSeriesChart from '@/components/charts/LineTimeSeriesChart';
 import { getSurvivalOverTime, getSourceRefIds, type SurvivalOverTimeEntry } from '@/lib/extracted-data';
+import { filterOutlierValues, isYearLike, SURVIVAL_MONTHS_MAX, PERCENT_MIN, PERCENT_MAX } from '@/lib/chart-utils';
 
 export default function SurvivalTrendsFigure() {
   const [data, setData] = useState<(SurvivalOverTimeEntry & { hasReviewFlag: boolean })[]>([]);
@@ -62,37 +63,37 @@ export default function SurvivalTrendsFigure() {
     return data.filter((entry) => entry.metricName && entry.metricName.toLowerCase() === key);
   }, [data, selectedMetric]);
 
-  // Transform data for chart: group by timePeriod
+  // Transform data for chart: group by timePeriod, exclude outliers for consistent scale
   const chartData = useMemo(() => {
     const grouped = new Map<string, number[]>();
-    
+
     filteredData.forEach((entry) => {
       const period = entry.timePeriod || 'Unknown';
-      if (!grouped.has(period)) {
-        grouped.set(period, []);
-      }
-      // Check for both null and undefined, and ensure value is a valid number
-      if (entry.value !== null && entry.value !== undefined && typeof entry.value === 'number' && !isNaN(entry.value)) {
-        grouped.get(period)!.push(entry.value);
-      }
+      if (!grouped.has(period)) grouped.set(period, []);
+      const v = entry.value;
+      if (v === null || v === undefined || typeof v !== 'number' || isNaN(v) || isYearLike(v)) return;
+      const unit = (entry.unit || '').toLowerCase();
+      const isMonths = unit.includes('month');
+      const isPercent = unit.includes('%') || unit === 'percent';
+      if (isMonths && (v < 0 || v > SURVIVAL_MONTHS_MAX)) return;
+      if (isPercent && (v < PERCENT_MIN || v > PERCENT_MAX)) return;
+      grouped.get(period)!.push(v);
     });
 
-    // Convert to array and calculate average if multiple values per period
     return Array.from(grouped.entries())
       .map(([period, values]) => {
-        const avg = values.length > 0 ? values.reduce((a, b) => a + b, 0) / values.length : 0;
-        return {
-          timePeriod: period,
-          value: isNaN(avg) ? 0 : avg,
-        };
+        const cleaned = filterOutlierValues(values, {
+          excludeYearLike: true,
+          useIQR: values.length >= 4,
+        });
+        const avg = cleaned.length > 0 ? cleaned.reduce((a, b) => a + b, 0) / cleaned.length : 0;
+        return { timePeriod: period, value: isNaN(avg) ? 0 : avg };
       })
+      .filter((row) => row.value > 0)
       .sort((a, b) => {
-        // Sort by year if it's a year string
         const yearA = parseInt(a.timePeriod);
         const yearB = parseInt(b.timePeriod);
-        if (!isNaN(yearA) && !isNaN(yearB)) {
-          return yearA - yearB;
-        }
+        if (!isNaN(yearA) && !isNaN(yearB)) return yearA - yearB;
         return a.timePeriod.localeCompare(b.timePeriod);
       });
   }, [filteredData]);
