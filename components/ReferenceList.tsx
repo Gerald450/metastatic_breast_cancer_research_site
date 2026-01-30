@@ -68,6 +68,12 @@ export default function ReferenceList({
               <li key={ref.id} className="pl-2">
                 <div className="space-y-1">
                   <div>
+                    <span
+                      className="mr-2 inline-flex items-center rounded bg-gray-200 px-2 py-0.5 font-mono text-xs font-medium text-gray-700 dark:bg-gray-700 dark:text-gray-300"
+                      title="Use this ID to match sources cited in figures and tables"
+                    >
+                      {ref.id}
+                    </span>
                     <span className="font-medium text-gray-900 dark:text-white">
                       {ref.title}
                     </span>
