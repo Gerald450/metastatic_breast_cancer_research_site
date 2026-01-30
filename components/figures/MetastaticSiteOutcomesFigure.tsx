@@ -26,26 +26,39 @@ export default function MetastaticSiteOutcomesFigure() {
   const sources = getSourceRefIds(data);
   const hasReviewFlag = data.some((entry) => entry.hasReviewFlag);
 
-  // Get unique metric names
+  // Get unique metric names: dedupe case-insensitively, display in title case
   const metricNames = useMemo(() => {
-    const metrics = new Set<string>();
+    const byLower = new Map<string, string>();
+    const toTitleCase = (s: string) =>
+      s.trim().replace(/\w\S*/g, (w) => w.charAt(0).toUpperCase() + w.slice(1).toLowerCase());
     data.forEach((entry) => {
-      if (entry.metricName) {
-        metrics.add(entry.metricName);
+      if (entry.metricName && entry.metricName.trim()) {
+        const key = entry.metricName.trim().toLowerCase();
+        if (!byLower.has(key)) {
+          byLower.set(key, toTitleCase(entry.metricName.trim()));
+        }
       }
     });
-    return Array.from(metrics).sort();
+    return Array.from(byLower.values()).sort((a, b) => a.localeCompare(b, undefined, { sensitivity: 'base' }));
   }, [data]);
 
   // Default to first metric or allow selection
-  const [selectedMetric, setSelectedMetric] = useState<string | null>(
-    metricNames[0] || null
-  );
+  const [selectedMetric, setSelectedMetric] = useState<string | null>(null);
 
-  // Filter data by selected metric
+  useEffect(() => {
+    if (metricNames.length === 0) return;
+    const current = selectedMetric?.toLowerCase();
+    const stillValid = current && metricNames.some((m) => m.toLowerCase() === current);
+    if (!stillValid) {
+      setSelectedMetric(metricNames[0] ?? null);
+    }
+  }, [metricNames, selectedMetric]);
+
+  // Filter data by selected metric (case-insensitive to match all variants in data)
   const filteredData = useMemo(() => {
     if (!selectedMetric) return data;
-    return data.filter((entry) => entry.metricName === selectedMetric);
+    const key = selectedMetric.toLowerCase();
+    return data.filter((entry) => entry.metricName && entry.metricName.toLowerCase() === key);
   }, [data, selectedMetric]);
 
   // Transform data for chart: group by site
