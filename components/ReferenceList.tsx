@@ -65,7 +65,7 @@ export default function ReferenceList({
         ) : (
           <ol className="list-decimal space-y-4 pl-6">
             {filteredReferences.map((ref) => (
-              <li key={ref.id} className="pl-2">
+              <li key={ref.id} id={ref.id} className="pl-2 scroll-mt-24">
                 <div className="space-y-1">
                   <div>
                     <span

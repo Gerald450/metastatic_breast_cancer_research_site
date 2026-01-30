@@ -1,5 +1,6 @@
 'use client';
 
+import Link from 'next/link';
 import { ReactNode } from 'react';
 
 export type FigureStatus = 'Verified' | 'Needs Review' | 'Draft';
@@ -65,7 +66,19 @@ export default function Figure({
         {sources.length > 0 && (
           <div className="text-xs text-gray-500 dark:text-gray-500">
             <span className="font-medium">Sources:</span>{' '}
-            <span className="font-mono">{sources.join(', ')}</span>
+            <span className="font-mono">
+              {sources.map((sourceId, i) => (
+                <span key={sourceId}>
+                  {i > 0 && ', '}
+                  <Link
+                    href={`/references#${sourceId}`}
+                    className="text-blue-600 hover:text-blue-800 hover:underline dark:text-blue-400 dark:hover:text-blue-300"
+                  >
+                    {sourceId}
+                  </Link>
+                </span>
+              ))}
+            </span>
           </div>
         )}
       </figcaption>
