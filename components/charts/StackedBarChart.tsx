@@ -14,7 +14,19 @@ import {
 interface SeriesConfig {
   key: string;
   label: string;
+  color?: string;
 }
+
+const DEFAULT_STACK_COLORS = [
+  '#3b82f6', // blue
+  '#10b981', // emerald
+  '#f59e0b', // amber
+  '#ef4444', // red
+  '#8b5cf6', // violet
+  '#ec4899', // pink
+  '#06b6d4', // cyan
+  '#84cc16', // lime
+];
 
 interface StackedBarChartProps {
   data: Record<string, unknown>[];
@@ -78,6 +90,7 @@ export default function StackedBarChart({
             dataKey={s.key}
             stackId="a"
             name={s.label}
+            fill={s.color ?? DEFAULT_STACK_COLORS[idx % DEFAULT_STACK_COLORS.length]}
             radius={idx === series.length - 1 ? [4, 4, 0, 0] : [0, 0, 0, 0]}
           />
         ))}
