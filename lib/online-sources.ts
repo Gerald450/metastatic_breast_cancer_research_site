@@ -28,4 +28,20 @@ export const ONLINE_SOURCES = {
     citation: 'Centers for Disease Control and Prevention. Cancer Data and Statistics.',
     usedFor: ['epidemiology', 'public-health'],
   },
+  CDC_WONDER: {
+    id: 'cdc-wonder',
+    name: 'CDC WONDER',
+    org: 'Centers for Disease Control and Prevention',
+    url: 'https://wonder.cdc.gov/',
+    citation: 'Centers for Disease Control and Prevention. CDC WONDER Online Database.',
+    usedFor: ['epidemiology', 'public-health'],
+  },
+  USCS: {
+    id: 'uscs',
+    name: 'United States Cancer Statistics',
+    org: 'CDC and NCI',
+    url: 'https://www.cdc.gov/cancer/uscs/',
+    citation: 'Centers for Disease Control and Prevention and National Cancer Institute. United States Cancer Statistics.',
+    usedFor: ['epidemiology', 'demographics', 'public-health'],
+  },
 } as const;

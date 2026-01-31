@@ -4,6 +4,12 @@ import ReferenceList from '@/components/ReferenceList';
 import TabSummary from '@/components/TabSummary';
 import { references } from '@/lib/references';
 import AgeRaceDistributionFigure from '@/components/figures/AgeRaceDistributionFigure';
+import MBCIncidenceByAgeFigure from '@/components/figures/MBCIncidenceByAgeFigure';
+import MBCIncidenceByRaceFigure from '@/components/figures/MBCIncidenceByRaceFigure';
+import MBCSurvivalByRaceFigure from '@/components/figures/MBCSurvivalByRaceFigure';
+import SexDistributionBreastCancerFigure from '@/components/figures/SexDistributionBreastCancerFigure';
+import AgeAtDiagnosisVsDeathFigure from '@/components/figures/AgeAtDiagnosisVsDeathFigure';
+import InsuranceVsStageAtDiagnosisFigure from '@/components/figures/InsuranceVsStageAtDiagnosisFigure';
 import PageHero from '@/components/PageHero';
 import DemographicsIllustration from '@/components/illustrations/DemographicsIllustration';
 
@@ -25,28 +31,15 @@ export default function DemographicsPage() {
         className="section-alt"
       >
         <div className="space-y-6">
-          <Placeholder
-            label="Age-related patterns and characteristics"
-            notes={[
-              'Age at diagnosis distribution',
-              'Age-specific incidence rates',
-              'Variations across age groups',
-            ]}
-          />
+          <MBCIncidenceByAgeFigure />
+          <AgeAtDiagnosisVsDeathFigure />
           <AgeRaceDistributionFigure />
         </div>
       </Section>
 
       <Section title="Sex and Gender Patterns">
         <div className="space-y-6">
-          <Placeholder
-            label="Sex and gender distribution"
-            notes={[
-              'Sex-specific incidence patterns',
-              'Gender differences in presentation',
-              'Hormonal and biological factors',
-            ]}
-          />
+          <SexDistributionBreastCancerFigure />
         </div>
       </Section>
 
@@ -55,27 +48,14 @@ export default function DemographicsPage() {
         className="section-alt"
       >
         <div className="space-y-6">
-          <Placeholder
-            label="Socioeconomic associations"
-            notes={[
-              'Income and education level patterns',
-              'Access to healthcare impacts',
-              'Socioeconomic disparities in outcomes',
-            ]}
-          />
+          <InsuranceVsStageAtDiagnosisFigure />
         </div>
       </Section>
 
       <Section title="Ethnic and Racial Patterns" className="section-alt">
         <div className="space-y-6">
-          <Placeholder
-            label="Ethnic and racial distribution"
-            notes={[
-              'Racial and ethnic group variations',
-              'Genetic and environmental factors',
-              'Health equity considerations',
-            ]}
-          />
+          <MBCIncidenceByRaceFigure />
+          <MBCSurvivalByRaceFigure />
         </div>
       </Section>
 

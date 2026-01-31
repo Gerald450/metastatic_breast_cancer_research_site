@@ -7,6 +7,10 @@ import { references } from '@/lib/references';
 import { ONLINE_SOURCES } from '@/lib/online-sources';
 import PageHero from '@/components/PageHero';
 import EpidemiologyIllustration from '@/components/illustrations/EpidemiologyIllustration';
+import MBCSurvivalOverTimeFigure from '@/components/figures/MBCSurvivalOverTimeFigure';
+import MBCSurvivorshipPopulationGrowthFigure from '@/components/figures/MBCSurvivorshipPopulationGrowthFigure';
+import BreastCancerMortalityRatesFigure from '@/components/figures/BreastCancerMortalityRatesFigure';
+import DeNovoStageIVIncidenceFigure from '@/components/figures/DeNovoStageIVIncidenceFigure';
 
 const seerSource = ONLINE_SOURCES.SEER_NOV_2023;
 
@@ -32,14 +36,9 @@ export default function EpidemiologyPage() {
             claim="Population-based incidence and prevalence of MBC are tracked by cancer registries. SEER (NCI) provides US surveillance data. Lord et al. and Mariotto et al. report England and US trends."
             sources={['ref-002', 'ref-011']}
           />
-          <Placeholder
-            label="Population-level occurrence data"
-            notes={[
-              'Overall prevalence estimates',
-              'Incidence rates and trends',
-              'Regional and global variations',
-            ]}
-          />
+          <MBCSurvivalOverTimeFigure />
+          <MBCSurvivorshipPopulationGrowthFigure />
+          <DeNovoStageIVIncidenceFigure />
           <p className="rounded-lg border border-gray-200 bg-gray-50 p-4 text-sm dark:border-gray-700 dark:bg-gray-800/50">
             <strong>Trusted data source:</strong>{' '}
             <a href={seerSource.url} target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline dark:text-blue-400">
@@ -62,14 +61,7 @@ export default function EpidemiologyPage() {
         className="section-alt"
       >
         <div className="space-y-6">
-          <Placeholder
-            label="Changes over time"
-            notes={[
-              'Historical trends and patterns',
-              'Recent changes in incidence',
-              'Projected future trends',
-            ]}
-          />
+          <BreastCancerMortalityRatesFigure />
           <p className="text-sm text-gray-600 dark:text-gray-400">
             For survival trends over time from selected studies, see{' '}
             <a href="/clinical-outcomes#survival" className="font-medium text-emerald-600 dark:text-emerald-400 underline hover:no-underline">

@@ -10,6 +10,11 @@ import SurvivalTrendsFigure from '@/components/figures/SurvivalTrendsFigure';
 import MetaRegressionSurvivalFigure from '@/components/figures/MetaRegressionSurvivalFigure';
 import SEERSurvivalByStageFigure from '@/components/figures/SEERSurvivalByStageFigure';
 import SEERDistantStageBySubtypeFigure from '@/components/figures/SEERDistantStageBySubtypeFigure';
+import SurvivalByMetastaticSiteFigure from '@/components/figures/SurvivalByMetastaticSiteFigure';
+import SurvivalByTumorSubtypeFigure from '@/components/figures/SurvivalByTumorSubtypeFigure';
+import SurvivalTimeDistributionStageIVFigure from '@/components/figures/SurvivalTimeDistributionStageIVFigure';
+import SurvivalCurvesByStageFigure from '@/components/figures/SurvivalCurvesByStageFigure';
+import SurvivalByYearAndSubtypeFigure from '@/components/figures/SurvivalByYearAndSubtypeFigure';
 import PageHero from '@/components/PageHero';
 import ClinicalIllustration from '@/components/illustrations/ClinicalIllustration';
 import ProgressionPathwayDiagram from '@/components/figures/ProgressionPathwayDiagram';
@@ -42,7 +47,14 @@ export default function ClinicalOutcomesPage() {
             <SEERSurvivalByStageFigure />
             <SEERDistantStageBySubtypeFigure />
           </div>
+          <SurvivalCurvesByStageFigure />
           <SurvivalTrendsFigure />
+          <div className="grid gap-8 sm:grid-cols-1 lg:grid-cols-2">
+            <SurvivalByMetastaticSiteFigure />
+            <SurvivalByTumorSubtypeFigure />
+          </div>
+          <SurvivalTimeDistributionStageIVFigure />
+          <SurvivalByYearAndSubtypeFigure />
 
           <div id="meta-regression-survival" className="space-y-10">
             <h2 className="text-2xl font-semibold leading-tight text-gray-900 dark:text-white sm:text-3xl">
