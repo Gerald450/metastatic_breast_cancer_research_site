@@ -9,12 +9,7 @@ export default function Home() {
   return (
     <div className="py-12">
       <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
-        {/* Project Status Banner */}
-        <div className="mb-8 rounded-xl border border-amber-200/80 bg-amber-50/80 px-4 py-3 shadow-sm dark:border-amber-800/50 dark:bg-amber-900/20">
-          <p className="text-sm font-medium text-amber-800 dark:text-amber-300">
-            Draft — content placeholders included
-          </p>
-        </div>
+       
 
         <HomeHero />
 
