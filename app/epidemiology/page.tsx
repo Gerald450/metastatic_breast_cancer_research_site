@@ -2,9 +2,13 @@ import Section from '@/components/Section';
 import Placeholder from '@/components/Placeholder';
 import ReferenceList from '@/components/ReferenceList';
 import TabSummary from '@/components/TabSummary';
+import CitationCallout from '@/components/CitationCallout';
 import { references } from '@/lib/references';
+import { ONLINE_SOURCES } from '@/lib/online-sources';
 import PageHero from '@/components/PageHero';
 import EpidemiologyIllustration from '@/components/illustrations/EpidemiologyIllustration';
+
+const seerSource = ONLINE_SOURCES.SEER_NOV_2023;
 
 export default function EpidemiologyPage() {
   return (
@@ -24,6 +28,10 @@ export default function EpidemiologyPage() {
         className="section-alt"
       >
         <div className="space-y-6">
+          <CitationCallout
+            claim="Population-based incidence and prevalence of MBC are tracked by cancer registries. SEER (NCI) provides US surveillance data. Lord et al. and Mariotto et al. report England and US trends."
+            sources={['ref-002', 'ref-011']}
+          />
           <Placeholder
             label="Population-level occurrence data"
             notes={[
@@ -32,6 +40,13 @@ export default function EpidemiologyPage() {
               'Regional and global variations',
             ]}
           />
+          <p className="rounded-lg border border-gray-200 bg-gray-50 p-4 text-sm dark:border-gray-700 dark:bg-gray-800/50">
+            <strong>Trusted data source:</strong>{' '}
+            <a href={seerSource.url} target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline dark:text-blue-400">
+              {seerSource.name}
+            </a>
+            {' — '}{seerSource.citation}
+          </p>
           <p className="text-sm text-gray-600 dark:text-gray-400">
             For prevalence and survivorship burden figures, see{' '}
             <a href="/public-health" className="font-medium text-emerald-600 dark:text-emerald-400 hover:underline">

@@ -9,25 +9,21 @@ export default function Home() {
   return (
     <div className="py-12">
       <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
-        {/* Project Status Banner */}
-        <div className="mb-8 rounded-xl border border-amber-200/80 bg-amber-50/80 px-4 py-3 shadow-sm dark:border-amber-800/50 dark:bg-amber-900/20">
-          <p className="text-sm font-medium text-amber-800 dark:text-amber-300">
-            Draft — content placeholders included
-          </p>
-        </div>
-
         <HomeHero />
 
         <div className="card card-hover mb-10 rounded-xl border border-gray-200 bg-gray-50/90 p-5 dark:border-gray-700 dark:bg-gray-800/60">
-          <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
-            This site synthesizes evidence on metastatic breast cancer from the literature (PDFs). Key metrics and figures below draw on population-based and clinical studies of survival over time, prevalence and burden, and outcomes by metastatic site. Key sources include ref-001, ref-002, ref-003, and others — see <Link href="/references" className="text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300 underline">References</Link> for full citations and PDF links.
+          <p className="mb-4 text-gray-700 dark:text-gray-300 leading-relaxed">
+            A research hub for metastatic breast cancer (MBC): definitions, biology, treatment, epidemiology, and evidence from literature and trusted data sources.
+          </p>
+          <p className="text-sm text-gray-600 dark:text-gray-400">
+            Use the <strong>navbar</strong> above for Home, Definition, Biology, and Treatment. Use the <strong>Explore by topic</strong> grid below to access Epidemiology, Demographics, Clinical Outcomes, Public Health, and References.
           </p>
         </div>
       </div>
 
       <Section
         title="Key metrics"
-        subtitle="Notable findings from the literature"
+        subtitle="Notable findings from the literature (properly cited)"
         className="section-alt"
       >
         <KeyStatsCards />

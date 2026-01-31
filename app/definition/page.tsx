@@ -1,11 +1,10 @@
 import Section from '@/components/Section';
-import Placeholder from '@/components/Placeholder';
 import ReferenceList from '@/components/ReferenceList';
 import TabSummary from '@/components/TabSummary';
 import { references } from '@/lib/references';
 import PageHero from '@/components/PageHero';
 import DefinitionIllustration from '@/components/illustrations/DefinitionIllustration';
-import ClassificationSchemaDiagram from '@/components/figures/ClassificationSchemaDiagram';
+import DefinitionWalkthrough from '@/components/DefinitionWalkthrough';
 
 export default function DefinitionPage() {
   return (
@@ -20,68 +19,17 @@ export default function DefinitionPage() {
         <TabSummary section="definition" />
       </div>
 
-      <Section title="Overview" subtitle="Understanding the condition">
-        <div className="space-y-6">
-          <Placeholder
-            label="Definition and classification"
-            notes={[
-              'Clinical definition and diagnostic criteria',
-              'Classification systems and staging',
-              'Key terminology and nomenclature',
-            ]}
-          />
-        </div>
-      </Section>
-
-      <Section title="Diagnostic Criteria">
-        <div className="space-y-6">
-          <Placeholder
-            label="Diagnostic requirements and standards"
-            notes={[
-              'Required clinical features',
-              'Laboratory and imaging criteria',
-              'Differential diagnosis considerations',
-            ]}
-          />
-        </div>
-      </Section>
-
       <Section
-        title="Classification Systems"
-        subtitle="Staging and subtypes"
-        className="section-alt"
+        title="Interactive walkthrough"
+        subtitle="Understand what cancer is, how breast cancer becomes metastatic (MBC), and why"
       >
-        <div className="space-y-6">
-          <ClassificationSchemaDiagram />
-          <Placeholder
-            label="Classification framework details"
-            notes={[
-              'Primary classification systems',
-              'Subtypes and variants',
-              'Evolution of classification over time',
-            ]}
-          />
-        </div>
+        <DefinitionWalkthrough />
       </Section>
 
-      <Section title="Terminology and Nomenclature">
-        <div className="space-y-6">
-          <Placeholder
-            label="Key terms and definitions"
-            notes={[
-              'Standard terminology',
-              'Historical terms and updates',
-              'International nomenclature standards',
-            ]}
-          />
-        </div>
-      </Section>
-
-      <Section title="References Used">
+      <Section title="References used" subtitle="Literature and PDFs cited on this page" className="section-alt">
         <div className="space-y-4">
           <p className="text-sm italic text-gray-600 dark:text-gray-400">
-            Page highlights are listed as notes and must be verified against the
-            PDF pages.
+            Page highlights are listed as notes. Verify page ranges against the PDFs.
           </p>
           <ReferenceList references={references} filterBy="definition" />
         </div>

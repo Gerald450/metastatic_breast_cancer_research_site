@@ -101,7 +101,7 @@ export default function SurvivalTrendsFigure() {
   const status: FigureStatus = hasReviewFlag ? 'Needs Review' : 'Verified';
   const hasData = chartData.length > 0;
   const caption = hasData
-    ? 'Data extracted from uploaded PDFs; verify page ranges.'
+    ? `Data from site PDFs (Caswell et al., Lord et al., Hudock et al.). Source refs: ${sources.length ? sources.join(', ') : 'see extracted data'}. Verify page ranges in PDFs.`
     : 'No data available for this figure yet.';
 
   if (loading) {

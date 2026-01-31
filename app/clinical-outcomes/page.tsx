@@ -32,18 +32,20 @@ export default function ClinicalOutcomesPage() {
         className="section-alt"
       >
         <div className="space-y-6">
-          <CitationCallout citation="Multiple studies">
-            <p className="text-gray-700 dark:text-gray-300">
-              Studies have shown improvements in survival over time for patients with metastatic breast cancer, 
-              with median survival increasing across different time periods and study populations.
-            </p>
-          </CitationCallout>
+          <CitationCallout
+            claim="Survival has improved over time for patients with metastatic breast cancer, with median survival increasing across different time periods and study populations."
+            sources={['ref-001', 'ref-002', 'ref-004']}
+          />
           <SurvivalTrendsFigure />
 
           <div id="meta-regression-survival" className="space-y-10">
             <h2 className="text-2xl font-semibold leading-tight text-gray-900 dark:text-white sm:text-3xl">
               Improvement in median survival time after metastasis over time
             </h2>
+            <p className="text-sm text-gray-600 dark:text-gray-400">
+              Data adapted from meta-regression of recurrent and de novo MBC studies. Source:{' '}
+              <a href="/references#ref-001" className="text-blue-600 hover:underline dark:text-blue-400">Caswell et al. (ref-001)</a>.
+            </p>
             <div className="grid gap-10 sm:grid-cols-1 lg:grid-cols-2">
               <MetaRegressionSurvivalFigure
                 plotData={metaRegressionSurvivalData.recurrentDisease as Parameters<typeof MetaRegressionSurvivalFigure>[0]['plotData']}
@@ -96,11 +98,10 @@ export default function ClinicalOutcomesPage() {
 
       <Section title="Treatment Response Outcomes">
         <div className="space-y-6">
-          <CitationCallout citation="Bonotto et al.; Xiao et al.; refs in Clinical Outcomes">
-            <p className="text-gray-700 dark:text-gray-300">
-              Treatment response and duration vary by metastatic site and subtype. See site-specific outcomes (e.g. bone, liver, lung, brain) in the figures above and in the references listed for this section.
-            </p>
-          </CitationCallout>
+          <CitationCallout
+            claim="Treatment response and duration vary by metastatic site and subtype. Site-specific outcomes (bone, liver, lung, brain) are reported in the literature and figures above."
+            sources={['ref-006', 'ref-007']}
+          />
           <Placeholder
             label="Response rates and outcomes"
             notes={[
