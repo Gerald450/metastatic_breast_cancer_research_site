@@ -21,6 +21,7 @@ export default function SurvivalByYearAndSubtypeFigure() {
       externalSource={{ name: 'SEER', url: ONLINE_SOURCES.NCI_SEER.url }}
       status="Draft"
       caption="Median survival by year of diagnosis and molecular subtype. SEER post-2010 subtype data."
+      summary="Survival has improved over time across subtypes, with HER2+ showing the largest gains due to anti-HER2 therapies. TNBC improvements are smaller, highlighting the need for more effective targeted treatments."
     >
       {hasData ? (
         <div role="img" aria-label="Multi-line chart of survival by year and subtype">

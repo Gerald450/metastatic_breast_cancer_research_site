@@ -15,6 +15,7 @@ export default function MBCSurvivalByRaceFigure() {
       externalSource={{ name: 'SEER', url: ONLINE_SOURCES.NCI_SEER.url }}
       status="Draft"
       caption="Survival disparities by race from SEER. Median survival in months."
+      summary="Significant survival disparities exist by race, with Black patients often experiencing shorter median survival. These gaps likely reflect differences in biology, access to care, treatment delays, and comorbidities."
     >
       {hasData ? (
         <div role="img" aria-label="Bar chart of MBC survival by race/ethnicity">

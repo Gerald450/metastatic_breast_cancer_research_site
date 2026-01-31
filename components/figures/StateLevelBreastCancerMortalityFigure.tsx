@@ -15,6 +15,7 @@ export default function StateLevelBreastCancerMortalityFigure() {
       externalSource={{ name: 'CDC WONDER / USCS', url: ONLINE_SOURCES.CDC_WONDER.url }}
       status="Draft"
       caption="Age-adjusted breast cancer mortality rates per 100,000 by state. CDC WONDER and USCS."
+      summary="Mortality rates vary by state, reflecting disparities in screening, access to care, and population risk factors. Higher rates in some states point to opportunities for targeted public health interventions."
     >
       {hasData ? (
         <div role="img" aria-label="Bar chart of breast cancer mortality rate by state">

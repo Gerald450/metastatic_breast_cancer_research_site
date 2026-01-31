@@ -22,6 +22,7 @@ export default function SEERDistantStageBySubtypeFigure() {
       }}
       status="Verified"
       caption={`Data from National Cancer Institute SEER Program (${dataPeriod}). Distant stage = metastatic disease. Adapted from Cancer Stat Facts.`}
+      summary="Within metastatic disease, subtype matters: HR+/HER2+ and HR-/HER2+ have higher 5-year survival than HR+/HER2- and especially HR-/HER2- (TNBC). This supports targeted therapy development and subtype-specific counseling."
     >
       <BarCategoryChart
         data={chartData}

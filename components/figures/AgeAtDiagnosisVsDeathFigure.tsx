@@ -20,6 +20,7 @@ export default function AgeAtDiagnosisVsDeathFigure() {
       externalSource={{ name: 'SEER / ACS', url: ONLINE_SOURCES.NCI_SEER.url }}
       status="Draft"
       caption="Age distribution at diagnosis vs at death. SEER age variables."
+      summary="The shift between age at diagnosis and age at death shows that older patients more often die from MBC. In younger age groups, diagnosis predominates; in the oldest groups, death from breast cancer or other causes increases."
     >
       {hasData ? (
         <div role="img" aria-label="Grouped bar chart comparing age at diagnosis vs age at death by age group">

@@ -15,6 +15,7 @@ export default function MBCSurvivalOverTimeFigure() {
       externalSource={{ name: 'SEER', url: ONLINE_SOURCES.NCI_SEER.url }}
       status="Draft"
       caption="Data from SEER (stage at diagnosis). Verify against SEER*Stat queries for metastatic breast cancer."
+      summary="Median survival for MBC has improved over time, reflecting advances in treatment. Survival gains support the value of newer targeted therapies and combination regimens."
     >
       {hasData ? (
         <div role="img" aria-label="Line chart of MBC survival in months by year of diagnosis">

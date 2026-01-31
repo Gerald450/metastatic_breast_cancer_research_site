@@ -15,6 +15,7 @@ export default function BreastCancerMortalityHeatMapFigure() {
       externalSource={{ name: 'CDC WONDER', url: ONLINE_SOURCES.CDC_WONDER.url }}
       status="Draft"
       caption="Color intensity reflects age-adjusted mortality rate per 100,000. CDC WONDER."
+      summary="Geographic patterns highlight states with higher breast cancer mortality. Hotspots may correlate with rurality, poverty, insurance gaps, or lower screening uptake—useful for prioritizing resources and outreach."
     >
       {hasData ? (
         <div role="img" aria-label="Heat map of breast cancer mortality by U.S. state">

@@ -59,6 +59,7 @@ export default function SurvivalStudiesTable() {
       sources={sources}
       status="Verified"
       caption="Data from Table 1: Studies of change in survival over time. Verify page ranges in source PDFs."
+      summary="Across studies, median survival for MBC has improved over more recent diagnosis periods. Statistical significance varies by population and comparison; the table supports evidence that treatment advances have translated into better outcomes."
     >
       <div className="overflow-x-auto">
         <TableFallback data={tableRows} columns={columns} maxRows={20} />

@@ -15,6 +15,7 @@ export default function InsuranceVsStageAtDiagnosisFigure() {
       externalSource={{ name: 'SEER / USCS', url: ONLINE_SOURCES.USCS.url }}
       status="Draft"
       caption="Percent diagnosed at late stage (regional or distant) by insurance status. SEER and USCS."
+      summary="Uninsured and Medicaid patients are more likely to be diagnosed at late stage, reflecting barriers to screening and timely care. Improving access to insurance and preventive services could reduce late-stage diagnoses."
     >
       {hasData ? (
         <div role="img" aria-label="Bar chart of percent diagnosed late stage by insurance status">

@@ -127,6 +127,7 @@ export default function SurvivalTrendsFigure() {
       sources={sources}
       status={status}
       caption={caption}
+      summary="Survival metrics from literature show how outcomes have evolved across study periods. Trends support the value of newer treatments but vary by population and metric type."
     >
       {hasData && metricNames.length > 1 && (
         <div className="mb-4">

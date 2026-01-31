@@ -20,6 +20,7 @@ export default function CauseOfDeathBreastVsOtherFigure() {
       externalSource={{ name: 'SEER (cause-specific)', url: ONLINE_SOURCES.NCI_SEER.url }}
       status="Draft"
       caption="Proportion of deaths due to breast cancer vs other causes by age group. SEER cause-specific survival."
+      summary="In older patients, competing causes of death increase; breast cancer becomes a smaller share of deaths. This reflects both cancer mortality and age-related comorbidities, influencing treatment goals and palliative care."
     >
       {hasData ? (
         <div role="img" aria-label="Stacked bar chart of cause of death by age group">

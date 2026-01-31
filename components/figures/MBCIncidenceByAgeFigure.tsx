@@ -15,6 +15,7 @@ export default function MBCIncidenceByAgeFigure() {
       externalSource={{ name: 'SEER / USCS', url: ONLINE_SOURCES.USCS.url }}
       status="Draft"
       caption="Incidence rates by age from SEER and USCS. Count or rate per 100,000."
+      summary="MBC incidence increases with age, peaking in older adults. The age distribution informs screening guidelines and resource allocation for different populations."
     >
       {hasData ? (
         <div role="img" aria-label="Bar chart of MBC incidence by age group">

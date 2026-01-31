@@ -15,6 +15,7 @@ interface FigureProps {
   description?: string;
   children: ReactNode;
   caption?: string;
+  summary?: string; // Brief conclusion or key takeaway derived from the visual
   sources?: string[]; // Array of reference IDs (e.g., ['ref-001', 'ref-002'])
   externalSource?: ExternalSource; // For online data (e.g., SEER, NCI)
   status?: FigureStatus;
@@ -26,6 +27,7 @@ export default function Figure({
   description,
   children,
   caption,
+  summary,
   sources = [],
   externalSource,
   status = 'Draft',
@@ -63,11 +65,17 @@ export default function Figure({
         {children}
       </div>
 
-      {/* Caption and Sources */}
+      {/* Caption, Summary, and Sources */}
       <figcaption className="mt-4 space-y-2">
         {caption && (
           <p className="text-sm italic leading-relaxed text-gray-600 dark:text-gray-400">
             {caption}
+          </p>
+        )}
+        {summary && (
+          <p className="text-sm font-medium text-gray-700 dark:text-gray-300">
+            <span className="font-semibold">Summary: </span>
+            {summary}
           </p>
         )}
         {sources.length > 0 && (

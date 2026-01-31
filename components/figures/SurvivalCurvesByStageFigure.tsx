@@ -22,6 +22,7 @@ export default function SurvivalCurvesByStageFigure() {
       externalSource={{ name: 'SEER / Kaggle', url: ONLINE_SOURCES.NCI_SEER.url }}
       status="Draft"
       caption="5-year relative survival probability by months from diagnosis. Simplified from SEER survival by stage."
+      summary="Survival drops sharply with stage. Stage I–II have high 5-year survival; Stage IV (metastatic) shows a steep decline. This underscores the prognostic importance of stage and the need for effective therapies for metastatic disease."
     >
       {hasData ? (
         <div role="img" aria-label="Multi-line chart of survival probability by stage over months">

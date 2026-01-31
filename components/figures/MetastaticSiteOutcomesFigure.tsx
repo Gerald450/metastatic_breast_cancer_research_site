@@ -119,6 +119,7 @@ export default function MetastaticSiteOutcomesFigure() {
       sources={sources}
       status={status}
       caption={caption}
+      summary="Outcomes vary by metastatic site, with bone-only disease generally faring better than visceral sites. Site-specific data guides prognosis and treatment sequencing."
     >
       {hasData && metricNames.length > 1 && (
         <div className="mb-4">

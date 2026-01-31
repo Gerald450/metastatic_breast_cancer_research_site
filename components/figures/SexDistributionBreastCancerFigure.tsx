@@ -15,6 +15,7 @@ export default function SexDistributionBreastCancerFigure() {
       externalSource={{ name: 'SEER / ACS', url: ONLINE_SOURCES.NCI_SEER.url }}
       status="Draft"
       caption="Breast cancer case counts by sex from SEER. Male breast cancer is rare (~1% of cases)."
+      summary="Breast cancer is overwhelmingly diagnosed in women; male cases represent about 1% of the total. Male breast cancer is often diagnosed at later stages and merits distinct awareness and screening considerations."
     >
       {hasData ? (
         <div role="img" aria-label="Pie chart of breast cancer cases by sex">

@@ -22,6 +22,7 @@ export default function SEERSurvivalByStageFigure() {
       }}
       status="Verified"
       caption={`Data from National Cancer Institute SEER Program (${dataPeriod}). Adapted from Cancer Stat Facts.`}
+      summary="Stage strongly predicts 5-year survival: localized disease has excellent outcomes (~100%), while distant (metastatic) stage drops to about one-third. Early detection and treatment of non-metastatic disease remain critical."
     >
       <BarCategoryChart
         data={chartData}

@@ -15,6 +15,7 @@ export default function DeNovoStageIVIncidenceFigure() {
       externalSource={{ name: 'SEER (stage at diagnosis)', url: ONLINE_SOURCES.NCI_SEER.url }}
       status="Draft"
       caption="De novo metastatic breast cancer cases from SEER. Stage at diagnosis variable."
+      summary="De novo Stage IV incidence has been relatively stable or slightly increasing. This highlights that a subset of patients present with metastatic disease at diagnosis, underscoring the importance of screening and early detection."
     >
       {hasData ? (
         <div role="img" aria-label="Bar chart of de novo Stage IV incidence by year">

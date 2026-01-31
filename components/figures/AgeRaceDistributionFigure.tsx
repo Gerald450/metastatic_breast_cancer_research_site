@@ -107,6 +107,7 @@ export default function AgeRaceDistributionFigure() {
       sources={sources}
       status={status}
       caption={caption}
+      summary="Demographic patterns by age and race help target screening and care. Incidence and mortality distributions inform who is most affected and where interventions may have the largest impact."
     >
       {hasData && (hasGroupLabel || hasAgeRange) && (
         <div className="mb-4">

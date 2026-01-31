@@ -15,6 +15,7 @@ export default function MBCSurvivorshipPopulationGrowthFigure() {
       externalSource={{ name: 'SEER + Mariotto-style / USCS', url: ONLINE_SOURCES.USCS.url }}
       status="Draft"
       caption="Estimated prevalence from SEER and USCS. Mariotto et al. methodology for burden projections."
+      summary="The number of people living with MBC is rising steadily due to improved survival. This growing survivorship population underscores the need for long-term care, monitoring, and support services."
     >
       {hasData ? (
         <div role="img" aria-label="Area chart of people living with MBC by year">
