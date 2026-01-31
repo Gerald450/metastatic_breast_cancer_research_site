@@ -8,6 +8,8 @@ import { references } from '@/lib/references';
 import MetastaticSiteOutcomesFigure from '@/components/figures/MetastaticSiteOutcomesFigure';
 import SurvivalTrendsFigure from '@/components/figures/SurvivalTrendsFigure';
 import MetaRegressionSurvivalFigure from '@/components/figures/MetaRegressionSurvivalFigure';
+import SEERSurvivalByStageFigure from '@/components/figures/SEERSurvivalByStageFigure';
+import SEERDistantStageBySubtypeFigure from '@/components/figures/SEERDistantStageBySubtypeFigure';
 import PageHero from '@/components/PageHero';
 import ClinicalIllustration from '@/components/illustrations/ClinicalIllustration';
 import ProgressionPathwayDiagram from '@/components/figures/ProgressionPathwayDiagram';
@@ -36,6 +38,10 @@ export default function ClinicalOutcomesPage() {
             claim="Survival has improved over time for patients with metastatic breast cancer, with median survival increasing across different time periods and study populations."
             sources={['ref-001', 'ref-002', 'ref-004']}
           />
+          <div className="grid gap-8 sm:grid-cols-1 lg:grid-cols-2">
+            <SEERSurvivalByStageFigure />
+            <SEERDistantStageBySubtypeFigure />
+          </div>
           <SurvivalTrendsFigure />
 
           <div id="meta-regression-survival" className="space-y-10">

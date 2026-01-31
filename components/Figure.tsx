@@ -5,12 +5,18 @@ import { ReactNode } from 'react';
 
 export type FigureStatus = 'Verified' | 'Needs Review' | 'Draft';
 
+interface ExternalSource {
+  name: string;
+  url: string;
+}
+
 interface FigureProps {
   title: string;
   description?: string;
   children: ReactNode;
   caption?: string;
-  sources: string[]; // Array of reference IDs (e.g., ['ref-001', 'ref-002'])
+  sources?: string[]; // Array of reference IDs (e.g., ['ref-001', 'ref-002'])
+  externalSource?: ExternalSource; // For online data (e.g., SEER, NCI)
   status?: FigureStatus;
   className?: string;
 }
@@ -20,7 +26,8 @@ export default function Figure({
   description,
   children,
   caption,
-  sources,
+  sources = [],
+  externalSource,
   status = 'Draft',
   className = '',
 }: FigureProps) {
@@ -79,6 +86,19 @@ export default function Figure({
                 </span>
               ))}
             </span>
+          </div>
+        )}
+        {externalSource && (
+          <div className="text-xs text-gray-500 dark:text-gray-500">
+            <span className="font-medium">Data source:</span>{' '}
+            <a
+              href={externalSource.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-blue-600 hover:text-blue-800 hover:underline dark:text-blue-400 dark:hover:text-blue-300"
+            >
+              {externalSource.name}
+            </a>
           </div>
         )}
       </figcaption>

@@ -1,0 +1,16 @@
+{
+  "source": {
+    "name": "SEER Cancer Stat Facts: Female Breast Cancer Subtypes",
+    "url": "https://seer.cancer.gov/statfacts/html/breast-subtypes.html",
+    "citation": "National Cancer Institute. Surveillance, Epidemiology, and End Results (SEER) Program.",
+    "dataPeriod": "2015-2021",
+    "note": "5-year relative survival for distant (metastatic) stage breast cancer by molecular subtype"
+  },
+  "data": [
+    { "subtype": "HR+/HER2+", "survivalPercent": 46.7 },
+    { "subtype": "HR-/HER2+", "survivalPercent": 40.8 },
+    { "subtype": "HR+/HER2-", "survivalPercent": 36.5 },
+    { "subtype": "HR-/HER2-", "survivalPercent": 14.9 },
+    { "subtype": "Unknown", "survivalPercent": 15.8 }
+  ]
+}

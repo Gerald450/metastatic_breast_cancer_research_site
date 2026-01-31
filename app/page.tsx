@@ -3,6 +3,7 @@ import HomeHero from '@/components/HomeHero';
 import KeyStatsCards from '@/components/KeyStatsCards';
 import TopicExploreGrid from '@/components/TopicExploreGrid';
 import SurvivalTrendsFigure from '@/components/figures/SurvivalTrendsFigure';
+import SEERSurvivalByStageFigure from '@/components/figures/SEERSurvivalByStageFigure';
 import Link from 'next/link';
 
 export default function Home() {
@@ -31,9 +32,12 @@ export default function Home() {
 
       <Section
         title="Survival at a glance"
-        subtitle="Median survival over time from selected studies"
+        subtitle="SEER population data and median survival from selected studies"
       >
-        <SurvivalTrendsFigure />
+        <div className="space-y-8">
+          <SEERSurvivalByStageFigure />
+          <SurvivalTrendsFigure />
+        </div>
       </Section>
 
       <Section

@@ -9,6 +9,7 @@ This document lists data sources used for figures and tables across the site. Al
 - **URL:** https://seer.cancer.gov/data-software/documentation/seerstat/nov2023/
 - **Use for:** Incidence, survival, prevalence, demographics (SEER 9/12/17/22)
 - **Citation:** National Cancer Institute, SEER*Stat Databases — November 2023 Submission. Surveillance, Epidemiology, and End Results (SEER) Program.
+- **Cancer Stat Facts:** https://seer.cancer.gov/statfacts/html/breast.html — Used for SEERSurvivalByStageFigure and SEERDistantStageBySubtypeFigure. Static extracts in `data/seer/`.
 
 ### Site PDFs (Extracted Data)
 Data extracted from peer-reviewed PDFs in `public/pdfs/`:
@@ -40,6 +41,8 @@ Extracted JSON files live in `data/extracted/`. Each figure cites the source ref
 
 | Figure | Data Source | Citation |
 |--------|-------------|----------|
+| **SEERSurvivalByStageFigure** | `data/seer/survival_by_stage.json` | NCI SEER Cancer Stat Facts (2015-2021) |
+| **SEERDistantStageBySubtypeFigure** | `data/seer/distant_stage_by_subtype.json` | NCI SEER Cancer Stat Facts (2015-2021) |
 | SurvivalTrendsFigure | Firebase `survival_over_time` or `data/extracted/survival_over_time.json` | ref-001, ref-002, ref-004, etc. (from extracted sourceRefId) |
 | SurvivalStudiesTable | `data/extracted/survival_studies_table.json` | Giordano et al., Vogel et al. (study-level) |
 | MetaRegressionSurvivalFigure | `data/extracted/meta_regression_survival.json` | Caswell et al. (ref-001) |
