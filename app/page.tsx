@@ -16,15 +16,11 @@ export default function Home() {
           <p className="mb-4 text-gray-700 dark:text-gray-300 leading-relaxed">
             A research hub for metastatic breast cancer (MBC): definitions, biology, treatment, epidemiology, and evidence from literature and trusted data sources.
           </p>
-          <p className="text-sm text-gray-600 dark:text-gray-400">
-            Use the <strong>navbar</strong> above for Home, Definition, Biology, and Treatment. Use the <strong>Explore by topic</strong> grid below to access Epidemiology, Demographics, Clinical Outcomes, Public Health, and References.
-          </p>
         </div>
       </div>
 
       <Section
         title="Key metrics"
-        subtitle="Notable findings from the literature (properly cited)"
         className="section-alt"
       >
         <KeyStatsCards />

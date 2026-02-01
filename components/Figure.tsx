@@ -47,11 +47,13 @@ export default function Figure({
           <h3 className="text-xl font-semibold leading-tight text-gray-900 dark:text-white">
             {title}
           </h3>
-          <span
-            className={`inline-flex items-center rounded-md px-2.5 py-1 text-xs font-medium ring-1 ring-inset ${statusStyles[status]}`}
-          >
-            {status}
-          </span>
+          {status !== 'Draft' && (
+            <span
+              className={`inline-flex items-center rounded-md px-2.5 py-1 text-xs font-medium ring-1 ring-inset ${statusStyles[status]}`}
+            >
+              {status}
+            </span>
+          )}
         </div>
         {description && (
           <p className="text-sm leading-relaxed text-gray-600 dark:text-gray-400">
