@@ -133,7 +133,7 @@ export default function SurvivalTrendsFigure() {
   const status: FigureStatus = hasReviewFlag ? 'Needs Review' : 'Verified';
   const hasData = metricOptions.length > 0 && chartData.length > 0;
   const caption = hasData
-    ? 'Data extracted from uploaded PDFs; verify page ranges.'
+    ? `Data from site PDFs (Caswell et al., Lord et al., Hudock et al.). Source refs: ${sources.length ? sources.join(', ') : 'see extracted data'}. Verify page ranges in PDFs.`
     : 'No data available for this figure yet.';
 
   if (loading) {
@@ -159,6 +159,7 @@ export default function SurvivalTrendsFigure() {
       sources={sources}
       status={status}
       caption={caption}
+      summary="Survival metrics from literature show how outcomes have evolved across study periods. Trends support the value of newer treatments but vary by population and metric type."
     >
       {hasData && metricOptions.length > 1 && (
         <div className="mb-4">

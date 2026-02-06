@@ -38,7 +38,7 @@ export const references: Reference[] = [
     filename: 'pky062.pdf',
     localUrl: '/pdfs/Caswell_et_al.pdf',
     doi: '10.1093/jncics/pky062',
-    usedFor: ['clinical-outcomes', 'demographics'],
+    usedFor: ['definition', 'clinical-outcomes', 'demographics'],
     highlightNotes: [
       {
         section: 'Clinical Outcomes',
@@ -69,9 +69,9 @@ export const references: Reference[] = [
     year: '2019',
     journal: 'BMJ Open',
     filename: 'e026414.full.pdf',
-    localUrl: '/pdfs/Lord_et_ al.pdf',
+    localUrl: '/pdfs/Lord_et_ al.pdf', // matches actual filename (space before "al")
     doi: '10.1136/bmjopen-2018-026414',
-    usedFor: ['epidemiology', 'clinical-outcomes', 'public-health', 'demographics'],
+    usedFor: ['definition', 'epidemiology', 'clinical-outcomes', 'public-health', 'demographics'],
     highlightNotes: [
       {
         section: 'Epidemiology',
@@ -100,7 +100,7 @@ export const references: Reference[] = [
     year: '2022',
     journal: 'The Lancet Regional Health',
     filename: '809.pdf',
-    localUrl: '/pdfs/Jing _lu _et_al.pdf',
+    localUrl: '/pdfs/Jing _lu _et_al.pdf', // matches actual filename (spaces)
     doi: null,
     usedFor: ['epidemiology', 'public-health'],
     highlightNotes: [
@@ -181,7 +181,7 @@ export const references: Reference[] = [
     filename: 's10549-018-4956-y.pdf',
     localUrl: '/pdfs/Bonotto_et_al.pdf',
     doi: '10.1007/s10549-018-4956-y',
-    usedFor: ['clinical-outcomes', 'demographics'],
+    usedFor: ['clinical-outcomes', 'demographics', 'treatment'],
     highlightNotes: [
       {
         section: 'Clinical Outcomes',
@@ -207,7 +207,7 @@ export const references: Reference[] = [
     filename: 'Cancer Medicine - 2018 - Xiao...',
     localUrl: '/pdfs/Xiao_et_al.pdf',
     doi: '10.1002/cam4.1370',
-    usedFor: ['clinical-outcomes', 'public-health', 'demographics'],
+    usedFor: ['clinical-outcomes', 'public-health', 'demographics', 'treatment'],
     highlightNotes: [
       {
         section: 'Clinical Outcomes',
@@ -244,32 +244,6 @@ export const references: Reference[] = [
         section: 'Demographics',
         pages: '—',
         excerptHint: 'Delayed diagnosis and poorer outcomes',
-      },
-    ],
-  },
-
-  {
-    id: 'ref-009',
-    title:
-      'Evaluation of the current knowledge limitations in breast cancer research: a gap analysis',
-    authors:
-      'Alastair Thompson et al.',
-    year: '2008',
-    journal: 'Breast Cancer Research',
-    filename: 'bcr1983.pdf',
-    localUrl: '/pdfs/Thompson_et_al.pdf',
-    doi: '10.1186/bcr1983',
-    usedFor: ['definition'],
-    highlightNotes: [
-      {
-        section: 'Definition',
-        pages: '—',
-        excerptHint: 'Research gaps',
-      },
-      {
-        section: 'Definition',
-        pages: '—',
-        excerptHint: 'Metastatic progression mechanisms',
       },
     ],
   },
@@ -337,7 +311,7 @@ export const references: Reference[] = [
     filename: 'oncolo_19_6_608.pdf',
     localUrl: '/pdfs/Thompson_et_al.pdf',
     doi: '10.1186/bcr1983',
-    usedFor: ['definition', 'clinical-outcomes'],
+    usedFor: ['biology', 'definition', 'clinical-outcomes'],
     highlightNotes: [
       {
         section: 'Definition',

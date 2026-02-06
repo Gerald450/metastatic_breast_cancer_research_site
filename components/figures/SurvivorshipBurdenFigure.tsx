@@ -123,6 +123,7 @@ export default function SurvivorshipBurdenFigure() {
       sources={sources}
       status={status}
       caption={caption}
+      summary="Prevalence and survivorship burden reflect the growing number of people living with MBC. Rising prevalence due to improved survival increases demand for long-term care and support."
     >
       {hasData ? (
         useLineChart ? (

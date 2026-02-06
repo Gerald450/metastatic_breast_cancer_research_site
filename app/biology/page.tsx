@@ -2,6 +2,8 @@ import Section from '@/components/Section';
 import Placeholder from '@/components/Placeholder';
 import VisualPlaceholder from '@/components/VisualPlaceholder';
 import TabSummary from '@/components/TabSummary';
+import ReferenceList from '@/components/ReferenceList';
+import { references } from '@/lib/references';
 import PageHero from '@/components/PageHero';
 import BiologyIllustration from '@/components/illustrations/BiologyIllustration';
 
@@ -85,16 +87,9 @@ export default function BiologyPage() {
         </div>
       </Section>
 
-      <Section title="References used on this page">
-        <div className="space-y-2">
-          <Placeholder
-            label="Reference list placeholder"
-            notes={[
-              'TODO: Add metastatic cascade study citations',
-              'TODO: Add tumor evolution sources',
-              'TODO: Add heterogeneity and resistance references',
-            ]}
-          />
+      <Section title="References used on this page" className="section-alt">
+        <div className="space-y-4">
+          <ReferenceList references={references} filterBy="biology" />
         </div>
       </Section>
     </div>

@@ -5,7 +5,7 @@ const stats = [
     value: '15 → 58',
     unit: 'months',
     label: 'Median survival improvement',
-    detail: 'MD Anderson adjuvant trials (Giordano et al.)',
+    detail: 'MD Anderson adjuvant trials (Giordano et al. 25)',
     icon: (
       <svg className="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden>
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />

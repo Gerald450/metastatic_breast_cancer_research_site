@@ -2,6 +2,13 @@
 
 This directory contains extracted numeric data from peer-reviewed PDF articles about metastatic breast cancer.
 
+## Trusted Data Sources
+
+Figures and tables on this site use **only** trusted, cited sources. See `lib/data-sources.md` for the full policy. Allowed sources include:
+- **SEER*Stat November 2023** (NCI) — https://seer.cancer.gov/data-software/documentation/seerstat/nov2023/
+- **Site PDFs** — Peer-reviewed literature in `public/pdfs/` (Caswell, Lord, Mariotto, Hudock, etc.)
+- **Disallowed:** Breast Cancer Wisconsin (Diagnostic), uncited metastatic datasets
+
 ## Overview
 
 The extraction pipeline processes PDFs from `/public/pdfs` and extracts numeric values (survival metrics, prevalence estimates, demographics, metastatic site outcomes) into structured JSON datasets. The extraction follows a **conservative approach**—only storing values that are explicitly present in the PDF text. Values that cannot be confidently extracted are marked with `needsManualReview: true` and set to `null`.

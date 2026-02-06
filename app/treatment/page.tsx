@@ -2,6 +2,8 @@ import Section from '@/components/Section';
 import Placeholder from '@/components/Placeholder';
 import VisualPlaceholder from '@/components/VisualPlaceholder';
 import TabSummary from '@/components/TabSummary';
+import ReferenceList from '@/components/ReferenceList';
+import { references } from '@/lib/references';
 import PageHero from '@/components/PageHero';
 import TreatmentIllustration from '@/components/illustrations/TreatmentIllustration';
 
@@ -90,16 +92,9 @@ export default function TreatmentPage() {
         </div>
       </Section>
 
-      <Section title="References used on this page">
-        <div className="space-y-2">
-          <Placeholder
-            label="Reference list placeholder"
-            notes={[
-              'TODO: Add therapy overview study citations',
-              'TODO: Add targeted therapy sources',
-              'TODO: Add treatment sequencing references',
-            ]}
-          />
+      <Section title="References used on this page" className="section-alt">
+        <div className="space-y-4">
+          <ReferenceList references={references} filterBy="treatment" />
         </div>
       </Section>
     </div>

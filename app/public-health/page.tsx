@@ -7,6 +7,9 @@ import { references } from '@/lib/references';
 import PageHero from '@/components/PageHero';
 import PublicHealthIllustration from '@/components/illustrations/PublicHealthIllustration';
 import SurvivorshipBurdenFigure from '@/components/figures/SurvivorshipBurdenFigure';
+import StateLevelBreastCancerMortalityFigure from '@/components/figures/StateLevelBreastCancerMortalityFigure';
+import BreastCancerMortalityHeatMapFigure from '@/components/figures/BreastCancerMortalityHeatMapFigure';
+import CauseOfDeathBreastVsOtherFigure from '@/components/figures/CauseOfDeathBreastVsOtherFigure';
 
 export default function PublicHealthPage() {
   return (
@@ -26,15 +29,10 @@ export default function PublicHealthPage() {
         className="section-alt"
       >
         <div className="space-y-6">
-          <Placeholder
-            label="Population health burden"
-            notes={[
-              'Overall disease burden metrics',
-              'Healthcare system impacts',
-              'Economic and social costs',
-            ]}
-          />
           <SurvivorshipBurdenFigure />
+          <StateLevelBreastCancerMortalityFigure />
+          <BreastCancerMortalityHeatMapFigure />
+          <CauseOfDeathBreastVsOtherFigure />
         </div>
       </Section>
 

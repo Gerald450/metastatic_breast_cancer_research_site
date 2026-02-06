@@ -5,12 +5,19 @@ import { ReactNode } from 'react';
 
 export type FigureStatus = 'Verified' | 'Needs Review' | 'Draft';
 
+interface ExternalSource {
+  name: string;
+  url: string;
+}
+
 interface FigureProps {
   title: string;
   description?: string;
   children: ReactNode;
   caption?: string;
-  sources: string[]; // Array of reference IDs (e.g., ['ref-001', 'ref-002'])
+  summary?: string; // Brief conclusion or key takeaway derived from the visual
+  sources?: string[]; // Array of reference IDs (e.g., ['ref-001', 'ref-002'])
+  externalSource?: ExternalSource; // For online data (e.g., SEER, NCI)
   status?: FigureStatus;
   className?: string;
 }
@@ -20,7 +27,9 @@ export default function Figure({
   description,
   children,
   caption,
-  sources,
+  summary,
+  sources = [],
+  externalSource,
   status = 'Draft',
   className = '',
 }: FigureProps) {
@@ -38,11 +47,13 @@ export default function Figure({
           <h3 className="text-xl font-semibold leading-tight text-gray-900 dark:text-white">
             {title}
           </h3>
-          <span
-            className={`inline-flex items-center rounded-md px-2.5 py-1 text-xs font-medium ring-1 ring-inset ${statusStyles[status]}`}
-          >
-            {status}
-          </span>
+          {status !== 'Draft' && (
+            <span
+              className={`inline-flex items-center rounded-md px-2.5 py-1 text-xs font-medium ring-1 ring-inset ${statusStyles[status]}`}
+            >
+              {status}
+            </span>
+          )}
         </div>
         {description && (
           <p className="text-sm leading-relaxed text-gray-600 dark:text-gray-400">
@@ -56,11 +67,17 @@ export default function Figure({
         {children}
       </div>
 
-      {/* Caption and Sources */}
+      {/* Caption, Summary, and Sources */}
       <figcaption className="mt-4 space-y-2">
         {caption && (
           <p className="text-sm italic leading-relaxed text-gray-600 dark:text-gray-400">
             {caption}
+          </p>
+        )}
+        {summary && (
+          <p className="text-sm font-medium text-gray-700 dark:text-gray-300">
+            <span className="font-semibold">Summary: </span>
+            {summary}
           </p>
         )}
         {sources.length > 0 && (
@@ -79,6 +96,19 @@ export default function Figure({
                 </span>
               ))}
             </span>
+          </div>
+        )}
+        {externalSource && (
+          <div className="text-xs text-gray-500 dark:text-gray-500">
+            <span className="font-medium">Data source:</span>{' '}
+            <a
+              href={externalSource.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-blue-600 hover:text-blue-800 hover:underline dark:text-blue-400 dark:hover:text-blue-300"
+            >
+              {externalSource.name}
+            </a>
           </div>
         )}
       </figcaption>

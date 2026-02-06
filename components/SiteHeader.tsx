@@ -7,7 +7,6 @@ import { useState } from 'react';
 interface NavItem {
   href: string;
   label: string;
-  planned?: boolean;
 }
 
 export default function SiteHeader() {
@@ -17,13 +16,8 @@ export default function SiteHeader() {
   const navItems: NavItem[] = [
     { href: '/', label: 'Home' },
     { href: '/definition', label: 'Definition' },
-    { href: '/epidemiology', label: 'Epidemiology' },
-    { href: '/demographics', label: 'Demographics' },
-    { href: '/clinical-outcomes', label: 'Clinical Outcomes' },
-    { href: '/public-health', label: 'Public Health' },
-    { href: '/biology', label: 'Biology', planned: true },
-    { href: '/treatment', label: 'Treatment', planned: true },
-    { href: '/references', label: 'References' },
+    { href: '/biology', label: 'Biology' },
+    { href: '/treatment', label: 'Treatment' },
   ];
 
   const isActive = (href: string) => {
@@ -49,14 +43,7 @@ export default function SiteHeader() {
         `}
         onClick={() => setMobileMenuOpen(false)}
       >
-        <span className="flex items-center gap-2">
-          {item.label}
-          {item.planned && (
-            <span className="text-xs font-normal text-gray-400 dark:text-gray-500">
-              (Planned)
-            </span>
-          )}
-        </span>
+        {item.label}
       </Link>
     );
   };

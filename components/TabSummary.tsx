@@ -2,16 +2,20 @@ import Link from 'next/link';
 import type { SiteSection } from '@/lib/references';
 import { references } from '@/lib/references';
 import { getTabSummary } from '@/lib/tab-summaries';
+import { ONLINE_SOURCES } from '@/lib/online-sources';
 
 interface TabSummaryProps {
   section: SiteSection;
 }
 
 export default function TabSummary({ section }: TabSummaryProps) {
-  const { summary, sourceRefIds } = getTabSummary(section);
+  const { summary, sourceRefIds, onlineSourceIds } = getTabSummary(section);
   const refs = sourceRefIds
     .map((id) => references.find((r) => r.id === id))
     .filter(Boolean) as typeof references;
+  const onlineSources = (onlineSourceIds ?? [])
+    .map((id) => Object.values(ONLINE_SOURCES).find((s) => s.id === id))
+    .filter((s): s is NonNullable<typeof s> => s != null);
 
   return (
     <div className="card card-hover mb-10 rounded-xl border border-gray-200 bg-gray-50/90 p-5 dark:border-gray-700 dark:bg-gray-800/60">
@@ -30,6 +34,24 @@ export default function TabSummary({ section }: TabSummaryProps) {
               >
                 {ref.id}
               </Link>
+            </span>
+          ))}
+        </p>
+      )}
+      {onlineSources.length > 0 && (
+        <p className="mt-2 text-sm text-gray-600 dark:text-gray-400">
+          <span className="font-medium">Online sources: </span>
+          {onlineSources.map((s, idx) => (
+            <span key={s.id}>
+              {idx > 0 && '; '}
+              <a
+                href={s.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300 underline"
+              >
+                {s.name}
+              </a>
             </span>
           ))}
         </p>

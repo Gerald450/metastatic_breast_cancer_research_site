@@ -1,8 +1,8 @@
 'use client';
 
 import {
-  BarChart,
-  Bar,
+  LineChart,
+  Line,
   XAxis,
   YAxis,
   CartesianGrid,
@@ -17,30 +17,27 @@ interface SeriesConfig {
   color?: string;
 }
 
-const DEFAULT_STACK_COLORS = [
-  '#3b82f6', // blue
-  '#10b981', // emerald
-  '#f59e0b', // amber
-  '#ef4444', // red
-  '#8b5cf6', // violet
-  '#ec4899', // pink
-  '#06b6d4', // cyan
-  '#84cc16', // lime
-];
-
-interface StackedBarChartProps {
+interface MultiLineTimeSeriesChartProps {
   data: Record<string, unknown>[];
   xKey: string;
   series: SeriesConfig[];
   yLabel?: string;
 }
 
-export default function StackedBarChart({
+const DEFAULT_COLORS = [
+  '#3b82f6', // blue
+  '#10b981', // emerald
+  '#f59e0b', // amber
+  '#ef4444', // red
+  '#8b5cf6', // violet
+];
+
+export default function MultiLineTimeSeriesChart({
   data,
   xKey,
   series,
   yLabel,
-}: StackedBarChartProps) {
+}: MultiLineTimeSeriesChartProps) {
   if (!data || data.length === 0) {
     return (
       <div className="flex h-64 items-center justify-center text-sm text-gray-500 dark:text-gray-400">
@@ -59,7 +56,7 @@ export default function StackedBarChart({
 
   return (
     <ResponsiveContainer width="100%" height={400}>
-      <BarChart data={data} margin={{ top: 5, right: 20, left: 10, bottom: 5 }}>
+      <LineChart data={data} margin={{ top: 5, right: 20, left: 10, bottom: 5 }}>
         <CartesianGrid strokeDasharray="3 3" className="stroke-gray-200 dark:stroke-gray-700" />
         <XAxis
           dataKey={xKey}
@@ -78,24 +75,20 @@ export default function StackedBarChart({
             borderRadius: '0.375rem',
           }}
         />
-        <Legend
-          wrapperStyle={{
-            paddingTop: '1rem',
-          }}
-          className="text-xs text-gray-600 dark:text-gray-400"
-        />
+        <Legend wrapperStyle={{ paddingTop: '1rem' }} className="text-xs text-gray-600 dark:text-gray-400" />
         {series.map((s, idx) => (
-          <Bar
+          <Line
             key={s.key}
+            type="monotone"
             dataKey={s.key}
-            stackId="a"
             name={s.label}
-            fill={s.color ?? DEFAULT_STACK_COLORS[idx % DEFAULT_STACK_COLORS.length]}
-            radius={idx === series.length - 1 ? [4, 4, 0, 0] : [0, 0, 0, 0]}
+            stroke={s.color ?? DEFAULT_COLORS[idx % DEFAULT_COLORS.length]}
+            strokeWidth={2}
+            dot={{ r: 3 }}
+            activeDot={{ r: 5 }}
           />
         ))}
-      </BarChart>
+      </LineChart>
     </ResponsiveContainer>
   );
 }
-

@@ -1,0 +1,13 @@
+{
+  "source": {
+    "name": "SEER Cancer Stat Facts: Female Breast Cancer",
+    "url": "https://seer.cancer.gov/statfacts/html/breast.html",
+    "citation": "National Cancer Institute. Surveillance, Epidemiology, and End Results (SEER) Program.",
+    "dataPeriod": "2015-2021"
+  },
+  "data": [
+    { "stage": "Localized", "survivalPercent": 100.0, "description": "Confined to breast" },
+    { "stage": "Regional", "survivalPercent": 87.2, "description": "Spread to regional lymph nodes" },
+    { "stage": "Distant", "survivalPercent": 32.6, "description": "Metastatic (spread to distant organs)" }
+  ]
+}
