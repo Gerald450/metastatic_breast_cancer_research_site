@@ -19,7 +19,7 @@ export default function TabSummary({ section }: TabSummaryProps) {
 
   return (
     <div className="card card-hover mb-10 rounded-xl border border-gray-200 bg-gray-50/90 p-5 dark:border-gray-700 dark:bg-gray-800/60">
-      <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
+      <p className="text-base leading-relaxed text-gray-700 dark:text-gray-300">
         {summary}
       </p>
       {refs.length > 0 && (

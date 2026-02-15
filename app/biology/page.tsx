@@ -20,7 +20,11 @@ export default function BiologyPage() {
         <TabSummary section="biology" />
       </div>
 
-      <Section title="Circulating Tumor Cells and the Metastatic Cascade">
+      {/* Story: How does metastasis work? CTCs → Physical forces → Molecular diversity → Circadian → Evolution → Resistance */}
+      <Section
+        title="Circulating tumor cells and the metastatic cascade"
+        subtitle="How tumor cells leave the primary site, survive circulation, and colonize distant organs"
+      >
         <div className="space-y-6">
           <p>
             Metastatic breast cancer (MBC) remains the primary cause of breast cancer–related
@@ -51,7 +55,11 @@ export default function BiologyPage() {
         </div>
       </Section>
 
-      <Section title="Physical Biology of Circulating Tumor Cells" className="section-alt">
+      <Section
+        title="Physical biology of circulating tumor cells"
+        subtitle="Size, stiffness, shear stress—why biophysics determines who survives circulation"
+        className="section-alt"
+      >
         <div className="space-y-6">
           <p>
             The physical properties of CTCs play a critical role in determining metastatic
@@ -72,7 +80,10 @@ export default function BiologyPage() {
         </div>
       </Section>
 
-      <Section title="Molecular Heterogeneity">
+      <Section
+        title="Molecular heterogeneity"
+        subtitle="Single-cell profiling reveals diverse CTC populations—and why bulk biopsies miss them"
+      >
         <div className="space-y-6">
           <p>
             Single-cell RNA sequencing (scRNA-seq) has revolutionized the study of CTC biology by
@@ -95,7 +106,11 @@ export default function BiologyPage() {
         </div>
       </Section>
 
-      <Section title="Circadian Regulation and Sleep-Associated Metastasis" className="section-alt">
+      <Section
+        title="Circadian regulation and sleep-associated metastasis"
+        subtitle="When do CTCs disseminate? Sleep-phase release and implications for chronotherapy"
+        className="section-alt"
+      >
         <div className="space-y-6">
           <p>
             One of the most unexpected recent findings in breast cancer metastasis is the role of
@@ -118,7 +133,10 @@ export default function BiologyPage() {
         </div>
       </Section>
 
-      <Section title="Tumor Evolution">
+      <Section
+        title="Tumor evolution"
+        subtitle="Clonal expansion, subclones, and selection—how tumors diversify over time"
+      >
         <div className="space-y-6">
           <p>
             Tumor evolution describes how cancer populations change over time through clonal
@@ -141,7 +159,11 @@ export default function BiologyPage() {
         </div>
       </Section>
 
-      <Section title="Resistance Mechanisms">
+      <Section
+        title="Resistance mechanisms"
+        subtitle="From CTC heterogeneity to treatment failure—and future intervention strategies"
+        className="section-alt"
+      >
         <div className="space-y-6">
           <p>
             The molecular heterogeneity of CTCs—including stem-cell–like programs and dynamic

@@ -1,49 +1,64 @@
 import Section from '@/components/Section';
 import HomeHero from '@/components/HomeHero';
-import KeyStatsCards from '@/components/KeyStatsCards';
+import EvidenceHighlights from '@/components/EvidenceHighlights';
 import TopicExploreGrid from '@/components/TopicExploreGrid';
-import SurvivalTrendsFigure from '@/components/figures/SurvivalTrendsFigure';
+import TabSummary from '@/components/TabSummary';
+import ReferenceList from '@/components/ReferenceList';
+import DefinitionWalkthrough from '@/components/DefinitionWalkthrough';
 import SEERSurvivalByStageFigure from '@/components/figures/SEERSurvivalByStageFigure';
-import Link from 'next/link';
+import { references } from '@/lib/references';
 
 export default function Home() {
   return (
     <div className="py-12">
       <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
-       
-
         <HomeHero />
-
-        <div className="card card-hover mb-10 rounded-xl border border-gray-200 bg-gray-50/90 p-5 dark:border-gray-700 dark:bg-gray-800/60">
-          <p className="mb-4 text-gray-700 dark:text-gray-300 leading-relaxed">
-            A research hub for metastatic breast cancer (MBC): definitions, biology, treatment, epidemiology, and evidence from literature and trusted data sources.
-          </p>
-        </div>
+        <TabSummary section="definition" />
       </div>
 
       <Section
-        title="Key metrics"
+        id="definition"
+        title="What is metastatic breast cancer?"
+        subtitle="Step by step: what cancer is, how breast cancer becomes metastatic (MBC), and why the distinction matters"
+      >
+        <DefinitionWalkthrough />
+      </Section>
+
+      <Section
+        title="Evidence highlights"
+        subtitle="Key findings from the literature and institutional datasets"
+        evidenceType="Literature & clinical trials"
         className="section-alt"
       >
-        <KeyStatsCards />
+        <EvidenceHighlights />
       </Section>
 
       <Section
         title="Survival at a glance"
-        subtitle="SEER population data and median survival from selected studies"
+        subtitle="Population-based and study-based estimates"
+        evidenceType="SEER & selected studies"
       >
-        <div className="space-y-8">
-          <SEERSurvivalByStageFigure />
-          <SurvivalTrendsFigure />
-        </div>
+        <SEERSurvivalByStageFigure />
       </Section>
 
       <Section
         title="Explore by topic"
-        subtitle="Browse evidence by category"
+        subtitle="Evidence by domain—from biology through treatment and burden"
         className="section-alt"
       >
         <TopicExploreGrid />
+      </Section>
+
+      <Section
+        title="References used"
+        subtitle="Literature and PDFs cited on this page"
+      >
+        <div className="space-y-4">
+          <p className="text-sm italic text-gray-600 dark:text-gray-400">
+            Page highlights are listed as notes. Verify page ranges against the PDFs.
+          </p>
+          <ReferenceList references={references} filterBy="definition" />
+        </div>
       </Section>
     </div>
   );

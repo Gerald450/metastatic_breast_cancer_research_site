@@ -55,7 +55,7 @@ export default function KeyStatsCards() {
           key={i}
           className="card card-hover group flex flex-col rounded-xl border border-gray-200 bg-white p-5 dark:border-gray-700/50 dark:bg-gray-800/50"
         >
-          <div className="mb-3 flex h-10 w-10 items-center justify-center rounded-lg bg-rose-100 text-rose-600 dark:bg-rose-900/30 dark:text-rose-400">
+          <div className="mb-3 flex h-10 w-10 items-center justify-center rounded-lg bg-slate-100 text-slate-600 dark:bg-slate-700/50 dark:text-slate-400">
             {stat.icon}
           </div>
           <div className="flex flex-1 flex-col">

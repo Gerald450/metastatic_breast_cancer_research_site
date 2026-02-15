@@ -22,7 +22,7 @@ export default function Section({
       <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
         <div className="mb-6 sm:mb-8 flex flex-col gap-2 sm:flex-row sm:items-start sm:justify-between">
           <div className="flex-1">
-            <h2 className="text-xl font-semibold leading-tight text-gray-900 dark:text-white sm:text-2xl">
+            <h2 className="heading-section text-gray-900 dark:text-white">
               {title}
             </h2>
             {subtitle && (

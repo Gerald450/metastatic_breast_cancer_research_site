@@ -44,7 +44,7 @@ export default function Figure({
       {/* Title and Description */}
       <div className="mb-4">
         <div className="mb-2 flex items-start justify-between gap-4">
-          <h3 className="text-xl font-semibold leading-tight text-gray-900 dark:text-white">
+          <h3 className="heading-card text-gray-900 dark:text-white">
             {title}
           </h3>
           {status !== 'Draft' && (

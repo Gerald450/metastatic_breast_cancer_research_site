@@ -15,7 +15,6 @@ export default function SiteHeader() {
 
   const navItems: NavItem[] = [
     { href: '/', label: 'Home' },
-    { href: '/definition', label: 'Definition' },
     { href: '/biology', label: 'Biology' },
     { href: '/treatment', label: 'Treatment' },
   ];

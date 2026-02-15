@@ -21,9 +21,9 @@ export default function CitationCallout({
   if (citation && !claim) {
     return (
       <div className="my-6 rounded-xl border-l-4 border-blue-500 bg-blue-50/90 p-4 transition-shadow duration-200 dark:border-blue-400 dark:bg-blue-900/20">
-        <div className="text-gray-800 dark:text-gray-200">{children}</div>
+        <div className="text-base text-gray-700 dark:text-gray-300">{children}</div>
         {citation && (
-          <div className="mt-2 text-sm text-gray-600 dark:text-gray-400">
+          <div className="mt-2 text-sm leading-relaxed text-gray-600 dark:text-gray-400">
             <em>— {citation}</em>
           </div>
         )}
@@ -42,8 +42,8 @@ export default function CitationCallout({
 
   return (
     <div className="my-6 rounded-xl border-l-4 border-blue-500 bg-blue-50/90 p-4 transition-shadow duration-200 dark:border-blue-400 dark:bg-blue-900/20">
-      <div className="text-gray-800 dark:text-gray-200">
-        <p className="font-medium">{claim}</p>
+      <div className="text-base text-gray-700 dark:text-gray-300">
+        <p className="font-medium leading-relaxed">{claim}</p>
         {children && <div className="mt-2">{children}</div>}
       </div>
       <div className="mt-3 space-y-1 text-sm text-gray-700 dark:text-gray-300">

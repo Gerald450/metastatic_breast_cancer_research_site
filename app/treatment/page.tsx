@@ -19,7 +19,11 @@ export default function TreatmentPage() {
         <TabSummary section="treatment" />
       </div>
 
-      <Section title="Therapy Overview">
+      {/* Story: What exists → Modalities → Targeted approaches → How we sequence */}
+      <Section
+        title="Therapy overview"
+        subtitle="General principles and treatment modality categories"
+      >
         <div className="space-y-6">
           <Placeholder
             label="Treatment approach overview (planned)"
@@ -37,43 +41,11 @@ export default function TreatmentPage() {
         </div>
       </Section>
 
-      <Section title="Targeted Therapy">
-        <div className="space-y-6">
-          <Placeholder
-            label="Targeted therapeutic approaches (planned)"
-            notes={[
-              'Molecular targets and pathways',
-              'Targeted agent mechanisms',
-              'Biomarker-guided therapy',
-            ]}
-          />
-          <VisualPlaceholder
-            title="Targeted therapy pathways chart"
-            type="chart"
-            description="Visualization of targeted therapy approaches and their molecular targets"
-          />
-        </div>
-      </Section>
-
-      <Section title="Treatment Sequencing">
-        <div className="space-y-6">
-          <Placeholder
-            label="Treatment sequencing strategies (planned)"
-            notes={[
-              'First-line and subsequent therapies',
-              'Sequencing algorithms',
-              'Treatment decision frameworks',
-            ]}
-          />
-          <VisualPlaceholder
-            title="Treatment sequencing algorithm"
-            type="diagram"
-            description="Decision tree showing recommended treatment sequencing based on patient factors"
-          />
-        </div>
-      </Section>
-
-      <Section title="Treatment Modalities">
+      <Section
+        title="Treatment modalities"
+        subtitle="Available options: surgery, systemic therapy, and supportive care"
+        className="section-alt"
+      >
         <div className="space-y-6">
           <Placeholder
             label="Available treatment options"
@@ -91,7 +63,50 @@ export default function TreatmentPage() {
         </div>
       </Section>
 
-      <Section title="References used on this page" className="section-alt">
+      <Section
+        title="Targeted therapy"
+        subtitle="Molecular targets, biomarkers, and precision approaches"
+      >
+        <div className="space-y-6">
+          <Placeholder
+            label="Targeted therapeutic approaches (planned)"
+            notes={[
+              'Molecular targets and pathways',
+              'Targeted agent mechanisms',
+              'Biomarker-guided therapy',
+            ]}
+          />
+          <VisualPlaceholder
+            title="Targeted therapy pathways chart"
+            type="chart"
+            description="Visualization of targeted therapy approaches and their molecular targets"
+          />
+        </div>
+      </Section>
+
+      <Section
+        title="Treatment sequencing"
+        subtitle="First-line, subsequent lines, and decision frameworks"
+        className="section-alt"
+      >
+        <div className="space-y-6">
+          <Placeholder
+            label="Treatment sequencing strategies (planned)"
+            notes={[
+              'First-line and subsequent therapies',
+              'Sequencing algorithms',
+              'Treatment decision frameworks',
+            ]}
+          />
+          <VisualPlaceholder
+            title="Treatment sequencing algorithm"
+            type="diagram"
+            description="Decision tree showing recommended treatment sequencing based on patient factors"
+          />
+        </div>
+      </Section>
+
+      <Section title="References used">
         <div className="space-y-4">
           <ReferenceList references={references} filterBy="treatment" />
         </div>

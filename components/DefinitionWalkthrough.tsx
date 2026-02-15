@@ -155,7 +155,7 @@ export default function DefinitionWalkthrough() {
 
       {/* Current step content */}
       <div className="rounded-xl border border-gray-200 bg-white p-6 dark:border-gray-700 dark:bg-gray-800/50">
-        <h2 className="mb-6 text-xl font-semibold text-gray-900 dark:text-white">
+        <h2 className="heading-section mb-6 text-gray-900 dark:text-white">
           {step.title}
         </h2>
         <div className="prose prose-gray dark:prose-invert max-w-none space-y-4 text-gray-700 dark:text-gray-300">
