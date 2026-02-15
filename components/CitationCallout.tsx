@@ -52,7 +52,13 @@ export default function CitationCallout({
           {sourceRefs.map((ref, idx) => (
             <span key={ref!.id}>
               {idx > 0 && ', '}
-              <span className="font-medium">{ref!.id}</span> ({ref!.title})
+              <a
+                href={`#${ref!.id}`}
+                className="font-medium text-blue-600 hover:text-blue-800 underline dark:text-blue-400 dark:hover:text-blue-300"
+              >
+                {ref!.id}
+              </a>{' '}
+              ({ref!.title})
             </span>
           ))}
         </div>

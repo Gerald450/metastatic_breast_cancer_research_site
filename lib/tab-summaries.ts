@@ -37,14 +37,14 @@ const summaries: Record<SiteSection, TabSummaryEntry> = {
   },
   'public-health': {
     summary:
-      'Population burden, screening, prevention, and policy. Sources cover global and US burden, survivorship projections, screening and prevention, and policy implications. NCI/SEER and CDC supplement where applicable.',
-    sourceRefIds: ['ref-003', 'ref-010', 'ref-011'],
+      'Population burden, mortality landscape, screening and early detection (tumour markers, whole-body imaging), prevention strategies (omic-signature-based screening, limitations of mammography), and healthcare resource utilization (costs, HER2-targeted therapy burden). NCI/SEER and CDC supplement where applicable.',
+    sourceRefIds: ['ref-003', 'ref-010', 'ref-011', 'ref-015', 'ref-016', 'ref-017'],
     onlineSourceIds: ['nci-seer', 'cdc-cancer'],
   },
   biology: {
     summary:
-      'Circulating tumor cells (CTCs) as drivers of metastasis, physical biology (stiffness, shear stress, mechanical trapping), molecular heterogeneity revealed by scRNA-seq, circadian and sleep-associated regulation of dissemination, and implications for resistance and treatment. Draws on ref-014 (CTC biology synthesis) and Thompson et al. (ref-012) for progression and dormancy.',
-    sourceRefIds: ['ref-012', 'ref-014'],
+      'Circulating tumor cells (CTCs) as drivers of metastasis, physical biology (stiffness, shear stress, mechanical trapping), molecular heterogeneity revealed by scRNA-seq, circadian and sleep-associated regulation of dissemination, and implications for resistance and treatment. Draws on ref-014 (CTC biology synthesis), ref-017 (omic approaches to metastasis-prone subtypes), and Thompson et al. (ref-012) for progression and dormancy.',
+    sourceRefIds: ['ref-012', 'ref-014', 'ref-017'],
   },
   treatment: {
     summary:

@@ -368,6 +368,96 @@ export const references: Reference[] = [
       { section: 'Biology', pages: '—', excerptHint: 'Circadian regulation and sleep-associated metastasis' },
     ],
   },
+
+  {
+    id: 'ref-015',
+    title:
+      'Early detection of metastatic disease in asymptomatic breast cancer patients with whole-body imaging and defined tumour marker increase',
+    authors: 'D. Di Gioia, P. Stieber, G.P. Schmidt, et al.',
+    year: '2015',
+    journal: 'British Journal of Cancer',
+    filename: 'Early_detection.pdf',
+    localUrl: '/pdfs/Early_detection.pdf',
+    doi: '10.1038/bjc.2015.8',
+    usedFor: ['public-health'],
+    highlightNotes: [
+      {
+        section: 'Public Health',
+        pages: '—',
+        excerptHint: 'Tumour marker monitoring (CEA, CA 15-3, CA 125) for early MBC detection',
+      },
+      {
+        section: 'Public Health',
+        pages: '—',
+        excerptHint: 'Whole-body MRI and FDG-PET/CT for asymptomatic recurrence',
+      },
+      {
+        section: 'Public Health',
+        pages: '—',
+        excerptHint: 'Reproducible tumour marker increase followed by imaging is highly effective',
+      },
+    ],
+  },
+
+  {
+    id: 'ref-016',
+    title:
+      'Healthcare Resource Use and Expenditures among Metastatic Breast Cancer Patients Treated with HER2-Targeted Agents',
+    authors: 'N. Meyer, Y. Hao, X. Song, et al.',
+    year: '2014',
+    journal: 'International Journal of Breast Cancer',
+    filename: 'healthcare_resources.pdf',
+    localUrl: '/pdfs/healthcare_resources.pdf',
+    doi: '10.1155/2014/475171',
+    usedFor: ['public-health'],
+    highlightNotes: [
+      {
+        section: 'Public Health',
+        pages: '—',
+        excerptHint: 'Healthcare utilization and costs by treatment type and MBC subgroups',
+      },
+      {
+        section: 'Public Health',
+        pages: '—',
+        excerptHint: 'HER2-targeted therapy associated with highest outpatient and total costs',
+      },
+      {
+        section: 'Public Health',
+        pages: '—',
+        excerptHint: 'Inpatient costs dominate for untreated patients; outpatient for treated',
+      },
+    ],
+  },
+
+  {
+    id: 'ref-017',
+    title:
+      "'Omic approaches to preventing or managing metastatic breast cancer",
+    authors: 'O.L. Griffith, J.W. Gray',
+    year: '2011',
+    journal: 'Breast Cancer Research',
+    filename: 'prevention_strategies.pdf',
+    localUrl: '/pdfs/prevention_strategies.pdf',
+    doi: '10.1186/bcr2923',
+    usedFor: ['public-health', 'biology'],
+    highlightNotes: [
+      {
+        section: 'Public Health',
+        pages: '—',
+        excerptHint: 'Omic-signature-based screening for metastasis-prone breast cancers',
+      },
+      {
+        section: 'Public Health',
+        pages: '—',
+        excerptHint: 'Limitations of mammographic screening for metastasis-prone lesions',
+      },
+      {
+        section: 'Biology',
+        pages: '—',
+        excerptHint: 'Molecular features of metastasis-prone subtypes',
+      },
+    ],
+  },
 ];
 
 

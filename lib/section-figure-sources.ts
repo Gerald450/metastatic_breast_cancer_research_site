@@ -12,8 +12,8 @@ export const SECTION_FIGURE_SOURCE_IDS: Record<SiteSection, string[]> = {
   epidemiology: [],
   demographics: ['ref-001', 'ref-002', 'ref-004', 'ref-005', 'ref-006', 'ref-007', 'ref-011'],
   'clinical-outcomes': ['ref-001', 'ref-002', 'ref-004', 'ref-005', 'ref-006', 'ref-007', 'ref-011'],
-  'public-health': ['ref-002', 'ref-003', 'ref-004', 'ref-005', 'ref-007', 'ref-011'],
-  biology: [],
+  'public-health': ['ref-002', 'ref-003', 'ref-004', 'ref-005', 'ref-007', 'ref-011', 'ref-015', 'ref-016', 'ref-017'],
+  biology: ['ref-014', 'ref-017'],
   treatment: [],
 };
 
