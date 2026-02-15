@@ -1,7 +1,7 @@
 'use client';
 
 import { useMemo } from 'react';
-import BarCategoryChart from '@/components/charts/BarCategoryChart';
+import PieCategoryChart from '@/components/charts/PieCategoryChart';
 import Figure from '@/components/Figure';
 import { references } from '@/lib/references';
 
@@ -41,11 +41,10 @@ export default function ReferencesBySectionChart() {
       caption="Each reference can be tagged with multiple sections (usedFor)."
       summary="Clinical outcomes and epidemiology draw on the most references, reflecting the breadth of survival and incidence literature. This helps readers see where evidence is concentrated and where gaps remain."
     >
-      <BarCategoryChart
+      <PieCategoryChart
         data={chartData}
-        xKey="section"
-        yKey="count"
-        yLabel="References"
+        labelKey="section"
+        valueKey="count"
       />
     </Figure>
   );

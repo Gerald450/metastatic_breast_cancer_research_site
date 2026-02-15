@@ -1,6 +1,5 @@
 import Section from '@/components/Section';
 import Placeholder from '@/components/Placeholder';
-import VisualPlaceholder from '@/components/VisualPlaceholder';
 import TabSummary from '@/components/TabSummary';
 import ReferenceList from '@/components/ReferenceList';
 import CitationCallout from '@/components/CitationCallout';
@@ -47,11 +46,18 @@ export default function BiologyPage() {
             for metastasis—a hybrid phenotype that enables both motility and intercellular
             adhesion.
           </p>
-          <VisualPlaceholder
-            title="Metastatic cascade diagram"
-            type="diagram"
-            description="Step-by-step visualization of the metastatic process from primary tumor to distant sites"
-          />
+          <figure className="my-8">
+            <div className="rounded-lg border border-gray-200 bg-gray-50/50 p-6 dark:border-gray-700 dark:bg-gray-800/30">
+              <img
+                src="/images/mbc_progression.png"
+                alt="Metastatic cascade: steps from primary tumor to distant organ colonization"
+                className="w-full rounded-lg"
+              />
+              <p className="mt-4 text-center text-sm italic text-gray-500 dark:text-gray-400">
+                Metastatic cascade: from primary tumor detachment through circulation, extravasation, and colonization of distant sites.
+              </p>
+            </div>
+          </figure>
         </div>
       </Section>
 
