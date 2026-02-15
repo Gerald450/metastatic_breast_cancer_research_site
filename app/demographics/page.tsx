@@ -1,15 +1,18 @@
 import Section from '@/components/Section';
-import Placeholder from '@/components/Placeholder';
 import ReferenceList from '@/components/ReferenceList';
 import TabSummary from '@/components/TabSummary';
 import { references } from '@/lib/references';
-import AgeRaceDistributionFigure from '@/components/figures/AgeRaceDistributionFigure';
 import MBCIncidenceByAgeFigure from '@/components/figures/MBCIncidenceByAgeFigure';
 import MBCIncidenceByRaceFigure from '@/components/figures/MBCIncidenceByRaceFigure';
 import MBCSurvivalByRaceFigure from '@/components/figures/MBCSurvivalByRaceFigure';
 import SexDistributionBreastCancerFigure from '@/components/figures/SexDistributionBreastCancerFigure';
 import AgeAtDiagnosisVsDeathFigure from '@/components/figures/AgeAtDiagnosisVsDeathFigure';
 import InsuranceVsStageAtDiagnosisFigure from '@/components/figures/InsuranceVsStageAtDiagnosisFigure';
+import SEERIncidenceTrendsByAgeFigure from '@/components/figures/SEERIncidenceTrendsByAgeFigure';
+import SEERIncidenceTrendsByRaceFigure from '@/components/figures/SEERIncidenceTrendsByRaceFigure';
+import BreastCancerMedianAgeBySubtypeFigure from '@/components/figures/BreastCancerMedianAgeBySubtypeFigure';
+import HRPlusHer2NegTrendsByAgeFigure from '@/components/figures/HRPlusHer2NegTrendsByAgeFigure';
+import HRPlusHer2PosIncidenceByRaceFigure from '@/components/figures/HRPlusHer2PosIncidenceByRaceFigure';
 import PageHero from '@/components/PageHero';
 import DemographicsIllustration from '@/components/illustrations/DemographicsIllustration';
 
@@ -31,8 +34,9 @@ export default function DemographicsPage() {
       >
         <div className="space-y-6">
           <MBCIncidenceByAgeFigure />
+          <HRPlusHer2NegTrendsByAgeFigure />
+          <SEERIncidenceTrendsByAgeFigure />
           <AgeAtDiagnosisVsDeathFigure />
-          <AgeRaceDistributionFigure />
         </div>
       </Section>
 
@@ -54,7 +58,15 @@ export default function DemographicsPage() {
       <Section title="Ethnic and Racial Patterns" className="section-alt">
         <div className="space-y-6">
           <MBCIncidenceByRaceFigure />
+          <HRPlusHer2PosIncidenceByRaceFigure />
+          <SEERIncidenceTrendsByRaceFigure />
           <MBCSurvivalByRaceFigure />
+        </div>
+      </Section>
+
+      <Section title="Breast Cancer Subtypes" className="section-alt">
+        <div className="space-y-6">
+          <BreastCancerMedianAgeBySubtypeFigure />
         </div>
       </Section>
 

@@ -12,7 +12,7 @@ export default function MBCIncidenceByAgeFigure() {
     <Figure
       title="MBC Incidence by Age Group"
       description="Stage IV incidence across age brackets"
-      externalSource={{ name: 'SEER / USCS', url: ONLINE_SOURCES.USCS.url }}
+      externalSource={{ name: ONLINE_SOURCES.SEER_EXPLORER_FEMALE_BREAST.name, url: ONLINE_SOURCES.SEER_EXPLORER_FEMALE_BREAST.url }}
       status="Draft"
       caption="Incidence rates by age from SEER and USCS. Count or rate per 100,000."
       summary="MBC incidence increases with age, peaking in older adults. The age distribution informs screening guidelines and resource allocation for different populations."

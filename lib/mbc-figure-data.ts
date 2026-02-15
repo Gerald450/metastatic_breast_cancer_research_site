@@ -1,7 +1,8 @@
 /**
  * Static/mock data for MBC figure visualizations.
  * Data shapes match figure specs. Replace with Firebase/API data when available.
- * Sources: SEER, CDC WONDER, USCS, Mariotto et al. (ref-011).
+ * Sources: SEER (see public/csv/ for verified SEER*Explorer data), CDC WONDER, USCS, Mariotto et al. (ref-011).
+ * Verified SEER trend data: lib/seer-csv-data.ts from public/csv/.
  */
 
 /** Fig 1: MBC Survival Over Time */
@@ -67,7 +68,7 @@ export const mbcSurvivalByRaceData = [
   { race: 'Black', survivalMonths: 22 },
   { race: 'Asian', survivalMonths: 34 },
   { race: 'Hispanic', survivalMonths: 26 },
-  { race: 'AI/AN', survivalMonths: 24 },
+  { race: 'American Indian/Alaska Native', survivalMonths: 24 },
 ];
 
 /** Fig 8: Sex Distribution */

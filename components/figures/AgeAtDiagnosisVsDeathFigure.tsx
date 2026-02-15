@@ -6,8 +6,8 @@ import { ageAtDiagnosisVsDeathData } from '@/lib/mbc-figure-data';
 import { ONLINE_SOURCES } from '@/lib/online-sources';
 
 const series = [
-  { key: 'atDiagnosis', label: 'At diagnosis' },
-  { key: 'atDeath', label: 'At death' },
+  { key: 'atDiagnosis', label: 'Patients diagnosed' },
+  { key: 'atDeath', label: 'Patients who died' },
 ];
 
 export default function AgeAtDiagnosisVsDeathFigure() {
@@ -17,9 +17,9 @@ export default function AgeAtDiagnosisVsDeathFigure() {
     <Figure
       title="Age at Diagnosis vs Age at Death"
       description="Distribution comparison"
-      externalSource={{ name: 'SEER / ACS', url: ONLINE_SOURCES.NCI_SEER.url }}
       status="Draft"
-      caption="Age distribution at diagnosis vs at death. SEER age variables."
+      externalSource={{ name: ONLINE_SOURCES.SEER_EXPLORER_FEMALE_BREAST.name, url: ONLINE_SOURCES.SEER_EXPLORER_FEMALE_BREAST.url }}
+      caption="Age distribution at diagnosis vs at death. Data are illustrative; source to be verified. Similar variables: SEER (age at diagnosis), NCHS mortality (age at death). Data from public/csv/Subtypes/."
       summary="The shift between age at diagnosis and age at death shows that older patients more often die from MBC. In younger age groups, diagnosis predominates; in the oldest groups, death from breast cancer or other causes increases."
     >
       {hasData ? (

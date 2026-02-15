@@ -1,0 +1,25 @@
+"Cancer Site Comparison"
+"Median Age at Diagnosis 2018-2022"
+"Female By Cancer Site, All Races / Ethnicities"
+
+"Cancer Site","Median Age at Diagnosis"
+"All Cancer Sites Combined","66.0"
+"HR+/HER2- Breast Cancer (Female only)","64.0"
+"HR+/HER2+ Breast Cancer (Female only)","58.0"
+"Colon and Rectum (including Appendix)","68.0"
+"Colon and Rectum (excluding Appendix)","68.0"
+"Lung and Bronchus","71.0"
+"Pancreas","72.0"
+
+
+"Data Source:"
+"-SEER Incidence Data, November 2024 Submission (1975-2022), SEER 21 registries [https://seer.cancer.gov/registries/terms.html]."
+"Methodology:"
+"-The median age at diagnosis is the age at which half of all reported cases were older and half were younger."
+"Race/Ethnicity Coding:"
+"-For more details on SEER race/ethnicity groupings, please see Race and Hispanic Ethnicity Changes [https://seer.cancer.gov/seerstat/variables/seer/race_ethnicity/]."
+"-Rates for American Indians/Alaska Natives only include cases that are in a Purchased/Referred Care Delivery Area (PRCDA). "
+"-Incidence data for Hispanics and Non-Hispanics are based on the NAACCR Hispanic Latino Identification Algorithm (NHIA). "
+"Cancer Site Coding:"
+"-See SEER*Explorer Cancer Site Definitions [https://seer.cancer.gov/statistics-network/explorer/cancer-sites.html] for details about the cancer site coding used for SEER Incidence data."
+Created by https://seer.cancer.gov/statistics-network/explorer/ on Sun Feb 15 2026.

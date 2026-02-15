@@ -10,8 +10,12 @@ import MBCSurvivalOverTimeFigure from '@/components/figures/MBCSurvivalOverTimeF
 import MBCSurvivorshipPopulationGrowthFigure from '@/components/figures/MBCSurvivorshipPopulationGrowthFigure';
 import BreastCancerMortalityRatesFigure from '@/components/figures/BreastCancerMortalityRatesFigure';
 import DeNovoStageIVIncidenceFigure from '@/components/figures/DeNovoStageIVIncidenceFigure';
+import SEERIncidenceTrendsByRaceFigure from '@/components/figures/SEERIncidenceTrendsByRaceFigure';
+import HRPlusHer2NegTrendsByAgeFigure from '@/components/figures/HRPlusHer2NegTrendsByAgeFigure';
+import HRPlusHer2NegStageDistributionFigure from '@/components/figures/HRPlusHer2NegStageDistributionFigure';
 
-const seerSource = ONLINE_SOURCES.SEER_NOV_2023;
+const seerSource = ONLINE_SOURCES.SEER_NOV_2024;
+const seerBreastSource = ONLINE_SOURCES.SEER_EXPLORER_FEMALE_BREAST;
 const cdcRiskSource = ONLINE_SOURCES.CDC_BREAST_CANCER_RISK;
 
 export default function EpidemiologyPage() {
@@ -38,12 +42,17 @@ export default function EpidemiologyPage() {
           <MBCSurvivalOverTimeFigure />
           <MBCSurvivorshipPopulationGrowthFigure />
           <DeNovoStageIVIncidenceFigure />
+          <HRPlusHer2NegStageDistributionFigure />
           <p className="rounded-lg border border-gray-200 bg-gray-50 p-4 text-sm dark:border-gray-700 dark:bg-gray-800/50">
             <strong>Trusted data source:</strong>{' '}
             <a href={seerSource.url} target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline dark:text-blue-400">
               {seerSource.name}
             </a>
             {' — '}{seerSource.citation}
+            {' '}Breast cancer subtype data:{' '}
+            <a href={seerBreastSource.url} target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline dark:text-blue-400">
+              {seerBreastSource.name}
+            </a>
           </p>
           <p className="text-sm text-gray-600 dark:text-gray-400">
             For prevalence and survivorship burden figures, see{' '}
@@ -61,6 +70,8 @@ export default function EpidemiologyPage() {
       >
         <div className="space-y-6">
           <BreastCancerMortalityRatesFigure />
+          <HRPlusHer2NegTrendsByAgeFigure />
+          <SEERIncidenceTrendsByRaceFigure />
           <p className="text-sm text-gray-600 dark:text-gray-400">
             For survival trends over time from selected studies, see{' '}
             <a href="/clinical-outcomes#survival" className="font-medium text-emerald-600 dark:text-emerald-400 underline hover:no-underline">

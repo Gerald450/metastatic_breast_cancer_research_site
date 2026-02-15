@@ -1,0 +1,23 @@
+"HR+/HER2+ Breast Cancer (Female only)"
+"Median Age at Diagnosis 2018-2022"
+"Female By Race/Ethnicity"
+
+"Race/Ethnicity","Median Age at Diagnosis"
+"Hispanic (any race)","54.0"
+"Non-Hispanic American Indian / Alaska Native","58.0"
+"Non-Hispanic Asian / Pacific Islander","54.0"
+"Non-Hispanic Black","57.0"
+"Non-Hispanic White","61.0"
+
+
+"Data Source:"
+"-SEER Incidence Data, November 2024 Submission (1975-2022), SEER 21 registries [https://seer.cancer.gov/registries/terms.html]."
+"Methodology:"
+"-The median age at diagnosis is the age at which half of all reported cases were older and half were younger."
+"Race/Ethnicity Coding:"
+"-For more details on SEER race/ethnicity groupings, please see Race and Hispanic Ethnicity Changes [https://seer.cancer.gov/seerstat/variables/seer/race_ethnicity/]."
+"-Rates for American Indians/Alaska Natives only include cases that are in a Purchased/Referred Care Delivery Area (PRCDA). "
+"-Incidence data for Hispanics and Non-Hispanics are based on the NAACCR Hispanic Latino Identification Algorithm (NHIA). "
+"Cancer Site Coding:"
+"-See SEER*Explorer Cancer Site Definitions [https://seer.cancer.gov/statistics-network/explorer/cancer-sites.html] for details about the cancer site coding used for SEER Incidence data."
+Created by https://seer.cancer.gov/statistics-network/explorer/ on Sun Feb 15 2026.

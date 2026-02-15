@@ -20,7 +20,7 @@ export default function MBCIncidenceByRaceFigure() {
     <Figure
       title="MBC Incidence by Race/Ethnicity"
       description="Proportion of MBC cases by race"
-      externalSource={{ name: 'SEER / ACS', url: ONLINE_SOURCES.NCI_SEER.url }}
+      externalSource={{ name: ONLINE_SOURCES.SEER_EXPLORER_FEMALE_BREAST.name, url: ONLINE_SOURCES.SEER_EXPLORER_FEMALE_BREAST.url }}
       status="Draft"
       caption="MBC case counts by race/ethnicity from SEER. ACS for demographic categories."
       summary="Racial and ethnic distribution of MBC cases reflects population demographics and disparities in access to care. White women account for the largest share of cases; Black women often have higher rates of aggressive subtypes and later-stage diagnosis."

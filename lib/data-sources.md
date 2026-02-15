@@ -4,11 +4,15 @@ This document lists data sources used for figures and tables across the site. Al
 
 ## Allowed Data Sources
 
-### SEER (NCI)
-- **Name:** SEER*Stat Databases — November 2023 Submission
-- **URL:** https://seer.cancer.gov/data-software/documentation/seerstat/nov2023/
-- **Use for:** Incidence, survival, prevalence, demographics (SEER 9/12/17/22)
-- **Citation:** National Cancer Institute, SEER*Stat Databases — November 2023 Submission. Surveillance, Epidemiology, and End Results (SEER) Program.
+### SEER (NCI) — Trusted CSV Data
+- **CSV files:** `public/csv/` — Downloads from SEER*Explorer (SEER Incidence Data, November 2024 Submission, 1975-2022, SEER 21 registries)
+- **SEER*Explorer:** https://seer.cancer.gov/statistics-network/explorer/
+- **November 2024 Submission:** https://seer.cancer.gov/data-software/documentation/seerstat/nov2024/
+- **Use for:** Incidence trends (AAPC/APC), demographics by race/ethnicity and age. See `lib/seer-csv-data.ts` for extracted values.
+- **Figure mapping:** SEERIncidenceTrendsByRaceFigure, SEERIncidenceTrendsByAgeFigure.
+
+### SEER (NCI) — Other
+- **November 2023 Submission:** https://seer.cancer.gov/data-software/documentation/seerstat/nov2023/
 - **Cancer Stat Facts:** https://seer.cancer.gov/statfacts/html/breast.html — Used for SEERSurvivalByStageFigure and SEERDistantStageBySubtypeFigure. Static extracts in `data/seer/`.
 
 ### Site PDFs (Extracted Data)
@@ -48,6 +52,13 @@ Extracted JSON files live in `data/extracted/`. Each figure cites the source ref
 | MetaRegressionSurvivalFigure | `data/extracted/meta_regression_survival.json` | Caswell et al. (ref-001) |
 | MetastaticSiteOutcomesFigure | Firebase or extracted | ref-006, ref-007 |
 | AgeRaceDistributionFigure | Firebase or `demographics_age_race.json` | ref-005, ref-013 |
+| **AgeAtDiagnosisVsDeathFigure** | Placeholder in `mbc-figure-data.ts` | *Source TBD — verify with SEER (age at dx) + NCHS (age at death). See public/csv/ for SEER data structure.* |
+| **SEERIncidenceTrendsByRaceFigure** | `lib/seer-csv-data.ts` from `public/csv/explorer_download (2).csv` | SEER Nov 2024 (All Cancer Sites) |
+| **SEERIncidenceTrendsByAgeFigure** | `lib/seer-csv-data.ts` from `public/csv/explorer_download (3).csv` | SEER Nov 2024 (All Cancer Sites) |
+| **BreastCancerMedianAgeBySubtypeFigure** | `lib/seer-subtypes-data.ts` from `public/csv/Subtypes/explorer_download (7).csv` | [SEER*Explorer Female Breast](https://seer.cancer.gov/statistics-network/explorer/application.html?site=621&...) |
+| **HRPlusHer2PosIncidenceByRaceFigure** | `lib/seer-subtypes-data.ts` from `public/csv/Subtypes/explorer_download (9).csv` | SEER*Explorer Female Breast |
+| **HRPlusHer2NegTrendsByAgeFigure** | `lib/seer-subtypes-data.ts` from `public/csv/Subtypes/explorer_download (2).csv` | SEER*Explorer Female Breast |
+| **HRPlusHer2NegStageDistributionFigure** | `lib/seer-subtypes-data.ts` from `public/csv/Subtypes/explorer_download (3).csv` | SEER*Explorer Female Breast |
 | SurvivorshipBurdenFigure | Firebase or `prevalence_or_survivorship_burden.json` | ref-004, ref-011 |
 
 ## Extracted Files

@@ -1,9 +1,34 @@
 /**
  * Trusted online data sources for MBC research.
  * Used for citations and links on topic pages.
- * SEER November 2023 Submission: https://seer.cancer.gov/data-software/documentation/seerstat/nov2023/
+ * CSV data in public/csv/ from SEER*Explorer (November 2024 Submission).
  */
 export const ONLINE_SOURCES = {
+  SEER_EXPLORER: {
+    id: 'seer-explorer',
+    name: 'SEER*Explorer',
+    org: 'National Cancer Institute',
+    url: 'https://seer.cancer.gov/statistics-network/explorer/',
+    citation: 'National Cancer Institute. SEER*Explorer. Surveillance, Epidemiology, and End Results (SEER) Program.',
+    usedFor: ['epidemiology', 'demographics'],
+  },
+  /** Female Breast cancer (site 621) — source for public/csv/Subtypes/ data */
+  SEER_EXPLORER_FEMALE_BREAST: {
+    id: 'seer-explorer-breast',
+    name: 'SEER*Explorer — Female Breast',
+    org: 'National Cancer Institute',
+    url: 'https://seer.cancer.gov/statistics-network/explorer/application.html?site=621&data_type=1&graph_type=2&compareBy=race&chk_race_6=6&chk_race_5=5&chk_race_4=4&chk_race_9=9&chk_race_8=8&rate_type=2&hdn_sex=3&age_range=1&stage=101&advopt_precision=1&advopt_show_ci=on#resultsRegion0',
+    citation: 'National Cancer Institute. SEER*Explorer Female Breast Cancer Statistics. SEER Incidence Data, November 2024 Submission.',
+    usedFor: ['epidemiology', 'demographics', 'clinical-outcomes'],
+  },
+  SEER_NOV_2024: {
+    id: 'seer-nov2024',
+    name: 'SEER Incidence Data — November 2024 Submission',
+    org: 'National Cancer Institute',
+    url: 'https://seer.cancer.gov/data-software/documentation/seerstat/nov2024/',
+    citation: 'National Cancer Institute. SEER Incidence Data, November 2024 Submission (1975-2022), SEER 21 registries.',
+    usedFor: ['epidemiology', 'demographics', 'clinical-outcomes'],
+  },
   SEER_NOV_2023: {
     id: 'seer-nov2023',
     name: 'SEER*Stat Databases — November 2023 Submission',
