@@ -92,11 +92,8 @@ export default function HomeHero() {
 
       <div className="relative max-w-2xl">
         <h1 className="mb-4 text-3xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-4xl lg:text-5xl">
-          Metastatic breast cancer research
+          Metastatic breast cancer
         </h1>
-        <p className="mb-8 text-lg leading-relaxed text-gray-600 dark:text-gray-300 sm:text-xl">
-          Evidence summaries, epidemiology, demographics, and clinical outcomes—curated from the literature to support research and clinical understanding.
-        </p>
         <div className="flex flex-wrap gap-3">
           <Link
             href="/definition"
