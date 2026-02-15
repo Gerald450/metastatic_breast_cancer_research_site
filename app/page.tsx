@@ -43,7 +43,6 @@ export default function Home() {
 
       <Section
         title="Explore by topic"
-        subtitle="Evidence by domain—from biology through treatment and burden"
         className="section-alt"
       >
         <TopicExploreGrid />
