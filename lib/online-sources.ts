@@ -44,4 +44,12 @@ export const ONLINE_SOURCES = {
     citation: 'Centers for Disease Control and Prevention and National Cancer Institute. United States Cancer Statistics.',
     usedFor: ['epidemiology', 'demographics', 'public-health'],
   },
+  CDC_BREAST_CANCER_RISK: {
+    id: 'cdc-breast-risk',
+    name: 'Breast Cancer Risk Factors',
+    org: 'Centers for Disease Control and Prevention',
+    url: 'https://www.cdc.gov/breast-cancer/risk-factors/index.html',
+    citation: 'CDC. Breast Cancer Risk Factors. National Center for Chronic Disease Prevention and Health Promotion.',
+    usedFor: ['epidemiology'],
+  },
 } as const;

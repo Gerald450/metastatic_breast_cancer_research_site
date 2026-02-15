@@ -1,5 +1,4 @@
 import Section from '@/components/Section';
-import Placeholder from '@/components/Placeholder';
 import ReferenceList from '@/components/ReferenceList';
 import TabSummary from '@/components/TabSummary';
 import CitationCallout from '@/components/CitationCallout';
@@ -13,6 +12,7 @@ import BreastCancerMortalityRatesFigure from '@/components/figures/BreastCancerM
 import DeNovoStageIVIncidenceFigure from '@/components/figures/DeNovoStageIVIncidenceFigure';
 
 const seerSource = ONLINE_SOURCES.SEER_NOV_2023;
+const cdcRiskSource = ONLINE_SOURCES.CDC_BREAST_CANCER_RISK;
 
 export default function EpidemiologyPage() {
   return (
@@ -20,7 +20,6 @@ export default function EpidemiologyPage() {
       <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
         <PageHero
           title="Epidemiology"
-          description="Prevalence, incidence, geographic distribution, and temporal trends in metastatic breast cancer."
           theme="epidemiology"
           illustration={<EpidemiologyIllustration />}
         />
@@ -74,14 +73,41 @@ export default function EpidemiologyPage() {
 
       <Section title="Epidemiological Factors" className="section-alt">
         <div className="space-y-6">
-          <Placeholder
-            label="Risk factors and associations"
-            notes={[
-              'Identified risk factors',
-              'Environmental and lifestyle associations',
-              'Genetic and familial patterns',
-            ]}
+          <CitationCallout
+            claim="Disparities in metastatic burden and outcomes vary by race, age, and tumor subtype. Hendrick et al. report higher metastatic burden among non-Hispanic Black women; Xiao et al. identify risk factors and survival patterns for breast cancer with lung metastasis."
+            sources={['ref-005', 'ref-007']}
           />
+          <div className="space-y-4">
+            <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
+              Risk factors for breast cancer—the primary disease from which most MBC arises—are well characterized by the CDC and NCI. Most breast cancers occur in women 50 and older; risk is influenced by a combination of genetic, reproductive, and lifestyle factors.
+            </p>
+            <div className="grid gap-6 sm:grid-cols-2">
+              <div className="rounded-lg border border-gray-200 bg-white p-4 dark:border-gray-700 dark:bg-gray-800/50">
+                <h3 className="mb-2 font-semibold text-gray-900 dark:text-white">Non-modifiable factors</h3>
+                <ul className="space-y-1 text-sm text-gray-600 dark:text-gray-400 list-disc list-inside">
+                  <li>Family history of breast or ovarian cancer; BRCA1/BRCA2 mutations</li>
+                  <li>Personal history of breast cancer or certain benign breast diseases</li>
+                  <li>Dense breasts; reproductive history (early menarche, late menopause)</li>
+                  <li>Prior chest radiation; age (risk increases with age)</li>
+                </ul>
+              </div>
+              <div className="rounded-lg border border-gray-200 bg-white p-4 dark:border-gray-700 dark:bg-gray-800/50">
+                <h3 className="mb-2 font-semibold text-gray-900 dark:text-white">Modifiable factors</h3>
+                <ul className="space-y-1 text-sm text-gray-600 dark:text-gray-400 list-disc list-inside">
+                  <li>Alcohol consumption; being overweight or obese after menopause</li>
+                  <li>Physical inactivity; hormone therapy (estrogen + progesterone, &gt;5 years)</li>
+                  <li>Reproductive choices (first pregnancy after 30, not breastfeeding)</li>
+                </ul>
+              </div>
+            </div>
+            <p className="rounded-lg border border-gray-200 bg-gray-50 p-4 text-sm dark:border-gray-700 dark:bg-gray-800/50">
+              <strong>Trusted source:</strong>{' '}
+              <a href={cdcRiskSource.url} target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline dark:text-blue-400">
+                {cdcRiskSource.name}
+              </a>
+              {' — '}{cdcRiskSource.citation}
+            </p>
+          </div>
         </div>
       </Section>
 

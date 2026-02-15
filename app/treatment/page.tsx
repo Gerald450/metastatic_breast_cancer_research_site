@@ -13,7 +13,6 @@ export default function TreatmentPage() {
       <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
         <PageHero
           title="Treatment"
-          description="Therapy overview, targeted therapy, treatment sequencing, and modalities (content in development)."
           theme="treatment"
           illustration={<TreatmentIllustration />}
         />

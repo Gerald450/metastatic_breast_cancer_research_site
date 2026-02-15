@@ -26,7 +26,6 @@ export default function ClinicalOutcomesPage() {
       <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
         <PageHero
           title="Clinical Outcomes"
-          description="Survival, disease progression, quality of life, and treatment response in metastatic breast cancer."
           theme="clinical"
           illustration={<ClinicalIllustration />}
         />

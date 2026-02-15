@@ -154,7 +154,7 @@ export const references: Reference[] = [
     filename: 'Cancer - 2021 - Hendrick - Age distributions...',
     localUrl: '/pdfs/Hendrick_et_al.pdf',
     doi: '10.1002/cncr.33846',
-    usedFor: ['demographics', 'clinical-outcomes', 'public-health'],
+    usedFor: ['demographics', 'clinical-outcomes', 'public-health', 'epidemiology'],
     highlightNotes: [
       {
         section: 'Demographics',
@@ -207,7 +207,7 @@ export const references: Reference[] = [
     filename: 'Cancer Medicine - 2018 - Xiao...',
     localUrl: '/pdfs/Xiao_et_al.pdf',
     doi: '10.1002/cam4.1370',
-    usedFor: ['clinical-outcomes', 'public-health', 'demographics', 'treatment'],
+    usedFor: ['clinical-outcomes', 'public-health', 'demographics', 'treatment', 'epidemiology'],
     highlightNotes: [
       {
         section: 'Clinical Outcomes',
@@ -349,6 +349,23 @@ export const references: Reference[] = [
         pages: '—',
         excerptHint: 'Insurance and survival differences',
       },
+    ],
+  },
+
+  {
+    id: 'ref-014',
+    title:
+      'The Biology of Metastatic Breast Cancer: Circulating Tumor Cells, Physical Constraints, and Temporal Regulation',
+    authors: 'Synthesis article citing Diamantopoulou, Orrapin, Philips et al.',
+    filename: 'The Biology of Metastatic Breast Cancer- Circulating Tumor Cells, Physical….pdf',
+    localUrl: '/pdfs/ctc-biology.pdf',
+    doi: null,
+    usedFor: ['biology'],
+    highlightNotes: [
+      { section: 'Biology', pages: '—', excerptHint: 'CTCs as drivers of metastasis' },
+      { section: 'Biology', pages: '—', excerptHint: 'Physical biology and mechanical trapping' },
+      { section: 'Biology', pages: '—', excerptHint: 'Molecular heterogeneity (scRNA-seq)' },
+      { section: 'Biology', pages: '—', excerptHint: 'Circadian regulation and sleep-associated metastasis' },
     ],
   },
 ];

@@ -12,7 +12,6 @@ export default function DefinitionPage() {
       <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
         <PageHero
           title="Definition"
-          description="Clinical definition, diagnostic criteria, classification systems, and key terminology for metastatic breast cancer."
           theme="definition"
           illustration={<DefinitionIllustration />}
         />

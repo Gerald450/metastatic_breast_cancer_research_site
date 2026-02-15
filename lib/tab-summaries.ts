@@ -43,8 +43,8 @@ const summaries: Record<SiteSection, TabSummaryEntry> = {
   },
   biology: {
     summary:
-      'Metastatic cascade, tumor evolution, heterogeneity, and resistance mechanisms. Content draws on Thompson et al. (ref-012) for progression and dormancy; additional literature will be added as extracted.',
-    sourceRefIds: ['ref-012'],
+      'Circulating tumor cells (CTCs) as drivers of metastasis, physical biology (stiffness, shear stress, mechanical trapping), molecular heterogeneity revealed by scRNA-seq, circadian and sleep-associated regulation of dissemination, and implications for resistance and treatment. Draws on ref-014 (CTC biology synthesis) and Thompson et al. (ref-012) for progression and dormancy.',
+    sourceRefIds: ['ref-012', 'ref-014'],
   },
   treatment: {
     summary:

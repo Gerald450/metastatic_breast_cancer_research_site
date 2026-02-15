@@ -19,7 +19,6 @@ export default function DemographicsPage() {
       <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
         <PageHero
           title="Demographics"
-          description="Age, sex, race, ethnicity, and socioeconomic patterns in metastatic breast cancer."
           theme="demographics"
           illustration={<DemographicsIllustration />}
         />

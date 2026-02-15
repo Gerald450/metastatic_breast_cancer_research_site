@@ -17,7 +17,6 @@ export default function PublicHealthPage() {
       <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
         <PageHero
           title="Public Health"
-          description="Population burden, screening, prevention, and healthcare resource utilization in metastatic breast cancer."
           theme="public-health"
           illustration={<PublicHealthIllustration />}
         />

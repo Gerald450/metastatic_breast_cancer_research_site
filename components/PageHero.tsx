@@ -23,14 +23,12 @@ const gradientClasses: Record<Theme, string> = {
 
 interface PageHeroProps {
   title: string;
-  description: string;
   theme: Theme;
   illustration: ReactNode;
 }
 
 export default function PageHero({
   title,
-  description,
   theme,
   illustration,
 }: PageHeroProps) {
@@ -46,12 +44,9 @@ export default function PageHero({
       />
       <div className="relative flex flex-col gap-8 md:flex-row md:items-center md:justify-between">
         <div className="max-w-2xl">
-          <h1 className="mb-3 text-3xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-4xl">
+          <h1 className="text-3xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-4xl">
             {title}
           </h1>
-          <p className="text-lg leading-relaxed text-gray-600 dark:text-gray-300">
-            {description}
-          </p>
         </div>
         <div className="flex shrink-0 justify-end md:justify-center">
           {illustration}

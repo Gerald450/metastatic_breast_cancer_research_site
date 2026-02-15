@@ -3,6 +3,7 @@ import Placeholder from '@/components/Placeholder';
 import VisualPlaceholder from '@/components/VisualPlaceholder';
 import TabSummary from '@/components/TabSummary';
 import ReferenceList from '@/components/ReferenceList';
+import CitationCallout from '@/components/CitationCallout';
 import { references } from '@/lib/references';
 import PageHero from '@/components/PageHero';
 import BiologyIllustration from '@/components/illustrations/BiologyIllustration';
@@ -13,23 +14,35 @@ export default function BiologyPage() {
       <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
         <PageHero
           title="Biology"
-          description="Metastatic cascade, tumor evolution, heterogeneity, and resistance mechanisms (content in development)."
           theme="biology"
           illustration={<BiologyIllustration />}
         />
         <TabSummary section="biology" />
       </div>
 
-      <Section title="Metastatic Cascade">
+      <Section title="Circulating Tumor Cells and the Metastatic Cascade">
         <div className="space-y-6">
-          <Placeholder
-            label="Metastatic cascade mechanisms (planned)"
-            notes={[
-              'Invasion and migration processes',
-              'Intravasation and circulation',
-              'Extravasation and colonization',
-            ]}
+          <p>
+            Metastatic breast cancer (MBC) remains the primary cause of breast cancer–related
+            mortality, largely due to its complex, multistep dissemination process and resistance
+            to conventional therapies. Central to metastasis is the behavior of circulating tumor
+            cells (CTCs)—tumor cells that detach from the primary tumor, survive mechanical and
+            immune stresses in circulation, and colonize distant organs.
+          </p>
+          <CitationCallout
+            claim="Although millions of tumor cells may enter circulation daily, only a small fraction survive to form secondary lesions. CTCs must endure shear stress, immune surveillance, and oxidative damage while retaining the capacity for extravasation and colonization."
+            sources={['ref-014']}
           />
+          <p>
+            These constraints favor phenotypically plastic cells capable of rapid mechanical
+            adaptation and transient epithelial–mesenchymal transition (EMT). Notably, CTCs are
+            not a homogeneous population. Clusters of CTCs, rather than single cells, exhibit
+            markedly higher metastatic potential, partly due to enhanced survival signaling and
+            protection from shear forces. In breast cancer, clustered CTCs often retain partial
+            epithelial characteristics, challenging the assumption that complete EMT is required
+            for metastasis—a hybrid phenotype that enables both motility and intercellular
+            adhesion.
+          </p>
           <VisualPlaceholder
             title="Metastatic cascade diagram"
             type="diagram"
@@ -38,52 +51,115 @@ export default function BiologyPage() {
         </div>
       </Section>
 
-      <Section title="Tumor Evolution">
+      <Section title="Physical Biology of Circulating Tumor Cells" className="section-alt">
         <div className="space-y-6">
-          <Placeholder
-            label="Tumor evolution patterns (planned)"
-            notes={[
-              'Clonal evolution dynamics',
-              'Temporal progression patterns',
-              'Evolutionary pressures and selection',
-            ]}
+          <p>
+            The physical properties of CTCs play a critical role in determining metastatic
+            efficiency. Compared to normal blood cells, CTCs are generally larger, stiffer, and
+            less deformable—characteristics that increase their likelihood of becoming
+            mechanically trapped in capillary beds.
+          </p>
+          <CitationCallout
+            claim="While mechanical arrest was once thought to be a passive process, emerging evidence suggests that CTCs actively exploit vascular bottlenecks to initiate extravasation. Shear stress within the bloodstream acts as a selective force, eliminating mechanically fragile cells while enriching for those with reinforced cytoskeletal structures."
+            sources={['ref-014']}
           />
-          <VisualPlaceholder
-            title="Tumor evolution timeline"
-            type="diagram"
-            description="Visual representation of tumor development and evolution over time"
-          />
+          <p>
+            Breast cancer CTCs demonstrate adaptive cytoskeletal remodeling, allowing them to
+            withstand hemodynamic forces that would otherwise induce apoptosis. These findings
+            highlight metastasis as a process governed not only by genetic mutations but also by
+            biophysical fitness.
+          </p>
         </div>
       </Section>
 
-      <Section title="Tumor Heterogeneity">
+      <Section title="Molecular Heterogeneity">
         <div className="space-y-6">
-          <Placeholder
-            label="Heterogeneity mechanisms (planned)"
-            notes={[
-              'Spatial and temporal heterogeneity',
-              'Intratumoral diversity',
-              'Intertumoral variations',
-            ]}
+          <p>
+            Single-cell RNA sequencing (scRNA-seq) has revolutionized the study of CTC biology by
+            uncovering extensive transcriptional heterogeneity within metastatic populations.
+            Analyses of breast cancer CTCs reveal distinct subpopulations associated with
+            stemness, immune evasion, and therapy resistance.
+          </p>
+          <CitationCallout
+            claim="CTCs frequently express stem-cell–associated genes such as ALDH1 and SOX2, supporting the notion that metastatic competence is linked to self-renewal capacity rather than proliferative rate alone. These transcriptional programs often coexist within the same patient, complicating treatment strategies."
+            sources={['ref-014']}
           />
+          <p>
+            scRNA-seq data demonstrate dynamic shifts in gene expression as CTCs transition
+            between circulation and colonization, emphasizing metastasis as a reversible and
+            adaptive process. From a clinical perspective, this heterogeneity undermines the
+            predictive value of bulk tumor biopsies. Precision medicine approaches that
+            incorporate longitudinal CTC profiling may therefore provide a more accurate
+            representation of metastatic risk and therapeutic vulnerability.
+          </p>
+        </div>
+      </Section>
+
+      <Section title="Circadian Regulation and Sleep-Associated Metastasis" className="section-alt">
+        <div className="space-y-6">
+          <p>
+            One of the most unexpected recent findings in breast cancer metastasis is the role of
+            sleep and circadian rhythms in regulating CTC dissemination. Studies using mouse
+            models and human patient samples have demonstrated that the majority of metastatic
+            spread occurs during the sleep phase rather than during active periods.
+          </p>
+          <CitationCallout
+            claim="Breast cancer CTCs collected during sleep exhibited higher proliferative capacity and increased metastatic potential compared to those collected while awake."
+            sources={['ref-014']}
+          />
+          <p>
+            This phenomenon appears to be hormonally mediated, with circadian fluctuations in
+            melatonin and glucocorticoids influencing tumor cell release and survival. These
+            findings challenge longstanding assumptions about constant metastatic risk and raise
+            critical questions regarding the timing of therapeutic interventions. Chronotherapy
+            (administering treatments at biologically optimal times) may represent an
+            underexplored strategy for limiting metastatic progression in breast cancer.
+          </p>
+        </div>
+      </Section>
+
+      <Section title="Tumor Evolution">
+        <div className="space-y-6">
+          <p>
+            Tumor evolution describes how cancer populations change over time through clonal
+            expansion, mutation, and selection. A founding clone acquires mutations that enable
+            growth; subclones emerge with distinct genotypes and phenotypes, some of which may
+            confer resistance to therapy or metastatic potential.
+          </p>
+          <figure className="my-8">
+            <div className="rounded-lg border border-gray-200 bg-gray-50/50 p-6 dark:border-gray-700 dark:bg-gray-800/30">
+              <img
+                src="/images/tumor_evolution.jpg"
+                alt="Tumor evolution: clonal expansion, branching subclones, and selection over time"
+                className="w-full rounded-lg"
+              />
+              <p className="mt-4 text-center text-sm italic text-gray-500 dark:text-gray-400">
+                Clonal evolution: a founding population diversifies into subclones over time through mutation and selection.
+              </p>
+            </div>
+          </figure>
         </div>
       </Section>
 
       <Section title="Resistance Mechanisms">
         <div className="space-y-6">
-          <Placeholder
-            label="Treatment resistance biology (planned)"
-            notes={[
-              'Primary and acquired resistance',
-              'Molecular resistance pathways',
-              'Overcoming resistance strategies',
-            ]}
-          />
-          <VisualPlaceholder
-            title="Resistance mechanism pathways"
-            type="diagram"
-            description="Diagram showing various molecular pathways involved in treatment resistance"
-          />
+          <p>
+            The molecular heterogeneity of CTCs—including stem-cell–like programs and dynamic
+            transcriptional shifts—directly contributes to treatment resistance. Therapeutic
+            strategies targeting CTC clusters, mechanical adaptability, or time-dependent
+            dissemination may offer novel avenues for intervention. Future research should
+            integrate biophysical modeling, single-cell profiling, and longitudinal patient
+            monitoring to capture the dynamic nature of metastasis.
+          </p>
+          <figure className="my-8">
+            <div className="rounded-lg border border-gray-200 bg-gray-50/50 p-6 dark:border-gray-700 dark:bg-gray-800/30">
+              <img
+                src="/images/resistant_mechs.png"
+                alt="Resistance mechanisms: molecular pathways involved in treatment resistance"
+                className="w-full rounded-lg"
+              />
+            </div>
+          </figure>
         </div>
       </Section>
 
