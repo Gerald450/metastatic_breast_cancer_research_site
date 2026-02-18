@@ -16,7 +16,12 @@ export default function SiteHeader() {
   const navItems: NavItem[] = [
     { href: '/', label: 'Home' },
     { href: '/biology', label: 'Biology' },
+    { href: '/epidemiology', label: 'Epidemiology' },
+    { href: '/demographics', label: 'Demographics' },
+    { href: '/clinical-outcomes', label: 'Clinical Outcomes' },
     { href: '/treatment', label: 'Treatment' },
+    { href: '/public-health', label: 'Public Health' },
+    { href: '/references', label: 'References' },
   ];
 
   const isActive = (href: string) => {

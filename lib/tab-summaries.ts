@@ -31,9 +31,9 @@ const summaries: Record<SiteSection, TabSummaryEntry> = {
   },
   'clinical-outcomes': {
     summary:
-      'Survival after metastatic recurrence, median survival improvements over time, and site-specific outcomes (bone, liver, lung, brain). Population-based survival trends, heterogeneity in outcomes, and reframing metastatic cancer as chronic. SEER and site PDFs cited.',
+      'Survival after metastatic recurrence, median survival improvements over time, site-specific outcomes (bone, liver, lung, brain), treatment response end points (PFS, OS, RECIST), and quality of life measures (EORTC, FACT-B). NCI, NCCN, and MDPI/EORTC cited for outcomes and PROs.',
     sourceRefIds: ['ref-001', 'ref-002', 'ref-004', 'ref-006', 'ref-007', 'ref-012', 'ref-013'],
-    onlineSourceIds: ['seer-nov2023'],
+    onlineSourceIds: ['seer-nov2023', 'nci-mbc-endpoints', 'nccn-mbc', 'mdpi-qol-mbc', 'eortc-mbc'],
   },
   'public-health': {
     summary:

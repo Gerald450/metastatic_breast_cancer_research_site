@@ -77,4 +77,44 @@ export const ONLINE_SOURCES = {
     citation: 'CDC. Breast Cancer Risk Factors. National Center for Chronic Disease Prevention and Health Promotion.',
     usedFor: ['epidemiology'],
   },
+
+  /** NCI Breast Cancer Steering Committee Working Group on MBC trial endpoints */
+  NCI_MBC_ENDPOINTS: {
+    id: 'nci-mbc-endpoints',
+    name: 'NCI Breast Cancer Steering Committee Working Group Report on Meaningful and Appropriate End Points for Clinical Trials in Metastatic Breast Cancer',
+    org: 'Journal of Clinical Oncology / NCI',
+    url: 'https://pmc.ncbi.nlm.nih.gov/articles/PMC7351338/',
+    citation: 'Seidman AD et al. J Clin Oncol. 2018;36(32):3259–3268.',
+    usedFor: ['clinical-outcomes'],
+  },
+
+  /** NCCN Guidelines for Metastatic Breast Cancer */
+  NCCN_MBC: {
+    id: 'nccn-mbc',
+    name: 'NCCN Guidelines for Metastatic Breast Cancer',
+    org: 'National Comprehensive Cancer Network',
+    url: 'https://www.nccn.org/guidelines/guidelines-detail?category=1&id=1419',
+    citation: 'NCCN. Breast Cancer Guidelines. National Comprehensive Cancer Network.',
+    usedFor: ['clinical-outcomes'],
+  },
+
+  /** MDPI Cancers: QoL PROs in real-world MBC patients */
+  MDPI_QOL_MBC: {
+    id: 'mdpi-qol-mbc',
+    name: 'Measuring Quality of Life Using Patient-Reported Outcomes in Real-World Metastatic Breast Cancer Patients',
+    org: 'Cancers (MDPI)',
+    url: 'https://pmc.ncbi.nlm.nih.gov/articles/PMC8151772/',
+    citation: 'Clarijs ME et al. Cancers. 2021;13(10):2308.',
+    usedFor: ['clinical-outcomes'],
+  },
+
+  /** EORTC Quality of Life - Metastatic Breast Cancer module */
+  EORTC_MBC: {
+    id: 'eortc-mbc',
+    name: 'EORTC QLQ-BR45 — Metastatic Breast Cancer Module',
+    org: 'European Organisation for Research and Treatment of Cancer',
+    url: 'https://qol.eortc.org/questionnaire/metastatic-breast-cancer/',
+    citation: 'EORTC. Quality of Life Questionnaires. Metastatic Breast Cancer Module.',
+    usedFor: ['clinical-outcomes'],
+  },
 } as const;
