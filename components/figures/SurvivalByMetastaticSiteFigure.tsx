@@ -23,6 +23,7 @@ export default function SurvivalByMetastaticSiteFigure() {
             data={survivalByMetastaticSiteData}
             xKey="site"
             yKey="survivalMonths"
+            xLabel="Metastatic site"
             yLabel="Survival (months)"
           />
         </div>

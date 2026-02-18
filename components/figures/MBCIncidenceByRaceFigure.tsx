@@ -31,6 +31,7 @@ export default function MBCIncidenceByRaceFigure() {
             data={mbcIncidenceByRaceData}
             xKey="year"
             series={series}
+            xLabel="Year"
             yLabel="Count"
           />
         </div>

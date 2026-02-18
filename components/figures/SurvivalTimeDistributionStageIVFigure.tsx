@@ -21,6 +21,7 @@ export default function SurvivalTimeDistributionStageIVFigure() {
         <div role="img" aria-label="Box plot of survival time distribution by metastatic site">
           <BoxPlotChart
             data={survivalTimeDistributionStageIVData}
+            xLabel="Metastatic site"
             yLabel="Survival (months)"
           />
         </div>

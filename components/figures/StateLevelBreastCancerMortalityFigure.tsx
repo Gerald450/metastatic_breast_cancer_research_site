@@ -23,6 +23,7 @@ export default function StateLevelBreastCancerMortalityFigure() {
             data={stateLevelBreastCancerMortalityData}
             xKey="state"
             yKey="ratePer100k"
+            xLabel="State"
             yLabel="Rate per 100,000"
           />
         </div>

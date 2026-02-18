@@ -28,6 +28,7 @@ export default function CauseOfDeathBreastVsOtherFigure() {
             data={causeOfDeathBreastVsOtherData}
             xKey="ageGroup"
             series={series}
+            xLabel="Age group"
             yLabel="% of deaths"
           />
         </div>

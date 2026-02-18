@@ -14,6 +14,7 @@ interface LineTimeSeriesChartProps {
   data: Record<string, unknown>[];
   xKey: string;
   yKey: string;
+  xLabel?: string;
   yLabel?: string;
 }
 
@@ -21,6 +22,7 @@ export default function LineTimeSeriesChart({
   data,
   xKey,
   yKey,
+  xLabel,
   yLabel,
 }: LineTimeSeriesChartProps) {
   if (!data || data.length === 0) {
@@ -53,17 +55,20 @@ export default function LineTimeSeriesChart({
     );
   }
 
+  const margin = { top: 10, right: 20, left: yLabel ? 55 : 10, bottom: xLabel ? 50 : 5 };
+
   return (
     <ResponsiveContainer width="100%" height={400}>
-      <LineChart data={sanitizedData} margin={{ top: 5, right: 20, left: 10, bottom: 5 }}>
+      <LineChart data={sanitizedData} margin={margin}>
         <CartesianGrid strokeDasharray="3 3" className="stroke-gray-200 dark:stroke-gray-700" />
         <XAxis
           dataKey={xKey}
+          label={xLabel ? { value: xLabel, position: 'bottom', offset: 0 } : undefined}
           className="text-xs text-gray-600 dark:text-gray-400"
           tick={{ fill: 'currentColor' }}
         />
         <YAxis
-          label={yLabel ? { value: String(yLabel || ''), angle: -90, position: 'insideLeft' } : undefined}
+          label={yLabel ? { value: String(yLabel || ''), angle: -90, position: 'insideLeft', style: { textAnchor: 'middle' } } : undefined}
           className="text-xs text-gray-600 dark:text-gray-400"
           tick={{ fill: 'currentColor' }}
         />

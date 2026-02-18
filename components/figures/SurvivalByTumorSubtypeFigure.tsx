@@ -23,6 +23,7 @@ export default function SurvivalByTumorSubtypeFigure() {
             data={survivalByTumorSubtypeData}
             xKey="subtype"
             yKey="survivalMonths"
+            xLabel="Tumor subtype"
             yLabel="Survival (months)"
           />
         </div>

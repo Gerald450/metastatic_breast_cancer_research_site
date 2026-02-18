@@ -134,7 +134,7 @@ export default function MetaRegressionSurvivalFigure({
         <ResponsiveContainer width="100%" height={400}>
           <ComposedChart
             data={chartData}
-            margin={{ top: 10, right: 20, left: 10, bottom: 5 }}
+            margin={{ top: 10, right: 20, left: 55, bottom: 50 }}
           >
             <CartesianGrid strokeDasharray="3 3" className="stroke-gray-200 dark:stroke-gray-700" />
             <XAxis
@@ -143,16 +143,17 @@ export default function MetaRegressionSurvivalFigure({
               domain={xDomain}
               tickCount={9}
               tick={{ fontSize: 11, fill: 'currentColor' }}
-              label={{ value: 'year', position: 'insideBottom', offset: -5 }}
+              label={{ value: 'Year', position: 'bottom', offset: 0 }}
             />
             <YAxis
               type="number"
               domain={yDomain}
               tick={{ fontSize: 11, fill: 'currentColor' }}
               label={{
-                value: 'median survival time (month)',
+                value: 'Median survival (months)',
                 angle: -90,
                 position: 'insideLeft',
+                style: { textAnchor: 'middle' },
               }}
             />
             <Tooltip

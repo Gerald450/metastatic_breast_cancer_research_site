@@ -130,6 +130,7 @@ export default function AgeRaceDistributionFigure() {
         data={chartData}
         xKey="category"
         yKey="value"
+        xLabel={groupBy === 'groupLabel' ? 'Race/ethnicity' : 'Age range'}
         yLabel={unit}
       />
       ) : (

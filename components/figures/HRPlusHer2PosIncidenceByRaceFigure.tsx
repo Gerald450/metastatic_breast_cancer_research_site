@@ -22,6 +22,7 @@ export default function HRPlusHer2PosIncidenceByRaceFigure() {
           data={hrHer2PosIncidenceByRaceData}
           xKey="race"
           yKey="rate"
+          xLabel="Race/ethnicity"
           yLabel="Rate per 100,000"
         />
       </div>

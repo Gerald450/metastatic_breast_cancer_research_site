@@ -23,6 +23,7 @@ export default function MBCSurvivalOverTimeFigure() {
             data={mbcSurvivalOverTimeData}
             xKey="year"
             yKey="survivalMonths"
+            xLabel="Year of diagnosis"
             yLabel="Survival (months)"
           />
         </div>

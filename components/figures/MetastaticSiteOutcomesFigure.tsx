@@ -145,6 +145,7 @@ export default function MetastaticSiteOutcomesFigure() {
           data={chartData}
           xKey="site"
           yKey="value"
+          xLabel="Metastatic site"
           yLabel={unit}
         />
       ) : (

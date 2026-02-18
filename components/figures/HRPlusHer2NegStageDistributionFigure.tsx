@@ -22,6 +22,7 @@ export default function HRPlusHer2NegStageDistributionFigure() {
           data={hrHer2NegRatesByStage2022}
           xKey="stage"
           yKey="rate"
+          xLabel="Stage"
           yLabel="Rate per 100,000"
         />
       </div>

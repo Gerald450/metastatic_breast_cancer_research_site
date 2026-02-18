@@ -22,6 +22,7 @@ export default function BreastCancerMedianAgeBySubtypeFigure() {
           data={breastCancerMedianAgeBySubtypeData}
           xKey="subtype"
           yKey="medianAge"
+          xLabel="Subtype"
           yLabel="Median age (years)"
         />
       </div>

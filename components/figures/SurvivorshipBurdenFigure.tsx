@@ -131,6 +131,7 @@ export default function SurvivorshipBurdenFigure() {
             data={chartData}
             xKey="yearOrRange"
             yKey="value"
+            xLabel="Year or period"
             yLabel={unit}
           />
         ) : (
@@ -138,6 +139,7 @@ export default function SurvivorshipBurdenFigure() {
             data={chartData}
             xKey="category"
             yKey="value"
+            xLabel="Category"
             yLabel={unit}
           />
         )

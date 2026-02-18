@@ -28,6 +28,7 @@ export default function AgeAtDiagnosisVsDeathFigure() {
             data={ageAtDiagnosisVsDeathData}
             xKey="ageGroup"
             series={series}
+            xLabel="Age group"
             yLabel="Count"
           />
         </div>

@@ -23,6 +23,7 @@ export default function BreastCancerMortalityRatesFigure() {
             data={breastCancerMortalityRatesData}
             xKey="year"
             yKey="ratePer100k"
+            xLabel="Year"
             yLabel="Rate per 100,000"
           />
         </div>

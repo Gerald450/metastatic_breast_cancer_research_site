@@ -28,6 +28,7 @@ export default function SEERDistantStageBySubtypeFigure() {
         data={chartData}
         xKey="subtype"
         yKey="value"
+        xLabel="Subtype"
         yLabel="5-year relative survival (%)"
       />
     </Figure>

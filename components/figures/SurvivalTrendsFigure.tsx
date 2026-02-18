@@ -185,6 +185,7 @@ export default function SurvivalTrendsFigure() {
           data={chartData}
           xKey="timePeriod"
           yKey="value"
+          xLabel="Time period"
           yLabel={(filteredData[0]?.unit && typeof filteredData[0].unit === 'string') ? filteredData[0].unit : 'Value'}
         />
       ) : (

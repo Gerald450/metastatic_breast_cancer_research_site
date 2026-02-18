@@ -23,6 +23,7 @@ export default function MBCSurvivalByRaceFigure() {
             data={mbcSurvivalByRaceData}
             xKey="race"
             yKey="survivalMonths"
+            xLabel="Race/ethnicity"
             yLabel="Survival (months)"
           />
         </div>

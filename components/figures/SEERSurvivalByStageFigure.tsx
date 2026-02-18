@@ -28,6 +28,7 @@ export default function SEERSurvivalByStageFigure() {
         data={chartData}
         xKey="stage"
         yKey="value"
+        xLabel="Stage"
         yLabel="5-year relative survival (%)"
       />
     </Figure>

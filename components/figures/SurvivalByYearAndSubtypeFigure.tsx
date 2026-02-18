@@ -29,6 +29,7 @@ export default function SurvivalByYearAndSubtypeFigure() {
             data={survivalByYearAndSubtypeData}
             xKey="year"
             series={series}
+            xLabel="Year of diagnosis"
             yLabel="Survival (months)"
           />
         </div>

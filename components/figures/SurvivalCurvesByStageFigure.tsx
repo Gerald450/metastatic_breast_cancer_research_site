@@ -30,6 +30,7 @@ export default function SurvivalCurvesByStageFigure() {
             data={survivalCurvesByStageData}
             xKey="month"
             series={series}
+            xLabel="Months from diagnosis"
             yLabel="Survival probability (%)"
           />
         </div>

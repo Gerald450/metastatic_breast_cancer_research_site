@@ -23,6 +23,7 @@ export default function DeNovoStageIVIncidenceFigure() {
             data={deNovoStageIVIncidenceData}
             xKey="year"
             yKey="countOrRate"
+            xLabel="Year"
             yLabel="Count"
           />
         </div>

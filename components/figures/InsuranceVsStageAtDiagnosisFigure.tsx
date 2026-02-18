@@ -23,6 +23,7 @@ export default function InsuranceVsStageAtDiagnosisFigure() {
             data={insuranceVsStageAtDiagnosisData}
             xKey="insuranceStatus"
             yKey="lateStagePercent"
+            xLabel="Insurance status"
             yLabel="% diagnosed late stage"
           />
         </div>

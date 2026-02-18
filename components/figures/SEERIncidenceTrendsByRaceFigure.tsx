@@ -43,6 +43,7 @@ export default function SEERIncidenceTrendsByRaceFigure() {
           data={chartData}
           xKey="group"
           series={series}
+          xLabel="Race/ethnicity"
           yLabel="AAPC (%)"
         />
       </div>

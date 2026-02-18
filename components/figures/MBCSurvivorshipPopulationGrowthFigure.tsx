@@ -23,6 +23,7 @@ export default function MBCSurvivorshipPopulationGrowthFigure() {
             data={mbcSurvivorshipPopulationGrowthData}
             xKey="year"
             yKey="prevalence"
+            xLabel="Year"
             yLabel="People living with MBC"
           />
         </div>

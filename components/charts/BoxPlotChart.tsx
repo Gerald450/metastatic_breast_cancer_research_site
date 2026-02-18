@@ -11,10 +11,11 @@ export interface BoxPlotDataPoint {
 
 interface BoxPlotChartProps {
   data: BoxPlotDataPoint[];
+  xLabel?: string;
   yLabel?: string;
 }
 
-export default function BoxPlotChart({ data, yLabel }: BoxPlotChartProps) {
+export default function BoxPlotChart({ data, xLabel, yLabel }: BoxPlotChartProps) {
   if (!data || data.length === 0) {
     return (
       <div className="flex h-64 items-center justify-center text-sm text-gray-500 dark:text-gray-400">
@@ -35,7 +36,7 @@ export default function BoxPlotChart({ data, yLabel }: BoxPlotChartProps) {
     padding + chartHeight - ((v - globalMin) / range) * chartHeight;
 
   return (
-    <div className="w-full" role="img" aria-label={`Box plot: ${yLabel ?? 'Values'} by category`}>
+    <div className="w-full" role="img" aria-label={`Box plot: ${yLabel ?? 'Values'} by ${xLabel ?? 'category'}`}>
       {yLabel && (
         <p className="mb-1 text-center text-xs font-medium text-gray-600 dark:text-gray-400">{yLabel}</p>
       )}
@@ -103,6 +104,9 @@ export default function BoxPlotChart({ data, yLabel }: BoxPlotChartProps) {
           </text>
         ))}
       </svg>
+      {xLabel && (
+        <p className="mt-2 text-center text-xs font-medium text-gray-600 dark:text-gray-400">{xLabel}</p>
+      )}
     </div>
   );
 }

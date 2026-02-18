@@ -21,6 +21,7 @@ interface GroupedBarChartProps {
   data: Record<string, unknown>[];
   xKey: string;
   series: SeriesConfig[];
+  xLabel?: string;
   yLabel?: string;
 }
 
@@ -30,6 +31,7 @@ export default function GroupedBarChart({
   data,
   xKey,
   series,
+  xLabel,
   yLabel,
 }: GroupedBarChartProps) {
   if (!data || data.length === 0) {
@@ -48,17 +50,20 @@ export default function GroupedBarChart({
     );
   }
 
+  const margin = { top: 10, right: 20, left: yLabel ? 55 : 10, bottom: xLabel ? 50 : 5 };
+
   return (
     <ResponsiveContainer width="100%" height={400}>
-      <BarChart data={data} margin={{ top: 5, right: 20, left: 10, bottom: 5 }}>
+      <BarChart data={data} margin={margin}>
         <CartesianGrid strokeDasharray="3 3" className="stroke-gray-200 dark:stroke-gray-700" />
         <XAxis
           dataKey={xKey}
+          label={xLabel ? { value: xLabel, position: 'bottom', offset: 0 } : undefined}
           className="text-xs text-gray-600 dark:text-gray-400"
           tick={{ fill: 'currentColor' }}
         />
         <YAxis
-          label={yLabel ? { value: yLabel, angle: -90, position: 'insideLeft' } : undefined}
+          label={yLabel ? { value: yLabel, angle: -90, position: 'insideLeft', style: { textAnchor: 'middle' } } : undefined}
           className="text-xs text-gray-600 dark:text-gray-400"
           tick={{ fill: 'currentColor' }}
         />

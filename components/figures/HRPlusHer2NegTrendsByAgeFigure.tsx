@@ -27,6 +27,7 @@ export default function HRPlusHer2NegTrendsByAgeFigure() {
           data={chartData}
           xKey="ageGroup"
           yKey="aapc"
+          xLabel="Age group"
           yLabel="AAPC (%)"
         />
       </div>

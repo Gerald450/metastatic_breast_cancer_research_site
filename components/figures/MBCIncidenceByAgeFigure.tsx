@@ -23,6 +23,7 @@ export default function MBCIncidenceByAgeFigure() {
             data={mbcIncidenceByAgeData}
             xKey="ageGroup"
             yKey="incidence"
+            xLabel="Age group"
             yLabel="Incidence (rate per 100,000)"
           />
         </div>

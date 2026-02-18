@@ -42,6 +42,7 @@ export default function SEERIncidenceTrendsByAgeFigure() {
           data={chartData}
           xKey="group"
           series={series}
+          xLabel="Age group"
           yLabel="AAPC (%)"
         />
       </div>
