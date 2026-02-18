@@ -54,7 +54,7 @@ export default function BiologyPage() {
                 className="w-full rounded-lg"
               />
               <p className="mt-4 text-center text-sm italic text-gray-500 dark:text-gray-400">
-                Metastatic cascade: from primary tumor detachment through circulation, extravasation, and colonization of distant sites.
+                Metastatic cascade: from primary tumor detachment through circulation, extravasation, and colonization of distant sites. AI-generated illustration.
               </p>
             </div>
           </figure>
@@ -109,6 +109,18 @@ export default function BiologyPage() {
             incorporate longitudinal CTC profiling may therefore provide a more accurate
             representation of metastatic risk and therapeutic vulnerability.
           </p>
+          <figure className="my-8">
+            <div className="rounded-lg border border-gray-200 bg-gray-50/50 p-6 dark:border-gray-700 dark:bg-gray-800/30">
+              <img
+                src="/images/molecular_heterog.png"
+                alt="Exploration of transcriptional heterogeneity across CTC subpopulations"
+                className="mx-auto max-w-xl w-full rounded-lg"
+              />
+              <p className="mt-4 text-center text-sm italic text-gray-500 dark:text-gray-400">
+                Transcriptional diversity across CTC subpopulations. AI-generated illustration.
+              </p>
+            </div>
+          </figure>
         </div>
       </Section>
 
@@ -158,7 +170,7 @@ export default function BiologyPage() {
                 className="w-full rounded-lg"
               />
               <p className="mt-4 text-center text-sm italic text-gray-500 dark:text-gray-400">
-                Clonal evolution: a founding population diversifies into subclones over time through mutation and selection.
+                Clonal evolution: a founding population diversifies into subclones over time through mutation and selection. AI-generated illustration.
               </p>
             </div>
           </figure>
@@ -186,6 +198,9 @@ export default function BiologyPage() {
                 alt="Resistance mechanisms: molecular pathways involved in treatment resistance"
                 className="w-full rounded-lg"
               />
+              <p className="mt-4 text-center text-sm italic text-gray-500 dark:text-gray-400">
+                Molecular pathways involved in treatment resistance. AI-generated illustration.
+              </p>
             </div>
           </figure>
         </div>
