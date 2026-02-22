@@ -6,6 +6,8 @@ import TabSummary from '@/components/TabSummary';
 import ReferenceList from '@/components/ReferenceList';
 import DefinitionWalkthrough from '@/components/DefinitionWalkthrough';
 import SEERSurvivalByStageFigure from '@/components/figures/SEERSurvivalByStageFigure';
+import MBCTrialsFigure from '@/components/figures/MBCTrialsFigure';
+import MBCPublicationsFigure from '@/components/figures/MBCPublicationsFigure';
 import { references } from '@/lib/references';
 
 export default function Home() {
@@ -39,6 +41,18 @@ export default function Home() {
         evidenceType="SEER & selected studies"
       >
         <SEERSurvivalByStageFigure />
+      </Section>
+
+      <Section
+        title="Research"
+        subtitle="Clinical trials and recent publications"
+        evidenceType="ClinicalTrials.gov & PubMed"
+        className="section-alt"
+      >
+        <div className="grid gap-8 md:grid-cols-2">
+          <MBCTrialsFigure />
+          <MBCPublicationsFigure />
+        </div>
       </Section>
 
       <Section

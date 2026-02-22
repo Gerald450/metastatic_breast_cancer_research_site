@@ -6,32 +6,20 @@ import { stateLevelBreastCancerMortalityData } from '@/lib/mbc-figure-data';
 import { ONLINE_SOURCES } from '@/lib/online-sources';
 
 export default function StateLevelBreastCancerMortalityFigure() {
-  const hasData = stateLevelBreastCancerMortalityData.length > 0;
+  const chartData = stateLevelBreastCancerMortalityData;
 
   return (
     <Figure
       title="State-Level Breast Cancer Mortality"
       description="Mortality rates by U.S. state"
-      externalSource={{ name: 'CDC WONDER / USCS', url: ONLINE_SOURCES.CDC_WONDER.url }}
+      externalSource={{ name: 'Reference data', url: ONLINE_SOURCES.NCI_SEER.url }}
       status="Draft"
-      caption="Age-adjusted breast cancer mortality rates per 100,000 by state. CDC WONDER and USCS."
-      summary="Mortality rates vary by state, reflecting disparities in screening, access to care, and population risk factors. Higher rates in some states point to opportunities for targeted public health interventions."
+      caption="Age-adjusted breast cancer mortality rates per 100,000 by state. Reference data."
+      summary="Mortality rates vary by state, reflecting disparities in screening, access to care, and population risk factors."
     >
-      {hasData ? (
-        <div role="img" aria-label="Bar chart of breast cancer mortality rate by state">
-          <BarCategoryChart
-            data={stateLevelBreastCancerMortalityData}
-            xKey="state"
-            yKey="ratePer100k"
-            xLabel="State"
-            yLabel="Rate per 100,000"
-          />
-        </div>
-      ) : (
-        <div className="flex h-64 items-center justify-center text-sm text-gray-500 dark:text-gray-400">
-          No data available for this figure yet.
-        </div>
-      )}
+      <div role="img" aria-label="Bar chart of breast cancer mortality rate by state">
+        <BarCategoryChart data={chartData} xKey="state" yKey="ratePer100k" xLabel="State" yLabel="Rate per 100,000" />
+      </div>
     </Figure>
   );
 }

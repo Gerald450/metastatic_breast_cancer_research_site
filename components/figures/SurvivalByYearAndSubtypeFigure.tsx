@@ -1,18 +1,13 @@
 'use client';
 
 import Figure from '@/components/Figure';
-import MultiLineTimeSeriesChart from '@/components/charts/MultiLineTimeSeriesChart';
-import { survivalByYearAndSubtypeData } from '@/lib/mbc-figure-data';
+import { useFigureData } from '@/lib/use-figure-data';
 import { ONLINE_SOURCES } from '@/lib/online-sources';
 
-const series = [
-  { key: 'her2', label: 'HER2+' },
-  { key: 'hr', label: 'HR+' },
-  { key: 'tnbc', label: 'TNBC' },
-];
+const NO_DATA_MSG = 'No verified data available. This chart displays only API-verified data (ClinicalTrials.gov, PubMed, CDC WONDER).';
 
 export default function SurvivalByYearAndSubtypeFigure() {
-  const hasData = survivalByYearAndSubtypeData.length > 0;
+  useFigureData<unknown>(null);
 
   return (
     <Figure
@@ -23,21 +18,7 @@ export default function SurvivalByYearAndSubtypeFigure() {
       caption="Median survival by year of diagnosis and molecular subtype. SEER post-2010 subtype data."
       summary="Survival has improved over time across subtypes, with HER2+ showing the largest gains due to anti-HER2 therapies. TNBC improvements are smaller, highlighting the need for more effective targeted treatments."
     >
-      {hasData ? (
-        <div role="img" aria-label="Multi-line chart of survival by year and subtype">
-          <MultiLineTimeSeriesChart
-            data={survivalByYearAndSubtypeData}
-            xKey="year"
-            series={series}
-            xLabel="Year of diagnosis"
-            yLabel="Survival (months)"
-          />
-        </div>
-      ) : (
-        <div className="flex h-64 items-center justify-center text-sm text-gray-500 dark:text-gray-400">
-          No data available for this figure yet.
-        </div>
-      )}
+      <div className="flex h-64 items-center justify-center text-sm text-gray-500 dark:text-gray-400">{NO_DATA_MSG}</div>
     </Figure>
   );
 }

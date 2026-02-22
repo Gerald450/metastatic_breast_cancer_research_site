@@ -1,12 +1,13 @@
 'use client';
 
 import Figure from '@/components/Figure';
-import BarCategoryChart from '@/components/charts/BarCategoryChart';
-import { survivalByMetastaticSiteData } from '@/lib/mbc-figure-data';
+import { useFigureData } from '@/lib/use-figure-data';
 import { ONLINE_SOURCES } from '@/lib/online-sources';
 
+const NO_DATA_MSG = 'No verified data available. This chart displays only API-verified data (ClinicalTrials.gov, PubMed, CDC WONDER).';
+
 export default function SurvivalByMetastaticSiteFigure() {
-  const hasData = survivalByMetastaticSiteData.length > 0;
+  useFigureData<unknown>(null);
 
   return (
     <Figure
@@ -17,21 +18,7 @@ export default function SurvivalByMetastaticSiteFigure() {
       caption="Median survival by metastatic site from SEER. Site-specific variables."
       summary="Survival varies by metastatic site: bone-only metastases generally have better outcomes than visceral sites. Brain and liver metastases are associated with shorter survival, reflecting disease aggressiveness and limited treatment options."
     >
-      {hasData ? (
-        <div role="img" aria-label="Bar chart of survival by metastatic site">
-          <BarCategoryChart
-            data={survivalByMetastaticSiteData}
-            xKey="site"
-            yKey="survivalMonths"
-            xLabel="Metastatic site"
-            yLabel="Survival (months)"
-          />
-        </div>
-      ) : (
-        <div className="flex h-64 items-center justify-center text-sm text-gray-500 dark:text-gray-400">
-          No data available for this figure yet.
-        </div>
-      )}
+      <div className="flex h-64 items-center justify-center text-sm text-gray-500 dark:text-gray-400">{NO_DATA_MSG}</div>
     </Figure>
   );
 }

@@ -1,19 +1,13 @@
 'use client';
 
 import Figure from '@/components/Figure';
-import MultiLineTimeSeriesChart from '@/components/charts/MultiLineTimeSeriesChart';
-import { survivalCurvesByStageData } from '@/lib/mbc-figure-data';
+import { useFigureData } from '@/lib/use-figure-data';
 import { ONLINE_SOURCES } from '@/lib/online-sources';
 
-const series = [
-  { key: 'stageI', label: 'Stage I' },
-  { key: 'stageII', label: 'Stage II' },
-  { key: 'stageIII', label: 'Stage III' },
-  { key: 'stageIV', label: 'Stage IV' },
-];
+const NO_DATA_MSG = 'No verified data available. This chart displays only API-verified data (ClinicalTrials.gov, PubMed, CDC WONDER).';
 
 export default function SurvivalCurvesByStageFigure() {
-  const hasData = survivalCurvesByStageData.length > 0;
+  useFigureData<unknown>(null);
 
   return (
     <Figure
@@ -24,21 +18,7 @@ export default function SurvivalCurvesByStageFigure() {
       caption="5-year relative survival probability by months from diagnosis. Simplified from SEER survival by stage."
       summary="Survival drops sharply with stage. Stage I–II have high 5-year survival; Stage IV (metastatic) shows a steep decline. This underscores the prognostic importance of stage and the need for effective therapies for metastatic disease."
     >
-      {hasData ? (
-        <div role="img" aria-label="Multi-line chart of survival probability by stage over months">
-          <MultiLineTimeSeriesChart
-            data={survivalCurvesByStageData}
-            xKey="month"
-            series={series}
-            xLabel="Months from diagnosis"
-            yLabel="Survival probability (%)"
-          />
-        </div>
-      ) : (
-        <div className="flex h-64 items-center justify-center text-sm text-gray-500 dark:text-gray-400">
-          No data available for this figure yet.
-        </div>
-      )}
+      <div className="flex h-64 items-center justify-center text-sm text-gray-500 dark:text-gray-400">{NO_DATA_MSG}</div>
     </Figure>
   );
 }

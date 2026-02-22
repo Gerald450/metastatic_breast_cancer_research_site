@@ -1,13 +1,15 @@
 'use client';
 
 import Figure from '@/components/Figure';
-import BarCategoryChart from '@/components/charts/BarCategoryChart';
-import { breastCancerMedianAgeBySubtypeData } from '@/lib/seer-subtypes-data';
+import { useFigureData } from '@/lib/use-figure-data';
 import { ONLINE_SOURCES } from '@/lib/online-sources';
 
 const SUBTYPES_SOURCE = ONLINE_SOURCES.SEER_EXPLORER_FEMALE_BREAST;
+const NO_DATA_MSG = 'No verified data available. This chart displays only API-verified data (ClinicalTrials.gov, PubMed, CDC WONDER).';
 
 export default function BreastCancerMedianAgeBySubtypeFigure() {
+  useFigureData<unknown>(null);
+
   return (
     <Figure
       title="Median Age at Diagnosis by Breast Cancer Subtype"
@@ -17,15 +19,7 @@ export default function BreastCancerMedianAgeBySubtypeFigure() {
       caption="Data from public/csv/Subtypes/explorer_download (7).csv. HR+/HER2- (Luminal A) diagnosed at median 64; HR+/HER2+ (Luminal B) at median 58."
       summary="Luminal B (HR+/HER2+) is diagnosed at younger median age (58) compared with Luminal A (HR+/HER2-) at 64 years."
     >
-      <div role="img" aria-label="Bar chart of median age at diagnosis by breast cancer subtype">
-        <BarCategoryChart
-          data={breastCancerMedianAgeBySubtypeData}
-          xKey="subtype"
-          yKey="medianAge"
-          xLabel="Subtype"
-          yLabel="Median age (years)"
-        />
-      </div>
+      <div className="flex h-64 items-center justify-center text-sm text-gray-500 dark:text-gray-400">{NO_DATA_MSG}</div>
     </Figure>
   );
 }

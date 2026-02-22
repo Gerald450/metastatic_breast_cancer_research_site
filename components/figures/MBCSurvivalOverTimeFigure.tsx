@@ -1,12 +1,13 @@
 'use client';
 
 import Figure from '@/components/Figure';
-import LineTimeSeriesChart from '@/components/charts/LineTimeSeriesChart';
-import { mbcSurvivalOverTimeData } from '@/lib/mbc-figure-data';
+import { useFigureData } from '@/lib/use-figure-data';
 import { ONLINE_SOURCES } from '@/lib/online-sources';
 
+const NO_DATA_MSG = 'No verified data available. This chart displays only API-verified data (ClinicalTrials.gov, PubMed, CDC WONDER).';
+
 export default function MBCSurvivalOverTimeFigure() {
-  const hasData = mbcSurvivalOverTimeData.length > 0;
+  useFigureData<unknown>(null);
 
   return (
     <Figure
@@ -17,21 +18,7 @@ export default function MBCSurvivalOverTimeFigure() {
       caption="Data from SEER (stage at diagnosis). Verify against SEER*Stat queries for metastatic breast cancer."
       summary="Median survival for MBC has improved over time, reflecting advances in treatment. Survival gains support the value of newer targeted therapies and combination regimens."
     >
-      {hasData ? (
-        <div role="img" aria-label="Line chart of MBC survival in months by year of diagnosis">
-          <LineTimeSeriesChart
-            data={mbcSurvivalOverTimeData}
-            xKey="year"
-            yKey="survivalMonths"
-            xLabel="Year of diagnosis"
-            yLabel="Survival (months)"
-          />
-        </div>
-      ) : (
-        <div className="flex h-64 items-center justify-center text-sm text-gray-500 dark:text-gray-400">
-          No data available for this figure yet.
-        </div>
-      )}
+      <div className="flex h-64 items-center justify-center text-sm text-gray-500 dark:text-gray-400">{NO_DATA_MSG}</div>
     </Figure>
   );
 }

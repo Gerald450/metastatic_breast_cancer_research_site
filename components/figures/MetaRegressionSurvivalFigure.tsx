@@ -140,15 +140,15 @@ export default function MetaRegressionSurvivalFigure({
         <p className="font-medium text-gray-900 dark:text-white">Year: {label}</p>
         {hasStudy && (
           <p className="text-gray-600 dark:text-gray-300">
-            Study: {point.medianSurvival} months
-            {point.recurrenceType && (
-              <span className="ml-1 text-xs">({point.recurrenceType})</span>
+            Study: {String(point.medianSurvival)} months
+            {point.recurrenceType != null && (
+              <span className="ml-1 text-xs">({String(point.recurrenceType)})</span>
             )}
           </p>
         )}
         {hasRegression && (
           <p className="text-gray-600 dark:text-gray-300">
-            Regression: {point.regression} months
+            Regression: {String(point.regression)} months
           </p>
         )}
       </div>

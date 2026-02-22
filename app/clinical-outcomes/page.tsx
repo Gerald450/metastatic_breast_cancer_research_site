@@ -6,7 +6,7 @@ import TabSummary from '@/components/TabSummary';
 import { references } from '@/lib/references';
 import MetastaticSiteOutcomesFigure from '@/components/figures/MetastaticSiteOutcomesFigure';
 import SurvivalTrendsFigure from '@/components/figures/SurvivalTrendsFigure';
-import MetaRegressionSurvivalFigure from '@/components/figures/MetaRegressionSurvivalFigure';
+import MetaRegressionSurvivalSection from '@/components/figures/MetaRegressionSurvivalSection';
 import SEERSurvivalByStageFigure from '@/components/figures/SEERSurvivalByStageFigure';
 import SEERDistantStageBySubtypeFigure from '@/components/figures/SEERDistantStageBySubtypeFigure';
 import SurvivalByMetastaticSiteFigure from '@/components/figures/SurvivalByMetastaticSiteFigure';
@@ -17,8 +17,6 @@ import SurvivalByYearAndSubtypeFigure from '@/components/figures/SurvivalByYearA
 import PageHero from '@/components/PageHero';
 import ClinicalIllustration from '@/components/illustrations/ClinicalIllustration';
 import ProgressionPathwayDiagram from '@/components/figures/ProgressionPathwayDiagram';
-import metaRegressionSurvivalData from '@/data/extracted/meta_regression_survival.json';
-
 export default function ClinicalOutcomesPage() {
   return (
     <div className="py-12">
@@ -61,29 +59,7 @@ export default function ClinicalOutcomesPage() {
             sources={['ref-001', 'ref-002', 'ref-004']}
           />
           <SurvivalTrendsFigure />
-          <div id="meta-regression-survival" className="space-y-6">
-            <h3 className="heading-card text-gray-900 dark:text-white">
-              Meta-regression: survival improvement by disease type
-            </h3>
-            <p className="text-sm text-gray-600 dark:text-gray-400">
-              Data adapted from meta-regression of recurrent and de novo MBC studies. Source:{' '}
-              <a href="/references#ref-001" className="text-blue-600 hover:underline dark:text-blue-400">Caswell et al. (ref-001)</a>.
-            </p>
-            <div className="grid gap-8 sm:grid-cols-1 lg:grid-cols-2">
-              <MetaRegressionSurvivalFigure
-                plotData={metaRegressionSurvivalData.recurrentDisease as Parameters<typeof MetaRegressionSurvivalFigure>[0]['plotData']}
-              />
-              <MetaRegressionSurvivalFigure
-                plotData={metaRegressionSurvivalData.recurrentERPlus as Parameters<typeof MetaRegressionSurvivalFigure>[0]['plotData']}
-              />
-              <MetaRegressionSurvivalFigure
-                plotData={metaRegressionSurvivalData.recurrentERMinus as Parameters<typeof MetaRegressionSurvivalFigure>[0]['plotData']}
-              />
-              <MetaRegressionSurvivalFigure
-                plotData={metaRegressionSurvivalData.deNovoStageIV as Parameters<typeof MetaRegressionSurvivalFigure>[0]['plotData']}
-              />
-            </div>
-          </div>
+          <MetaRegressionSurvivalSection />
         </div>
       </Section>
 

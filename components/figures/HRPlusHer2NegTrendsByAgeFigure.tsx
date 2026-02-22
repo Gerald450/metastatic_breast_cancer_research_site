@@ -1,18 +1,15 @@
 'use client';
 
 import Figure from '@/components/Figure';
-import BarCategoryChart from '@/components/charts/BarCategoryChart';
-import { hrHer2NegTrendsByAgeData } from '@/lib/seer-subtypes-data';
+import { useFigureData } from '@/lib/use-figure-data';
 import { ONLINE_SOURCES } from '@/lib/online-sources';
 
 const SUBTYPES_SOURCE = ONLINE_SOURCES.SEER_EXPLORER_FEMALE_BREAST;
-
-const chartData = hrHer2NegTrendsByAgeData.map((row) => ({
-  ageGroup: row.subtype,
-  aapc: row.aapc,
-}));
+const NO_DATA_MSG = 'No verified data available. This chart displays only API-verified data (ClinicalTrials.gov, PubMed, CDC WONDER).';
 
 export default function HRPlusHer2NegTrendsByAgeFigure() {
+  useFigureData<unknown>(null);
+
   return (
     <Figure
       title="HR+/HER2- (Luminal A) Incidence Trends by Age"
@@ -22,15 +19,7 @@ export default function HRPlusHer2NegTrendsByAgeFigure() {
       caption="Data from public/csv/Subtypes/explorer_download (2).csv. HR+/HER2- breast cancer incidence is rising across all age groups, with the steepest increase in women under 50 (2.6% per year)."
       summary="Luminal A incidence trends are rising in all age groups, with the highest AAPC in Ages under 50 (2.6%)."
     >
-      <div role="img" aria-label="Bar chart of HR+/HER2- AAPC by age group">
-        <BarCategoryChart
-          data={chartData}
-          xKey="ageGroup"
-          yKey="aapc"
-          xLabel="Age group"
-          yLabel="AAPC (%)"
-        />
-      </div>
+      <div className="flex h-64 items-center justify-center text-sm text-gray-500 dark:text-gray-400">{NO_DATA_MSG}</div>
     </Figure>
   );
 }
