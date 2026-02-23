@@ -4,17 +4,17 @@ import Figure from '@/components/Figure';
 import MultiLineTimeSeriesChart from '@/components/charts/MultiLineTimeSeriesChart';
 import { useFigureData } from '@/lib/use-figure-data';
 import { survivalCurvesByStageData } from '@/lib/mbc-figure-data';
-import { ONLINE_SOURCES } from '@/lib/online-sources';
+import { SEER_DATA_SOURCE } from '@/lib/online-sources';
 
 export default function SurvivalCurvesByStageFigure() {
-  const { data, loading } = useFigureData<Record<string, unknown>[]>('/api/data/figure/survivalCurvesByStage');
+  const { data, loading } = useFigureData<Record<string, unknown>[]>('/api/data/seer/charts/survival-curves-by-stage');
   const chartData = (data && data.length > 0 ? data : survivalCurvesByStageData) as Record<string, unknown>[];
 
   return (
     <Figure
       title="Survival Curves by Stage (I–IV)"
       description="Simplified Kaplan–Meier–style curves"
-      externalSource={{ name: 'SEER / Kaggle', url: ONLINE_SOURCES.NCI_SEER.url }}
+      dataSourceCitation={SEER_DATA_SOURCE}
       status="Draft"
       caption="5-year relative survival probability by months from diagnosis. Simplified from SEER survival by stage."
       summary="Survival drops sharply with stage. Stage I–II have high 5-year survival; Stage IV (metastatic) shows a steep decline. This underscores the prognostic importance of stage and the need for effective therapies for metastatic disease."

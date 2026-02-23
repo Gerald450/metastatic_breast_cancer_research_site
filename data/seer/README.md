@@ -1,28 +1,26 @@
-# SEER Trusted Data — Static Extracts
+# SEER Trusted Data
 
-Data in this directory is extracted from **National Cancer Institute SEER Program** published statistics. Used for figures that require trusted, publicly cited data.
+SEER data is now ingested from **verified SEER*Stat exports** in `public/txtData/` into Supabase. The static JSON files in this directory are legacy; figures fetch from Supabase.
 
 ## Source
 
-- **SEER Cancer Stat Facts: Female Breast Cancer**  
-  https://seer.cancer.gov/statfacts/html/breast.html
-- **SEER Cancer Stat Facts: Female Breast Cancer Subtypes**  
-  https://seer.cancer.gov/statfacts/html/breast-subtypes.html
-- **SEER*Explorer** (survival, stage, trends)  
-  https://seer.cancer.gov/statistics-network/explorer/
+- **SEER Research Data (21 Registries, 2000–2022)**  
+  SEER*Stat Nov 2024 Submission. National Cancer Institute.
+- **Export location:** `public/txtData/` — comma-separated TXT files from SEER*Stat
 
 ## Citation
 
-> National Cancer Institute. Surveillance, Epidemiology, and End Results (SEER) Program.  
-> Cancer Stat Facts and SEER*Explorer. Accessed via https://seer.cancer.gov/
+> Data Source: SEER Research Data (21 Registries, 2000–2022), SEER*Stat Nov 2024 Submission. National Cancer Institute.
 
-## Files
+## Pipeline
 
-| File | Description | Data Period |
-|------|-------------|-------------|
-| `survival_by_stage.json` | 5-year relative survival by stage (localized, regional, distant) | 2015-2021 |
-| `distant_stage_by_subtype.json` | 5-year relative survival for distant (metastatic) stage by molecular subtype | 2015-2021 |
+1. **Migrations:** `supabase/migrations/005_seer_tables.sql` creates `survival_by_stage`, `survival_by_subtype`, `survival_by_year`, `incidence_by_race`, `incidence_by_year`, `cause_of_death`
+2. **Ingestion:** Run `npm run ingest:seer` or POST `/api/sync/seer` to parse TXT files and upsert into Supabase
+3. **API:** `/api/data/seer/*` and `/api/data/seer/charts/*` serve data for figures
 
-## Updates
+## Legacy Files (reference only)
 
-When SEER publishes new statistics, update these files and note the new data period in the JSON and figure captions.
+| File | Description |
+|------|-------------|
+| `survival_by_stage.json` | 5-year relative survival by stage (legacy) |
+| `distant_stage_by_subtype.json` | 5-year relative survival by subtype (legacy) |

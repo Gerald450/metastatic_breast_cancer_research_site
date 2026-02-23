@@ -5,14 +5,14 @@
  * Verified SEER trend data: lib/seer-csv-data.ts from public/csv/.
  */
 
-/** Fig 1: MBC Survival Over Time */
+/** Fig 1: MBC Survival Over Time (5-year relative survival % by year) */
 export const mbcSurvivalOverTimeData = [
-  { year: '2010', survivalMonths: 22 },
-  { year: '2012', survivalMonths: 24 },
-  { year: '2014', survivalMonths: 26 },
-  { year: '2016', survivalMonths: 28 },
-  { year: '2018', survivalMonths: 30 },
-  { year: '2020', survivalMonths: 32 },
+  { year: '2010', relativeSurvivalPercent: 30.7 },
+  { year: '2012', relativeSurvivalPercent: 31.8 },
+  { year: '2014', relativeSurvivalPercent: 33.2 },
+  { year: '2016', relativeSurvivalPercent: 34.5 },
+  { year: '2018', relativeSurvivalPercent: 34.9 },
+  { year: '2020', relativeSurvivalPercent: 30.9 },
 ];
 
 /** Fig 2: MBC Survivorship Population Growth */
@@ -55,11 +55,12 @@ export const mbcIncidenceByAgeData = [
   { ageGroup: '75+', incidence: 32.4 },
 ];
 
-/** Fig 6: MBC Incidence by Race (stacked) */
+/** Fig 6: MBC Incidence by Race (age-adjusted rate per 100,000) */
 export const mbcIncidenceByRaceData = [
-  { year: '2015', White: 18500, Black: 4200, Asian: 2100, Hispanic: 2800, Other: 900 },
-  { year: '2017', White: 18800, Black: 4300, Asian: 2200, Hispanic: 3000, Other: 950 },
-  { year: '2019', White: 19100, Black: 4400, Asian: 2300, Hispanic: 3200, Other: 1000 },
+  { race: 'White', age_adjusted_rate: 471.9, count: 11762766 },
+  { race: 'Black', age_adjusted_rate: 470.9, count: 1555745 },
+  { race: 'American Indian/Alaska Native', age_adjusted_rate: 236.7, count: 72011 },
+  { race: 'Asian or Pacific Islander', age_adjusted_rate: 316.4, count: 811614 },
 ];
 
 /** Fig 7: MBC Survival by Race */
@@ -94,12 +95,12 @@ export const survivalByMetastaticSiteData = [
   { site: 'Brain', survivalMonths: 12 },
 ];
 
-/** Fig 11: Survival by Tumor Subtype (SEER distant stage by subtype) */
+/** Fig 11: Survival by Tumor Subtype (SEER distant stage by subtype) - 5-year relative survival % */
 export const survivalByTumorSubtypeData = [
-  { subtype: 'HR+/HER2+', survivalMonths: 56 },
-  { subtype: 'HR-/HER2+', survivalMonths: 49 },
-  { subtype: 'HR+/HER2-', survivalMonths: 44 },
-  { subtype: 'HR-/HER2- (TNBC)', survivalMonths: 18 },
+  { subtype: 'HR+/HER2+', relativeSurvivalPercent: 45.7 },
+  { subtype: 'HR-/HER2+', relativeSurvivalPercent: 39.4 },
+  { subtype: 'HR+/HER2-', relativeSurvivalPercent: 34.4 },
+  { subtype: 'HR-/HER2-', relativeSurvivalPercent: 13.9 },
 ];
 
 /** Fig 12: Survival Time Distribution (Stage IV) - box plot */

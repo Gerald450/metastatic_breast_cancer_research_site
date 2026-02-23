@@ -18,6 +18,7 @@ interface FigureProps {
   summary?: string; // Brief conclusion or key takeaway derived from the visual
   sources?: string[]; // Array of reference IDs (e.g., ['ref-001', 'ref-002'])
   externalSource?: ExternalSource; // For online data (e.g., SEER, NCI)
+  dataSourceCitation?: string; // Full citation text (overrides externalSource when present)
   status?: FigureStatus;
   className?: string;
 }
@@ -30,6 +31,7 @@ export default function Figure({
   summary,
   sources = [],
   externalSource,
+  dataSourceCitation,
   status = 'Draft',
   className = '',
 }: FigureProps) {
@@ -98,17 +100,21 @@ export default function Figure({
             </span>
           </div>
         )}
-        {externalSource && (
+        {(dataSourceCitation || externalSource) && (
           <div className="text-xs text-gray-500 dark:text-gray-500">
             <span className="font-medium">Data source:</span>{' '}
-            <a
-              href={externalSource.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-blue-600 hover:text-blue-800 hover:underline dark:text-blue-400 dark:hover:text-blue-300"
-            >
-              {externalSource.name}
-            </a>
+            {dataSourceCitation ? (
+              dataSourceCitation
+            ) : externalSource ? (
+              <a
+                href={externalSource.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-blue-600 hover:text-blue-800 hover:underline dark:text-blue-400 dark:hover:text-blue-300"
+              >
+                {externalSource.name}
+              </a>
+            ) : null}
           </div>
         )}
       </figcaption>

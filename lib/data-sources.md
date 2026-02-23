@@ -45,8 +45,8 @@ Extracted JSON files live in `data/extracted/`. Each figure cites the source ref
 
 | Figure | Data Source | Citation |
 |--------|-------------|----------|
-| **SEERSurvivalByStageFigure** | `data/seer/survival_by_stage.json` | NCI SEER Cancer Stat Facts (2015-2021) |
-| **SEERDistantStageBySubtypeFigure** | `data/seer/distant_stage_by_subtype.json` | NCI SEER Cancer Stat Facts (2015-2021) |
+| **SEERSurvivalByStageFigure** | Supabase `survival_by_stage` (from `public/txtData/`) | SEER Research Data (21 Registries, 2000–2022), SEER*Stat Nov 2024 |
+| **SEERDistantStageBySubtypeFigure** | Supabase `survival_by_subtype` (from `public/txtData/`) | SEER Research Data (21 Registries, 2000–2022), SEER*Stat Nov 2024 |
 | SurvivalTrendsFigure | Firebase `survival_over_time` or `data/extracted/survival_over_time.json` | ref-001, ref-002, ref-004, etc. (from extracted sourceRefId) |
 | SurvivalStudiesTable | `data/extracted/survival_studies_table.json` | Giordano et al., Vogel et al. (study-level) |
 | MetaRegressionSurvivalFigure | `data/extracted/meta_regression_survival.json` | Caswell et al. (ref-001) |

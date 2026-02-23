@@ -1,8 +1,11 @@
 /**
  * Trusted online data sources for MBC research.
  * Used for citations and links on topic pages.
- * CSV data in public/csv/ from SEER*Explorer (November 2024 Submission).
+ * SEER data from public/txtData/ (SEER*Stat 21 Registries, 2000–2022).
  */
+export const SEER_DATA_SOURCE =
+  'Data Source: SEER Research Data (21 Registries, 2000–2022), SEER*Stat Nov 2024 Submission. National Cancer Institute.';
+
 export const ONLINE_SOURCES = {
   SEER_EXPLORER: {
     id: 'seer-explorer',
@@ -42,8 +45,17 @@ export const ONLINE_SOURCES = {
     name: 'SEER Cancer Statistics',
     org: 'National Cancer Institute',
     url: 'https://seer.cancer.gov/',
-    citation: 'National Cancer Institute. Surveillance, Epidemiology, and End Results (SEER) Program.',
+    citation: SEER_DATA_SOURCE,
     usedFor: ['epidemiology', 'demographics'],
+  },
+  /** Verified SEER*Stat exports (21 Registries, 2000–2022) */
+  SEER_VERIFIED: {
+    id: 'seer-verified',
+    name: 'SEER Research Data (21 Registries, 2000–2022)',
+    org: 'National Cancer Institute',
+    url: 'https://seer.cancer.gov/',
+    citation: SEER_DATA_SOURCE,
+    usedFor: ['epidemiology', 'demographics', 'clinical-outcomes'],
   },
   CDC_CANCER: {
     id: 'cdc-cancer',

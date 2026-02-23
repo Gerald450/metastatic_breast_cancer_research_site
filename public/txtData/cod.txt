@@ -1,0 +1,111 @@
+"Alive",778563
+"All Malignant Cancers",1819001
+"Oral Cavity and Pharynx",17999
+"Lip",79
+"Tongue",3932
+"Salivary Gland",2207
+"Floor of Mouth",119
+"Gum and Other Mouth",2180
+"Nasopharynx",2230
+"Tonsil",1567
+"Oropharynx",2184
+"Hypopharynx",792
+"Other Oral Cavity and Pharynx",2709
+"Digestive System",468244
+"Esophagus",40645
+"Stomach",44686
+"Small Intestine",4500
+"Colon and Rectum",163718
+"Colon excluding Rectum",135509
+"Rectum and Rectosigmoid Junction",28209
+"Anus, Anal Canal and Anorectum",2106
+"Liver and Intrahepatic Bile Duct",48131
+"Liver",30340
+"Intrahepatic Bile Duct",17791
+"Gallbladder",8030
+"Other Biliary",4364
+"Pancreas",143712
+"Retroperitoneum",499
+"Peritoneum, Omentum and Mesentery",3526
+"Other Digestive Organs",4327
+"Respiratory System",576388
+"Nose, Nasal Cavity and Middle Ear",1047
+"Larynx",6973
+"Lung and Bronchus",566546
+"Pleura",1176
+"Trachea, Mediastinum and Other Respiratory Organs",646
+"Bones and Joints",4014
+"Soft Tissue including Heart",11242
+"Skin",19701
+"Melanoma of the Skin",15581
+"Non-Melanoma Skin",4120
+"Breast",72212
+"Female Genital System",103367
+"Cervix Uteri",10010
+"Corpus and Uterus, NOS",24467
+"Corpus Uteri",11195
+"Uterus, NOS",13272
+"Ovary",64419
+"Vagina",768
+"Vulva",1235
+"Other Female Genital Organs",2468
+"Male Genital System",61675
+"Prostate",59499
+"Testis",1754
+"Penis",321
+"Other Male Genital Organs",101
+"Urinary System",64245
+"Urinary Bladder",20239
+"Kidney and Renal Pelvis",42514
+"Ureter",643
+"Other Urinary Organs",849
+"Eye and Orbit",301
+"Brain and Other Nervous System",5950
+"Endocrine System",9207
+"Thyroid",5817
+"Other Endocrine including Thymus",3390
+"Lymphoma",84104
+"Hodgkin Lymphoma",4364
+"Non-Hodgkin Lymphoma",79740
+"Myeloma",67210
+"Leukemia",146787
+"Lymphocytic Leukemia",32036
+"Acute Lymphocytic Leukemia",10873
+"Chronic Lymphocytic Leukemia",18856
+"Other Lymphocytic Leukemia",2307
+"Myeloid and Monocytic Leukemia",84876
+"Acute Myeloid Leukemia",71786
+"Acute Monocytic Leukemia",673
+"Chronic Myeloid Leukemia",6494
+"Other Myeloid/Monocytic Leukemia",5923
+"Other Leukemia",29875
+"Other Acute Leukemia",10396
+"Aleukemic, Subleukemic and NOS",19479
+"Miscellaneous Malignant Cancer",106355
+"In situ, benign or unknown behavior neoplasm",46836
+"Tuberculosis",167
+"Syphilis",2
+"Septicemia",13692
+"Other Infectious and Parasitic Diseases including HIV",12578
+"Diabetes Mellitus",10103
+"Alzheimers (ICD-9 and 10 only)",7413
+"Diseases of Heart",111569
+"Hypertension without Heart Disease",5789
+"Cerebrovascular Diseases",19273
+"Atherosclerosis",1041
+"Aortic Aneurysm and Dissection",1088
+"Other Diseases of Arteries, Arterioles, Capillaries",1596
+"Pneumonia and Influenza",13806
+"Chronic Obstructive Pulmonary Disease and Allied Cond",27279
+"Stomach and Duodenal Ulcers",860
+"Chronic Liver Disease and Cirrhosis",5603
+"Nephritis, Nephrotic Syndrome and Nephrosis",10850
+"Complications of Pregnancy, Childbirth, Puerperium",410
+"Congenital Anomalies",636
+"Certain Conditions Originating in Perinatal Period",28
+"Symptoms, Signs and Ill-Defined Conditions",6352
+"Accidents and Adverse Effects",12768
+"Suicide and Self-Inflicted Injury",2999
+"Homicide and Legal Intervention",294
+"Other Cause of Death",90847
+"State DC not available or state DC available but no COD",24057
