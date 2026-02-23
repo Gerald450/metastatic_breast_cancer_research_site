@@ -9,7 +9,8 @@
     "start": "next start",
     "lint": "eslint",
     "extract-pdfs": "node scripts/extract-numbers.mjs",
-    "seed-supabase": "npx tsx scripts/seed-supabase.ts"
+    "seed-supabase": "npx tsx scripts/seed-supabase.ts",
+    "seed-figure-data": "npx tsx scripts/seed-figure-data.ts"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.97.0",

@@ -4,13 +4,16 @@ import Link from 'next/link';
 import { useFigureData } from '@/lib/use-figure-data';
 import type { MBC_Trial } from '@/lib/types/mbc-data';
 import type { MBC_Publication } from '@/lib/types/mbc-data';
+import type { MBC_Drug } from '@/lib/types/mbc-data';
 
 export default function EvidenceHighlights() {
   const { data: trials } = useFigureData<MBC_Trial[]>('/api/data/trials');
   const { data: publications } = useFigureData<MBC_Publication[]>('/api/data/publications');
+  const { data: drugs } = useFigureData<MBC_Drug[]>('/api/data/drugs');
 
   const trialsCount = Array.isArray(trials) ? trials.length : 0;
   const publicationsCount = Array.isArray(publications) ? publications.length : 0;
+  const drugsCount = Array.isArray(drugs) ? drugs.length : 0;
 
   const highlights = [
     {
@@ -30,6 +33,15 @@ export default function EvidenceHighlights() {
       detail: 'Metastatic breast cancer',
       source: 'Run sync to populate',
       href: '/#research',
+    },
+    {
+      id: 'drugs',
+      value: drugsCount > 0 ? drugsCount.toLocaleString() : '—',
+      unit: '',
+      label: 'FDA-approved drugs',
+      detail: 'Breast cancer indications',
+      source: 'OpenFDA',
+      href: '/treatment',
     },
     {
       id: 'mortality',

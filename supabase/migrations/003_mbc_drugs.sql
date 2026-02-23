@@ -16,4 +16,9 @@ CREATE TABLE IF NOT EXISTS mbc_drugs (
 );
 
 ALTER TABLE mbc_drugs ENABLE ROW LEVEL SECURITY;
-CREATE POLICY "Allow public read on mbc_drugs" ON mbc_drugs FOR SELECT USING (true);
+DO $$
+BEGIN
+  IF NOT EXISTS (SELECT 1 FROM pg_policies WHERE policyname = 'Allow public read on mbc_drugs' AND tablename = 'mbc_drugs') THEN
+    CREATE POLICY "Allow public read on mbc_drugs" ON mbc_drugs FOR SELECT USING (true);
+  END IF;
+END $$;

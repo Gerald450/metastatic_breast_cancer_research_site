@@ -69,6 +69,14 @@ export const ONLINE_SOURCES = {
     citation: 'Centers for Disease Control and Prevention and National Cancer Institute. United States Cancer Statistics.',
     usedFor: ['epidemiology', 'demographics', 'public-health'],
   },
+  OPENFDA: {
+    id: 'openfda',
+    name: 'OpenFDA',
+    org: 'U.S. Food and Drug Administration',
+    url: 'https://open.fda.gov/',
+    citation: 'U.S. Food and Drug Administration. OpenFDA Drug Labeling API.',
+    usedFor: ['treatment'],
+  },
   CDC_BREAST_CANCER_RISK: {
     id: 'cdc-breast-risk',
     name: 'Breast Cancer Risk Factors',

@@ -1,13 +1,14 @@
 'use client';
 
 import Figure from '@/components/Figure';
+import BarCategoryChart from '@/components/charts/BarCategoryChart';
 import { useFigureData } from '@/lib/use-figure-data';
+import { mbcIncidenceByAgeData } from '@/lib/mbc-figure-data';
 import { ONLINE_SOURCES } from '@/lib/online-sources';
 
-const NO_DATA_MSG = 'No verified data available. This chart displays only API-verified data (ClinicalTrials.gov, PubMed, CDC WONDER).';
-
 export default function MBCIncidenceByAgeFigure() {
-  useFigureData<unknown>(null);
+  const { data, loading } = useFigureData<Record<string, unknown>[]>('/api/data/figure/mbcIncidenceByAge');
+  const chartData = (data && data.length > 0 ? data : mbcIncidenceByAgeData) as Record<string, unknown>[];
 
   return (
     <Figure
@@ -18,7 +19,13 @@ export default function MBCIncidenceByAgeFigure() {
       caption="Incidence rates by age from SEER and USCS. Count or rate per 100,000."
       summary="MBC incidence increases with age, peaking in older adults. The age distribution informs screening guidelines and resource allocation for different populations."
     >
-      <div className="flex h-64 items-center justify-center text-sm text-gray-500 dark:text-gray-400">{NO_DATA_MSG}</div>
+      {loading ? (
+        <div className="flex h-64 items-center justify-center text-sm text-gray-500 dark:text-gray-400">Loading...</div>
+      ) : (
+        <div role="img" aria-label="Bar chart of MBC incidence by age group">
+          <BarCategoryChart data={chartData} xKey="ageGroup" yKey="incidence" xLabel="Age group" yLabel="Incidence" />
+        </div>
+      )}
     </Figure>
   );
 }

@@ -48,6 +48,10 @@ async function main() {
     const pubs = await post('/api/sync/publications');
     console.log(`  Synced: ${pubs.synced ?? 0}${pubs.errors?.length ? `, errors: ${pubs.errors.length}` : ''}\n`);
 
+    console.log('Syncing drugs (OpenFDA)...');
+    const drugs = await post('/api/sync/drugs');
+    console.log(`  Synced: ${drugs.synced ?? 0}${drugs.errors?.length ? `, errors: ${drugs.errors.length}` : ''}\n`);
+
     console.log('Done.');
   } catch (e) {
     const err = e instanceof Error ? e : new Error(String(e));
@@ -57,6 +61,7 @@ async function main() {
     console.error('\nUse curl instead (with dev server running):');
     console.error(`  curl -X POST ${BASE}/api/sync/trials`);
     console.error(`  curl -X POST ${BASE}/api/sync/publications`);
+    console.error(`  curl -X POST ${BASE}/api/sync/drugs`);
     process.exit(1);
   }
 }

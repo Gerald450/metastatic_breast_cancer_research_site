@@ -2,11 +2,13 @@
 
 import Figure from '@/components/Figure';
 import StateHeatMapChart from '@/components/charts/StateHeatMapChart';
+import { useFigureData } from '@/lib/use-figure-data';
 import { breastCancerMortalityHeatMapData } from '@/lib/mbc-figure-data';
 import { ONLINE_SOURCES } from '@/lib/online-sources';
 
 export default function BreastCancerMortalityHeatMapFigure() {
-  const chartData = breastCancerMortalityHeatMapData;
+  const { data, loading } = useFigureData<Record<string, unknown>[]>('/api/data/figure/breastCancerMortalityHeatMap');
+  const chartData = (data && data.length > 0 ? data : breastCancerMortalityHeatMapData) as { state: string; rate: number }[];
 
   return (
     <Figure
@@ -17,9 +19,13 @@ export default function BreastCancerMortalityHeatMapFigure() {
       caption="Color intensity reflects age-adjusted mortality rate per 100,000. Reference data."
       summary="Geographic patterns highlight states with higher breast cancer mortality."
     >
-      <div role="img" aria-label="Heat map of breast cancer mortality by U.S. state">
-        <StateHeatMapChart data={chartData} valueLabel="Rate per 100,000" />
-      </div>
+      {loading ? (
+        <div className="flex h-64 items-center justify-center text-sm text-gray-500 dark:text-gray-400">Loading...</div>
+      ) : (
+        <div role="img" aria-label="Heat map of breast cancer mortality by U.S. state">
+          <StateHeatMapChart data={chartData} valueLabel="Rate per 100,000" />
+        </div>
+      )}
     </Figure>
   );
 }
