@@ -1,13 +1,17 @@
-#!/usr/bin/env npx ts-node
+#!/usr/bin/env npx tsx
 /**
  * Ingest SEER TXT files from public/txtData/ into Supabase.
- * Run: npx ts-node scripts/ingest-seer.ts
- * Or: npm run ingest:seer (if script exists)
+ * Run: npm run ingest:seer
+ * Loads .env.local for NEXT_PUBLIC_SUPABASE_URL and SUPABASE_SERVICE_ROLE_KEY
  */
+
+import * as path from 'path';
+import { config } from 'dotenv';
+
+config({ path: path.join(__dirname, '..', '.env.local') });
 
 import { createClient, type SupabaseClient } from '@supabase/supabase-js';
 import * as fs from 'fs';
-import * as path from 'path';
 import {
   parseSurvivalTxt,
   filterSurvivalByYear,
