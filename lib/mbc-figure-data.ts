@@ -111,6 +111,15 @@ export const survivalTimeDistributionStageIVData = [
   { category: 'Brain', min: 2, q1: 6, median: 12, q3: 24, max: 48 },
 ];
 
+/** Fig 12b: 5-Year Survival by Stage (bar chart) - SEER survival_by_stage 60 mo */
+export const survivalByStageBarData = [
+  { stage: 'Localized', relativeSurvivalPercent: 90.4 },
+  { stage: 'Regional (nodes)', relativeSurvivalPercent: 84.0 },
+  { stage: 'Regional (extension)', relativeSurvivalPercent: 64.0 },
+  { stage: 'Regional (both)', relativeSurvivalPercent: 61.7 },
+  { stage: 'Distant', relativeSurvivalPercent: 28.0 },
+];
+
 /** Fig 13: Survival Curves by Stage */
 export const survivalCurvesByStageData = [
   { month: 0, stageI: 100, stageII: 100, stageIII: 100, stageIV: 100 },

@@ -5,7 +5,8 @@ import TopicExploreGrid from '@/components/TopicExploreGrid';
 import TabSummary from '@/components/TabSummary';
 import ReferenceList from '@/components/ReferenceList';
 import DefinitionWalkthrough from '@/components/DefinitionWalkthrough';
-import SEERSurvivalByStageFigure from '@/components/figures/SEERSurvivalByStageFigure';
+import SurvivalCurvesByStageFigure from '@/components/figures/SurvivalCurvesByStageFigure';
+import SurvivalByStageBarFigure from '@/components/figures/SurvivalByStageBarFigure';
 import MBCTrialsFigure from '@/components/figures/MBCTrialsFigure';
 import MBCPublicationsFigure from '@/components/figures/MBCPublicationsFigure';
 import { references } from '@/lib/references';
@@ -40,7 +41,10 @@ export default function Home() {
         subtitle="Population-based and study-based estimates"
         evidenceType="SEER & selected studies"
       >
-        <SEERSurvivalByStageFigure />
+        <div className="grid gap-8 lg:grid-cols-2">
+          <SurvivalCurvesByStageFigure />
+          <SurvivalByStageBarFigure />
+        </div>
       </Section>
 
       <Section

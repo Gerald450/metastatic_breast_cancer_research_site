@@ -19,6 +19,9 @@ import {
   parseIncidenceByRaceTxt,
   parseIncidenceByYearTxt,
   parseCauseOfDeathTxt,
+  parseIncidenceByStageAtDxTxt,
+  parseIncidenceRatesByRaceYearTxt,
+  parseIncidenceRatesByAgeYearTxt,
 } from '../lib/seer-parser';
 
 const TXT_DIR = path.join(__dirname, '..', 'public', 'txtData');
@@ -202,6 +205,56 @@ async function main() {
   });
   if (e6) throw e6;
   console.log(`cause_of_death: ${codUpsert.length} rows`);
+
+  // 7. Incidence by stage at diagnosis (HR+/HER2- by stage visual)
+  const stageDxTxt = readTxt('Incidence_by_stage_at_diagnosis.txt');
+  const stageDxRows = parseIncidenceByStageAtDxTxt(stageDxTxt);
+  const stageDxUpsert = stageDxRows.map((r) => ({
+    stage: r.stage,
+    rate_per_100k: r.rate_per_100k,
+    count: r.count,
+    population: r.population,
+  }));
+  const { error: e7 } = await supabase.from('incidence_by_stage_at_diagnosis').upsert(stageDxUpsert, {
+    onConflict: 'stage',
+  });
+  if (e7) throw e7;
+  console.log(`incidence_by_stage_at_diagnosis: ${stageDxUpsert.length} rows`);
+
+  // 8. Incidence rates by race and year (trends by race / AAPC)
+  const raceYearTxt = readTxt('trends_by_ethnicity.txt');
+  const raceYearRows = parseIncidenceRatesByRaceYearTxt(raceYearTxt);
+  const raceYearUpsert = raceYearRows.map((r) => ({
+    year: r.year,
+    race: r.race,
+    age_adjusted_rate: r.age_adjusted_rate,
+    count: r.count,
+    population: r.population,
+  }));
+  const { error: e8 } = await supabase.from('incidence_rates_by_race_year').upsert(raceYearUpsert, {
+    onConflict: 'year,race',
+  });
+  if (e8) throw e8;
+  console.log(`incidence_rates_by_race_year: ${raceYearUpsert.length} rows`);
+
+  // 9. Incidence rates by age and year (HR+/HER2- trends by age)
+  const ageYearName = fs.existsSync(path.join(TXT_DIR, 'Incidence_trends_by_agetxt.txt'))
+    ? 'Incidence_trends_by_agetxt.txt'
+    : 'Incidence_trends_by_age.txt';
+  const ageYearTxt = readTxt(ageYearName);
+  const ageYearRows = parseIncidenceRatesByAgeYearTxt(ageYearTxt);
+  const ageYearUpsert = ageYearRows.map((r) => ({
+    year: r.year,
+    age_group: r.age_group,
+    age_adjusted_rate: r.age_adjusted_rate,
+    count: r.count,
+    population: r.population,
+  }));
+  const { error: e9 } = await supabase.from('incidence_rates_by_age_year').upsert(ageYearUpsert, {
+    onConflict: 'year,age_group',
+  });
+  if (e9) throw e9;
+  console.log(`incidence_rates_by_age_year: ${ageYearUpsert.length} rows`);
 
   // Validation
   await validateIngestion(supabase);

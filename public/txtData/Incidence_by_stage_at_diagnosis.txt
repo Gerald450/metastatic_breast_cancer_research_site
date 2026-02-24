@@ -1,0 +1,153 @@
+"In situ","1",0.0,5,1503582675
+"In situ","2",0.0,2,1503582675
+"In situ","3",0.0,2,1503582675
+"In situ","4",0.0,0,1503582675
+"In situ","5",0.0,0,1503582675
+"In situ","8",0.0,0,1503582675
+"In situ","9",0.0,0,1503582675
+"In situ","A",0.0,0,1503582675
+"In situ","B",0.0,0,1503582675
+"In situ","C",0.0,0,1503582675
+"In situ","D",0.0,0,1503582675
+"In situ","E",0.0,0,1503582675
+"In situ","L",0.0,0,1503582675
+"In situ","H",0.0,2,1503582675
+"In situ","M",0.0,2,1503582675
+"In situ","S",0.0,0,1503582675
+"In situ","Blank(s)",0.0,0,1503582675
+"Localized only","1",5.2,87074,1503582675
+"Localized only","2",9.7,162195,1503582675
+"Localized only","3",4.9,80385,1503582675
+"Localized only","4",0.0,0,1503582675
+"Localized only","5",0.0,0,1503582675
+"Localized only","8",0.0,0,1503582675
+"Localized only","9",0.5,8545,1503582675
+"Localized only","A",0.1,1463,1503582675
+"Localized only","B",0.2,3109,1503582675
+"Localized only","C",0.2,3048,1503582675
+"Localized only","D",0.0,220,1503582675
+"Localized only","E",0.0,0,1503582675
+"Localized only","L",0.0,229,1503582675
+"Localized only","H",0.1,1977,1503582675
+"Localized only","M",0.1,1019,1503582675
+"Localized only","S",0.0,0,1503582675
+"Localized only","Blank(s)",46.4,771818,1503582675
+"Regional by direct extension only","1",0.1,937,1503582675
+"Regional by direct extension only","2",0.2,3635,1503582675
+"Regional by direct extension only","3",0.2,2925,1503582675
+"Regional by direct extension only","4",0.0,0,1503582675
+"Regional by direct extension only","5",0.0,0,1503582675
+"Regional by direct extension only","8",0.0,0,1503582675
+"Regional by direct extension only","9",0.0,700,1503582675
+"Regional by direct extension only","A",0.0,19,1503582675
+"Regional by direct extension only","B",0.0,140,1503582675
+"Regional by direct extension only","C",0.0,212,1503582675
+"Regional by direct extension only","D",0.0,23,1503582675
+"Regional by direct extension only","E",0.0,0,1503582675
+"Regional by direct extension only","L",0.0,1,1503582675
+"Regional by direct extension only","H",0.0,22,1503582675
+"Regional by direct extension only","M",0.0,7,1503582675
+"Regional by direct extension only","S",0.0,0,1503582675
+"Regional by direct extension only","Blank(s)",1.5,25610,1503582675
+"Regional lymph nodes involved only","1",0.7,11326,1503582675
+"Regional lymph nodes involved only","2",3.2,51768,1503582675
+"Regional lymph nodes involved only","3",2.5,40890,1503582675
+"Regional lymph nodes involved only","4",0.0,0,1503582675
+"Regional lymph nodes involved only","5",0.0,0,1503582675
+"Regional lymph nodes involved only","8",0.0,0,1503582675
+"Regional lymph nodes involved only","9",0.2,3682,1503582675
+"Regional lymph nodes involved only","A",0.0,174,1503582675
+"Regional lymph nodes involved only","B",0.1,1307,1503582675
+"Regional lymph nodes involved only","C",0.1,2300,1503582675
+"Regional lymph nodes involved only","D",0.0,112,1503582675
+"Regional lymph nodes involved only","E",0.0,0,1503582675
+"Regional lymph nodes involved only","L",0.0,24,1503582675
+"Regional lymph nodes involved only","H",0.0,228,1503582675
+"Regional lymph nodes involved only","M",0.0,113,1503582675
+"Regional lymph nodes involved only","S",0.0,0,1503582675
+"Regional lymph nodes involved only","Blank(s)",17.8,287144,1503582675
+"Regional by both direct extension and lymph node involvement","1",0.1,939,1503582675
+"Regional by both direct extension and lymph node involvement","2",0.4,6428,1503582675
+"Regional by both direct extension and lymph node involvement","3",0.4,7039,1503582675
+"Regional by both direct extension and lymph node involvement","4",0.0,0,1503582675
+"Regional by both direct extension and lymph node involvement","5",0.0,0,1503582675
+"Regional by both direct extension and lymph node involvement","8",0.0,0,1503582675
+"Regional by both direct extension and lymph node involvement","9",0.0,834,1503582675
+"Regional by both direct extension and lymph node involvement","A",0.0,19,1503582675
+"Regional by both direct extension and lymph node involvement","B",0.0,214,1503582675
+"Regional by both direct extension and lymph node involvement","C",0.0,516,1503582675
+"Regional by both direct extension and lymph node involvement","D",0.0,39,1503582675
+"Regional by both direct extension and lymph node involvement","E",0.0,0,1503582675
+"Regional by both direct extension and lymph node involvement","L",0.0,0,1503582675
+"Regional by both direct extension and lymph node involvement","H",0.0,19,1503582675
+"Regional by both direct extension and lymph node involvement","M",0.0,8,1503582675
+"Regional by both direct extension and lymph node involvement","S",0.0,0,1503582675
+"Regional by both direct extension and lymph node involvement","Blank(s)",2.7,44923,1503582675
+"Distant site(s)/node(s) involved","1",0.1,1647,1503582675
+"Distant site(s)/node(s) involved","2",0.6,9535,1503582675
+"Distant site(s)/node(s) involved","3",0.6,10144,1503582675
+"Distant site(s)/node(s) involved","4",0.0,0,1503582675
+"Distant site(s)/node(s) involved","5",0.0,0,1503582675
+"Distant site(s)/node(s) involved","8",0.0,0,1503582675
+"Distant site(s)/node(s) involved","9",0.5,9177,1503582675
+"Distant site(s)/node(s) involved","A",0.0,72,1503582675
+"Distant site(s)/node(s) involved","B",0.0,644,1503582675
+"Distant site(s)/node(s) involved","C",0.1,1198,1503582675
+"Distant site(s)/node(s) involved","D",0.0,63,1503582675
+"Distant site(s)/node(s) involved","E",0.0,0,1503582675
+"Distant site(s)/node(s) involved","L",0.0,5,1503582675
+"Distant site(s)/node(s) involved","H",0.0,31,1503582675
+"Distant site(s)/node(s) involved","M",0.0,16,1503582675
+"Distant site(s)/node(s) involved","S",0.0,0,1503582675
+"Distant site(s)/node(s) involved","Blank(s)",4.3,70878,1503582675
+"Not applicable/Benign/Borderline","1",0.0,0,1503582675
+"Not applicable/Benign/Borderline","2",0.0,0,1503582675
+"Not applicable/Benign/Borderline","3",0.0,0,1503582675
+"Not applicable/Benign/Borderline","4",0.0,0,1503582675
+"Not applicable/Benign/Borderline","5",0.0,0,1503582675
+"Not applicable/Benign/Borderline","8",0.0,0,1503582675
+"Not applicable/Benign/Borderline","9",0.0,0,1503582675
+"Not applicable/Benign/Borderline","A",0.0,0,1503582675
+"Not applicable/Benign/Borderline","B",0.0,0,1503582675
+"Not applicable/Benign/Borderline","C",0.0,0,1503582675
+"Not applicable/Benign/Borderline","D",0.0,0,1503582675
+"Not applicable/Benign/Borderline","E",0.0,0,1503582675
+"Not applicable/Benign/Borderline","L",0.0,0,1503582675
+"Not applicable/Benign/Borderline","H",0.0,0,1503582675
+"Not applicable/Benign/Borderline","M",0.0,0,1503582675
+"Not applicable/Benign/Borderline","S",0.0,0,1503582675
+"Not applicable/Benign/Borderline","Blank(s)",0.0,0,1503582675
+"Unknown/unstaged/unspecified/DCO","1",0.1,958,1503582675
+"Unknown/unstaged/unspecified/DCO","2",0.1,1816,1503582675
+"Unknown/unstaged/unspecified/DCO","3",0.1,1163,1503582675
+"Unknown/unstaged/unspecified/DCO","4",0.0,0,1503582675
+"Unknown/unstaged/unspecified/DCO","5",0.0,0,1503582675
+"Unknown/unstaged/unspecified/DCO","8",0.0,0,1503582675
+"Unknown/unstaged/unspecified/DCO","9",0.7,11892,1503582675
+"Unknown/unstaged/unspecified/DCO","A",0.0,84,1503582675
+"Unknown/unstaged/unspecified/DCO","B",0.0,211,1503582675
+"Unknown/unstaged/unspecified/DCO","C",0.0,172,1503582675
+"Unknown/unstaged/unspecified/DCO","D",0.0,10,1503582675
+"Unknown/unstaged/unspecified/DCO","E",0.0,0,1503582675
+"Unknown/unstaged/unspecified/DCO","L",0.0,5,1503582675
+"Unknown/unstaged/unspecified/DCO","H",0.0,18,1503582675
+"Unknown/unstaged/unspecified/DCO","M",0.0,15,1503582675
+"Unknown/unstaged/unspecified/DCO","S",0.0,0,1503582675
+"Unknown/unstaged/unspecified/DCO","Blank(s)",2.5,43396,1503582675
+"Blank(s)","1",0.0,0,1503582675
+"Blank(s)","2",0.0,0,1503582675
+"Blank(s)","3",0.0,0,1503582675
+"Blank(s)","4",0.0,0,1503582675
+"Blank(s)","5",0.0,0,1503582675
+"Blank(s)","8",0.0,0,1503582675
+"Blank(s)","9",0.0,0,1503582675
+"Blank(s)","A",0.0,0,1503582675
+"Blank(s)","B",0.0,0,1503582675
+"Blank(s)","C",0.0,0,1503582675
+"Blank(s)","D",0.0,0,1503582675
+"Blank(s)","E",0.0,0,1503582675
+"Blank(s)","L",0.0,0,1503582675
+"Blank(s)","H",0.0,0,1503582675
+"Blank(s)","M",0.0,0,1503582675
+"Blank(s)","S",0.0,0,1503582675
+"Blank(s)","Blank(s)",19.2,313510,1503582675

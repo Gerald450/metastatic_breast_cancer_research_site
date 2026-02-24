@@ -268,3 +268,154 @@ export function parseCauseOfDeathTxt(content: string): CauseOfDeathRow[] {
   }
   return rows;
 }
+
+// --- Incidence by stage at diagnosis (stage × grade → aggregate to Localized, Regional, Distant) ---
+
+const STAGE_AT_DX_EXCLUDE = new Set([
+  'In situ',
+  'Not applicable/Benign/Borderline',
+  'Unknown/unstaged/unspecified/DCO',
+  'Blank(s)',
+]);
+
+function mapStageToGroup(stage: string): 'Localized' | 'Regional' | 'Distant' | null {
+  if (STAGE_AT_DX_EXCLUDE.has(stage)) return null;
+  if (stage === 'Localized only') return 'Localized';
+  if (stage.startsWith('Regional')) return 'Regional';
+  if (stage === 'Distant site(s)/node(s) involved') return 'Distant';
+  return null;
+}
+
+export interface IncidenceByStageAtDxRow {
+  stage: string;
+  rate_per_100k: number | null;
+  count: number;
+  population: number | null;
+}
+
+/** Parse Incidence_by_stage_at_diagnosis.txt; aggregate by Localized, Regional, Distant */
+export function parseIncidenceByStageAtDxTxt(content: string): IncidenceByStageAtDxRow[] {
+  const lines = content.split(/\r?\n/);
+  const sums: Record<string, { count: number; population: number | null }> = {
+    Localized: { count: 0, population: null },
+    Regional: { count: 0, population: null },
+    Distant: { count: 0, population: null },
+  };
+
+  for (const line of lines) {
+    if (isMetadataLine(line)) continue;
+    const cols = parseCSVLine(line);
+    if (cols.length < 5) continue;
+
+    const stage = cleanStr(cols[0]);
+    const group = mapStageToGroup(stage);
+    if (group == null) continue;
+
+    const rate = parseNum(cols[2]);
+    const count = parseNum(cols[3]) ?? 0;
+    const pop = parseNum(cols[4]);
+
+    sums[group].count += count;
+    if (pop != null) sums[group].population = pop;
+  }
+
+  return ['Localized', 'Regional', 'Distant'].map((stage) => {
+    const s = sums[stage];
+    const rate =
+      s.population != null && s.population > 0
+        ? (s.count / s.population) * 100000
+        : null;
+    return {
+      stage,
+      rate_per_100k: rate,
+      count: s.count,
+      population: s.population,
+    };
+  });
+}
+
+// --- Incidence rates by race and year ---
+
+const RACE_TRENDS_EXCLUDE = new Set(['Non-Hispanic Unknown Race']);
+
+export interface IncidenceRatesByRaceYearRow {
+  year: number;
+  race: string;
+  age_adjusted_rate: number | null;
+  count: number | null;
+  population: number | null;
+}
+
+export function parseIncidenceRatesByRaceYearTxt(content: string): IncidenceRatesByRaceYearRow[] {
+  const rows: IncidenceRatesByRaceYearRow[] = [];
+  const lines = content.split(/\r?\n/);
+
+  for (const line of lines) {
+    if (isMetadataLine(line)) continue;
+    const cols = parseCSVLine(line);
+    if (cols.length < 5) continue;
+
+    const yearStr = cleanStr(cols[0]);
+    if (yearStr.includes('-')) continue;
+    const year = parseInt(yearStr, 10);
+    if (isNaN(year) || year < 2000 || year > 2030) continue;
+
+    const race = cleanStr(cols[1]);
+    if (RACE_TRENDS_EXCLUDE.has(race)) continue;
+
+    const rate = parseNum(cols[2]);
+    const count = parseNum(cols[3]);
+    const pop = parseNum(cols[4]);
+
+    rows.push({
+      year,
+      race,
+      age_adjusted_rate: rate,
+      count: count ?? null,
+      population: pop ?? null,
+    });
+  }
+  return rows;
+}
+
+// --- Incidence rates by age and year ---
+
+export interface IncidenceRatesByAgeYearRow {
+  year: number;
+  age_group: string;
+  age_adjusted_rate: number | null;
+  count: number | null;
+  population: number | null;
+}
+
+export function parseIncidenceRatesByAgeYearTxt(content: string): IncidenceRatesByAgeYearRow[] {
+  const rows: IncidenceRatesByAgeYearRow[] = [];
+  const lines = content.split(/\r?\n/);
+
+  for (const line of lines) {
+    if (isMetadataLine(line)) continue;
+    const cols = parseCSVLine(line);
+    if (cols.length < 5) continue;
+
+    const yearStr = cleanStr(cols[0]);
+    if (yearStr.includes('-')) continue;
+    const year = parseInt(yearStr, 10);
+    if (isNaN(year) || year < 2000 || year > 2030) continue;
+
+    const ageGroup = cleanStr(cols[1]);
+    if (!ageGroup) continue;
+
+    const rate = parseNum(cols[2]);
+    const count = parseNum(cols[3]);
+    const pop = parseNum(cols[4]);
+
+    rows.push({
+      year,
+      age_group: ageGroup,
+      age_adjusted_rate: rate,
+      count: count ?? null,
+      population: pop ?? null,
+    });
+  }
+  return rows;
+}
