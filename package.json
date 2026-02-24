@@ -11,7 +11,8 @@
     "extract-pdfs": "node scripts/extract-numbers.mjs",
     "seed-supabase": "npx tsx scripts/seed-supabase.ts",
     "seed-figure-data": "npx tsx scripts/seed-figure-data.ts",
-    "ingest:seer": "npx tsx scripts/ingest-seer.ts"
+    "ingest:seer": "npx tsx scripts/ingest-seer.ts",
+    "upload:pdfs": "npx tsx scripts/upload-pdfs-to-storage.ts"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.97.0",

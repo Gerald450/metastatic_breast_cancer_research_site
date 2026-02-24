@@ -2,6 +2,7 @@
 
 import { useState, useMemo } from 'react';
 import type { Reference, SiteSection } from '@/lib/references';
+import { getPdfUrl } from '@/lib/references';
 import { getFigureSourceIdsForSection } from '@/lib/section-figure-sources';
 
 interface ReferenceListProps {
@@ -113,9 +114,9 @@ export default function ReferenceList({
                     )}
                   </div>
                   <div className="text-sm">
-                    {ref.localUrl ? (
+                    {getPdfUrl(ref) ? (
                       <a
-                        href={ref.localUrl}
+                        href={getPdfUrl(ref)!}
                         target="_blank"
                         rel="noopener noreferrer"
                         className="text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300 underline"
