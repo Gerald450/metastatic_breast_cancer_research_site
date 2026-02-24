@@ -1,0 +1,5 @@
+"White",471.9,11762766,2269733262
+"Black",470.9,1555745,388831683
+"American Indian/Alaska Native",236.7,72011,42845630
+"Asian or Pacific Islander",316.4,811614,270651689
+"Unknown",~,140267,0

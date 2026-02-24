@@ -20,11 +20,27 @@ export type Reference = {
   year?: string;
   journal?: string;
   filename: string; // exact uploaded filename
-  localUrl?: string; // e.g., "/pdfs/pky062.pdf"
+  localUrl?: string; // path segment only, e.g. "/pdfs/Caswell_et_al.pdf" (used to build Storage or local URL)
   doi?: string | null;
   usedFor: SiteSection[];
   highlightNotes?: HighlightNote[]; // TODO: insert verified page numbers
 };
+
+const STORAGE_BUCKET = 'pdfs';
+
+/**
+ * Public URL for a reference's PDF. Prefers Supabase Storage when NEXT_PUBLIC_SUPABASE_URL is set; otherwise falls back to local path.
+ */
+export function getPdfUrl(ref: Reference): string | undefined {
+  if (!ref.localUrl) return undefined;
+  const filename = ref.localUrl.replace(/^\/pdfs\/?/, '') || ref.localUrl.split('/').pop();
+  if (!filename) return undefined;
+  const base = typeof process !== 'undefined' ? process.env.NEXT_PUBLIC_SUPABASE_URL : undefined;
+  if (base) {
+    return `${base}/storage/v1/object/public/${STORAGE_BUCKET}/${encodeURIComponent(filename)}`;
+  }
+  return ref.localUrl;
+}
 
 export const references: Reference[] = [
   {

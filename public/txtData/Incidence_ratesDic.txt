@@ -1,0 +1,27 @@
+[System]
+Output filename=C:\Users\fover\OneDrive\Desktop\Exports\Incidence_rates.txt
+Database name=Incidence - SEER Research Limited-Field Data, 21 Registries (excl IL), Nov 2024 Sub (2000-2022) - Linked To County Attributes - Time Dependent (1990-2023) Income/Rurality, 1969-2023 Counties
+
+[Session Options]
+Type=Rate
+RatesAsCasesPer=100000
+
+[Export Options]
+GZipped=false
+Variable format=quotedlabels
+File format=DOS/Windows
+Field delimiter=comma
+Missing character="NA"
+Fields with delimiter in quotes=false
+Remove thousands separators=true
+Flags included=true
+Variable names included=false
+Column Variables as Stats=false
+
+[Variables]
+Var1Name=Year of diagnosis
+Var1Dimension=Row
+Var2Name=Age-Adjusted Rate
+Var3Name=Count
+Var4Name=Population
+

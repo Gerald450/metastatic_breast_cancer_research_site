@@ -1,85 +1,86 @@
 'use client';
 
 import Link from 'next/link';
-import survivalStudiesData from '@/data/extracted/survival_studies_table.json';
-import { mbcSurvivorshipPopulationGrowthData } from '@/lib/mbc-figure-data';
-import { seerIncidenceTrendsByAgeData } from '@/lib/seer-csv-data';
-import survivalByStageData from '@/data/seer/survival_by_stage.json';
-
-/** Distant stage 5-year survival from SEER */
-const distantSurvival = survivalByStageData.data.find((r) => r.stage === 'Distant')?.survivalPercent ?? 33;
-const seerPeriod = survivalByStageData.source.dataPeriod;
-
-/** Latest survivorship estimate */
-const latestSurvivorship = mbcSurvivorshipPopulationGrowthData[mbcSurvivorshipPopulationGrowthData.length - 1];
-const survivorshipYear = latestSurvivorship.year;
-const survivorshipCount = latestSurvivorship.prevalence.toLocaleString();
-
-/** SEER AAPC all ages */
-const allAgesTrend = seerIncidenceTrendsByAgeData.find((r) => r.group === 'All Ages' && r.yearRange === '2013-2022');
-const aapc = allAgesTrend?.aapc ?? 0.4;
-
-/** Survival studies - use Giordano for median improvement */
-const giordanoStudy = survivalStudiesData.find((s) => s.references.includes('Giordano'));
-
-const highlights = [
-  {
-    id: 'survival-improvement',
-    value: giordanoStudy ? giordanoStudy.medianSurvival : '15 to 58',
-    unit: 'months',
-    label: 'Median survival improvement',
-    detail: giordanoStudy?.sourcePopulation ?? 'MD Anderson adjuvant trials',
-    source: giordanoStudy?.references ?? 'Giordano et al.',
-    href: '/clinical-outcomes#survival',
-  },
-  {
-    id: 'distant-survival',
-    value: String(distantSurvival),
-    unit: '%',
-    label: '5-year relative survival, distant stage',
-    detail: `SEER ${seerPeriod}`,
-    source: 'NCI SEER Cancer Stat Facts',
-    href: '/clinical-outcomes#survival',
-  },
-  {
-    id: 'survivorship',
-    value: survivorshipCount,
-    unit: '',
-    label: 'Women living with MBC in the US',
-    detail: `Est. ${survivorshipYear} (Mariotto et al.)`,
-    source: 'Mariotto et al., ref-011',
-    href: '/epidemiology',
-  },
-  {
-    id: 'incidence-trend',
-    value: `${aapc}%`,
-    unit: 'AAPC',
-    label: 'Breast cancer incidence trend',
-    detail: `2013–2022, all ages`,
-    source: 'SEER Nov 2024',
-    href: '/epidemiology',
-  },
-  {
-    id: 'metastatic-sites',
-    value: 'Multi-site',
-    unit: '',
-    label: 'Outcomes by metastatic site',
-    detail: 'Bone, liver, brain, lung',
-    source: 'Bonotto, Xiao et al.',
-    href: '/clinical-outcomes',
-  },
-  {
-    id: 'demographics',
-    value: 'Age & race',
-    unit: '',
-    label: 'Demographic distributions',
-    detail: 'SEER by race, ethnicity, age',
-    source: 'SEER*Explorer',
-    href: '/demographics',
-  },
-];
+import { useFigureData } from '@/lib/use-figure-data';
+import type { MBC_Trial } from '@/lib/types/mbc-data';
+import type { MBC_Publication } from '@/lib/types/mbc-data';
+import type { MBC_Drug } from '@/lib/types/mbc-data';
 
 export default function EvidenceHighlights() {
+  const { data: trials } = useFigureData<MBC_Trial[]>('/api/data/trials');
+  const { data: publications } = useFigureData<MBC_Publication[]>('/api/data/publications');
+  const { data: drugs } = useFigureData<MBC_Drug[]>('/api/data/drugs');
+
+  const trialsCount = Array.isArray(trials) ? trials.length : 0;
+  const publicationsCount = Array.isArray(publications) ? publications.length : 0;
+  const drugsCount = Array.isArray(drugs) ? drugs.length : 0;
+
+  const highlights = [
+    {
+      id: 'trials',
+      value: trialsCount > 0 ? trialsCount.toLocaleString() : '—',
+      unit: '',
+      label: 'MBC clinical trials',
+      detail: 'ClinicalTrials.gov',
+      source: 'Run sync to populate',
+      href: '/#research',
+    },
+    {
+      id: 'publications',
+      value: publicationsCount > 0 ? publicationsCount.toLocaleString() : '—',
+      unit: '',
+      label: 'PubMed publications',
+      detail: 'Metastatic breast cancer',
+      source: 'Run sync to populate',
+      href: '/#research',
+    },
+    {
+      id: 'drugs',
+      value: drugsCount > 0 ? drugsCount.toLocaleString() : '—',
+      unit: '',
+      label: 'FDA-approved drugs',
+      detail: 'Breast cancer indications',
+      source: 'OpenFDA',
+      href: '/treatment',
+    },
+    {
+      id: 'mortality',
+      value: '—',
+      unit: '',
+      label: 'Mortality data',
+      detail: 'Static reference data',
+      source: 'See public-health',
+      href: '/public-health',
+    },
+    {
+      id: 'metastatic-sites',
+      value: 'Multi-site',
+      unit: '',
+      label: 'Outcomes by metastatic site',
+      detail: 'Bone, liver, brain, lung',
+      source: 'API-verified data only',
+      href: '/clinical-outcomes',
+    },
+    {
+      id: 'demographics',
+      value: 'Age & race',
+      unit: '',
+      label: 'Demographic distributions',
+      detail: 'API-verified data only',
+      source: 'See sync routes',
+      href: '/demographics',
+    },
+    {
+      id: 'survival',
+      value: '—',
+      unit: '',
+      label: 'Survival trends',
+      detail: 'API-verified data only',
+      source: 'See sync routes',
+      href: '/clinical-outcomes#survival',
+    },
+  ];
+
   return (
     <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
       {highlights.map((h) => (
@@ -99,7 +100,7 @@ export default function EvidenceHighlights() {
               <span className="font-medium text-gray-600 dark:text-gray-400">Source:</span> {h.source}
             </p>
           </div>
-          <span className="mt-3 inline-flex items-center text-xs font-medium text-gray-500 transition-colors group-hover:text-gray-700 dark:text-gray-400 dark:group-hover:text-gray-300">
+          <span className="mt-3 inline-flex text-xs font-medium text-gray-500 transition-colors group-hover:text-gray-700 dark:text-gray-400 dark:group-hover:text-gray-300">
             Explore
             <svg className="ml-1 h-3.5 w-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden>
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />

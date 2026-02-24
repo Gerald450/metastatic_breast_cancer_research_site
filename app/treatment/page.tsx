@@ -6,6 +6,7 @@ import ReferenceList from '@/components/ReferenceList';
 import { references } from '@/lib/references';
 import PageHero from '@/components/PageHero';
 import TreatmentIllustration from '@/components/illustrations/TreatmentIllustration';
+import MBCDrugsFigure from '@/components/figures/MBCDrugsFigure';
 
 export default function TreatmentPage() {
   return (
@@ -55,11 +56,7 @@ export default function TreatmentPage() {
               'Supportive care measures',
             ]}
           />
-          <VisualPlaceholder
-            title="Treatment options comparison table"
-            type="table"
-            description="Comparative overview of different treatment modalities and their characteristics"
-          />
+          <MBCDrugsFigure />
         </div>
       </Section>
 

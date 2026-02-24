@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
-import { references } from '@/lib/references';
+import { references, getPdfUrl } from '@/lib/references';
 import ClassificationSchemaDiagram from '@/components/figures/ClassificationSchemaDiagram';
 import ProgressionPathwayDiagram from '@/components/figures/ProgressionPathwayDiagram';
 
@@ -133,6 +133,7 @@ export default function DefinitionWalkthrough() {
   const [currentStep, setCurrentStep] = useState(0);
   const step = steps[currentStep];
   const ref = references.find((r) => r.id === step.citation);
+  const pdfUrl = ref ? getPdfUrl(ref) : undefined;
 
   return (
     <div className="space-y-8">
@@ -171,11 +172,11 @@ export default function DefinitionWalkthrough() {
               >
                 {ref.id} — {ref.authors} ({ref.year}). {ref.title}.
               </Link>
-              {ref.localUrl && (
+              {pdfUrl && (
                 <>
                   {' '}
                   <a
-                    href={ref.localUrl}
+                    href={pdfUrl}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-blue-600 hover:underline dark:text-blue-400"

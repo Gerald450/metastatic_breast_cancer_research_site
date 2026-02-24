@@ -9,10 +9,14 @@
     "start": "next start",
     "lint": "eslint",
     "extract-pdfs": "node scripts/extract-numbers.mjs",
-    "migrate-to-firebase": "node scripts/migrate-to-firebase.mjs"
+    "seed-supabase": "npx tsx scripts/seed-supabase.ts",
+    "seed-figure-data": "npx tsx scripts/seed-figure-data.ts",
+    "ingest:seer": "npx tsx scripts/ingest-seer.ts",
+    "upload:pdfs": "npx tsx scripts/upload-pdfs-to-storage.ts"
   },
   "dependencies": {
-    "firebase": "^12.8.0",
+    "@supabase/supabase-js": "^2.97.0",
+    "dotenv": "^17.3.1",
     "next": "16.1.1",
     "react": "19.2.3",
     "react-dom": "19.2.3",
@@ -21,15 +25,17 @@
   "devDependencies": {
     "@tailwindcss/postcss": "^4",
     "@types/node": "^20",
+    "@types/pdf-parse": "^1.1.4",
     "@types/react": "^19",
     "@types/react-dom": "^19",
-    "@types/pdf-parse": "^1.1.4",
     "eslint": "^9",
     "eslint-config-next": "16.1.1",
     "pdf-parse": "^1.1.1",
     "pdfjs-dist": "^4.0.379",
     "postcss": "^8",
+    "supabase": "^2.76.12",
     "tailwindcss": "^4",
+    "tsx": "^4.21.0",
     "typescript": "^5"
   }
 }

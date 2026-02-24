@@ -1,43 +1,35 @@
 'use client';
 
 import Figure from '@/components/Figure';
-import StackedBarChart from '@/components/charts/StackedBarChart';
+import BarCategoryChart from '@/components/charts/BarCategoryChart';
+import { useFigureData } from '@/lib/use-figure-data';
 import { mbcIncidenceByRaceData } from '@/lib/mbc-figure-data';
-import { ONLINE_SOURCES } from '@/lib/online-sources';
-
-const series = [
-  { key: 'White', label: 'White' },
-  { key: 'Black', label: 'Black' },
-  { key: 'Asian', label: 'Asian' },
-  { key: 'Hispanic', label: 'Hispanic' },
-  { key: 'Other', label: 'Other' },
-];
+import { SEER_DATA_SOURCE } from '@/lib/online-sources';
 
 export default function MBCIncidenceByRaceFigure() {
-  const hasData = mbcIncidenceByRaceData.length > 0;
+  const { data, loading } = useFigureData<Record<string, unknown>[]>('/api/data/seer/charts/incidence-by-race');
+  const chartData = (data && data.length > 0 ? data : mbcIncidenceByRaceData) as Record<string, unknown>[];
 
   return (
     <Figure
       title="MBC Incidence by Race/Ethnicity"
-      description="Proportion of MBC cases by race"
-      externalSource={{ name: ONLINE_SOURCES.SEER_EXPLORER_FEMALE_BREAST.name, url: ONLINE_SOURCES.SEER_EXPLORER_FEMALE_BREAST.url }}
+      description="Age-adjusted incidence rate per 100,000 by race"
+      dataSourceCitation={SEER_DATA_SOURCE}
       status="Draft"
-      caption="MBC case counts by race/ethnicity from SEER. ACS for demographic categories."
-      summary="Racial and ethnic distribution of MBC cases reflects population demographics and disparities in access to care. White women account for the largest share of cases; Black women often have higher rates of aggressive subtypes and later-stage diagnosis."
+      caption="Age-adjusted incidence rates by race from SEER. Rates per 100,000."
+      summary="This graph shows age-adjusted incidence rates of metastatic breast cancer (MBC) by race and ethnicity—how many new MBC cases occur per 100,000 in each group. We show it because incidence differs by race due to biology, screening, and structural inequities; understanding who is affected guides resource allocation and equity efforts. Conclusion: White women account for the largest number of cases in absolute terms; Black women often have higher rates of aggressive subtypes and later-stage diagnosis, contributing to survival disparities. In practice, this means interventions must address both access to screening and timely, equitable treatment across racial and ethnic groups."
     >
-      {hasData ? (
-        <div role="img" aria-label="Stacked bar chart of MBC incidence by race and year">
-          <StackedBarChart
-            data={mbcIncidenceByRaceData}
-            xKey="year"
-            series={series}
-            xLabel="Year"
-            yLabel="Count"
-          />
-        </div>
+      {loading ? (
+        <div className="flex h-64 items-center justify-center text-sm text-gray-500 dark:text-gray-400">Loading...</div>
       ) : (
-        <div className="flex h-64 items-center justify-center text-sm text-gray-500 dark:text-gray-400">
-          No data available for this figure yet.
+        <div role="img" aria-label="Bar chart of age-adjusted incidence rate by race">
+          <BarCategoryChart
+            data={chartData}
+            xKey="race"
+            yKey="age_adjusted_rate"
+            xLabel="Race"
+            yLabel="Age-adjusted rate (per 100,000)"
+          />
         </div>
       )}
     </Figure>

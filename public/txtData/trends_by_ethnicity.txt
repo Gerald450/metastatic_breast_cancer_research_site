@@ -1,0 +1,144 @@
+"2000-2022","Non-Hispanic White",493.1,10106209,1596594702
+"2000-2022","Non-Hispanic Black",483.8,1501204,353318692
+"2000-2022","Non-Hispanic American Indian/Alaska Native",362.3,65512,20621436
+"2000-2022","Non-Hispanic Asian or Pacific Islander",319.1,796606,257148805
+"2000-2022","Hispanic (All Races)",368.7,1771832,744378629
+"2000-2022","Non-Hispanic Unknown Race",~,101040,0
+"2000","Non-Hispanic White",507.4,398496,69526730
+"2000","Non-Hispanic Black",515.9,50419,13654210
+"2000","Non-Hispanic American Indian/Alaska Native",286.8,1589,842782
+"2000","Non-Hispanic Asian or Pacific Islander",329.3,20346,7957538
+"2000","Hispanic (All Races)",386.4,46935,24216996
+"2000","Non-Hispanic Unknown Race",~,1554,0
+"2001","Non-Hispanic White",518.0,410009,69599595
+"2001","Non-Hispanic Black",522.5,52315,13801638
+"2001","Non-Hispanic American Indian/Alaska Native",321.7,1829,849473
+"2001","Non-Hispanic Asian or Pacific Islander",338.3,22069,8267701
+"2001","Hispanic (All Races)",390.7,49741,25027669
+"2001","Non-Hispanic Unknown Race",~,1880,0
+"2002","Non-Hispanic White",514.5,411684,69577940
+"2002","Non-Hispanic Black",516.3,53094,13936765
+"2002","Non-Hispanic American Indian/Alaska Native",313.2,1840,854106
+"2002","Non-Hispanic Asian or Pacific Islander",335.8,23156,8559545
+"2002","Hispanic (All Races)",390.6,52107,25837637
+"2002","Non-Hispanic Unknown Race",~,2016,0
+"2003","Non-Hispanic White",502.9,406545,69520781
+"2003","Non-Hispanic Black",514.8,54230,14049323
+"2003","Non-Hispanic American Indian/Alaska Native",319.7,1923,857734
+"2003","Non-Hispanic Asian or Pacific Islander",328.9,23714,8834309
+"2003","Hispanic (All Races)",387.0,54056,26632065
+"2003","Non-Hispanic Unknown Race",~,1979,0
+"2004","Non-Hispanic White",504.5,411310,69463076
+"2004","Non-Hispanic Black",513.4,55414,14174631
+"2004","Non-Hispanic American Indian/Alaska Native",345.7,2152,861869
+"2004","Non-Hispanic Asian or Pacific Islander",331.0,25119,9099114
+"2004","Hispanic (All Races)",388.8,56907,27403227
+"2004","Non-Hispanic Unknown Race",~,1861,0
+"2005","Non-Hispanic White",504.1,414703,69276691
+"2005","Non-Hispanic Black",509.9,56271,14208256
+"2005","Non-Hispanic American Indian/Alaska Native",347.2,2199,864932
+"2005","Non-Hispanic Asian or Pacific Islander",325.8,26030,9369311
+"2005","Hispanic (All Races)",386.6,59443,28159876
+"2005","Non-Hispanic Unknown Race",~,1880,0
+"2006","Non-Hispanic White",511.0,424520,69219329
+"2006","Non-Hispanic Black",504.3,57280,14381373
+"2006","Non-Hispanic American Indian/Alaska Native",348.9,2253,867448
+"2006","Non-Hispanic Asian or Pacific Islander",325.7,27147,9647319
+"2006","Hispanic (All Races)",379.8,61296,28948894
+"2006","Non-Hispanic Unknown Race",~,2187,0
+"2007","Non-Hispanic White",517.1,435503,69212041
+"2007","Non-Hispanic Black",517.6,60596,14552175
+"2007","Non-Hispanic American Indian/Alaska Native",343.9,2311,870830
+"2007","Non-Hispanic Asian or Pacific Islander",334.4,29228,9922862
+"2007","Hispanic (All Races)",383.3,64802,29785634
+"2007","Non-Hispanic Unknown Race",~,2488,0
+"2008","Non-Hispanic White",512.2,437189,69266030
+"2008","Non-Hispanic Black",510.6,61524,14729640
+"2008","Non-Hispanic American Indian/Alaska Native",359.8,2496,876221
+"2008","Non-Hispanic Asian or Pacific Islander",330.4,30301,10216121
+"2008","Hispanic (All Races)",385.9,68424,30684106
+"2008","Non-Hispanic Unknown Race",~,2813,0
+"2009","Non-Hispanic White",508.9,440304,69309876
+"2009","Non-Hispanic Black",513.1,64015,14916688
+"2009","Non-Hispanic American Indian/Alaska Native",354.3,2557,882051
+"2009","Non-Hispanic Asian or Pacific Islander",327.2,31366,10490585
+"2009","Hispanic (All Races)",380.9,71039,31588918
+"2009","Non-Hispanic Unknown Race",~,3034,0
+"2010","Non-Hispanic White",497.7,436098,69359447
+"2010","Non-Hispanic Black",496.3,63774,15100115
+"2010","Non-Hispanic American Indian/Alaska Native",371.4,2742,886775
+"2010","Non-Hispanic Asian or Pacific Islander",325.1,32622,10762004
+"2010","Hispanic (All Races)",369.8,72196,32422000
+"2010","Non-Hispanic Unknown Race",~,3131,0
+"2011","Non-Hispanic White",496.5,440185,69494955
+"2011","Non-Hispanic Black",491.9,65365,15301344
+"2011","Non-Hispanic American Indian/Alaska Native",381.2,2889,894118
+"2011","Non-Hispanic Asian or Pacific Islander",324.7,34153,11074821
+"2011","Hispanic (All Races)",367.8,75140,33077551
+"2011","Non-Hispanic Unknown Race",~,3234,0
+"2012","Non-Hispanic White",487.0,437604,69638460
+"2012","Non-Hispanic Black",484.1,66372,15498683
+"2012","Non-Hispanic American Indian/Alaska Native",364.2,2886,901697
+"2012","Non-Hispanic Asian or Pacific Islander",315.1,34654,11396505
+"2012","Hispanic (All Races)",360.2,77130,33681383
+"2012","Non-Hispanic Unknown Race",~,3386,0
+"2013","Non-Hispanic White",483.5,440088,69705253
+"2013","Non-Hispanic Black",475.7,67239,15687733
+"2013","Non-Hispanic American Indian/Alaska Native",386.2,3132,908959
+"2013","Non-Hispanic Asian or Pacific Islander",320.6,36898,11729565
+"2013","Hispanic (All Races)",365.0,81187,34266810
+"2013","Non-Hispanic Unknown Race",~,3688,0
+"2014","Non-Hispanic White",484.3,446607,69811107
+"2014","Non-Hispanic Black",467.9,68275,15891892
+"2014","Non-Hispanic American Indian/Alaska Native",374.6,3166,916050
+"2014","Non-Hispanic Asian or Pacific Islander",311.8,37676,12093258
+"2014","Hispanic (All Races)",361.8,84137,34860820
+"2014","Non-Hispanic Unknown Race",~,3831,0
+"2015","Non-Hispanic White",486.3,453582,69877823
+"2015","Non-Hispanic Black",465.7,70065,16097946
+"2015","Non-Hispanic American Indian/Alaska Native",385.2,3357,922959
+"2015","Non-Hispanic Asian or Pacific Islander",317.6,40005,12484350
+"2015","Hispanic (All Races)",362.8,88188,35471147
+"2015","Non-Hispanic Unknown Race",~,4412,0
+"2016","Non-Hispanic White",483.5,456723,69881177
+"2016","Non-Hispanic Black",466.5,72160,16295957
+"2016","Non-Hispanic American Indian/Alaska Native",382.7,3441,928249
+"2016","Non-Hispanic Asian or Pacific Islander",312.7,41161,12847950
+"2016","Hispanic (All Races)",364.3,91724,36071802
+"2016","Non-Hispanic Unknown Race",~,4967,0
+"2017","Non-Hispanic White",486.3,464615,69799544
+"2017","Non-Hispanic Black",466.8,74152,16482623
+"2017","Non-Hispanic American Indian/Alaska Native",386.7,3545,933165
+"2017","Non-Hispanic Asian or Pacific Islander",319.6,43804,13183705
+"2017","Hispanic (All Races)",362.6,94763,36609686
+"2017","Non-Hispanic Unknown Race",~,5862,0
+"2018","Non-Hispanic White",487.3,470598,69660762
+"2018","Non-Hispanic Black",465.0,75810,16648923
+"2018","Non-Hispanic American Indian/Alaska Native",385.1,3650,935181
+"2018","Non-Hispanic Asian or Pacific Islander",317.3,44935,13447622
+"2018","Hispanic (All Races)",365.1,98959,37104638
+"2018","Non-Hispanic Unknown Race",~,7035,0
+"2019","Non-Hispanic White",494.0,481974,69475540
+"2019","Non-Hispanic Black",474.3,79239,16819409
+"2019","Non-Hispanic American Indian/Alaska Native",394.9,3829,937924
+"2019","Non-Hispanic Asian or Pacific Islander",321.3,47187,13683538
+"2019","Hispanic (All Races)",372.7,104390,37557811
+"2019","Non-Hispanic Unknown Race",~,7709,0
+"2020","Non-Hispanic White",448.6,440495,69173138
+"2020","Non-Hispanic Black",422.4,72168,16952752
+"2020","Non-Hispanic American Indian/Alaska Native",364.7,3653,942935
+"2020","Non-Hispanic Asian or Pacific Islander",282.9,42905,13865582
+"2020","Hispanic (All Races)",334.7,97410,37987643
+"2020","Non-Hispanic Unknown Race",~,8251,0
+"2021","Non-Hispanic White",483.8,477363,68603704
+"2021","Non-Hispanic Black",464.6,80924,17007636
+"2021","Non-Hispanic American Indian/Alaska Native",399.7,4097,943035
+"2021","Non-Hispanic Asian or Pacific Islander",326.2,50990,13971035
+"2021","Hispanic (All Races)",368.2,110421,38279831
+"2021","Non-Hispanic Unknown Race",~,10551,0
+"2022","Non-Hispanic White",472.7,470014,68141703
+"2022","Non-Hispanic Black",453.6,80503,17128980
+"2022","Non-Hispanic American Indian/Alaska Native",379.6,3976,942943
+"2022","Non-Hispanic Asian or Pacific Islander",316.2,51140,14244465
+"2022","Hispanic (All Races)",359.7,111437,38702485
+"2022","Non-Hispanic Unknown Race",~,13291,0

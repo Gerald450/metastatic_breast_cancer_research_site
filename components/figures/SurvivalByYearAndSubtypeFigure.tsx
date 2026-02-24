@@ -2,17 +2,13 @@
 
 import Figure from '@/components/Figure';
 import MultiLineTimeSeriesChart from '@/components/charts/MultiLineTimeSeriesChart';
+import { useFigureData } from '@/lib/use-figure-data';
 import { survivalByYearAndSubtypeData } from '@/lib/mbc-figure-data';
 import { ONLINE_SOURCES } from '@/lib/online-sources';
 
-const series = [
-  { key: 'her2', label: 'HER2+' },
-  { key: 'hr', label: 'HR+' },
-  { key: 'tnbc', label: 'TNBC' },
-];
-
 export default function SurvivalByYearAndSubtypeFigure() {
-  const hasData = survivalByYearAndSubtypeData.length > 0;
+  const { data, loading } = useFigureData<Record<string, unknown>[]>('/api/data/figure/survivalByYearAndSubtype');
+  const chartData = (data && data.length > 0 ? data : survivalByYearAndSubtypeData) as Record<string, unknown>[];
 
   return (
     <Figure
@@ -21,21 +17,23 @@ export default function SurvivalByYearAndSubtypeFigure() {
       externalSource={{ name: 'SEER', url: ONLINE_SOURCES.NCI_SEER.url }}
       status="Draft"
       caption="Median survival by year of diagnosis and molecular subtype. SEER post-2010 subtype data."
-      summary="Survival has improved over time across subtypes, with HER2+ showing the largest gains due to anti-HER2 therapies. TNBC improvements are smaller, highlighting the need for more effective targeted treatments."
+      summary="This chart shows median survival over time, separately for HER2+, HR+, and TNBC (triple-negative) metastatic breast cancer—how outcomes have changed by subtype as treatments have evolved. We show it because gains are not uniform; anti-HER2 therapies transformed HER2+ disease, while TNBC has seen smaller improvements. Conclusion: survival has improved over time for all subtypes, with HER2+ showing the largest gains; TNBC improvements are more modest. What this means: targeted therapies have had a real impact where they exist, but developing better treatments for TNBC and other poor-prognosis subtypes remains a priority."
     >
-      {hasData ? (
+      {loading ? (
+        <div className="flex h-64 items-center justify-center text-sm text-gray-500 dark:text-gray-400">Loading...</div>
+      ) : (
         <div role="img" aria-label="Multi-line chart of survival by year and subtype">
           <MultiLineTimeSeriesChart
-            data={survivalByYearAndSubtypeData}
+            data={chartData}
             xKey="year"
-            series={series}
-            xLabel="Year of diagnosis"
-            yLabel="Survival (months)"
+            series={[
+              { key: 'her2', label: 'HER2+', color: '#3b82f6' },
+              { key: 'hr', label: 'HR+', color: '#10b981' },
+              { key: 'tnbc', label: 'TNBC', color: '#ef4444' },
+            ]}
+            xLabel="Year"
+            yLabel="Median survival (months)"
           />
-        </div>
-      ) : (
-        <div className="flex h-64 items-center justify-center text-sm text-gray-500 dark:text-gray-400">
-          No data available for this figure yet.
         </div>
       )}
     </Figure>
