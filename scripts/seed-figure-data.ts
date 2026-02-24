@@ -4,7 +4,13 @@
  * Requires: Supabase env vars, and either dev server (for API) or direct Supabase client.
  *
  * Run: npm run seed-figure-data
+ * Loads .env.local for NEXT_PUBLIC_SUPABASE_URL and SUPABASE_SERVICE_ROLE_KEY
  */
+
+import * as path from 'path';
+import { config } from 'dotenv';
+
+config({ path: path.join(__dirname, '..', '.env.local') });
 
 import { createClient } from '@supabase/supabase-js';
 

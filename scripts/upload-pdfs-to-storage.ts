@@ -25,7 +25,7 @@ function getSupabase() {
   return createClient(url, key);
 }
 
-async function ensureBucket(supabase: ReturnType<typeof createClient>) {
+async function ensureBucket(supabase: ReturnType<typeof getSupabase>) {
   const { error } = await supabase.storage.createBucket(BUCKET, { public: true });
   if (error) {
     if (error.message?.includes('already exists') || error.message?.toLowerCase().includes('duplicate')) {
