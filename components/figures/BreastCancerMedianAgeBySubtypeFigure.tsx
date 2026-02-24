@@ -17,7 +17,7 @@ export default function BreastCancerMedianAgeBySubtypeFigure() {
       externalSource={{ name: SUBTYPES_SOURCE.name, url: SUBTYPES_SOURCE.url }}
       status="Verified"
       caption="Data from public/csv/Subtypes/explorer_download (7).csv. HR+/HER2- (Luminal A) diagnosed at median 64; HR+/HER2+ (Luminal B) at median 58."
-      summary="Luminal B (HR+/HER2+) is diagnosed at younger median age (58) compared with Luminal A (HR+/HER2-) at 64 years."
+      summary="This figure presents the median age at diagnosis for different breast cancer subtypes (e.g., Luminal A, Luminal B)—whether some subtypes tend to appear at younger or older ages. We show it because age at diagnosis varies by biology and can affect screening and treatment choices. Conclusion: Luminal B (HR+/HER2+) is diagnosed at a younger median age (about 58 years) than Luminal A (HR+/HER2-) (about 64 years). What this means: subtype-specific patterns may inform who is at risk at younger ages and support discussions about screening and prevention in higher-risk subgroups."
     >
       <div className="flex h-64 items-center justify-center text-sm text-gray-500 dark:text-gray-400">{NO_DATA_MSG}</div>
     </Figure>

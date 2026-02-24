@@ -17,7 +17,7 @@ export default function SurvivalByTumorSubtypeFigure() {
       dataSourceCitation={SEER_DATA_SOURCE}
       status="Draft"
       caption="5-year relative survival by molecular subtype. SEER hormone receptor and HER2 data (2010+)."
-      summary="Molecular subtype strongly predicts MBC outcomes. HER2+ and HR+ subtypes have longer median survival due to targeted therapies; triple-negative breast cancer (TNBC) has the shortest survival and fewer treatment options."
+      summary="This chart shows 5-year relative survival by molecular subtype (e.g., HR+/HER2-, HER2+, triple-negative) for metastatic breast cancer. It answers: does subtype affect how long people live with MBC? We show it because subtype determines treatment options and prognosis and guides both clinical decisions and drug development. Conclusion: HER2+ and HR+ subtypes tend to have longer survival, in part due to targeted therapies; triple-negative breast cancer (TNBC) has the shortest survival and fewer targeted options. What this means: subtype-specific care and new therapies for TNBC and other poor-prognosis subtypes are essential to narrow outcome gaps."
     >
       {loading ? (
         <div className="flex h-64 items-center justify-center text-sm text-gray-500 dark:text-gray-400">Loading...</div>

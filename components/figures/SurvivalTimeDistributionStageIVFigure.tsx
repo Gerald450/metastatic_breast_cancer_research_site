@@ -17,7 +17,7 @@ export default function SurvivalTimeDistributionStageIVFigure() {
       externalSource={{ name: 'SEER / Kaggle', url: ONLINE_SOURCES.NCI_SEER.url }}
       status="Draft"
       caption="Box plot of survival months by site. Min, Q1, median, Q3, max from SEER or study data."
-      summary="The spread of survival by site shows substantial variability within each group. Bone-only disease has the widest range and longest tail, while brain metastases show the shortest and most compressed distribution."
+      summary="This box plot shows the distribution of survival time (months) by metastatic site—the spread from shortest to longest survival within each site group, not just the median. We show it because variability matters: some patients do much better or worse than the median, and that range differs by site. Conclusion: survival varies widely within each site; bone-only disease often has the widest range and longest tail, while brain metastases tend to have a shorter, more compressed distribution. What this means: prognosis by site is a distribution, not a single number; counseling and research should account for this variability, and identifying who does better or worse within each site can inform personalized care."
     >
       {loading ? (
         <div className="flex h-64 items-center justify-center text-sm text-gray-500 dark:text-gray-400">Loading...</div>

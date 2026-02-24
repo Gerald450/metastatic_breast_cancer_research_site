@@ -19,7 +19,7 @@ export default function SEERIncidenceTrendsByRaceFigure() {
       dataSourceCitation={SEER_DATA_SOURCE}
       status="Draft"
       caption="All Cancer Sites Combined. AAPC derived from SEER Research Data (txtData) age-adjusted rates."
-      summary="Recent 10-year incidence trends by race/ethnicity. Computed from stored rates."
+      summary="This graph shows the average annual percent change (AAPC) in cancer incidence from 2013 to 2022 for each race and ethnicity group—how fast new cancer cases are rising or falling per year. We track this by race because incidence and mortality often differ by population due to biology, screening access, and social determinants of health. The takeaway: incidence trends vary by race/ethnicity; some groups show rising rates while others are stable or declining. In practice, this means public health efforts and screening programs should be tailored by population, and disparities in who gets cancer (and when) need targeted interventions."
     >
       {loading ? (
         <div className="flex h-64 items-center justify-center text-sm text-gray-500 dark:text-gray-400">

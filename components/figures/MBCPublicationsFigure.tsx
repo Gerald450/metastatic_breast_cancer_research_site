@@ -33,7 +33,7 @@ export default function MBCPublicationsFigure() {
       externalSource={{ name: 'PubMed', url: 'https://pubmed.ncbi.nlm.nih.gov' }}
       status="Draft"
       caption="Data from PubMed. Run POST /api/sync/publications to refresh."
-      summary="Ongoing research informs clinical practice and treatment guidelines for MBC."
+      summary="This list shows recent publications on metastatic breast cancer from PubMed—a snapshot of current research and review articles. We include it to connect the site’s content to the live literature and to show where evidence is being generated. Conclusion: ongoing research spans biology, treatment, and outcomes and feeds into clinical practice and guidelines. What this means: clinicians and patients can use this as a starting point to explore recent evidence and stay updated on MBC research."
     >
       {hasData ? (
         <ul className="space-y-3 text-sm">

@@ -15,7 +15,7 @@ export default function AgeRaceDistributionFigure() {
       description="Distribution of MBC by age and race/ethnicity"
       status="Draft"
       caption="Incidence rates by age from SEER and USCS. Count or rate per 100,000."
-      summary="Demographic patterns inform screening and resource allocation."
+      summary="This chart shows the distribution of metastatic breast cancer by age group and, where available, by race/ethnicity—who is affected and at what age. We include it because incidence and burden are not uniform; demographics drive where to focus screening, outreach, and support. Conclusion: MBC incidence rises with age and varies by race, with distinct patterns that reflect both biology and access to care. What this means: screening guidelines and resource allocation should account for age and racial/ethnic disparities so that prevention and care reach the populations most affected."
     >
       {loading ? (
         <div className="flex h-64 items-center justify-center text-sm text-gray-500 dark:text-gray-400">Loading...</div>

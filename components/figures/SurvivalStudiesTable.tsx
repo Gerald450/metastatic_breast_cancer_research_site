@@ -15,7 +15,7 @@ export default function SurvivalStudiesTable() {
       description="Comparison of survival outcomes across different studies and time periods for patients with metastatic breast cancer"
       status="Verified"
       caption="Data from Table 1: Studies of change in survival over time. Verify page ranges in source PDFs."
-      summary="Across studies, median survival for MBC has improved over more recent diagnosis periods. Statistical significance varies by population and comparison; the table supports evidence that treatment advances have translated into better outcomes."
+      summary="This table summarizes published studies that compare survival for metastatic breast cancer across different diagnosis periods—whether more recently diagnosed patients live longer. We show it to ground claims about progress in specific studies and time frames. Conclusion: across studies, median survival for MBC tends to be higher in more recent periods, though statistical significance and effect size vary by population and comparison. What this means: the evidence supports the idea that treatment advances have translated into better outcomes for many patients; the table helps readers see which studies and periods support that conclusion and where gaps remain."
     >
       <div className="flex h-64 items-center justify-center text-sm text-gray-500 dark:text-gray-400">{NO_DATA_MSG}</div>
     </Figure>

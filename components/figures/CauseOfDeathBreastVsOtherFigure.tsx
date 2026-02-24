@@ -17,7 +17,7 @@ export default function CauseOfDeathBreastVsOtherFigure() {
       externalSource={{ name: 'SEER (cause-specific)', url: ONLINE_SOURCES.NCI_SEER.url }}
       status="Draft"
       caption="Proportion of deaths due to breast cancer vs other causes by age group. Reference data."
-      summary="In older populations, competing causes of death increase; breast cancer becomes a smaller share of deaths. This reflects both cancer mortality and age-related comorbidities."
+      summary="This stacked bar chart shows, by age group, the proportion of deaths attributed to breast cancer vs other causes—how competing mortality changes with age. We show it because in older patients, other illnesses often contribute as much or more than cancer to mortality. Conclusion: in older age groups, the share of deaths due to breast cancer declines relative to other causes; competing risks increase with age. What this means: care and counseling for older adults with MBC should consider both cancer and non-cancer health; cause-of-death attribution also affects how we interpret survival and burden in the elderly."
     >
       {loading ? (
         <div className="flex h-64 items-center justify-center text-sm text-gray-500 dark:text-gray-400">Loading...</div>

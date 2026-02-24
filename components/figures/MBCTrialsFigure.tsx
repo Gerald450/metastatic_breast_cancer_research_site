@@ -41,7 +41,7 @@ export default function MBCTrialsFigure() {
       externalSource={{ name: 'ClinicalTrials.gov', url: 'https://clinicaltrials.gov' }}
       status="Draft"
       caption="Data from ClinicalTrials.gov. Run POST /api/sync/trials to refresh."
-      summary="Ongoing clinical trials drive advances in MBC treatment. New therapies are continually being evaluated for safety and efficacy."
+      summary="This chart shows the number of clinical trials for metastatic breast cancer by phase (e.g., Phase 1, 2, 3)—how much active research is underway and at what stage. We show it because trials are the pipeline for new therapies and reflect where the field is investing. Conclusion: many trials are active across phases, reflecting ongoing evaluation of new drugs and combinations. What this means: progress in MBC depends on these studies; patients and providers can use ClinicalTrials.gov to find relevant trials and contribute to the evidence base."
     >
       {hasData ? (
         <div role="img" aria-label="Bar chart of MBC trials by phase">

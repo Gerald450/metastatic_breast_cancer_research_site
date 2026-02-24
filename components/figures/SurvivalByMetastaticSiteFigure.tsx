@@ -17,7 +17,7 @@ export default function SurvivalByMetastaticSiteFigure() {
       externalSource={{ name: 'SEER (site variables) / Kaggle', url: ONLINE_SOURCES.NCI_SEER.url }}
       status="Draft"
       caption="Median survival by metastatic site from SEER. Site-specific variables."
-      summary="Survival varies by metastatic site: bone-only metastases generally have better outcomes than visceral sites. Brain and liver metastases are associated with shorter survival, reflecting disease aggressiveness and limited treatment options."
+      summary="This chart displays median survival (months) by metastatic site—bone, lung, liver, brain—for people with metastatic breast cancer. It answers how much the site of spread affects how long patients live. We show it because site influences both biology and treatment options; bone-only disease often behaves differently from visceral or brain disease. Conclusion: bone-only metastases generally have better median survival than visceral sites; brain and liver are associated with shorter survival. What this means: site of metastasis should guide prognosis and treatment choices, and improving options for brain and liver metastases remains a key research and clinical goal."
     >
       {loading ? (
         <div className="flex h-64 items-center justify-center text-sm text-gray-500 dark:text-gray-400">Loading...</div>

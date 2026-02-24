@@ -17,7 +17,7 @@ export default function BreastCancerMortalityHeatMapFigure() {
       externalSource={{ name: 'Reference data', url: ONLINE_SOURCES.NCI_SEER.url }}
       status="Draft"
       caption="Color intensity reflects age-adjusted mortality rate per 100,000. Reference data."
-      summary="Geographic patterns highlight states with higher breast cancer mortality."
+      summary="This heat map shades U.S. states by age-adjusted breast cancer mortality rate—darker or more intense color indicates higher mortality. We show it to make geographic variation easy to see at a glance and to support planning and advocacy. Conclusion: certain states and regions stand out with higher mortality, often consistent with disparities in screening and care. What this means: public health and policy can use these patterns to prioritize interventions and resources where mortality is highest and to track progress over time."
     >
       {loading ? (
         <div className="flex h-64 items-center justify-center text-sm text-gray-500 dark:text-gray-400">Loading...</div>

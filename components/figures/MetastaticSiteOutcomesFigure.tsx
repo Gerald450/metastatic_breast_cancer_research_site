@@ -15,7 +15,7 @@ export default function MetastaticSiteOutcomesFigure() {
       description="Survival and outcomes by site of metastasis"
       status="Draft"
       caption="Median survival by metastatic site from SEER. Site-specific variables."
-      summary="Outcomes vary by metastatic site—bone, liver, brain, lung."
+      summary="This graph shows median survival (in months) by site of metastasis—bone, liver, brain, lung—for people with metastatic breast cancer. We show it because where the cancer spreads strongly affects both prognosis and treatment; some sites are harder to treat than others. Conclusion: outcomes differ meaningfully by site; bone-only disease often has longer median survival than visceral or brain involvement. What this means: site of metastasis should guide counseling and treatment planning, and research into site-specific therapies (e.g., for brain metastases) remains important."
     >
       {loading ? (
         <div className="flex h-64 items-center justify-center text-sm text-gray-500 dark:text-gray-400">Loading...</div>

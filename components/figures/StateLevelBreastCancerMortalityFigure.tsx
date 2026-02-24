@@ -17,7 +17,7 @@ export default function StateLevelBreastCancerMortalityFigure() {
       externalSource={{ name: 'Reference data', url: ONLINE_SOURCES.NCI_SEER.url }}
       status="Draft"
       caption="Age-adjusted breast cancer mortality rates per 100,000 by state. Reference data."
-      summary="Mortality rates vary by state, reflecting disparities in screening, access to care, and population risk factors."
+      summary="This chart shows age-adjusted breast cancer mortality rates by U.S. state—where death rates are higher or lower across the country. We show it because geography reflects differences in screening, access to care, and population risk; identifying high-burden states can target resources. Conclusion: mortality rates vary meaningfully by state, with some regions showing consistently higher or lower rates. What this means: state and regional efforts to improve screening, treatment access, and equity could help reduce mortality in higher-burden areas and narrow geographic disparities."
     >
       {loading ? (
         <div className="flex h-64 items-center justify-center text-sm text-gray-500 dark:text-gray-400">Loading...</div>

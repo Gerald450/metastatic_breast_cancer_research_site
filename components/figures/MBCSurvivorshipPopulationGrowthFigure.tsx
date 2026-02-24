@@ -17,7 +17,7 @@ export default function MBCSurvivorshipPopulationGrowthFigure() {
       externalSource={{ name: 'SEER + Mariotto-style / USCS', url: ONLINE_SOURCES.USCS.url }}
       status="Draft"
       caption="Estimated prevalence from SEER and USCS. Mariotto et al. methodology for burden projections."
-      summary="The number of people living with MBC is rising steadily due to improved survival. This growing survivorship population underscores the need for long-term care, monitoring, and support services."
+      summary="This graph plots the estimated number of people living with metastatic breast cancer over time—the growth of the MBC survivorship population. We show it because MBC is increasingly managed as a chronic condition; the size of this population drives demand for follow-up care and support. Conclusion: the number of people living with MBC has risen steadily, driven by better survival. What this means: health systems and advocates must plan for long-term monitoring, survivorship care, and psychosocial and financial support for a growing cohort of patients living with MBC."
     >
       {loading ? (
         <div className="flex h-64 items-center justify-center text-sm text-gray-500 dark:text-gray-400">Loading...</div>

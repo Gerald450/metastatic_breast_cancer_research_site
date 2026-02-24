@@ -34,7 +34,7 @@ export default function MBCDrugsFigure() {
       externalSource={{ name: 'OpenFDA', url: ONLINE_SOURCES.OPENFDA.url }}
       status="Draft"
       caption="Drug labels from FDA via OpenFDA. Run POST /api/sync/drugs to refresh."
-      summary="FDA-approved drugs indicated for breast cancer treatment. Includes targeted therapies, endocrine agents, and chemotherapy."
+      summary="This table lists FDA-approved drugs with breast cancer indications—targeted therapies, endocrine agents, chemotherapy, and others—sourced from drug labels. We show it to give a concrete picture of the treatment toolkit available for breast cancer and MBC. Conclusion: many drugs are approved for breast cancer, spanning multiple mechanisms; the list reflects the evolution of targeted and systemic therapy. What this means: clinicians and patients have a growing array of options, but access, sequencing, and combination strategies remain complex; this resource supports reference and discussion."
     >
       {hasData ? (
         <div className="overflow-x-auto">

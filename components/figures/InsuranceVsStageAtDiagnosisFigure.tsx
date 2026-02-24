@@ -17,7 +17,7 @@ export default function InsuranceVsStageAtDiagnosisFigure() {
       externalSource={{ name: 'SEER / USCS', url: ONLINE_SOURCES.USCS.url }}
       status="Draft"
       caption="Percent diagnosed at late stage (regional or distant) by insurance status. SEER and USCS."
-      summary="Uninsured and Medicaid patients are more likely to be diagnosed at late stage, reflecting barriers to screening and timely care. Improving access to insurance and preventive services could reduce late-stage diagnoses."
+      summary="This graph shows the percentage of patients diagnosed at late stage (regional or distant) by insurance status—uninsured, Medicaid, private, etc. It answers whether access to insurance is associated with earlier vs later stage at diagnosis. We show it because insurance is a modifiable factor that affects screening and timely care. Conclusion: uninsured and Medicaid patients are more likely to be diagnosed at late stage than those with private insurance. What this means: reducing barriers to insurance and preventive services could help more people be diagnosed earlier, improving outcomes and equity."
     >
       {loading ? (
         <div className="flex h-64 items-center justify-center text-sm text-gray-500 dark:text-gray-400">Loading...</div>

@@ -77,8 +77,7 @@ export default function Figure({
           </p>
         )}
         {summary && (
-          <p className="text-sm font-medium text-gray-700 dark:text-gray-300">
-            <span className="font-semibold">Summary: </span>
+          <p className="text-sm leading-relaxed text-gray-700 dark:text-gray-300">
             {summary}
           </p>
         )}

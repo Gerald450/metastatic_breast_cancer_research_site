@@ -17,7 +17,7 @@ export default function MBCSurvivalByRaceFigure() {
       externalSource={{ name: 'SEER', url: ONLINE_SOURCES.NCI_SEER.url }}
       status="Draft"
       caption="Survival disparities by race. Reference data."
-      summary="Significant survival disparities exist by race, with Black patients often experiencing shorter median survival. These gaps likely reflect differences in biology, access to care, treatment delays, and comorbidities."
+      summary="This graph shows median survival (months) for metastatic breast cancer by race/ethnicity—whether outcomes differ by group. We show it because survival gaps by race are well documented and reflect inequities that are partly addressable. Conclusion: Black patients often experience shorter median survival than White patients; the gap likely reflects a mix of biology, access to care, treatment delays, and comorbidities. What this means: closing these gaps requires equitable access to screening, timely treatment, clinical trials, and supportive care, as well as research into biological and social determinants of disparity."
     >
       {loading ? (
         <div className="flex h-64 items-center justify-center text-sm text-gray-500 dark:text-gray-400">Loading...</div>

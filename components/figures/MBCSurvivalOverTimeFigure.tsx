@@ -17,7 +17,7 @@ export default function MBCSurvivalOverTimeFigure() {
       dataSourceCitation={SEER_DATA_SOURCE}
       status="Draft"
       caption="5-year relative survival by year of diagnosis. SEER metastatic breast cancer (distant stage)."
-      summary="Median survival for MBC has improved over time, reflecting advances in treatment. Survival gains support the value of newer targeted therapies and combination regimens."
+      summary="This line chart plots 5-year relative survival for metastatic breast cancer by year of diagnosis—whether outcomes have improved over time. We track this because it reflects the impact of new drugs, earlier diagnosis, and better care; rising survival is a key measure of progress. Conclusion: survival for MBC has improved over the years, consistent with advances in targeted therapies and combination regimens. What this means: continued investment in research and access to modern treatments is paying off for patients, though MBC remains incurable and further gains are needed."
     >
       {loading ? (
         <div className="flex h-64 items-center justify-center text-sm text-gray-500 dark:text-gray-400">Loading...</div>

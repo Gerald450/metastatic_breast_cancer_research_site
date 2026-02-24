@@ -17,7 +17,7 @@ export default function SexDistributionBreastCancerFigure() {
       externalSource={{ name: 'SEER / ACS', url: ONLINE_SOURCES.NCI_SEER.url }}
       status="Draft"
       caption="Breast cancer case counts by sex. Reference data."
-      summary="Breast cancer is overwhelmingly diagnosed in women; male cases represent about 1% of the total. Male breast cancer is often diagnosed at later stages."
+      summary="This chart shows the number of breast cancer cases by sex (female vs male)—the relative burden in women versus men. We show it because breast cancer in men is rare but often diagnosed later and may be under-recognized. Conclusion: the vast majority of breast cancer cases occur in women; male cases account for about 1% and are frequently diagnosed at later stages. What this means: awareness and guidelines should include men where appropriate, and research and support for male breast cancer remain important despite the smaller numbers."
     >
       {loading ? (
         <div className="flex h-64 items-center justify-center text-sm text-gray-500 dark:text-gray-400">Loading...</div>

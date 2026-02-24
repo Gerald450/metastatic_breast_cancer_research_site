@@ -15,7 +15,7 @@ export default function SurvivorshipBurdenFigure() {
       description="Prevalence and burden of MBC over time"
       status="Draft"
       caption="Estimated prevalence from SEER and USCS. Mariotto et al. methodology for burden projections."
-      summary="The number of people living with MBC has grown due to improved survival."
+      summary="This graph plots the estimated number of people living with metastatic breast cancer (prevalence) over time—the “survivorship burden.” We show it because MBC is increasingly a chronic condition; more people are living longer with the disease, which has implications for healthcare systems and support services. Conclusion: the population living with MBC has grown steadily, driven by improved survival. What this means: health systems and policymakers need to plan for long-term care, monitoring, and psychosocial support for a growing number of people living with MBC."
     >
       {loading ? (
         <div className="flex h-64 items-center justify-center text-sm text-gray-500 dark:text-gray-400">Loading...</div>

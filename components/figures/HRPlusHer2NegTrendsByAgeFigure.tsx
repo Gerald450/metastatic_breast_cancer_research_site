@@ -24,7 +24,7 @@ export default function HRPlusHer2NegTrendsByAgeFigure() {
       dataSourceCitation={SEER_DATA_SOURCE}
       status="Draft"
       caption="AAPC in incidence by age group. Data from SEER Research Data (txtData)."
-      summary="Luminal A incidence trends by age group. Rising trends across groups when data available."
+      summary="This chart displays the average annual percent change (AAPC) in incidence of HR+/HER2- (Luminal A) breast cancer by age group over 2013–2022—whether this common subtype is becoming more or less frequent in younger vs older women. Age-specific trends matter because screening guidelines and subtype distribution differ by age, and shifts may signal changing risk or detection. The conclusion: Luminal A incidence is generally rising across age groups where data exist. In practice, this supports continued focus on early detection and subtype-specific surveillance in all age groups, and may inform updates to age-based screening recommendations."
     >
       {loading ? (
         <div className="flex h-64 items-center justify-center text-sm text-gray-500 dark:text-gray-400">

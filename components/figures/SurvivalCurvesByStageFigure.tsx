@@ -17,7 +17,7 @@ export default function SurvivalCurvesByStageFigure() {
       dataSourceCitation={SEER_DATA_SOURCE}
       status="Draft"
       caption="5-year relative survival probability by months from diagnosis. Simplified from SEER survival by stage."
-      summary="Survival drops sharply with stage. Stage I–II have high 5-year survival; Stage IV (metastatic) shows a steep decline. This underscores the prognostic importance of stage and the need for effective therapies for metastatic disease."
+      summary="This figure plots survival probability over time (months from diagnosis) by stage (I–IV)—how the chance of being alive falls over the first several years for each stage. It shows not just a single number but the shape of survival, which matters for understanding when risk is highest and how stage separates outcomes. Conclusion: Stage I–II have high 5-year survival; Stage IV (metastatic) shows a steep decline early on. What this means: stage is a powerful prognostic factor, and the steep drop for Stage IV underscores why effective therapies for metastatic disease and early detection of non-metastatic disease are both critical."
     >
       {loading ? (
         <div className="flex h-64 items-center justify-center text-sm text-gray-500 dark:text-gray-400">Loading...</div>

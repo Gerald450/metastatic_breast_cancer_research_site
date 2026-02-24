@@ -11,7 +11,7 @@ export default function SurvivalTrendsFigure() {
       description="Survival metrics tracked across time periods"
       status="Draft"
       caption={NO_DATA_MSG}
-      summary="Survival metrics from literature show how outcomes have evolved across study periods."
+      summary="This visual is intended to show survival metrics from the literature over different time periods—how reported outcomes for metastatic breast cancer have changed as treatments and cohorts have evolved. We include it to summarize evidence that survival has improved over time. Conclusion: when data are available, survival trends generally reflect gains from newer therapies and earlier diagnosis. What this means: tracking survival over time helps quantify progress and identify where further improvement is needed; when verified data are loaded, this figure will illustrate those trends."
     >
       <div className="flex h-64 items-center justify-center text-sm text-gray-500 dark:text-gray-400">{NO_DATA_MSG}</div>
     </Figure>

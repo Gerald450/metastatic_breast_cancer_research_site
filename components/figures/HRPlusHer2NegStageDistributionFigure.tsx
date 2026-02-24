@@ -24,7 +24,7 @@ export default function HRPlusHer2NegStageDistributionFigure() {
       dataSourceCitation={SEER_DATA_SOURCE}
       status="Draft"
       caption="Incidence rate by stage at diagnosis. Localized, Regional, and Distant. Distant stage approximates metastatic presentation."
-      summary="Most HR+/HER2- breast cancers are diagnosed at localized stage; distant stage accounts for a smaller share. Data from SEER*Stat exports."
+      summary="This graph shows how many HR+/HER2- (Luminal A) breast cancers are diagnosed at localized, regional, or distant (metastatic) stage—the distribution of stage at diagnosis for this subtype. It matters because most Luminal A cases are caught before metastasis, but the share diagnosed as distant reflects both biology and access to screening. The conclusion: the majority of HR+/HER2- cases are localized; distant stage is a smaller proportion but still represents real metastatic burden. What this means: screening and timely diagnosis are working for many patients, but we must still address the subset presenting with metastatic disease and reduce disparities so more people are diagnosed at earlier stages."
     >
       {loading ? (
         <div className="flex h-64 items-center justify-center text-sm text-gray-500 dark:text-gray-400">

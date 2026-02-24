@@ -39,7 +39,7 @@ export default function ReferencesBySectionChart() {
       sources={[]}
       status="Verified"
       caption="Each reference can be tagged with multiple sections (usedFor)."
-      summary="Clinical outcomes and epidemiology draw on the most references, reflecting the breadth of survival and incidence literature. This helps readers see where evidence is concentrated and where gaps remain."
+      summary="This chart shows how many references on this site are tagged to each section (e.g., definition, epidemiology, clinical outcomes)—where the evidence base is thickest and where it is thinner. We show it so readers can see which topics are well supported and which rely on fewer sources. Conclusion: clinical outcomes and epidemiology typically draw on the most references, reflecting the breadth of survival and incidence literature; other sections may have fewer citations. What this means: readers can interpret content in light of evidence density and identify areas where more research or curation would strengthen the site."
     >
       <PieCategoryChart
         data={chartData}

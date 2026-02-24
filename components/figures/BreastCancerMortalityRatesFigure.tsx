@@ -15,7 +15,7 @@ export default function BreastCancerMortalityRatesFigure() {
       externalSource={{ name: 'Reference data', url: ONLINE_SOURCES.NCI_SEER.url }}
       status="Draft"
       caption="Age-adjusted mortality rates. Reference data from published sources."
-      summary="Breast cancer mortality has declined over time, indicating earlier detection and better treatment. However, MBC remains largely incurable, and mortality improvements for metastatic disease are more modest."
+      summary="This line chart shows age-adjusted breast cancer mortality rates (deaths per 100,000) over time—whether fewer people are dying from breast cancer as years go by. We show it because declining mortality is a key measure of progress from screening and treatment. Conclusion: overall breast cancer mortality has declined over time, consistent with earlier detection and better therapies; improvements for metastatic disease are more modest. What this means: gains are real but not equally shared; continued focus on MBC-specific treatments and equitable access is needed to extend progress to metastatic patients."
     >
       <div role="img" aria-label="Line chart of breast cancer mortality rate per 100,000 by year">
         <LineTimeSeriesChart data={chartData} xKey="year" yKey="ratePer100k" xLabel="Year" yLabel="Rate per 100,000" />
