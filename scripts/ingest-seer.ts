@@ -102,8 +102,11 @@ async function validateIngestion(supabase: SupabaseClient): Promise<void> {
 async function main() {
   const supabase = getSupabase();
 
-  // 1. Survival by subtype
-  const subtypeTxt = readTxt('survival_by_subtype.txt');
+  // 1. Survival by subtype (distant stage) — prefer distant_by_subtype.txt when present
+  const subtypeFileName = fs.existsSync(path.join(TXT_DIR, 'distant_by_subtype.txt'))
+    ? 'distant_by_subtype.txt'
+    : 'survival_by_subtype.txt';
+  const subtypeTxt = readTxt(subtypeFileName);
   const subtypeRows = parseSurvivalTxt(subtypeTxt, 'subtype');
   const subtypeRowsFiltered = filterSurvivalCurveIntervals(subtypeRows);
 
@@ -120,10 +123,13 @@ async function main() {
     onConflict: 'subtype,interval_month',
   });
   if (e1) throw e1;
-  console.log(`survival_by_subtype: ${subtypeUpsert.length} rows`);
+  console.log(`survival_by_subtype: ${subtypeUpsert.length} rows (from ${subtypeFileName})`);
 
-  // 2. Survival by stage
-  const stageTxt = readTxt('survival_by_stage.txt');
+  // 2. Survival by stage (prefer 5_yesar_survival.txt when present)
+  const stageFileName = fs.existsSync(path.join(TXT_DIR, '5_yesar_survival.txt'))
+    ? '5_yesar_survival.txt'
+    : 'survival_by_stage.txt';
+  const stageTxt = readTxt(stageFileName);
   const stageRows = parseSurvivalTxt(stageTxt, 'stage');
   const stageRowsFiltered = filterSurvivalCurveIntervals(stageRows);
 
@@ -140,10 +146,13 @@ async function main() {
     onConflict: 'stage,interval_month',
   });
   if (e2) throw e2;
-  console.log(`survival_by_stage: ${stageUpsert.length} rows`);
+  console.log(`survival_by_stage: ${stageUpsert.length} rows (from ${stageFileName})`);
 
-  // 3. Survival by year (median_survival_by_year.txt, 60 mo only)
-  const yearTxt = readTxt('median_survival_by_year.txt');
+  // 3. Survival by year (prefer survival_trends_overtime.txt when present; 60 mo only)
+  const yearFileName = fs.existsSync(path.join(TXT_DIR, 'survival_trends_overtime.txt'))
+    ? 'survival_trends_overtime.txt'
+    : 'median_survival_by_year.txt';
+  const yearTxt = readTxt(yearFileName);
   const yearRows = parseSurvivalTxt(yearTxt, 'year');
   const yearRowsFiltered = filterSurvivalByYear(yearRows);
 
@@ -157,7 +166,7 @@ async function main() {
     onConflict: 'year',
   });
   if (e3) throw e3;
-  console.log(`survival_by_year: ${yearUpsert.length} rows`);
+  console.log(`survival_by_year: ${yearUpsert.length} rows (from ${yearFileName})`);
 
   // 4. Incidence by race
   const raceTxt = readTxt('incidence_by_race.txt');
