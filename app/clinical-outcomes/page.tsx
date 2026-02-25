@@ -1,5 +1,4 @@
 import Section from '@/components/Section';
-import Placeholder from '@/components/Placeholder';
 import CitationCallout from '@/components/CitationCallout';
 import ReferenceList from '@/components/ReferenceList';
 import TabSummary from '@/components/TabSummary';
@@ -83,11 +82,27 @@ export default function ClinicalOutcomesPage() {
         subtitle="From localized to metastatic—how breast cancer advances"
       >
         <div className="space-y-6">
-          <ProgressionPathwayDiagram />
-          <Placeholder
-            label="Progression patterns and timelines"
-            notes={['Time to progression metrics', 'Patterns of disease advancement', 'Factors influencing progression']}
+          <CitationCallout
+            claim="Most metastatic disease arises from recurrence after initial treatment, not de novo stage IV. Time to progression and patterns of advancement vary by subtype, metastatic site, and treatment; registries under-capture recurrent metastatic burden."
+            sources={['ref-001', 'ref-002']}
           />
+          <ProgressionPathwayDiagram />
+          <div className="rounded-lg border border-gray-200 bg-gray-50/50 p-6 dark:border-gray-700 dark:bg-gray-800/30">
+            <h3 className="mb-4 text-lg font-semibold text-gray-900 dark:text-gray-100">
+              Progression patterns and timelines
+            </h3>
+            <ul className="space-y-4 text-sm text-gray-700 dark:text-gray-300">
+              <li>
+                <strong className="text-gray-900 dark:text-gray-100">Time to progression metrics</strong> — Median time from diagnosis or recurrence to metastatic disease (or to first progression on therapy) is reported in population and trial data; progression-free survival (PFS) and time to distant recurrence are key endpoints.
+              </li>
+              <li>
+                <strong className="text-gray-900 dark:text-gray-100">Patterns of disease advancement</strong> — Disease may progress from localized to regional to distant, or present as de novo stage IV. First metastatic site (e.g. bone, viscera, brain) and subsequent spread patterns influence outcomes and are covered under site-specific outcomes.
+              </li>
+              <li>
+                <strong className="text-gray-900 dark:text-gray-100">Factors influencing progression</strong> — Subtype (HR+/HER2−, HER2+, TNBC), treatment history, and metastatic site are among factors that affect speed and pattern of progression; survival and treatment response sections elsewhere on this page detail these associations.
+              </li>
+            </ul>
+          </div>
         </div>
       </Section>
 

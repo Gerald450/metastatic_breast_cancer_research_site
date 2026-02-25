@@ -4,16 +4,31 @@ import { createServerSupabaseClient } from '@/lib/supabase';
 export const revalidate = 3600;
 
 /**
- * Returns AAPC by age group for HR+/HER2- trends by age.
- * Uses count-based proxy when rate is missing: AAPC = ((count_end/count_start)^(1/years) - 1) * 100
+ * Compute AAPC via log-linear regression: log(rate) = a + b*year => AAPC = (exp(b)-1)*100.
+ * Excludes 2020 from fit (per SEER: "2020 incidence rate(s) were not used in the fit of the trend line").
+ * Negative AAPC means incidence declined over the period (correct interpretation).
  */
+function aapcFromRates(points: { year: number; rate: number }[]): number | null {
+  const valid = points.filter((p) => p.rate > 0);
+  if (valid.length < 2) return null;
+  const n = valid.length;
+  const sumX = valid.reduce((s, p) => s + p.year, 0);
+  const sumY = valid.reduce((s, p) => s + Math.log(p.rate), 0);
+  const sumXX = valid.reduce((s, p) => s + p.year * p.year, 0);
+  const sumXY = valid.reduce((s, p) => s + p.year * Math.log(p.rate), 0);
+  const slope = (n * sumXY - sumX * sumY) / (n * sumXX - sumX * sumX);
+  if (!Number.isFinite(slope)) return null;
+  return (Math.exp(slope) - 1) * 100;
+}
+
 export async function GET() {
   try {
     const supabase = createServerSupabaseClient();
+    const years = [2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022];
     const { data, error } = await supabase
       .from('incidence_rates_by_age_year')
-      .select('year, age_group, age_adjusted_rate, count')
-      .in('year', [2013, 2022])
+      .select('year, age_group, age_adjusted_rate')
+      .in('year', years)
       .order('year', { ascending: true });
 
     if (error) {
@@ -21,33 +36,20 @@ export async function GET() {
     }
 
     const rows = data ?? [];
-    const byAge: Record<
-      string,
-      { rate2013?: number; rate2022?: number; count2013?: number; count2022?: number }
-    > = {};
+    const byAge: Record<string, { year: number; rate: number }[]> = {};
 
     for (const r of rows) {
-      if (!byAge[r.age_group]) byAge[r.age_group] = {};
-      if (r.year === 2013) {
-        byAge[r.age_group].rate2013 = r.age_adjusted_rate ?? undefined;
-        byAge[r.age_group].count2013 = r.count ?? undefined;
-      }
-      if (r.year === 2022) {
-        byAge[r.age_group].rate2022 = r.age_adjusted_rate ?? undefined;
-        byAge[r.age_group].count2022 = r.count ?? undefined;
-      }
+      if (r.age_adjusted_rate == null || r.age_adjusted_rate <= 0) continue;
+      if (!byAge[r.age_group]) byAge[r.age_group] = [];
+      byAge[r.age_group].push({ year: r.year, rate: r.age_adjusted_rate });
     }
 
     const chartData: { ageGroup: string; yearRange: string; aapc: number; direction: string }[] = [];
 
     for (const ageGroup of Object.keys(byAge).sort()) {
-      const v = byAge[ageGroup];
-      let aapc: number | null = null;
-      if (v.rate2013 != null && v.rate2013 > 0 && v.rate2022 != null) {
-        aapc = (Math.pow(v.rate2022 / v.rate2013, 1 / 9) - 1) * 100;
-      } else if (v.count2013 != null && v.count2013 > 0 && v.count2022 != null) {
-        aapc = (Math.pow(v.count2022 / v.count2013, 1 / 9) - 1) * 100;
-      }
+      const points = byAge[ageGroup];
+      const exclude2020 = points.filter((p) => p.year !== 2020);
+      const aapc = aapcFromRates(exclude2020);
       if (aapc != null) {
         chartData.push({
           ageGroup,

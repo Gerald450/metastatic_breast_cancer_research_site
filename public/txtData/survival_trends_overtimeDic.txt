@@ -1,0 +1,49 @@
+[System]
+Output filename=C:\Users\fover\OneDrive\Desktop\Exports\survival_trends_overtime.txt
+Database name=Incidence - SEER Research Limited-Field Data, 21 Registries (excl IL), Nov 2024 Sub (2000-2022) - Linked To County Attributes - Time Dependent (1990-2023) Income/Rurality, 1969-2023 Counties
+
+[Session Options]
+Type=Survival
+Rate filename=U.S. by SES/geography/race (NHW,NHB,NHAIAN,NHAPI,HISP) 1992-2022, Ages 0-99, State-county (modeled by varied state-county-ses)
+Statistic=Relative Survival
+SurvivalMethod=Actuarial
+SurvivalBeginMonth=Month of diagnosis recode
+SurvivalBeginYear=Year of diagnosis
+SurvivalEndMonth=Month of follow-up recode
+SurvivalEndYear=Year of follow-up recode
+SurvivalVitalStatus=Vital status recode (study cutoff used)
+StudyCutoffDate=12/2022
+LostToFollowupDate=12/2022
+NumberOfIntervals=60
+MonthsPerInterval=1
+RatesDisplayedAs=Percents
+
+[Export Options]
+GZipped=false
+Variable format=quotedlabels
+File format=DOS/Windows
+Field delimiter=comma
+Missing character="NA"
+Fields with delimiter in quotes=false
+Remove thousands separators=true
+Flags included=true
+Variable names included=false
+Column Variables as Stats=false
+
+[Summary Page Variables]
+Var1Name=Page type
+Var2Name=Year of diagnosis
+Var3Name=Summary Interval
+Var4Name=N
+Var5Name=Median Obs
+Var6Name=Median Rel
+Var7Name=Observed
+Var8Name=Expected
+Var9Name=Relative
+Var10Name=SE Obs
+Var11Name=SE Rel
+Var12Name=Obs Cum CIs Lower
+Var13Name=Obs Cum CIs Upper
+Var14Name=Rel Cum CIs Lower
+Var15Name=Rel Cum CIs Upper
+

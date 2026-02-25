@@ -1,7 +1,7 @@
 'use client';
 
 import Figure from '@/components/Figure';
-import BarCategoryChart from '@/components/charts/BarCategoryChart';
+import DotPlotChart from '@/components/charts/DotPlotChart';
 import { useFigureData } from '@/lib/use-figure-data';
 import { SEER_DATA_SOURCE } from '@/lib/online-sources';
 
@@ -30,13 +30,14 @@ export default function SEERIncidenceTrendsByRaceFigure() {
           No data. Run ingest:seer and ensure trends_by_ethnicity.txt is loaded.
         </div>
       ) : (
-        <div role="img" aria-label="Bar chart of incidence AAPC by race/ethnicity">
-          <BarCategoryChart
+        <div role="img" aria-label="Dot plot of incidence AAPC by race/ethnicity">
+          <DotPlotChart
             data={chartData}
-            xKey="race"
-            yKey="aapc"
-            xLabel="Race / ethnicity"
-            yLabel="AAPC (%)"
+            categoryKey="race"
+            valueKey="aapc"
+            categoryLabel="Race / ethnicity"
+            valueLabel="AAPC (%)"
+            showZeroLine
           />
         </div>
       )}

@@ -22,6 +22,8 @@ import {
   parseIncidenceByStageAtDxTxt,
   parseIncidenceRatesByRaceYearTxt,
   parseIncidenceRatesByAgeYearTxt,
+  parseHrHer2PosIncidenceByRaceYearTxt,
+  parseMedianAgeBySubtypeTxt,
 } from '../lib/seer-parser';
 
 const TXT_DIR = path.join(__dirname, '..', 'public', 'txtData');
@@ -100,8 +102,11 @@ async function validateIngestion(supabase: SupabaseClient): Promise<void> {
 async function main() {
   const supabase = getSupabase();
 
-  // 1. Survival by subtype
-  const subtypeTxt = readTxt('survival_by_subtype.txt');
+  // 1. Survival by subtype (distant stage) — prefer distant_by_subtype.txt when present
+  const subtypeFileName = fs.existsSync(path.join(TXT_DIR, 'distant_by_subtype.txt'))
+    ? 'distant_by_subtype.txt'
+    : 'survival_by_subtype.txt';
+  const subtypeTxt = readTxt(subtypeFileName);
   const subtypeRows = parseSurvivalTxt(subtypeTxt, 'subtype');
   const subtypeRowsFiltered = filterSurvivalCurveIntervals(subtypeRows);
 
@@ -118,10 +123,13 @@ async function main() {
     onConflict: 'subtype,interval_month',
   });
   if (e1) throw e1;
-  console.log(`survival_by_subtype: ${subtypeUpsert.length} rows`);
+  console.log(`survival_by_subtype: ${subtypeUpsert.length} rows (from ${subtypeFileName})`);
 
-  // 2. Survival by stage
-  const stageTxt = readTxt('survival_by_stage.txt');
+  // 2. Survival by stage (prefer 5_yesar_survival.txt when present)
+  const stageFileName = fs.existsSync(path.join(TXT_DIR, '5_yesar_survival.txt'))
+    ? '5_yesar_survival.txt'
+    : 'survival_by_stage.txt';
+  const stageTxt = readTxt(stageFileName);
   const stageRows = parseSurvivalTxt(stageTxt, 'stage');
   const stageRowsFiltered = filterSurvivalCurveIntervals(stageRows);
 
@@ -138,10 +146,13 @@ async function main() {
     onConflict: 'stage,interval_month',
   });
   if (e2) throw e2;
-  console.log(`survival_by_stage: ${stageUpsert.length} rows`);
+  console.log(`survival_by_stage: ${stageUpsert.length} rows (from ${stageFileName})`);
 
-  // 3. Survival by year (median_survival_by_year.txt, 60 mo only)
-  const yearTxt = readTxt('median_survival_by_year.txt');
+  // 3. Survival by year (prefer survival_trends_overtime.txt when present; 60 mo only)
+  const yearFileName = fs.existsSync(path.join(TXT_DIR, 'survival_trends_overtime.txt'))
+    ? 'survival_trends_overtime.txt'
+    : 'median_survival_by_year.txt';
+  const yearTxt = readTxt(yearFileName);
   const yearRows = parseSurvivalTxt(yearTxt, 'year');
   const yearRowsFiltered = filterSurvivalByYear(yearRows);
 
@@ -155,7 +166,7 @@ async function main() {
     onConflict: 'year',
   });
   if (e3) throw e3;
-  console.log(`survival_by_year: ${yearUpsert.length} rows`);
+  console.log(`survival_by_year: ${yearUpsert.length} rows (from ${yearFileName})`);
 
   // 4. Incidence by race
   const raceTxt = readTxt('incidence_by_race.txt');
@@ -237,10 +248,12 @@ async function main() {
   if (e8) throw e8;
   console.log(`incidence_rates_by_race_year: ${raceYearUpsert.length} rows`);
 
-  // 9. Incidence rates by age and year (HR+/HER2- trends by age)
-  const ageYearName = fs.existsSync(path.join(TXT_DIR, 'Incidence_trends_by_agetxt.txt'))
-    ? 'Incidence_trends_by_agetxt.txt'
-    : 'Incidence_trends_by_age.txt';
+  // 9. Incidence rates by age and year (SEER trends by age — prefer Incidence_by_age.txt with full rates)
+  const ageYearName = fs.existsSync(path.join(TXT_DIR, 'Incidence_by_age.txt'))
+    ? 'Incidence_by_age.txt'
+    : fs.existsSync(path.join(TXT_DIR, 'Incidence_trends_by_agetxt.txt'))
+      ? 'Incidence_trends_by_agetxt.txt'
+      : 'Incidence_trends_by_age.txt';
   const ageYearTxt = readTxt(ageYearName);
   const ageYearRows = parseIncidenceRatesByAgeYearTxt(ageYearTxt);
   const ageYearUpsert = ageYearRows.map((r) => ({
@@ -254,7 +267,57 @@ async function main() {
     onConflict: 'year,age_group',
   });
   if (e9) throw e9;
-  console.log(`incidence_rates_by_age_year: ${ageYearUpsert.length} rows`);
+  console.log(`incidence_rates_by_age_year: ${ageYearUpsert.length} rows (from ${ageYearName})`);
+
+  // 9b. HR+/HER2- (Luminal A) incidence by age and year (Incidence_trends_by_agetxt.txt / luminal.txt)
+  const luminalAgeName = 'Incidence_trends_by_agetxt.txt';
+  const luminalAgePath = path.join(TXT_DIR, luminalAgeName);
+  if (fs.existsSync(luminalAgePath)) {
+    const luminalAgeTxt = readTxt(luminalAgeName);
+    const luminalAgeRows = parseIncidenceRatesByAgeYearTxt(luminalAgeTxt);
+    const luminalAgeUpsert = luminalAgeRows.map((r) => ({
+      year: r.year,
+      age_group: r.age_group,
+      count: r.count,
+      population: r.population,
+    }));
+    const { error: e9b } = await supabase.from('hr_her2_neg_incidence_by_age_year').upsert(luminalAgeUpsert, {
+      onConflict: 'year,age_group',
+    });
+    if (e9b) throw e9b;
+    console.log(`hr_her2_neg_incidence_by_age_year: ${luminalAgeUpsert.length} rows (from ${luminalAgeName})`);
+  } else {
+    console.log(`hr_her2_neg_incidence_by_age_year: skipped (${luminalAgeName} not found)`);
+  }
+
+  // 10. HR+/HER2+ incidence by race and year (her2_by_race.txt)
+  const her2RaceTxt = readTxt('her2_by_race.txt');
+  const her2RaceRows = parseHrHer2PosIncidenceByRaceYearTxt(her2RaceTxt);
+  const her2RaceUpsert = her2RaceRows.map((r) => ({
+    year: r.year,
+    race: r.race,
+    age_adjusted_rate: r.age_adjusted_rate,
+    count: r.count,
+    population: r.population,
+  }));
+  const { error: e10 } = await supabase.from('hr_her2_pos_incidence_by_race_year').upsert(her2RaceUpsert, {
+    onConflict: 'year,race',
+  });
+  if (e10) throw e10;
+  console.log(`hr_her2_pos_incidence_by_race_year: ${her2RaceUpsert.length} rows`);
+
+  // 11. Median age at diagnosis by subtype (computed from median_age.txt case listing)
+  const medianAgeTxt = readTxt('median_age.txt');
+  const medianAgeRows = parseMedianAgeBySubtypeTxt(medianAgeTxt);
+  const medianAgeUpsert = medianAgeRows.map((r) => ({
+    subtype: r.subtype,
+    median_age: r.median_age,
+  }));
+  const { error: e11 } = await supabase.from('median_age_by_subtype').upsert(medianAgeUpsert, {
+    onConflict: 'subtype',
+  });
+  if (e11) throw e11;
+  console.log(`median_age_by_subtype: ${medianAgeUpsert.length} rows`);
 
   // Validation
   await validateIngestion(supabase);

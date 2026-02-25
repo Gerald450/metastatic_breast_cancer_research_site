@@ -1,14 +1,15 @@
 'use client';
 
 import Figure from '@/components/Figure';
-import BarCategoryChart from '@/components/charts/BarCategoryChart';
+import StateHeatMapChart from '@/components/charts/StateHeatMapChart';
 import { useFigureData } from '@/lib/use-figure-data';
 import { stateLevelBreastCancerMortalityData } from '@/lib/mbc-figure-data';
 import { ONLINE_SOURCES } from '@/lib/online-sources';
 
 export default function StateLevelBreastCancerMortalityFigure() {
   const { data, loading } = useFigureData<Record<string, unknown>[]>('/api/data/figure/stateLevelBreastCancerMortality');
-  const chartData = (data && data.length > 0 ? data : stateLevelBreastCancerMortalityData) as Record<string, unknown>[];
+  const rawData = (data && data.length > 0 ? data : stateLevelBreastCancerMortalityData) as { state: string; ratePer100k: number }[];
+  const heatMapData = rawData.map((d) => ({ state: d.state, rate: d.ratePer100k }));
 
   return (
     <Figure
@@ -22,9 +23,7 @@ export default function StateLevelBreastCancerMortalityFigure() {
       {loading ? (
         <div className="flex h-64 items-center justify-center text-sm text-gray-500 dark:text-gray-400">Loading...</div>
       ) : (
-        <div role="img" aria-label="Bar chart of breast cancer mortality rate by state">
-          <BarCategoryChart data={chartData} xKey="state" yKey="ratePer100k" xLabel="State" yLabel="Rate per 100,000" />
-        </div>
+        <StateHeatMapChart data={heatMapData} valueLabel="Rate per 100,000" />
       )}
     </Figure>
   );

@@ -1,0 +1,26 @@
+[System]
+Output filename=C:\Users\fover\OneDrive\Desktop\Exports\median_age.txt
+Database name=Incidence - SEER Research Limited-Field Data, 21 Registries (excl IL), Nov 2024 Sub (2000-2022) - Linked To County Attributes - Time Dependent (1990-2023) Income/Rurality, 1969-2023 Counties
+
+[Session Options]
+Type=Case Listing
+
+[Export Options]
+GZipped=false
+Variable format=quotedlabels
+File format=DOS/Windows
+Field delimiter=comma
+Missing character="NA"
+Fields with delimiter in quotes=false
+Remove thousands separators=true
+Variable names included=false
+Column Variables as Stats=false
+
+[Variables]
+Var1Name=Breast Subtype (2010+)
+Var1DisplayType=Formatted
+Var2Name=Age recode with <1 year olds and 90+
+Var2DisplayType=Formatted
+Var3Name=Year of diagnosis
+Var3DisplayType=Formatted
+

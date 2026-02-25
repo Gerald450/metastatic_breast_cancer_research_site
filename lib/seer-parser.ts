@@ -419,3 +419,89 @@ export function parseIncidenceRatesByAgeYearTxt(content: string): IncidenceRates
   }
   return rows;
 }
+
+// --- HR+/HER2+ incidence by race and year (her2_by_race.txt: race, year, rate, count, population) ---
+
+export function parseHrHer2PosIncidenceByRaceYearTxt(content: string): IncidenceRatesByRaceYearRow[] {
+  const rows: IncidenceRatesByRaceYearRow[] = [];
+  const lines = content.split(/\r?\n/);
+
+  for (const line of lines) {
+    if (isMetadataLine(line)) continue;
+    const cols = parseCSVLine(line);
+    if (cols.length < 5) continue;
+
+    const race = cleanStr(cols[0]);
+    if (RACE_TRENDS_EXCLUDE.has(race)) continue;
+
+    const yearStr = cleanStr(cols[1]);
+    if (yearStr.includes('-')) continue;
+    const year = parseInt(yearStr, 10);
+    if (isNaN(year) || year < 2000 || year > 2030) continue;
+
+    const rate = parseNum(cols[2]);
+    const count = parseNum(cols[3]);
+    const pop = parseNum(cols[4]);
+
+    rows.push({
+      year,
+      race,
+      age_adjusted_rate: rate,
+      count: count ?? null,
+      population: pop ?? null,
+    });
+  }
+  return rows;
+}
+
+// --- Median age at diagnosis by subtype (median_age.txt case listing: subtype, age_recode, year) ---
+
+/** Map age recode string to midpoint years for median calculation */
+function ageRecodeToMidpoint(s: string): number | null {
+  const t = cleanStr(s);
+  if (!t) return null;
+  const plus = t.match(/^90\+\s*years?$/i);
+  if (plus) return 92;
+  const zero = t.match(/^00\s*years?$/i);
+  if (zero) return 0;
+  const range = t.match(/^(\d{2})-(\d{2})\s*years?$/i) || t.match(/^(\d+)-(\d+)\s*years?$/i);
+  if (range) return (parseInt(range[1], 10) + parseInt(range[2], 10)) / 2;
+  const single = t.match(/^(\d+)\s*years?$/i);
+  if (single) return parseInt(single[1], 10);
+  return null;
+}
+
+export interface MedianAgeBySubtypeRow {
+  subtype: string;
+  median_age: number;
+}
+
+/** Parse median_age.txt case listing and compute median age per subtype */
+export function parseMedianAgeBySubtypeTxt(content: string): MedianAgeBySubtypeRow[] {
+  const bySubtype: Record<string, number[]> = {};
+  const lines = content.split(/\r?\n/);
+
+  for (const line of lines) {
+    if (isMetadataLine(line)) continue;
+    const cols = parseCSVLine(line);
+    if (cols.length < 3) continue;
+    const subtype = cleanStr(cols[0]);
+    const ageRecode = cleanStr(cols[1]);
+    if (!subtype || SUBTYPE_EXCLUDE.has(subtype)) continue;
+    const age = ageRecodeToMidpoint(ageRecode);
+    if (age == null) continue;
+    if (!bySubtype[subtype]) bySubtype[subtype] = [];
+    bySubtype[subtype].push(age);
+  }
+
+  const result: MedianAgeBySubtypeRow[] = [];
+  for (const subtype of Object.keys(bySubtype)) {
+    const ages = bySubtype[subtype].sort((a, b) => a - b);
+    const n = ages.length;
+    const median_age = n % 2 === 1
+      ? ages[Math.floor(n / 2)]
+      : (ages[n / 2 - 1] + ages[n / 2]) / 2;
+    result.push({ subtype, median_age: Math.round(median_age * 10) / 10 });
+  }
+  return result;
+}
