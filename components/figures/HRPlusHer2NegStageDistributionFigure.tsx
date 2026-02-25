@@ -1,21 +1,25 @@
 'use client';
 
 import Figure from '@/components/Figure';
-import BarCategoryChart from '@/components/charts/BarCategoryChart';
+import PieCategoryChart from '@/components/charts/PieCategoryChart';
 import { useFigureData } from '@/lib/use-figure-data';
 import { hrHer2NegRatesByStage2022 } from '@/lib/seer-subtypes-data';
 import { SEER_DATA_SOURCE } from '@/lib/online-sources';
 
 const fallbackData = hrHer2NegRatesByStage2022.map((r) => ({
-  stage: r.stage,
-  ratePer100k: r.rate,
+  name: r.stage,
+  value: r.rate,
 }));
 
 export default function HRPlusHer2NegStageDistributionFigure() {
   const { data, loading } = useFigureData<Record<string, unknown>[]>(
     '/api/data/seer/charts/incidence-by-stage-at-diagnosis'
   );
-  const chartData = (data && data.length > 0 ? data : fallbackData) as Record<string, unknown>[];
+  const rawData = (data && data.length > 0 ? data : hrHer2NegRatesByStage2022.map((r) => ({ stage: r.stage, ratePer100k: r.rate }))) as Record<string, unknown>[];
+  const chartData = rawData.map((r) => ({
+    name: String(r.stage ?? r.name ?? ''),
+    value: Number(r.ratePer100k ?? r.value ?? 0),
+  }));
 
   return (
     <Figure
@@ -31,14 +35,8 @@ export default function HRPlusHer2NegStageDistributionFigure() {
           Loading...
         </div>
       ) : (
-        <div role="img" aria-label="Bar chart of HR+/HER2- incidence by stage at diagnosis">
-          <BarCategoryChart
-            data={chartData}
-            xKey="stage"
-            yKey="ratePer100k"
-            xLabel="Stage"
-            yLabel="Rate per 100,000"
-          />
+        <div role="img" aria-label="Pie chart of HR+/HER2- incidence by stage at diagnosis">
+          <PieCategoryChart data={chartData} labelKey="name" valueKey="value" />
         </div>
       )}
     </Figure>

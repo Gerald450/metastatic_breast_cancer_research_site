@@ -1,7 +1,7 @@
 'use client';
 
 import Figure from '@/components/Figure';
-import BarCategoryChart from '@/components/charts/BarCategoryChart';
+import PieCategoryChart from '@/components/charts/PieCategoryChart';
 import { useFigureData } from '@/lib/use-figure-data';
 import { sexDistributionBreastCancerData } from '@/lib/mbc-figure-data';
 import { ONLINE_SOURCES } from '@/lib/online-sources';
@@ -22,8 +22,8 @@ export default function SexDistributionBreastCancerFigure() {
       {loading ? (
         <div className="flex h-64 items-center justify-center text-sm text-gray-500 dark:text-gray-400">Loading...</div>
       ) : (
-        <div role="img" aria-label="Bar chart of breast cancer by sex">
-          <BarCategoryChart data={chartData} xKey="sex" yKey="count" xLabel="Sex" yLabel="Count" />
+        <div role="img" aria-label="Pie chart of breast cancer cases by sex">
+          <PieCategoryChart data={chartData} labelKey="sex" valueKey="count" />
         </div>
       )}
     </Figure>

@@ -269,6 +269,27 @@ async function main() {
   if (e9) throw e9;
   console.log(`incidence_rates_by_age_year: ${ageYearUpsert.length} rows (from ${ageYearName})`);
 
+  // 9b. HR+/HER2- (Luminal A) incidence by age and year (Incidence_trends_by_agetxt.txt / luminal.txt)
+  const luminalAgeName = 'Incidence_trends_by_agetxt.txt';
+  const luminalAgePath = path.join(TXT_DIR, luminalAgeName);
+  if (fs.existsSync(luminalAgePath)) {
+    const luminalAgeTxt = readTxt(luminalAgeName);
+    const luminalAgeRows = parseIncidenceRatesByAgeYearTxt(luminalAgeTxt);
+    const luminalAgeUpsert = luminalAgeRows.map((r) => ({
+      year: r.year,
+      age_group: r.age_group,
+      count: r.count,
+      population: r.population,
+    }));
+    const { error: e9b } = await supabase.from('hr_her2_neg_incidence_by_age_year').upsert(luminalAgeUpsert, {
+      onConflict: 'year,age_group',
+    });
+    if (e9b) throw e9b;
+    console.log(`hr_her2_neg_incidence_by_age_year: ${luminalAgeUpsert.length} rows (from ${luminalAgeName})`);
+  } else {
+    console.log(`hr_her2_neg_incidence_by_age_year: skipped (${luminalAgeName} not found)`);
+  }
+
   // 10. HR+/HER2+ incidence by race and year (her2_by_race.txt)
   const her2RaceTxt = readTxt('her2_by_race.txt');
   const her2RaceRows = parseHrHer2PosIncidenceByRaceYearTxt(her2RaceTxt);

@@ -1,7 +1,7 @@
 'use client';
 
 import Figure from '@/components/Figure';
-import BarCategoryChart from '@/components/charts/BarCategoryChart';
+import PieCategoryChart from '@/components/charts/PieCategoryChart';
 import { useFigureData } from '@/lib/use-figure-data';
 import type { MBC_Trial } from '@/lib/types/mbc-data';
 export default function MBCTrialsFigure() {
@@ -14,7 +14,7 @@ export default function MBCTrialsFigure() {
           acc[phase] = (acc[phase] ?? 0) + 1;
           return acc;
         }, {})
-      ).map(([phase, count]) => ({ phase, count }))
+      ).map(([phase, count]) => ({ name: phase, value: count }))
     : [];
   const hasData = chartData.length > 0;
 
@@ -44,8 +44,8 @@ export default function MBCTrialsFigure() {
       summary="This chart shows the number of clinical trials for metastatic breast cancer by phase (e.g., Phase 1, 2, 3)—how much active research is underway and at what stage. We show it because trials are the pipeline for new therapies and reflect where the field is investing. Conclusion: many trials are active across phases, reflecting ongoing evaluation of new drugs and combinations. What this means: progress in MBC depends on these studies; patients and providers can use ClinicalTrials.gov to find relevant trials and contribute to the evidence base."
     >
       {hasData ? (
-        <div role="img" aria-label="Bar chart of MBC trials by phase">
-          <BarCategoryChart data={chartData} xKey="phase" yKey="count" xLabel="Phase" yLabel="Count" />
+        <div role="img" aria-label="Pie chart of MBC trials by phase">
+          <PieCategoryChart data={chartData} labelKey="name" valueKey="value" />
         </div>
       ) : (
         <div className="flex h-64 items-center justify-center text-sm text-gray-500 dark:text-gray-400">No trials data. Run sync to fetch from ClinicalTrials.gov.</div>
