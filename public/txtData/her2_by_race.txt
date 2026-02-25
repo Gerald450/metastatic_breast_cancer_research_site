@@ -1,0 +1,144 @@
+"Non-Hispanic White","2000-2022",3.8,74381,1596594702
+"Non-Hispanic White","2000",0.0,0,69526730
+"Non-Hispanic White","2001",0.0,0,69599595
+"Non-Hispanic White","2002",0.0,0,69577940
+"Non-Hispanic White","2003",0.0,0,69520781
+"Non-Hispanic White","2004",0.0,0,69463076
+"Non-Hispanic White","2005",0.0,0,69276691
+"Non-Hispanic White","2006",0.0,0,69219329
+"Non-Hispanic White","2007",0.0,0,69212041
+"Non-Hispanic White","2008",0.0,0,69266030
+"Non-Hispanic White","2009",0.0,0,69309876
+"Non-Hispanic White","2010",6.1,5078,69359447
+"Non-Hispanic White","2011",6.1,5186,69494955
+"Non-Hispanic White","2012",6.3,5328,69638460
+"Non-Hispanic White","2013",6.5,5521,69705253
+"Non-Hispanic White","2014",7.1,6135,69811107
+"Non-Hispanic White","2015",7.2,6267,69877823
+"Non-Hispanic White","2016",7.2,6227,69881177
+"Non-Hispanic White","2017",7.1,6188,69799544
+"Non-Hispanic White","2018",6.9,6052,69660762
+"Non-Hispanic White","2019",6.6,5777,69475540
+"Non-Hispanic White","2020",6.2,5347,69173138
+"Non-Hispanic White","2021",6.6,5723,68603704
+"Non-Hispanic White","2022",6.4,5552,68141703
+"Non-Hispanic Black","2000-2022",4.4,14491,353318692
+"Non-Hispanic Black","2000",0.0,0,13654210
+"Non-Hispanic Black","2001",0.0,0,13801638
+"Non-Hispanic Black","2002",0.0,0,13936765
+"Non-Hispanic Black","2003",0.0,0,14049323
+"Non-Hispanic Black","2004",0.0,0,14174631
+"Non-Hispanic Black","2005",0.0,0,14208256
+"Non-Hispanic Black","2006",0.0,0,14381373
+"Non-Hispanic Black","2007",0.0,0,14552175
+"Non-Hispanic Black","2008",0.0,0,14729640
+"Non-Hispanic Black","2009",0.0,0,14916688
+"Non-Hispanic Black","2010",7.0,956,15100115
+"Non-Hispanic Black","2011",6.4,929,15301344
+"Non-Hispanic Black","2012",6.7,991,15498683
+"Non-Hispanic Black","2013",6.7,988,15687733
+"Non-Hispanic Black","2014",7.1,1109,15891892
+"Non-Hispanic Black","2015",7.6,1165,16097946
+"Non-Hispanic Black","2016",7.8,1252,16295957
+"Non-Hispanic Black","2017",7.8,1256,16482623
+"Non-Hispanic Black","2018",7.4,1217,16648923
+"Non-Hispanic Black","2019",7.0,1158,16819409
+"Non-Hispanic Black","2020",6.8,1151,16952752
+"Non-Hispanic Black","2021",6.6,1145,17007636
+"Non-Hispanic Black","2022",6.7,1174,17128980
+"Non-Hispanic American Indian/Alaska Native","2000-2022",3.5,687,20621436
+"Non-Hispanic American Indian/Alaska Native","2000",0.0,0,842782
+"Non-Hispanic American Indian/Alaska Native","2001",0.0,0,849473
+"Non-Hispanic American Indian/Alaska Native","2002",0.0,0,854106
+"Non-Hispanic American Indian/Alaska Native","2003",0.0,0,857734
+"Non-Hispanic American Indian/Alaska Native","2004",0.0,0,861869
+"Non-Hispanic American Indian/Alaska Native","2005",0.0,0,864932
+"Non-Hispanic American Indian/Alaska Native","2006",0.0,0,867448
+"Non-Hispanic American Indian/Alaska Native","2007",0.0,0,870830
+"Non-Hispanic American Indian/Alaska Native","2008",0.0,0,876221
+"Non-Hispanic American Indian/Alaska Native","2009",0.0,0,882051
+"Non-Hispanic American Indian/Alaska Native","2010",4.6,38,886775
+"Non-Hispanic American Indian/Alaska Native","2011",6.1,47,894118
+"Non-Hispanic American Indian/Alaska Native","2012",5.0,45,901697
+"Non-Hispanic American Indian/Alaska Native","2013",5.7,52,908959
+"Non-Hispanic American Indian/Alaska Native","2014",6.8,63,916050
+"Non-Hispanic American Indian/Alaska Native","2015",6.1,54,922959
+"Non-Hispanic American Indian/Alaska Native","2016",5.9,55,928249
+"Non-Hispanic American Indian/Alaska Native","2017",5.9,53,933165
+"Non-Hispanic American Indian/Alaska Native","2018",6.0,54,935181
+"Non-Hispanic American Indian/Alaska Native","2019",5.8,54,937924
+"Non-Hispanic American Indian/Alaska Native","2020",4.6,46,942935
+"Non-Hispanic American Indian/Alaska Native","2021",6.7,69,943035
+"Non-Hispanic American Indian/Alaska Native","2022",5.7,57,942943
+"Non-Hispanic Asian or Pacific Islander","2000-2022",4.2,11232,257148805
+"Non-Hispanic Asian or Pacific Islander","2000",0.0,0,7957538
+"Non-Hispanic Asian or Pacific Islander","2001",0.0,0,8267701
+"Non-Hispanic Asian or Pacific Islander","2002",0.0,0,8559545
+"Non-Hispanic Asian or Pacific Islander","2003",0.0,0,8834309
+"Non-Hispanic Asian or Pacific Islander","2004",0.0,0,9099114
+"Non-Hispanic Asian or Pacific Islander","2005",0.0,0,9369311
+"Non-Hispanic Asian or Pacific Islander","2006",0.0,0,9647319
+"Non-Hispanic Asian or Pacific Islander","2007",0.0,0,9922862
+"Non-Hispanic Asian or Pacific Islander","2008",0.0,0,10216121
+"Non-Hispanic Asian or Pacific Islander","2009",0.0,0,10490585
+"Non-Hispanic Asian or Pacific Islander","2010",5.3,585,10762004
+"Non-Hispanic Asian or Pacific Islander","2011",5.4,611,11074821
+"Non-Hispanic Asian or Pacific Islander","2012",5.4,644,11396505
+"Non-Hispanic Asian or Pacific Islander","2013",6.2,769,11729565
+"Non-Hispanic Asian or Pacific Islander","2014",6.5,817,12093258
+"Non-Hispanic Asian or Pacific Islander","2015",6.6,881,12484350
+"Non-Hispanic Asian or Pacific Islander","2016",6.8,942,12847950
+"Non-Hispanic Asian or Pacific Islander","2017",7.0,991,13183705
+"Non-Hispanic Asian or Pacific Islander","2018",7.1,1027,13447622
+"Non-Hispanic Asian or Pacific Islander","2019",6.4,956,13683538
+"Non-Hispanic Asian or Pacific Islander","2020",6.1,930,13865582
+"Non-Hispanic Asian or Pacific Islander","2021",6.6,1019,13971035
+"Non-Hispanic Asian or Pacific Islander","2022",6.7,1060,14244465
+"Hispanic (All Races)","2000-2022",3.6,19790,744378629
+"Hispanic (All Races)","2000",0.0,0,24216996
+"Hispanic (All Races)","2001",0.0,0,25027669
+"Hispanic (All Races)","2002",0.0,0,25837637
+"Hispanic (All Races)","2003",0.0,0,26632065
+"Hispanic (All Races)","2004",0.0,0,27403227
+"Hispanic (All Races)","2005",0.0,0,28159876
+"Hispanic (All Races)","2006",0.0,0,28948894
+"Hispanic (All Races)","2007",0.0,0,29785634
+"Hispanic (All Races)","2008",0.0,0,30684106
+"Hispanic (All Races)","2009",0.0,0,31588918
+"Hispanic (All Races)","2010",4.5,1017,32422000
+"Hispanic (All Races)","2011",5.1,1196,33077551
+"Hispanic (All Races)","2012",5.2,1275,33681383
+"Hispanic (All Races)","2013",5.2,1331,34266810
+"Hispanic (All Races)","2014",5.6,1456,34860820
+"Hispanic (All Races)","2015",5.8,1591,35471147
+"Hispanic (All Races)","2016",6.1,1707,36071802
+"Hispanic (All Races)","2017",5.7,1675,36609686
+"Hispanic (All Races)","2018",5.4,1610,37104638
+"Hispanic (All Races)","2019",5.5,1715,37557811
+"Hispanic (All Races)","2020",5.1,1633,37987643
+"Hispanic (All Races)","2021",5.5,1798,38279831
+"Hispanic (All Races)","2022",5.3,1786,38702485
+"Non-Hispanic Unknown Race","2000-2022",~,489,0
+"Non-Hispanic Unknown Race","2000",~,0,0
+"Non-Hispanic Unknown Race","2001",~,0,0
+"Non-Hispanic Unknown Race","2002",~,0,0
+"Non-Hispanic Unknown Race","2003",~,0,0
+"Non-Hispanic Unknown Race","2004",~,0,0
+"Non-Hispanic Unknown Race","2005",~,0,0
+"Non-Hispanic Unknown Race","2006",~,0,0
+"Non-Hispanic Unknown Race","2007",~,0,0
+"Non-Hispanic Unknown Race","2008",~,0,0
+"Non-Hispanic Unknown Race","2009",~,0,0
+"Non-Hispanic Unknown Race","2010",~,25,0
+"Non-Hispanic Unknown Race","2011",~,20,0
+"Non-Hispanic Unknown Race","2012",~,17,0
+"Non-Hispanic Unknown Race","2013",~,26,0
+"Non-Hispanic Unknown Race","2014",~,27,0
+"Non-Hispanic Unknown Race","2015",~,32,0
+"Non-Hispanic Unknown Race","2016",~,35,0
+"Non-Hispanic Unknown Race","2017",~,35,0
+"Non-Hispanic Unknown Race","2018",~,40,0
+"Non-Hispanic Unknown Race","2019",~,42,0
+"Non-Hispanic Unknown Race","2020",~,58,0
+"Non-Hispanic Unknown Race","2021",~,54,0
+"Non-Hispanic Unknown Race","2022",~,78,0

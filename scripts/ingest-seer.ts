@@ -22,6 +22,8 @@ import {
   parseIncidenceByStageAtDxTxt,
   parseIncidenceRatesByRaceYearTxt,
   parseIncidenceRatesByAgeYearTxt,
+  parseHrHer2PosIncidenceByRaceYearTxt,
+  parseMedianAgeBySubtypeTxt,
 } from '../lib/seer-parser';
 
 const TXT_DIR = path.join(__dirname, '..', 'public', 'txtData');
@@ -237,10 +239,12 @@ async function main() {
   if (e8) throw e8;
   console.log(`incidence_rates_by_race_year: ${raceYearUpsert.length} rows`);
 
-  // 9. Incidence rates by age and year (HR+/HER2- trends by age)
-  const ageYearName = fs.existsSync(path.join(TXT_DIR, 'Incidence_trends_by_agetxt.txt'))
-    ? 'Incidence_trends_by_agetxt.txt'
-    : 'Incidence_trends_by_age.txt';
+  // 9. Incidence rates by age and year (SEER trends by age — prefer Incidence_by_age.txt with full rates)
+  const ageYearName = fs.existsSync(path.join(TXT_DIR, 'Incidence_by_age.txt'))
+    ? 'Incidence_by_age.txt'
+    : fs.existsSync(path.join(TXT_DIR, 'Incidence_trends_by_agetxt.txt'))
+      ? 'Incidence_trends_by_agetxt.txt'
+      : 'Incidence_trends_by_age.txt';
   const ageYearTxt = readTxt(ageYearName);
   const ageYearRows = parseIncidenceRatesByAgeYearTxt(ageYearTxt);
   const ageYearUpsert = ageYearRows.map((r) => ({
@@ -254,7 +258,36 @@ async function main() {
     onConflict: 'year,age_group',
   });
   if (e9) throw e9;
-  console.log(`incidence_rates_by_age_year: ${ageYearUpsert.length} rows`);
+  console.log(`incidence_rates_by_age_year: ${ageYearUpsert.length} rows (from ${ageYearName})`);
+
+  // 10. HR+/HER2+ incidence by race and year (her2_by_race.txt)
+  const her2RaceTxt = readTxt('her2_by_race.txt');
+  const her2RaceRows = parseHrHer2PosIncidenceByRaceYearTxt(her2RaceTxt);
+  const her2RaceUpsert = her2RaceRows.map((r) => ({
+    year: r.year,
+    race: r.race,
+    age_adjusted_rate: r.age_adjusted_rate,
+    count: r.count,
+    population: r.population,
+  }));
+  const { error: e10 } = await supabase.from('hr_her2_pos_incidence_by_race_year').upsert(her2RaceUpsert, {
+    onConflict: 'year,race',
+  });
+  if (e10) throw e10;
+  console.log(`hr_her2_pos_incidence_by_race_year: ${her2RaceUpsert.length} rows`);
+
+  // 11. Median age at diagnosis by subtype (computed from median_age.txt case listing)
+  const medianAgeTxt = readTxt('median_age.txt');
+  const medianAgeRows = parseMedianAgeBySubtypeTxt(medianAgeTxt);
+  const medianAgeUpsert = medianAgeRows.map((r) => ({
+    subtype: r.subtype,
+    median_age: r.median_age,
+  }));
+  const { error: e11 } = await supabase.from('median_age_by_subtype').upsert(medianAgeUpsert, {
+    onConflict: 'subtype',
+  });
+  if (e11) throw e11;
+  console.log(`median_age_by_subtype: ${medianAgeUpsert.length} rows`);
 
   // Validation
   await validateIngestion(supabase);
