@@ -10,10 +10,14 @@ export default function EvidenceHighlights() {
   const { data: trials } = useFigureData<MBC_Trial[]>('/api/data/trials');
   const { data: publications } = useFigureData<MBC_Publication[]>('/api/data/publications');
   const { data: drugs } = useFigureData<MBC_Drug[]>('/api/data/drugs');
+  const { data: mortalityData } = useFigureData<Record<string, unknown>[]>('/api/data/figure/stateLevelBreastCancerMortality');
+  const { data: survivalData } = useFigureData<Record<string, unknown>[]>('/api/data/seer/survival-by-year');
 
   const trialsCount = Array.isArray(trials) ? trials.length : 0;
   const publicationsCount = Array.isArray(publications) ? publications.length : 0;
   const drugsCount = Array.isArray(drugs) ? drugs.length : 0;
+  const mortalityCount = Array.isArray(mortalityData) ? mortalityData.length : 0;
+  const survivalCount = Array.isArray(survivalData) ? survivalData.length : 0;
 
   const highlights = [
     {
@@ -45,11 +49,11 @@ export default function EvidenceHighlights() {
     },
     {
       id: 'mortality',
-      value: '—',
-      unit: '',
+      value: mortalityCount > 0 ? mortalityCount.toLocaleString() : '—',
+      unit: mortalityCount > 0 ? 'states' : '',
       label: 'Mortality data',
-      detail: 'Static reference data',
-      source: 'See public-health',
+      detail: 'Database data',
+      source: mortalityCount > 0 ? 'Supabase (see Public Health)' : 'Run seed to populate',
       href: '/public-health',
     },
     {
@@ -72,11 +76,11 @@ export default function EvidenceHighlights() {
     },
     {
       id: 'survival',
-      value: '—',
-      unit: '',
+      value: survivalCount > 0 ? survivalCount.toLocaleString() : '—',
+      unit: survivalCount > 0 ? 'years' : '',
       label: 'Survival trends',
-      detail: 'API-verified data only',
-      source: 'See sync routes',
+      detail: 'Database data',
+      source: survivalCount > 0 ? 'Supabase (see Clinical Outcomes)' : 'Run SEER ingest to populate',
       href: '/clinical-outcomes#survival',
     },
   ];
