@@ -28,8 +28,8 @@ export default function BoxPlotChart({ data, xLabel, yLabel }: BoxPlotChartProps
   const globalMin = Math.min(...allValues);
   const globalMax = Math.max(...allValues);
   const range = globalMax - globalMin || 1;
-  const padding = 40;
-  const chartHeight = 280;
+  const padding = 24;
+  const chartHeight = 160;
   const boxWidth = Math.max(24, Math.min(60, 400 / data.length - 12));
 
   const valueToY = (v: number) =>
@@ -43,7 +43,7 @@ export default function BoxPlotChart({ data, xLabel, yLabel }: BoxPlotChartProps
       <svg
         viewBox={`0 0 ${Math.max(400, data.length * (boxWidth + 20) + 80)} ${chartHeight + padding * 2}`}
         className="w-full"
-        style={{ minHeight: 320 }}
+        style={{ minHeight: 220 }}
       >
         {data.map((d, i) => {
           const cx = 60 + i * (boxWidth + 20) + boxWidth / 2;

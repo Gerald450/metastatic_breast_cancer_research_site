@@ -34,6 +34,7 @@ export default function SurvivalCurvesByStageFigure() {
             ]}
             xLabel="Months from diagnosis"
             yLabel="Survival (%)"
+            height={380}
           />
         </div>
       )}

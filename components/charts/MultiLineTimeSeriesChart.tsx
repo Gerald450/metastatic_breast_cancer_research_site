@@ -23,6 +23,8 @@ interface MultiLineTimeSeriesChartProps {
   series: SeriesConfig[];
   xLabel?: string;
   yLabel?: string;
+  /** Chart height in px. Larger height gives more vertical spread so lines look more separate. */
+  height?: number;
 }
 
 const DEFAULT_COLORS = [
@@ -39,6 +41,7 @@ export default function MultiLineTimeSeriesChart({
   series,
   xLabel,
   yLabel,
+  height = 320,
 }: MultiLineTimeSeriesChartProps) {
   if (!data || data.length === 0) {
     return (
@@ -64,7 +67,7 @@ export default function MultiLineTimeSeriesChart({
   const margin = { top: 10, right: 24, left: yLabel ? 72 : 24, bottom: bottomMargin };
 
   return (
-    <ResponsiveContainer width="100%" height={320}>
+    <ResponsiveContainer width="100%" height={height}>
       <LineChart data={data} margin={margin}>
         <CartesianGrid strokeDasharray="3 3" className="stroke-gray-200 dark:stroke-gray-700" />
         <XAxis
