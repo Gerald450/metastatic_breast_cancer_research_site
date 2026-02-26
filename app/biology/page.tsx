@@ -51,7 +51,7 @@ export default function BiologyPage() {
               <img
                 src="/images/mbc_progression.png"
                 alt="Metastatic cascade: steps from primary tumor to distant organ colonization"
-                className="w-full rounded-lg"
+                className="max-h-[min(70vh,560px)] w-full max-w-full rounded-lg object-contain"
               />
               <p className="mt-4 text-center text-sm italic text-gray-500 dark:text-gray-400">
                 Metastatic cascade: from primary tumor detachment through circulation, extravasation, and colonization of distant sites. AI-generated illustration.
@@ -114,7 +114,7 @@ export default function BiologyPage() {
               <img
                 src="/images/molecular_heterog.png"
                 alt="Exploration of transcriptional heterogeneity across CTC subpopulations"
-                className="mx-auto max-w-xl w-full rounded-lg"
+                className="mx-auto max-h-[min(70vh,560px)] w-full max-w-full rounded-lg object-contain"
               />
               <p className="mt-4 text-center text-sm italic text-gray-500 dark:text-gray-400">
                 Transcriptional diversity across CTC subpopulations. AI-generated illustration.
@@ -167,7 +167,7 @@ export default function BiologyPage() {
               <img
                 src="/images/tumor_evolution.jpg"
                 alt="Tumor evolution: clonal expansion, branching subclones, and selection over time"
-                className="w-full rounded-lg"
+                className="max-h-[min(70vh,560px)] w-full max-w-full rounded-lg object-contain"
               />
               <p className="mt-4 text-center text-sm italic text-gray-500 dark:text-gray-400">
                 Clonal evolution: a founding population diversifies into subclones over time through mutation and selection. AI-generated illustration.
@@ -196,7 +196,7 @@ export default function BiologyPage() {
               <img
                 src="/images/resistant_mechs.png"
                 alt="Resistance mechanisms: molecular pathways involved in treatment resistance"
-                className="w-full rounded-lg"
+                className="max-h-[min(70vh,560px)] w-full max-w-full rounded-lg object-contain"
               />
               <p className="mt-4 text-center text-sm italic text-gray-500 dark:text-gray-400">
                 Molecular pathways involved in treatment resistance. AI-generated illustration.

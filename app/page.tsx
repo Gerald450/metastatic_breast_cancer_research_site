@@ -49,7 +49,7 @@ export default function Home() {
               <img
                 src="/images/metastatic-progression-primary-to-distant.png"
                 alt="Metastatic progression of breast cancer from primary site through circulation to distant secondary sites (lung, liver, brain, bone)"
-                className="w-full rounded-lg"
+                className="max-h-[min(70vh,560px)] w-full max-w-full rounded-lg object-contain"
               />
               <p className="mt-4 text-center text-sm italic text-gray-500 dark:text-gray-400">
                 Metastatic progression of breast cancer from the primary tumor site to distant

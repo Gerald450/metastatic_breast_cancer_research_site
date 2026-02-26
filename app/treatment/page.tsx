@@ -20,6 +20,16 @@ export default function TreatmentPage() {
         <TabSummary section="treatment" />
       </div>
 
+      {/* FDA-approved drugs first so they are easy to find */}
+      <Section
+        id="fda-approved-drugs"
+        title="FDA-approved drugs"
+        subtitle="Drugs with breast cancer indications from OpenFDA"
+        className="section-alt"
+      >
+        <MBCDrugsFigure />
+      </Section>
+
       {/* Story: What exists → Modalities → Targeted approaches → How we sequence */}
       <Section
         title="Therapy overview"
@@ -45,7 +55,6 @@ export default function TreatmentPage() {
       <Section
         title="Treatment modalities"
         subtitle="Available options: surgery, systemic therapy, and supportive care"
-        className="section-alt"
       >
         <div className="space-y-6">
           <Placeholder
@@ -56,7 +65,6 @@ export default function TreatmentPage() {
               'Supportive care measures',
             ]}
           />
-          <MBCDrugsFigure />
         </div>
       </Section>
 
