@@ -33,7 +33,9 @@ export default function BarCategoryChart({
     );
   }
 
-  const margin = { top: 10, right: 20, left: yLabel ? 55 : 10, bottom: xLabel ? 50 : 5 };
+  const manyCategories = data.length > 8;
+  const xInterval = manyCategories ? Math.floor(data.length / 7) : 0;
+  const margin = { top: 10, right: 20, left: yLabel ? 72 : 24, bottom: xLabel ? (manyCategories ? 80 : 56) : 24 };
 
   return (
     <ResponsiveContainer width="100%" height={400}>
@@ -41,14 +43,18 @@ export default function BarCategoryChart({
         <CartesianGrid strokeDasharray="3 3" className="stroke-gray-200 dark:stroke-gray-700" />
         <XAxis
           dataKey={xKey}
-          label={xLabel ? { value: xLabel, position: 'bottom', offset: 0 } : undefined}
+          interval={xInterval}
+          angle={manyCategories ? -45 : 0}
+          textAnchor={manyCategories ? 'end' : 'middle'}
+          label={xLabel ? { value: xLabel, position: 'bottom', offset: manyCategories ? 72 : 32 } : undefined}
           className="text-xs text-gray-600 dark:text-gray-400"
-          tick={{ fill: 'currentColor' }}
+          tick={{ fill: 'currentColor', fontSize: 11 }}
         />
         <YAxis
+          width={52}
           label={yLabel ? { value: yLabel, angle: -90, position: 'insideLeft', style: { textAnchor: 'middle' } } : undefined}
           className="text-xs text-gray-600 dark:text-gray-400"
-          tick={{ fill: 'currentColor' }}
+          tick={{ fill: 'currentColor', fontSize: 11 }}
         />
         <Tooltip
           contentStyle={{

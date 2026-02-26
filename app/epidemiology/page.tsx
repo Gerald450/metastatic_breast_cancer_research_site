@@ -21,7 +21,7 @@ const cdcRiskSource = ONLINE_SOURCES.CDC_BREAST_CANCER_RISK;
 export default function EpidemiologyPage() {
   return (
     <div className="py-12">
-      <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <PageHero
           title="Epidemiology"
           theme="epidemiology"

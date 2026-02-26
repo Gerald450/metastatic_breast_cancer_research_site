@@ -41,7 +41,8 @@ export default function DotPlotChart({
     );
   }
 
-  const margin = { top: 10, right: 20, left: 130, bottom: categoryLabel ? 50 : 5 };
+  const yAxisWidth = 160;
+  const margin = { top: 10, right: 24, left: yAxisWidth + 16, bottom: valueLabel ? 56 : 24 };
 
   return (
     <ResponsiveContainer width="100%" height={Math.max(300, data.length * 44)}>
@@ -53,17 +54,17 @@ export default function DotPlotChart({
         <CartesianGrid strokeDasharray="3 3" className="stroke-gray-200 dark:stroke-gray-700" horizontal={false} />
         <XAxis
           type="number"
-          label={valueLabel ? { value: valueLabel, position: 'bottom', offset: 0 } : undefined}
+          label={valueLabel ? { value: valueLabel, position: 'bottom', offset: 32 } : undefined}
           className="text-xs text-gray-600 dark:text-gray-400"
-          tick={{ fill: 'currentColor' }}
+          tick={{ fill: 'currentColor', fontSize: 11 }}
         />
         <YAxis
           type="category"
           dataKey={categoryKey}
-          width={120}
+          width={yAxisWidth}
+          tick={{ fill: 'currentColor', fontSize: 11 }}
           label={categoryLabel ? { value: categoryLabel, angle: -90, position: 'insideLeft', style: { textAnchor: 'middle' } } : undefined}
           className="text-xs text-gray-600 dark:text-gray-400"
-          tick={{ fill: 'currentColor' }}
         />
         <Tooltip
           contentStyle={{

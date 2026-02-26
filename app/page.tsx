@@ -14,7 +14,7 @@ import { references } from '@/lib/references';
 export default function Home() {
   return (
     <div className="py-12">
-      <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <HomeHero />
         <TabSummary section="definition" />
       </div>
@@ -95,7 +95,7 @@ export default function Home() {
         evidenceType="ClinicalTrials.gov & PubMed"
         className="section-alt"
       >
-        <div className="grid gap-8 md:grid-cols-2">
+        <div className="space-y-8">
           <MBCTrialsFigure />
           <MBCPublicationsFigure />
         </div>

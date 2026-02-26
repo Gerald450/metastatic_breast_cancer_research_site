@@ -19,7 +19,7 @@ export default function Section({
 }: SectionProps) {
   return (
     <section id={id} className={`py-10 sm:py-14 ${className}`}>
-      <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mb-6 sm:mb-8 flex flex-col gap-2 sm:flex-row sm:items-start sm:justify-between">
           <div className="flex-1">
             <h2 className="heading-section text-gray-900 dark:text-white">
