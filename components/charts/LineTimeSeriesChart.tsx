@@ -57,15 +57,17 @@ export default function LineTimeSeriesChart({
 
   const n = sanitizedData.length;
   const xInterval = n > 12 ? Math.max(0, Math.floor((n - 1) / 8)) : 0;
-  const margin = { top: 10, right: 24, left: yLabel ? 72 : 24, bottom: xLabel ? 56 : 24 };
+  const tickMargin = 10;
+  const margin = { top: 10, right: 24, left: yLabel ? 72 : 24, bottom: xLabel ? 56 + tickMargin : 24 + tickMargin };
 
   return (
-    <ResponsiveContainer width="100%" height={400}>
+    <ResponsiveContainer width="100%" height={320}>
       <LineChart data={sanitizedData} margin={margin}>
         <CartesianGrid strokeDasharray="3 3" className="stroke-gray-200 dark:stroke-gray-700" />
         <XAxis
           dataKey={xKey}
           interval={xInterval}
+          tickMargin={tickMargin}
           label={xLabel ? { value: xLabel, position: 'bottom', offset: 32 } : undefined}
           className="text-xs text-gray-600 dark:text-gray-400"
           tick={{ fill: 'currentColor', fontSize: 11 }}

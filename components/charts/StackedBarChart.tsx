@@ -10,6 +10,7 @@ import {
   Legend,
   ResponsiveContainer,
 } from 'recharts';
+import WrappedXAxisTick, { LINE_HEIGHT } from './WrappedXAxisTick';
 
 interface SeriesConfig {
   key: string;
@@ -61,20 +62,21 @@ export default function StackedBarChart({
 
   const manyCategories = data.length > 8;
   const xInterval = manyCategories ? Math.floor(data.length / 7) : 0;
-  const margin = { top: 10, right: 24, left: yLabel ? 72 : 24, bottom: xLabel ? (manyCategories ? 80 : 56) : 24 };
+  const tickMargin = 10;
+  const bottomMargin = xLabel ? (manyCategories ? 24 + LINE_HEIGHT * 3 + 32 + tickMargin : 56 + tickMargin) : 24 + tickMargin;
+  const margin = { top: 10, right: 24, left: yLabel ? 72 : 24, bottom: bottomMargin };
 
   return (
-    <ResponsiveContainer width="100%" height={400}>
+    <ResponsiveContainer width="100%" height={320}>
       <BarChart data={data} margin={margin}>
         <CartesianGrid strokeDasharray="3 3" className="stroke-gray-200 dark:stroke-gray-700" />
         <XAxis
           dataKey={xKey}
           interval={xInterval}
-          angle={manyCategories ? -45 : 0}
-          textAnchor={manyCategories ? 'end' : 'middle'}
-          label={xLabel ? { value: xLabel, position: 'bottom', offset: manyCategories ? 72 : 32 } : undefined}
+          tickMargin={tickMargin}
+          tick={<WrappedXAxisTick fontSize={11} />}
+          label={xLabel ? { value: xLabel, position: 'bottom', offset: manyCategories ? 24 + LINE_HEIGHT * 3 + 8 : 32 } : undefined}
           className="text-xs text-gray-600 dark:text-gray-400"
-          tick={{ fill: 'currentColor', fontSize: 11 }}
         />
         <YAxis
           width={52}

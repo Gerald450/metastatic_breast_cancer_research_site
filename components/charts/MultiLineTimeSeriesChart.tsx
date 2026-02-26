@@ -58,15 +58,19 @@ export default function MultiLineTimeSeriesChart({
 
   const n = data.length;
   const xInterval = n > 12 ? Math.max(0, Math.floor((n - 1) / 8)) : 0;
-  const margin = { top: 10, right: 24, left: yLabel ? 72 : 24, bottom: xLabel ? 56 : 24 };
+  const tickMargin = 10;
+  const legendHeight = 36;
+  const bottomMargin = xLabel ? 56 + tickMargin + legendHeight : 24 + tickMargin;
+  const margin = { top: 10, right: 24, left: yLabel ? 72 : 24, bottom: bottomMargin };
 
   return (
-    <ResponsiveContainer width="100%" height={400}>
+    <ResponsiveContainer width="100%" height={320}>
       <LineChart data={data} margin={margin}>
         <CartesianGrid strokeDasharray="3 3" className="stroke-gray-200 dark:stroke-gray-700" />
         <XAxis
           dataKey={xKey}
           interval={xInterval}
+          tickMargin={tickMargin}
           label={xLabel ? { value: xLabel, position: 'bottom', offset: 32 } : undefined}
           className="text-xs text-gray-600 dark:text-gray-400"
           tick={{ fill: 'currentColor', fontSize: 11 }}
@@ -84,7 +88,11 @@ export default function MultiLineTimeSeriesChart({
             borderRadius: '0.375rem',
           }}
         />
-        <Legend wrapperStyle={{ paddingTop: '1rem' }} className="text-xs text-gray-600 dark:text-gray-400" />
+        <Legend
+          verticalAlign="bottom"
+          wrapperStyle={{ paddingTop: '0.75rem', paddingBottom: '0.25rem' }}
+          className="text-xs text-gray-600 dark:text-gray-400"
+        />
         {series.map((s, idx) => (
           <Line
             key={s.key}

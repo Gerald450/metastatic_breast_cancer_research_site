@@ -53,7 +53,7 @@ export default function PieCategoryChart({
   }
 
   return (
-    <ResponsiveContainer width="100%" height={400}>
+    <ResponsiveContainer width="100%" height={320}>
       <PieChart>
         <Pie
           data={chartData}

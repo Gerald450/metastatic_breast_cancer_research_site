@@ -42,10 +42,13 @@ export default function DotPlotChart({
   }
 
   const yAxisWidth = 160;
-  const margin = { top: 10, right: 24, left: yAxisWidth + 16, bottom: valueLabel ? 56 : 24 };
+  const tickMargin = 10;
+  const rowHeight = 32;
+  const chartHeight = Math.min(340, Math.max(240, data.length * rowHeight));
+  const margin = { top: 10, right: 24, left: yAxisWidth + 16, bottom: valueLabel ? 56 + tickMargin : 24 + tickMargin };
 
   return (
-    <ResponsiveContainer width="100%" height={Math.max(300, data.length * 44)}>
+    <ResponsiveContainer width="100%" height={chartHeight}>
       <BarChart
         data={data}
         layout="vertical"
@@ -54,6 +57,7 @@ export default function DotPlotChart({
         <CartesianGrid strokeDasharray="3 3" className="stroke-gray-200 dark:stroke-gray-700" horizontal={false} />
         <XAxis
           type="number"
+          tickMargin={tickMargin}
           label={valueLabel ? { value: valueLabel, position: 'bottom', offset: 32 } : undefined}
           className="text-xs text-gray-600 dark:text-gray-400"
           tick={{ fill: 'currentColor', fontSize: 11 }}
