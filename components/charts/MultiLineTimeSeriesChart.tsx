@@ -63,7 +63,7 @@ export default function MultiLineTimeSeriesChart({
   const xInterval = n > 12 ? Math.max(0, Math.floor((n - 1) / 8)) : 0;
   const tickMargin = 10;
   const legendHeight = 36;
-  const bottomMargin = xLabel ? 56 + tickMargin + legendHeight : 24 + tickMargin;
+  const bottomMargin = xLabel ? 60 + tickMargin + legendHeight : 28 + tickMargin;
   const margin = { top: 10, right: 24, left: yLabel ? 72 : 24, bottom: bottomMargin };
 
   return (
@@ -75,14 +75,14 @@ export default function MultiLineTimeSeriesChart({
           interval={xInterval}
           tickMargin={tickMargin}
           label={xLabel ? { value: xLabel, position: 'bottom', offset: 32 } : undefined}
-          className="text-xs text-gray-600 dark:text-gray-400"
-          tick={{ fill: 'currentColor', fontSize: 11 }}
+          className="text-gray-700 dark:text-gray-300"
+          tick={{ fill: '#374151', fontSize: 11 }}
         />
         <YAxis
           width={52}
           label={yLabel ? { value: yLabel, angle: -90, position: 'insideLeft', style: { textAnchor: 'middle' } } : undefined}
-          className="text-xs text-gray-600 dark:text-gray-400"
-          tick={{ fill: 'currentColor', fontSize: 11 }}
+          className="text-gray-700 dark:text-gray-300"
+          tick={{ fill: '#374151', fontSize: 11 }}
         />
         <Tooltip
           contentStyle={{
@@ -90,6 +90,7 @@ export default function MultiLineTimeSeriesChart({
             border: '1px solid #e5e7eb',
             borderRadius: '0.375rem',
           }}
+          labelStyle={{ color: '#111827', fontWeight: 600 }}
         />
         <Legend
           verticalAlign="bottom"

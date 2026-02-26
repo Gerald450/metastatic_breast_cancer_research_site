@@ -70,13 +70,13 @@ export default function LineTimeSeriesChart({
           tickMargin={tickMargin}
           label={xLabel ? { value: xLabel, position: 'bottom', offset: 32 } : undefined}
           className="text-xs text-gray-600 dark:text-gray-400"
-          tick={{ fill: 'currentColor', fontSize: 11 }}
+          tick={{ fill: '#374151', fontSize: 11 }}
         />
         <YAxis
           width={52}
           label={yLabel ? { value: String(yLabel || ''), angle: -90, position: 'insideLeft', style: { textAnchor: 'middle' } } : undefined}
           className="text-xs text-gray-600 dark:text-gray-400"
-          tick={{ fill: 'currentColor', fontSize: 11 }}
+          tick={{ fill: '#374151', fontSize: 11 }}
         />
         <Tooltip
           contentStyle={{
@@ -84,6 +84,7 @@ export default function LineTimeSeriesChart({
             border: '1px solid #e5e7eb',
             borderRadius: '0.375rem',
           }}
+          labelStyle={{ color: '#111827', fontWeight: 600 }}
         />
         <Line
           type="monotone"

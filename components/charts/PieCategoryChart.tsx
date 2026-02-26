@@ -77,6 +77,7 @@ export default function PieCategoryChart({
             border: '1px solid #e5e7eb',
             borderRadius: '0.375rem',
           }}
+          labelStyle={{ color: '#111827', fontWeight: 600 }}
         />
         <Legend />
       </PieChart>

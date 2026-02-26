@@ -5,7 +5,6 @@ import TabSummary from '@/components/TabSummary';
 import { references } from '@/lib/references';
 import MetastaticSiteOutcomesFigure from '@/components/figures/MetastaticSiteOutcomesFigure';
 import SurvivalTrendsFigure from '@/components/figures/SurvivalTrendsFigure';
-import MetaRegressionSurvivalSection from '@/components/figures/MetaRegressionSurvivalSection';
 import SEERSurvivalByStageFigure from '@/components/figures/SEERSurvivalByStageFigure';
 import SEERDistantStageBySubtypeFigure from '@/components/figures/SEERDistantStageBySubtypeFigure';
 import SurvivalByMetastaticSiteFigure from '@/components/figures/SurvivalByMetastaticSiteFigure';
@@ -58,7 +57,6 @@ export default function ClinicalOutcomesPage() {
             sources={['ref-001', 'ref-002', 'ref-004']}
           />
           <SurvivalTrendsFigure />
-          <MetaRegressionSurvivalSection />
         </div>
       </Section>
 

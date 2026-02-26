@@ -60,13 +60,13 @@ export default function DotPlotChart({
           tickMargin={tickMargin}
           label={valueLabel ? { value: valueLabel, position: 'bottom', offset: 32 } : undefined}
           className="text-xs text-gray-600 dark:text-gray-400"
-          tick={{ fill: 'currentColor', fontSize: 11 }}
+          tick={{ fill: '#374151', fontSize: 11 }}
         />
         <YAxis
           type="category"
           dataKey={categoryKey}
           width={yAxisWidth}
-          tick={{ fill: 'currentColor', fontSize: 11 }}
+          tick={{ fill: '#374151', fontSize: 11 }}
           label={categoryLabel ? { value: categoryLabel, angle: -90, position: 'insideLeft', style: { textAnchor: 'middle' } } : undefined}
           className="text-xs text-gray-600 dark:text-gray-400"
         />
@@ -76,6 +76,7 @@ export default function DotPlotChart({
             border: '1px solid #e5e7eb',
             borderRadius: '0.375rem',
           }}
+          labelStyle={{ color: '#111827', fontWeight: 600 }}
         />
         {showZeroLine && <ReferenceLine x={0} stroke="#6b7280" strokeDasharray="3 3" />}
         <Bar dataKey={valueKey} radius={0} barSize={14} fill="#3b82f6" />

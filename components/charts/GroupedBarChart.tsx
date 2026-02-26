@@ -73,7 +73,7 @@ export default function GroupedBarChart({
           width={52}
           label={yLabel ? { value: yLabel, angle: -90, position: 'insideLeft', style: { textAnchor: 'middle' } } : undefined}
           className="text-xs text-gray-600 dark:text-gray-400"
-          tick={{ fill: 'currentColor', fontSize: 11 }}
+          tick={{ fill: '#374151', fontSize: 11 }}
         />
         <Tooltip
           contentStyle={{
@@ -81,6 +81,7 @@ export default function GroupedBarChart({
             border: '1px solid #e5e7eb',
             borderRadius: '0.375rem',
           }}
+          labelStyle={{ color: '#111827', fontWeight: 600 }}
         />
         <Legend wrapperStyle={{ paddingTop: '1rem' }} className="text-xs text-gray-600 dark:text-gray-400" />
         {series.map((s, idx) => (

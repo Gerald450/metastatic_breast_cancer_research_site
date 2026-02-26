@@ -62,7 +62,7 @@ export default function WrappedXAxisTick({
   x = 0,
   y = 0,
   payload,
-  fill = 'currentColor',
+  fill = '#374151',
   fontSize = 11,
   textAnchor = 'middle',
 }: WrappedXAxisTickProps) {
