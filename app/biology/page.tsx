@@ -46,6 +46,16 @@ export default function BiologyPage() {
             for metastasis—a hybrid phenotype that enables both motility and intercellular
             adhesion.
           </p>
+          <CitationCallout
+            claim="Epithelial–mesenchymal plasticity (EMP) is the ability of cancer cells to transition between epithelial and mesenchymal states—both EMT and its reverse, MET. Cells often occupy intermediate, hybrid E/M states rather than being purely epithelial or mesenchymal; these hybrid phenotypes can exhibit higher metastatic and tumor-initiating potential than either extreme."
+            sources={['ref-018']}
+          />
+          <p>
+            Partial EMT (hybrid states) is associated with collective invasion and is enriched in
+            lung metastases, whereas fully mesenchymal cells tend to invade as single cells.
+            Plasticity of these intermediate states drives phenotypic heterogeneity and disease
+            progression in breast cancer and contributes to therapy resistance across carcinomas.
+          </p>
           <figure className="my-8">
             <div className="rounded-lg border border-gray-200 bg-gray-50/50 p-6 dark:border-gray-700 dark:bg-gray-800/30">
               <img
@@ -104,7 +114,16 @@ export default function BiologyPage() {
           <p>
             scRNA-seq data demonstrate dynamic shifts in gene expression as CTCs transition
             between circulation and colonization, emphasizing metastasis as a reversible and
-            adaptive process. From a clinical perspective, this heterogeneity undermines the
+            adaptive process. Epithelial–mesenchymal plasticity contributes to this heterogeneity:
+            hybrid E/M phenotypes and plasticity of the intermediate EMT state govern disease
+            progression and therapy resistance in breast cancer.
+          </p>
+          <CitationCallout
+            claim="Hybrid epithelial/mesenchymal phenotypes promote metastasis and therapy resistance across carcinomas; phenotypic heterogeneity driven by plasticity of the intermediate EMT state governs disease progression in breast cancer."
+            sources={['ref-018']}
+          />
+          <p>
+            From a clinical perspective, this heterogeneity undermines the
             predictive value of bulk tumor biopsies. Precision medicine approaches that
             incorporate longitudinal CTC profiling may therefore provide a more accurate
             representation of metastatic risk and therapeutic vulnerability.

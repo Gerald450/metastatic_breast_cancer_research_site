@@ -43,8 +43,8 @@ const summaries: Record<SiteSection, TabSummaryEntry> = {
   },
   biology: {
     summary:
-      'Circulating tumor cells (CTCs) as drivers of metastasis, physical biology (stiffness, shear stress, mechanical trapping), molecular heterogeneity revealed by scRNA-seq, circadian and sleep-associated regulation of dissemination, and implications for resistance and treatment. Draws on ref-014 (CTC biology synthesis), ref-017 (omic approaches to metastasis-prone subtypes), and Thompson et al. (ref-012) for progression and dormancy.',
-    sourceRefIds: ['ref-012', 'ref-014', 'ref-017'],
+      'Circulating tumor cells (CTCs) as drivers of metastasis, epithelial–mesenchymal plasticity (EMP) and hybrid E/M phenotypes, physical biology (stiffness, shear stress, mechanical trapping), molecular heterogeneity revealed by scRNA-seq, circadian and sleep-associated regulation of dissemination, and implications for resistance and treatment. Draws on ref-014 (CTC biology synthesis), ref-017 (omic approaches to metastasis-prone subtypes), ref-018 (EM plasticity in metastasis), and Thompson et al. (ref-012) for progression and dormancy.',
+    sourceRefIds: ['ref-012', 'ref-014', 'ref-017', 'ref-018'],
   },
   treatment: {
     summary:

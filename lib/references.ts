@@ -474,6 +474,23 @@ export const references: Reference[] = [
       },
     ],
   },
+
+  {
+    id: 'ref-018',
+    title: 'Epithelial–mesenchymal plasticity in cancer metastasis',
+    authors: 'See PDF',
+    year: undefined,
+    journal: undefined,
+    filename: 'EM_Plasticity_in_Cancer_Metastasis.pdf',
+    localUrl: '/pdfs/EM_Plasticity_in_Cancer_Metastasis.pdf',
+    doi: null,
+    usedFor: ['biology'],
+    highlightNotes: [
+      { section: 'Biology', pages: '—', excerptHint: 'EM plasticity and hybrid E/M phenotypes in metastasis' },
+      { section: 'Biology', pages: '—', excerptHint: 'Partial vs full EMT and collective vs single-cell invasion' },
+      { section: 'Biology', pages: '—', excerptHint: 'EMP and therapy resistance' },
+    ],
+  },
 ];
 
 
