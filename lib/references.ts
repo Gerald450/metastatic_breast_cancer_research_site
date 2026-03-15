@@ -491,6 +491,23 @@ export const references: Reference[] = [
       { section: 'Biology', pages: '—', excerptHint: 'EMP and therapy resistance' },
     ],
   },
+
+  {
+    id: 'ref-019',
+    title: 'Epithelial–Mesenchymal Transition Signaling and Metastatic Plasticity',
+    authors: 'See PDF',
+    year: undefined,
+    journal: undefined,
+    filename: 'Epithelial_Mesenchymal_Transition Signaling_and_Metastatic_Plasticity.pdf',
+    localUrl: '/pdfs/Epithelial_Mesenchymal_Transition Signaling_and_Metastatic_Plasticity.pdf',
+    doi: null,
+    usedFor: ['biology'],
+    highlightNotes: [
+      { section: 'Biology', pages: '—', excerptHint: 'EMT signaling pathways (TGF-β, Wnt, Notch) in metastasis' },
+      { section: 'Biology', pages: '—', excerptHint: 'Metastatic plasticity and reversible phenotype switching' },
+      { section: 'Biology', pages: '—', excerptHint: 'EMT–MET cycle and colonization of distant organs' },
+    ],
+  },
 ];
 
 

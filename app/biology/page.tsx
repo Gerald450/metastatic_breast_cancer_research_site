@@ -56,6 +56,17 @@ export default function BiologyPage() {
             Plasticity of these intermediate states drives phenotypic heterogeneity and disease
             progression in breast cancer and contributes to therapy resistance across carcinomas.
           </p>
+          <CitationCallout
+            claim="EMT is driven by conserved signaling pathways—including TGF-β, Wnt, and Notch—that promote loss of epithelial identity and gain of migratory, invasive traits. This signaling axis supports metastatic plasticity: the capacity to switch phenotypes in response to microenvironmental cues, enabling dissemination, survival in circulation, and reversion toward an epithelial state (MET) at distant sites for colonization."
+            sources={['ref-019']}
+          />
+          <p>
+            The EMT–MET cycle is central to the metastatic cascade: cells may undergo MET at
+            secondary sites to form cohesive metastases, and plasticity between states allows
+            tumors to adapt to therapy and hostile microenvironments. In breast cancer, targeting
+            EMT signaling or stabilizing epithelial identity is an active area of therapeutic
+            research.
+          </p>
           <figure className="my-8">
             <div className="rounded-lg border border-gray-200 bg-gray-50/50 p-6 dark:border-gray-700 dark:bg-gray-800/30">
               <img
@@ -204,8 +215,17 @@ export default function BiologyPage() {
         <div className="space-y-6">
           <p>
             The molecular heterogeneity of CTCs—including stem-cell–like programs and dynamic
-            transcriptional shifts—directly contributes to treatment resistance. Therapeutic
-            strategies targeting CTC clusters, mechanical adaptability, or time-dependent
+            transcriptional shifts—directly contributes to treatment resistance. Epithelial–
+            mesenchymal plasticity and EMT signaling pathways further underpin resistance: cells
+            that can switch phenotypes in response to therapy or microenvironment are better
+            equipped to survive and recur.
+          </p>
+          <CitationCallout
+            claim="Targeting EMT signaling (e.g., TGF-β, Wnt, Notch) or stabilizing epithelial identity may reduce metastatic plasticity and improve treatment response; understanding the EMT–MET cycle is therefore critical for designing therapies that limit dissemination and colonization."
+            sources={['ref-019']}
+          />
+          <p>
+            Therapeutic strategies targeting CTC clusters, mechanical adaptability, or time-dependent
             dissemination may offer novel avenues for intervention. Future research should
             integrate biophysical modeling, single-cell profiling, and longitudinal patient
             monitoring to capture the dynamic nature of metastasis.
