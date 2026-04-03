@@ -3,12 +3,14 @@
 import {
   BarChart,
   Bar,
+  Cell,
   XAxis,
   YAxis,
   CartesianGrid,
   Tooltip,
   ResponsiveContainer,
 } from 'recharts';
+import { BC_PINK_BLUE_PALETTE } from '@/lib/breast-cancer-chart-colors';
 import WrappedXAxisTick, { LINE_HEIGHT } from './WrappedXAxisTick';
 
 interface BarCategoryChartProps {
@@ -65,7 +67,14 @@ export default function BarCategoryChart({
           }}
           labelStyle={{ color: '#111827', fontWeight: 600 }}
         />
-        <Bar dataKey={yKey} radius={[4, 4, 0, 0]} />
+        <Bar dataKey={yKey} radius={[4, 4, 0, 0]}>
+          {data.map((_, index) => (
+            <Cell
+              key={`bar-${index}`}
+              fill={BC_PINK_BLUE_PALETTE[index % BC_PINK_BLUE_PALETTE.length]}
+            />
+          ))}
+        </Bar>
       </BarChart>
     </ResponsiveContainer>
   );

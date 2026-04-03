@@ -23,7 +23,7 @@ export default function CitationCallout({
   // Legacy format support
   if (citation && !claim) {
     return (
-      <div className="my-6 rounded-xl border-l-4 border-blue-500 bg-blue-50/90 p-4 transition-shadow duration-200 dark:border-blue-400 dark:bg-blue-900/20">
+      <div className="my-6 rounded-xl border-l-4 border-pink-500 bg-pink-50/90 p-4 transition-shadow duration-200 dark:border-pink-400 dark:bg-pink-950/25">
         <div className="text-base text-gray-700 dark:text-gray-300">{children}</div>
         {citation && (
           <div className="mt-2 text-sm leading-relaxed text-gray-600 dark:text-gray-400">
@@ -49,7 +49,7 @@ export default function CitationCallout({
     .filter(Boolean);
 
   return (
-    <div className="my-6 rounded-xl border-l-4 border-blue-500 bg-blue-50/90 p-4 transition-shadow duration-200 dark:border-blue-400 dark:bg-blue-900/20">
+    <div className="my-6 rounded-xl border-l-4 border-pink-500 bg-pink-50/90 p-4 transition-shadow duration-200 dark:border-pink-400 dark:bg-pink-950/25">
       <div className="text-base text-gray-700 dark:text-gray-300">
         <p className="font-medium leading-relaxed">{claim}</p>
         {children && <div className="mt-2">{children}</div>}

@@ -27,7 +27,7 @@ export default function ClassificationSchemaDiagram() {
 
 function Node({ label }: { label: string }) {
   return (
-    <div className="rounded-xl border border-indigo-200 bg-white px-5 py-3 shadow-sm dark:border-indigo-800/50 dark:bg-gray-800/50">
+    <div className="rounded-xl border border-pink-200 bg-white px-5 py-3 shadow-sm dark:border-pink-800/40 dark:bg-gray-800/50">
       <span className="text-sm font-medium text-gray-900 dark:text-white">{label}</span>
     </div>
   );

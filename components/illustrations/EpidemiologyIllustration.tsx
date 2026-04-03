@@ -4,7 +4,7 @@ export default function EpidemiologyIllustration() {
   return (
     <svg
       viewBox="0 0 120 100"
-      className="h-28 w-32 text-emerald-400/70 dark:text-emerald-500/50 sm:h-32 sm:w-36"
+      className="h-28 w-32 text-pink-400/70 dark:text-pink-500/50 sm:h-32 sm:w-36"
       aria-hidden
     >
       <defs>

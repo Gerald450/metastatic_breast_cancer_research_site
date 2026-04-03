@@ -91,7 +91,7 @@ export default function EvidenceHighlights() {
         <Link
           key={h.id}
           href={h.href}
-          className="group flex flex-col rounded-xl border border-gray-200 bg-white p-5 transition-colors hover:border-gray-300 hover:bg-gray-50/50 dark:border-gray-700/50 dark:bg-gray-800/50 dark:hover:border-gray-600 dark:hover:bg-gray-800/80"
+          className="group flex flex-col rounded-xl border border-gray-200 bg-white p-5 transition-colors hover:border-pink-300/70 hover:bg-pink-50/40 dark:border-gray-700/50 dark:bg-gray-800/50 dark:hover:border-pink-700/40 dark:hover:bg-pink-950/15"
         >
           <div className="flex flex-1 flex-col">
             <p className="text-2xl font-semibold tracking-tight text-gray-900 dark:text-white">
@@ -104,7 +104,7 @@ export default function EvidenceHighlights() {
               <span className="font-medium text-gray-600 dark:text-gray-400">Source:</span> {h.source}
             </p>
           </div>
-          <span className="mt-3 inline-flex text-xs font-medium text-gray-500 transition-colors group-hover:text-gray-700 dark:text-gray-400 dark:group-hover:text-gray-300">
+          <span className="mt-3 inline-flex text-xs font-medium text-gray-500 transition-colors group-hover:text-pink-700 dark:text-gray-400 dark:group-hover:text-pink-300">
             Explore
             <svg className="ml-1 h-3.5 w-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden>
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />

@@ -33,13 +33,13 @@ export default function Section({
           </div>
           {evidenceType && (
             <div className="mt-2 sm:mt-0">
-              <span className="inline-flex items-center rounded-lg bg-blue-50 px-3 py-1.5 text-xs font-medium text-blue-700 ring-1 ring-inset ring-blue-700/10 dark:bg-blue-900/20 dark:text-blue-300 dark:ring-blue-300/20">
+              <span className="inline-flex items-center rounded-lg bg-pink-50 px-3 py-1.5 text-xs font-medium text-pink-800 ring-1 ring-inset ring-pink-700/15 dark:bg-pink-950/30 dark:text-pink-200 dark:ring-pink-400/20">
                 Evidence type: {evidenceType}
               </span>
             </div>
           )}
         </div>
-        <div className="prose prose-gray max-w-none dark:prose-invert prose-headings:font-semibold prose-p:leading-relaxed prose-p:text-gray-700 dark:prose-p:text-gray-300 prose-a:transition-colors prose-a:duration-200">
+        <div className="prose prose-gray max-w-none dark:prose-invert prose-headings:font-semibold prose-p:leading-relaxed prose-p:text-gray-700 dark:prose-p:text-gray-300 prose-a:text-blue-600 prose-a:no-underline hover:prose-a:text-blue-700 hover:prose-a:underline dark:prose-a:text-blue-400 dark:hover:prose-a:text-blue-300 prose-a:transition-colors prose-a:duration-200">
           {children}
         </div>
       </div>

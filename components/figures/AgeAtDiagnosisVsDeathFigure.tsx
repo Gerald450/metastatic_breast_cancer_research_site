@@ -27,8 +27,8 @@ export default function AgeAtDiagnosisVsDeathFigure() {
             data={chartData}
             xKey="ageGroup"
             series={[
-              { key: 'atDiagnosis', label: 'At diagnosis', color: '#3b82f6' },
-              { key: 'atDeath', label: 'At death', color: '#ef4444' },
+              { key: 'atDiagnosis', label: 'At diagnosis', color: '#2563eb' },
+              { key: 'atDeath', label: 'At death', color: '#db2777' },
             ]}
             xLabel="Age group"
             yLabel="Percent"

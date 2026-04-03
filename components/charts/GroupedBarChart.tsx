@@ -10,6 +10,7 @@ import {
   Legend,
   ResponsiveContainer,
 } from 'recharts';
+import { BC_PINK_BLUE_PALETTE } from '@/lib/breast-cancer-chart-colors';
 import WrappedXAxisTick, { LINE_HEIGHT } from './WrappedXAxisTick';
 
 interface SeriesConfig {
@@ -26,7 +27,7 @@ interface GroupedBarChartProps {
   yLabel?: string;
 }
 
-const DEFAULT_COLORS = ['#3b82f6', '#10b981', '#f59e0b', '#ef4444'];
+const DEFAULT_COLORS = [...BC_PINK_BLUE_PALETTE];
 
 export default function GroupedBarChart({
   data,

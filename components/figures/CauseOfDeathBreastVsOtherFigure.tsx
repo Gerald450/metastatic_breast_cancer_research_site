@@ -28,7 +28,7 @@ export default function CauseOfDeathBreastVsOtherFigure() {
             xKey="ageGroup"
             series={[
               { key: 'breast', label: 'Breast cancer', color: '#ec4899' },
-              { key: 'other', label: 'Other causes', color: '#94a3b8' },
+              { key: 'other', label: 'Other causes', color: '#3b82f6' },
             ]}
             xLabel="Age group"
             yLabel="Percent"

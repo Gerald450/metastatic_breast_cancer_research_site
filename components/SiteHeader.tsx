@@ -41,8 +41,8 @@ export default function SiteHeader() {
           md:px-3 md:py-1.5
           ${
             active
-              ? 'text-gray-900 dark:text-white md:bg-white md:shadow-sm dark:md:bg-gray-700'
-              : 'text-gray-600 hover:text-gray-900 hover:bg-gray-200/60 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-700/60 md:hover:bg-gray-200/80 dark:md:hover:bg-gray-700/50'
+              ? 'text-pink-900 dark:text-white md:bg-pink-50 md:shadow-sm md:ring-1 md:ring-pink-100 dark:md:bg-pink-950/35 dark:md:ring-pink-900/30'
+              : 'text-gray-600 hover:text-pink-800 hover:bg-pink-50/80 dark:text-gray-400 dark:hover:text-pink-200 dark:hover:bg-pink-950/20 md:hover:bg-pink-50/60 dark:md:hover:bg-pink-950/25'
           }
         `}
         onClick={() => setMobileMenuOpen(false)}
@@ -53,20 +53,20 @@ export default function SiteHeader() {
   };
 
   return (
-    <header className="sticky top-0 z-50 border-b border-gray-200/80 bg-white/80 dark:border-gray-800/80 dark:bg-gray-900/80 backdrop-blur-md supports-[backdrop-filter]:bg-white/90 dark:supports-[backdrop-filter]:bg-gray-900/90 shadow-sm">
+    <header className="sticky top-0 z-50 border-b border-pink-100/80 bg-white/85 dark:border-pink-950/30 dark:bg-gray-900/85 backdrop-blur-md supports-[backdrop-filter]:bg-white/92 dark:supports-[backdrop-filter]:bg-gray-900/92 shadow-sm">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex h-14 items-center justify-between md:h-16">
           <div className="flex items-center">
             <Link
               href="/"
-              className="text-lg font-semibold text-gray-900 dark:text-white hover:text-gray-600 dark:hover:text-gray-300 transition-colors duration-200 md:text-xl"
+              className="text-lg font-semibold text-pink-700 dark:text-pink-300 hover:text-pink-800 dark:hover:text-pink-200 transition-colors duration-200 md:text-xl"
             >
               MBC Research
             </Link>
           </div>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex md:items-center md:gap-0.5 md:rounded-lg md:bg-gray-100/80 dark:md:bg-gray-800/50 md:p-1">
+          <nav className="hidden md:flex md:items-center md:gap-0.5 md:rounded-lg md:bg-pink-50/70 dark:md:bg-gray-800/60 md:p-1 md:ring-1 md:ring-pink-100/60 dark:md:ring-pink-900/20">
             {navItems.map((item) => (
               <NavLink key={item.href} item={item} />
             ))}

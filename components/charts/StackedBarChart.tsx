@@ -10,6 +10,7 @@ import {
   Legend,
   ResponsiveContainer,
 } from 'recharts';
+import { BC_PINK_BLUE_PALETTE } from '@/lib/breast-cancer-chart-colors';
 import WrappedXAxisTick, { LINE_HEIGHT } from './WrappedXAxisTick';
 
 interface SeriesConfig {
@@ -18,16 +19,7 @@ interface SeriesConfig {
   color?: string;
 }
 
-const DEFAULT_STACK_COLORS = [
-  '#3b82f6', // blue
-  '#10b981', // emerald
-  '#f59e0b', // amber
-  '#ef4444', // red
-  '#8b5cf6', // violet
-  '#ec4899', // pink
-  '#06b6d4', // cyan
-  '#84cc16', // lime
-];
+const DEFAULT_STACK_COLORS = [...BC_PINK_BLUE_PALETTE];
 
 interface StackedBarChartProps {
   data: Record<string, unknown>[];

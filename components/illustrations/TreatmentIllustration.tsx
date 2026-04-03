@@ -4,7 +4,7 @@ export default function TreatmentIllustration() {
   return (
     <svg
       viewBox="0 0 120 100"
-      className="h-28 w-32 text-sky-400/70 dark:text-sky-500/50 sm:h-32 sm:w-36"
+      className="h-28 w-32 text-blue-400/70 dark:text-blue-500/50 sm:h-32 sm:w-36"
       aria-hidden
     >
       <defs>

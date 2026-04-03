@@ -6,19 +6,19 @@ type Theme = 'definition' | 'epidemiology' | 'demographics' | 'clinical' | 'publ
 
 const gradientClasses: Record<Theme, string> = {
   definition:
-    'bg-gradient-to-br from-slate-50 via-indigo-50/50 to-violet-50/50 dark:from-gray-800/80 dark:via-indigo-900/10 dark:to-violet-900/10',
+    'bg-gradient-to-br from-slate-50 via-pink-50/70 to-blue-50/50 dark:from-gray-800/80 dark:via-pink-950/20 dark:to-blue-950/15',
   epidemiology:
-    'bg-gradient-to-br from-slate-50 via-emerald-50/50 to-teal-50/50 dark:from-gray-800/80 dark:via-emerald-900/10 dark:to-teal-900/10',
+    'bg-gradient-to-br from-slate-50 via-pink-50/60 to-pink-100/40 dark:from-gray-800/80 dark:via-pink-950/25 dark:to-pink-900/10',
   demographics:
-    'bg-gradient-to-br from-slate-50 via-amber-50/50 to-orange-50/50 dark:from-gray-800/80 dark:via-amber-900/10 dark:to-orange-900/10',
+    'bg-gradient-to-br from-slate-50 via-blue-50/60 to-pink-50/40 dark:from-gray-800/80 dark:via-blue-950/20 dark:to-pink-950/15',
   clinical:
-    'bg-gradient-to-br from-slate-50 via-rose-50/50 to-pink-50/50 dark:from-gray-800/80 dark:via-rose-900/10 dark:to-pink-900/10',
+    'bg-gradient-to-br from-slate-50 via-rose-50/70 to-pink-100/50 dark:from-gray-800/80 dark:via-rose-950/25 dark:to-pink-900/15',
   'public-health':
-    'bg-gradient-to-br from-slate-50 via-cyan-50/50 to-blue-50/50 dark:from-gray-800/80 dark:via-cyan-900/10 dark:to-blue-900/10',
+    'bg-gradient-to-br from-slate-50 via-blue-50/70 to-sky-50/40 dark:from-gray-800/80 dark:via-blue-950/25 dark:to-sky-950/10',
   biology:
-    'bg-gradient-to-br from-slate-50 via-violet-50/50 to-fuchsia-50/50 dark:from-gray-800/80 dark:via-violet-900/10 dark:to-fuchsia-900/10',
+    'bg-gradient-to-br from-slate-50 via-pink-50/50 to-blue-50/60 dark:from-gray-800/80 dark:via-pink-950/15 dark:to-blue-950/20',
   treatment:
-    'bg-gradient-to-br from-slate-50 via-sky-50/50 to-blue-50/50 dark:from-gray-800/80 dark:via-sky-900/10 dark:to-blue-900/10',
+    'bg-gradient-to-br from-slate-50 via-blue-50/65 to-pink-50/45 dark:from-gray-800/80 dark:via-blue-950/22 dark:to-pink-950/12',
 };
 
 interface PageHeroProps {

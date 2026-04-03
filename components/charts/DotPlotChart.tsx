@@ -3,6 +3,7 @@
 import {
   BarChart,
   Bar,
+  Cell,
   XAxis,
   YAxis,
   CartesianGrid,
@@ -10,6 +11,7 @@ import {
   ResponsiveContainer,
   ReferenceLine,
 } from 'recharts';
+import { BC_PINK_BLUE_PALETTE } from '@/lib/breast-cancer-chart-colors';
 
 interface DotPlotChartProps {
   data: Record<string, unknown>[];
@@ -79,7 +81,14 @@ export default function DotPlotChart({
           labelStyle={{ color: '#111827', fontWeight: 600 }}
         />
         {showZeroLine && <ReferenceLine x={0} stroke="#6b7280" strokeDasharray="3 3" />}
-        <Bar dataKey={valueKey} radius={0} barSize={14} fill="#3b82f6" />
+        <Bar dataKey={valueKey} radius={0} barSize={14}>
+          {data.map((_, index) => (
+            <Cell
+              key={`dot-${index}`}
+              fill={BC_PINK_BLUE_PALETTE[index % BC_PINK_BLUE_PALETTE.length]}
+            />
+          ))}
+        </Bar>
       </BarChart>
     </ResponsiveContainer>
   );

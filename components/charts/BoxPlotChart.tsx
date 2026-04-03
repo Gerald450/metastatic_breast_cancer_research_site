@@ -1,5 +1,7 @@
 'use client';
 
+import { BC_PINK_BLUE_PALETTE } from '@/lib/breast-cancer-chart-colors';
+
 export interface BoxPlotDataPoint {
   category: string;
   min: number;
@@ -55,6 +57,8 @@ export default function BoxPlotChart({ data, xLabel, yLabel }: BoxPlotChartProps
           const boxLeft = cx - boxWidth / 2;
           const boxRight = cx + boxWidth / 2;
 
+          const fill = BC_PINK_BLUE_PALETTE[i % BC_PINK_BLUE_PALETTE.length];
+          const stroke = fill;
           return (
             <g key={d.category}>
               <title>{`${d.category}: Min ${d.min}, Q1 ${d.q1}, Median ${d.median}, Q3 ${d.q3}, Max ${d.max}`}</title>
@@ -67,13 +71,13 @@ export default function BoxPlotChart({ data, xLabel, yLabel }: BoxPlotChartProps
                 y={yQ3}
                 width={boxWidth}
                 height={yQ1 - yQ3}
-                fill="#3b82f6"
-                fillOpacity={0.6}
-                stroke="#2563eb"
+                fill={fill}
+                fillOpacity={0.55}
+                stroke={stroke}
                 strokeWidth={1}
               />
               {/* Median line */}
-              <line x1={boxLeft} y1={yMed} x2={boxRight} y2={yMed} stroke="#1d4ed8" strokeWidth={2} />
+              <line x1={boxLeft} y1={yMed} x2={boxRight} y2={yMed} stroke={stroke} strokeWidth={2} strokeOpacity={0.95} />
               {/* Whisker: q3 to max */}
               <line x1={cx} y1={yQ3} x2={cx} y2={yMax} stroke="#6b7280" strokeWidth={1} />
               <line x1={boxLeft} y1={yMax} x2={boxRight} y2={yMax} stroke="#6b7280" strokeWidth={1} />
