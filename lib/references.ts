@@ -37,7 +37,11 @@ export function getPdfUrl(ref: Reference): string | undefined {
   if (!filename) return undefined;
   const base = typeof process !== 'undefined' ? process.env.NEXT_PUBLIC_SUPABASE_URL : undefined;
   if (base) {
-    return `${base}/storage/v1/object/public/${STORAGE_BUCKET}/${encodeURIComponent(filename)}`;
+    const encoded = filename
+      .split('/')
+      .map((segment) => encodeURIComponent(segment))
+      .join('/');
+    return `${base}/storage/v1/object/public/${STORAGE_BUCKET}/${encoded}`;
   }
   return ref.localUrl;
 }
@@ -515,8 +519,8 @@ export const references: Reference[] = [
     authors: undefined,
     year: undefined,
     journal: undefined,
-    filename: 'Angiogenesis, Hypoxia, and Metastatic Escape- The Role of VEGF Signaling….pdf',
-    localUrl: '/pdfs/Biology/Angiogenesis, Hypoxia, and Metastatic Escape- The Role of VEGF Signaling….pdf',
+    filename: 'Angiogenesis_Hypoxia_and_Metastatic_Escape.pdf',
+    localUrl: '/pdfs/Angiogenesis_Hypoxia_and_Metastatic_Escape.pdf',
     doi: null,
     usedFor: ['biology'],
     highlightNotes: [
@@ -531,8 +535,8 @@ export const references: Reference[] = [
     authors: undefined,
     year: undefined,
     journal: undefined,
-    filename: 'EM Plasticity in Cancer Metastasis-1.pdf',
-    localUrl: '/pdfs/Biology/EM Plasticity in Cancer Metastasis-1.pdf',
+    filename: 'EM_Plasticity_in_Cancer_Metastasis-1.pdf',
+    localUrl: '/pdfs/EM_Plasticity_in_Cancer_Metastasis-1.pdf',
     doi: null,
     usedFor: ['biology'],
     highlightNotes: [
@@ -547,8 +551,8 @@ export const references: Reference[] = [
     authors: undefined,
     year: undefined,
     journal: undefined,
-    filename: 'Extracellular Matrix Remodeling in Cancer- Roles of ECM Stiffness….pdf',
-    localUrl: '/pdfs/Biology/Extracellular Matrix Remodeling in Cancer- Roles of ECM Stiffness….pdf',
+    filename: 'Extracellular_Matrix.pdf',
+    localUrl: '/pdfs/Extracellular_Matrix.pdf',
     doi: null,
     usedFor: ['biology'],
     highlightNotes: [
@@ -563,8 +567,8 @@ export const references: Reference[] = [
     authors: undefined,
     year: undefined,
     journal: undefined,
-    filename: 'Genomic Alterations and Metastatic Drivers- The Role of Key Mutations….pdf',
-    localUrl: '/pdfs/Biology/Genomic Alterations and Metastatic Drivers- The Role of Key Mutations….pdf',
+    filename: 'Genomic_Alterations.pdf',
+    localUrl: '/pdfs/Genomic_Alterations.pdf',
     doi: null,
     usedFor: ['biology'],
     highlightNotes: [
@@ -579,8 +583,8 @@ export const references: Reference[] = [
     authors: undefined,
     year: undefined,
     journal: undefined,
-    filename: 'Interactions with Stromal Cells in the Tumor Microenvironment- Fibroblasts….pdf',
-    localUrl: '/pdfs/Biology/Interactions with Stromal Cells in the Tumor Microenvironment- Fibroblasts….pdf',
+    filename: 'Interactions_with_Stromal.pdf',
+    localUrl: '/pdfs/Interactions_with_Stromal.pdf',
     doi: null,
     usedFor: ['biology'],
     highlightNotes: [
@@ -594,8 +598,8 @@ export const references: Reference[] = [
     authors: undefined,
     year: undefined,
     journal: undefined,
-    filename: 'Stemness and Tumor-Initiating Cells- Roles of Cancer Stem Cells and….pdf',
-    localUrl: '/pdfs/Biology/Stemness and Tumor-Initiating Cells- Roles of Cancer Stem Cells and….pdf',
+    filename: 'Stemness_and_Tumor.pdf',
+    localUrl: '/pdfs/Stemness_and_Tumor.pdf',
     doi: null,
     usedFor: ['biology'],
     highlightNotes: [

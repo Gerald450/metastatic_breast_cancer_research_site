@@ -1,10 +1,10 @@
 import Section from '@/components/Section';
 import ReferenceList from '@/components/ReferenceList';
-import TabSummary from '@/components/TabSummary';
 import CitationCallout from '@/components/CitationCallout';
 import { references } from '@/lib/references';
 import PageHero from '@/components/PageHero';
 import PublicHealthIllustration from '@/components/illustrations/PublicHealthIllustration';
+import TopicDashboardTop from '@/components/insights/TopicDashboardTop';
 import SurvivorshipBurdenFigure from '@/components/figures/SurvivorshipBurdenFigure';
 import StateLevelBreastCancerMortalityFigure from '@/components/figures/StateLevelBreastCancerMortalityFigure';
 import BreastCancerMortalityHeatMapFigure from '@/components/figures/BreastCancerMortalityHeatMapFigure';
@@ -19,11 +19,45 @@ export default function PublicHealthPage() {
           theme="public-health"
           illustration={<PublicHealthIllustration />}
         />
-        <TabSummary section="public-health" />
+        <TopicDashboardTop
+          title="Public Health"
+          subtitle="A dashboard view of prevalence burden, mortality patterns, and public health levers."
+          section="public-health"
+          dataAnchorId="ph-data"
+          insights={[
+            {
+              lead: 'Prevalence burden',
+              headline:
+                'Improved survival increases the number of people living with metastatic breast cancer; projections suggest ongoing growth.',
+              sources: [
+                { kind: 'ref', id: 'ref-011', href: '/references#ref-011' },
+                { kind: 'ref', id: 'ref-002', href: '/references#ref-002' },
+              ],
+            },
+            {
+              lead: 'Mortality landscape',
+              headline:
+                'Mortality rates vary by geography and time, informing where public health efforts may have the largest impact.',
+              sources: [
+                { kind: 'data', id: 'nci-seer', label: 'SEER (NCI)', href: 'https://seer.cancer.gov/' },
+              ],
+            },
+            {
+              lead: 'Detection and prevention',
+              headline:
+                'Evidence on screening/monitoring strategies and prevention approaches motivates earlier detection of metastasis-prone disease.',
+              sources: [
+                { kind: 'ref', id: 'ref-015', href: '/references#ref-015' },
+                { kind: 'ref', id: 'ref-017', href: '/references#ref-017' },
+              ],
+            },
+          ]}
+        />
       </div>
 
       {/* Story: Burden → Mortality landscape → Cause of death → Screening/Prevention/Resources */}
       <Section
+        id="ph-data"
         title="Population burden"
         subtitle="How many people live with MBC—and why the number is growing"
         className="section-alt"

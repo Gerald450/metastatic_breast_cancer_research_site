@@ -1,8 +1,8 @@
 import Section from '@/components/Section';
 import CitationCallout from '@/components/CitationCallout';
 import ReferenceList from '@/components/ReferenceList';
-import TabSummary from '@/components/TabSummary';
 import { references } from '@/lib/references';
+import { ONLINE_SOURCES } from '@/lib/online-sources';
 import MetastaticSiteOutcomesFigure from '@/components/figures/MetastaticSiteOutcomesFigure';
 import SurvivalTrendsFigure from '@/components/figures/SurvivalTrendsFigure';
 import SEERSurvivalByStageFigure from '@/components/figures/SEERSurvivalByStageFigure';
@@ -15,6 +15,7 @@ import SurvivalByYearAndSubtypeFigure from '@/components/figures/SurvivalByYearA
 import PageHero from '@/components/PageHero';
 import ClinicalIllustration from '@/components/illustrations/ClinicalIllustration';
 import ProgressionPathwayDiagram from '@/components/figures/ProgressionPathwayDiagram';
+import TopicDashboardTop from '@/components/insights/TopicDashboardTop';
 export default function ClinicalOutcomesPage() {
   return (
     <div className="py-12">
@@ -24,7 +25,48 @@ export default function ClinicalOutcomesPage() {
           theme="clinical"
           illustration={<ClinicalIllustration />}
         />
-        <TabSummary section="clinical-outcomes" />
+        <TopicDashboardTop
+          title="Clinical Outcomes"
+          subtitle="A dashboard view of survival, heterogeneity, and outcome differences by site and subtype."
+          section="clinical-outcomes"
+          dataAnchorId="survival"
+          insights={[
+            {
+              lead: 'Prognosis by stage',
+              headline:
+                'Stage strongly predicts survival; subtype further modifies prognosis in distant-stage disease.',
+              sources: [
+                { kind: 'ref', id: 'ref-001', href: '/references#ref-001' },
+                { kind: 'ref', id: 'ref-002', href: '/references#ref-002' },
+                {
+                  kind: 'data',
+                  id: ONLINE_SOURCES.SEER_VERIFIED.id,
+                  label: ONLINE_SOURCES.SEER_VERIFIED.name,
+                  href: ONLINE_SOURCES.SEER_VERIFIED.url,
+                },
+              ],
+            },
+            {
+              lead: 'Improvement over time',
+              headline:
+                'Median survival has increased across study populations over time, consistent with treatment advances.',
+              sources: [
+                { kind: 'ref', id: 'ref-001', href: '/references#ref-001' },
+                { kind: 'ref', id: 'ref-002', href: '/references#ref-002' },
+                { kind: 'ref', id: 'ref-004', href: '/references#ref-004' },
+              ],
+            },
+            {
+              lead: 'Heterogeneity',
+              headline:
+                'Outcomes vary substantially by metastatic site and tumor subtype; distributions matter more than single averages.',
+              sources: [
+                { kind: 'ref', id: 'ref-006', href: '/references#ref-006' },
+                { kind: 'ref', id: 'ref-007', href: '/references#ref-007' },
+              ],
+            },
+          ]}
+        />
       </div>
 
       {/* Story: Baseline → Improvement → Heterogeneity → Progression → Site outcomes → Treatment response */}

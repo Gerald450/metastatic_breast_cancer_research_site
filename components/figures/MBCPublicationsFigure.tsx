@@ -118,11 +118,11 @@ export default function MBCPublicationsFigure() {
                       rel="noopener noreferrer"
                       className="group flex gap-2.5 px-3 py-2.5 transition-colors hover:bg-white hover:shadow-sm dark:hover:bg-gray-800/60 dark:hover:shadow-none"
                     >
-                      <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded bg-emerald-100 text-xs font-semibold text-emerald-700 dark:bg-emerald-900/50 dark:text-emerald-300">
+                      <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded bg-[color:var(--accent-soft)] text-xs font-semibold text-[color:var(--accent-hover)] dark:bg-[color:var(--accent-soft)] dark:text-[color:var(--accent)]">
                         {index + 1}
                       </span>
                       <div className="min-w-0 flex-1">
-                        <p className="font-medium text-gray-900 dark:text-white group-hover:text-emerald-700 dark:group-hover:text-emerald-400 line-clamp-2">
+                        <p className="font-medium text-gray-900 dark:text-white group-hover:text-[color:var(--accent-hover)] dark:group-hover:text-[color:var(--accent)] line-clamp-2">
                           {p.title ?? 'Untitled'}
                         </p>
                         <div className="mt-1 flex flex-wrap items-center gap-x-2 gap-y-0.5 text-xs text-gray-500 dark:text-gray-400">
@@ -135,7 +135,13 @@ export default function MBCPublicationsFigure() {
                           {authors && <span className="italic">{authors}</span>}
                         </div>
                       </div>
-                      <svg className="mt-1 h-4 w-4 shrink-0 text-gray-400 group-hover:text-emerald-600 dark:group-hover:text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden>
+                      <svg
+                        className="mt-1 h-4 w-4 shrink-0 text-gray-400 group-hover:text-[color:var(--accent-hover)] dark:group-hover:text-[color:var(--accent)]"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                        aria-hidden
+                      >
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
                       </svg>
                     </a>
@@ -146,7 +152,11 @@ export default function MBCPublicationsFigure() {
           </div>
           <div className="flex items-center justify-between rounded-lg bg-gray-100/80 px-3 py-2 text-xs text-gray-600 dark:bg-gray-800/50 dark:text-gray-400">
             <span>Showing {publications.length} publications{hasMore ? '+' : ''} · scroll for more</span>
-            {loadingMore && <span className="font-medium text-emerald-600 dark:text-emerald-400">Loading more…</span>}
+            {loadingMore && (
+              <span className="font-medium text-[color:var(--accent-hover)] dark:text-[color:var(--accent)]">
+                Loading more…
+              </span>
+            )}
           </div>
         </div>
       ) : (

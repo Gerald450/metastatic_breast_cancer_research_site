@@ -1,11 +1,11 @@
 import Section from '@/components/Section';
 import ReferenceList from '@/components/ReferenceList';
-import TabSummary from '@/components/TabSummary';
 import CitationCallout from '@/components/CitationCallout';
 import { references } from '@/lib/references';
 import { ONLINE_SOURCES } from '@/lib/online-sources';
 import PageHero from '@/components/PageHero';
 import EpidemiologyIllustration from '@/components/illustrations/EpidemiologyIllustration';
+import TopicDashboardTop from '@/components/insights/TopicDashboardTop';
 import MBCSurvivalOverTimeFigure from '@/components/figures/MBCSurvivalOverTimeFigure';
 import MBCSurvivorshipPopulationGrowthFigure from '@/components/figures/MBCSurvivorshipPopulationGrowthFigure';
 import BreastCancerMortalityRatesFigure from '@/components/figures/BreastCancerMortalityRatesFigure';
@@ -27,11 +27,47 @@ export default function EpidemiologyPage() {
           theme="epidemiology"
           illustration={<EpidemiologyIllustration />}
         />
-        <TabSummary section="epidemiology" />
+        <TopicDashboardTop
+          title="Epidemiology"
+          subtitle="A dashboard view of population burden, incidence, and time trends—tied to SEER and key studies."
+          section="epidemiology"
+          dataAnchorId="epi-data"
+          insights={[
+            {
+              lead: 'Population burden',
+              headline:
+                'Population-based studies report growth in the number of people living with metastatic breast cancer, consistent with improved survival.',
+              sources: [
+                { kind: 'ref', id: 'ref-002', href: '/references#ref-002' },
+                { kind: 'ref', id: 'ref-011', href: '/references#ref-011' },
+                { kind: 'data', id: seerSource.id, label: seerSource.name, href: seerSource.url },
+              ],
+            },
+            {
+              lead: 'Incidence and stage',
+              headline:
+                'A subset of breast cancers present as de novo stage IV at diagnosis; subtype composition influences presentation patterns.',
+              sources: [
+                { kind: 'data', id: seerBreastSource.id, label: seerBreastSource.name, href: seerBreastSource.url },
+              ],
+            },
+            {
+              lead: 'Trends over time',
+              headline:
+                'Breast cancer mortality has declined over recent decades; incidence trends vary by age and race across time.',
+              sources: [
+                { kind: 'ref', id: 'ref-001', href: '/references#ref-001' },
+                { kind: 'ref', id: 'ref-004', href: '/references#ref-004' },
+                { kind: 'data', id: seerSource.id, label: seerSource.name, href: seerSource.url },
+              ],
+            },
+          ]}
+        />
       </div>
 
       {/* Story: Scale of MBC → New cases → Trends over time → Risk factors */}
       <Section
+        id="epi-data"
         title="The growing MBC population"
         subtitle="More people are living with metastatic breast cancer due to improved survival"
         className="section-alt"

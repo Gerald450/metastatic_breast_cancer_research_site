@@ -1,5 +1,6 @@
 import { references } from '@/lib/references';
 import { ONLINE_SOURCES } from '@/lib/online-sources';
+import InsightCard, { type InsightSourceTag } from '@/components/insights/InsightCard';
 
 interface CitationCalloutProps {
   // New format
@@ -23,13 +24,17 @@ export default function CitationCallout({
   // Legacy format support
   if (citation && !claim) {
     return (
-      <div className="my-6 rounded-xl border-l-4 border-pink-500 bg-pink-50/90 p-4 transition-shadow duration-200 dark:border-pink-400 dark:bg-pink-950/25">
-        <div className="text-base text-gray-700 dark:text-gray-300">{children}</div>
-        {citation && (
-          <div className="mt-2 text-sm leading-relaxed text-gray-600 dark:text-gray-400">
-            <em>— {citation}</em>
-          </div>
-        )}
+      <div className="my-6">
+        <InsightCard
+          lead="Citation"
+          headline={citation}
+          severity="neutral"
+          defaultExpanded={false}
+        >
+          {children ? (
+            <div className="text-sm text-gray-700 dark:text-gray-300">{children}</div>
+          ) : null}
+        </InsightCard>
       </div>
     );
   }
@@ -48,59 +53,36 @@ export default function CitationCallout({
     .map((id) => Object.values(ONLINE_SOURCES).find((s) => s.id === id))
     .filter(Boolean);
 
+  const insightSources: InsightSourceTag[] = [
+    ...(sourceRefs.map((ref) => ({
+      kind: 'ref' as const,
+      id: ref!.id,
+      href: `/references#${ref!.id}`,
+    })) ?? []),
+    ...(onlineRefs.map((src) => ({
+      kind: 'data' as const,
+      id: src!.id,
+      label: src!.name,
+      href: src!.url,
+    })) ?? []),
+  ];
+
+  const detailLines: string[] = [];
+  if (pageRanges) detailLines.push(`Pages: ${pageRanges}`);
+  if (hasRefSources) detailLines.push('Verify in PDF');
+
   return (
-    <div className="my-6 rounded-xl border-l-4 border-pink-500 bg-pink-50/90 p-4 transition-shadow duration-200 dark:border-pink-400 dark:bg-pink-950/25">
-      <div className="text-base text-gray-700 dark:text-gray-300">
-        <p className="font-medium leading-relaxed">{claim}</p>
-        {children && <div className="mt-2">{children}</div>}
-      </div>
-      <div className="mt-3 space-y-1 text-sm text-gray-700 dark:text-gray-300">
-        {sourceRefs.length > 0 && (
-          <div>
-            <span className="font-medium">Sources:</span>{' '}
-            {sourceRefs.map((ref, idx) => (
-              <span key={ref!.id}>
-                {idx > 0 && ', '}
-                <a
-                  href={`#${ref!.id}`}
-                  className="font-medium text-blue-600 hover:text-blue-800 underline dark:text-blue-400 dark:hover:text-blue-300"
-                >
-                  {ref!.id}
-                </a>{' '}
-                ({ref!.title})
-              </span>
-            ))}
-          </div>
-        )}
-        {onlineRefs.length > 0 && (
-          <div>
-            <span className="font-medium">{sourceRefs.length > 0 ? 'Online:' : 'Sources:'}</span>{' '}
-            {onlineRefs.map((src, idx) => (
-              <span key={src!.id}>
-                {idx > 0 && ', '}
-                <a
-                  href={src!.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="font-medium text-blue-600 hover:text-blue-800 underline dark:text-blue-400 dark:hover:text-blue-300"
-                >
-                  {src!.name}
-                </a>
-              </span>
-            ))}
-          </div>
-        )}
-        {pageRanges && (
-          <div>
-            <span className="font-medium">Pages:</span> {pageRanges}
-          </div>
-        )}
-        {hasRefSources && (
-          <div className="mt-2 text-xs italic text-gray-600 dark:text-gray-400">
-            Verify in PDF
-          </div>
-        )}
-      </div>
+    <div className="my-6">
+      <InsightCard
+        lead="Key insight"
+        headline={claim}
+        severity="attention"
+        sources={insightSources}
+        defaultExpanded={false}
+        detail={detailLines.length > 0 ? detailLines.join(' • ') : undefined}
+      >
+        {children ? <div className="text-sm text-gray-700 dark:text-gray-300">{children}</div> : null}
+      </InsightCard>
     </div>
   );
 }

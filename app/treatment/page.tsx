@@ -1,12 +1,13 @@
 import Section from '@/components/Section';
 import Placeholder from '@/components/Placeholder';
 import VisualPlaceholder from '@/components/VisualPlaceholder';
-import TabSummary from '@/components/TabSummary';
 import ReferenceList from '@/components/ReferenceList';
 import { references } from '@/lib/references';
 import PageHero from '@/components/PageHero';
 import TreatmentIllustration from '@/components/illustrations/TreatmentIllustration';
 import MBCDrugsFigure from '@/components/figures/MBCDrugsFigure';
+import TopicDashboardTop from '@/components/insights/TopicDashboardTop';
+import { ONLINE_SOURCES } from '@/lib/online-sources';
 
 export default function TreatmentPage() {
   return (
@@ -17,7 +18,42 @@ export default function TreatmentPage() {
           theme="treatment"
           illustration={<TreatmentIllustration />}
         />
-        <TabSummary section="treatment" />
+        <TopicDashboardTop
+          title="Treatment"
+          subtitle="A dashboard view of available therapies and the evidence pipeline behind this section."
+          section="treatment"
+          dataAnchorId="fda-approved-drugs"
+          insights={[
+            {
+              lead: 'Therapy landscape',
+              headline:
+                'Treatment spans systemic therapy, targeted therapy, and supportive care; this section is being expanded with evidence-linked summaries.',
+              sources: [
+                { kind: 'ref', id: 'ref-006', href: '/references#ref-006' },
+                { kind: 'ref', id: 'ref-007', href: '/references#ref-007' },
+              ],
+            },
+            {
+              lead: 'FDA-approved drugs',
+              headline:
+                'Drug listings and labels are sourced from OpenFDA for breast cancer indications.',
+              sources: [
+                {
+                  kind: 'data',
+                  id: ONLINE_SOURCES.OPENFDA.id,
+                  label: ONLINE_SOURCES.OPENFDA.name,
+                  href: ONLINE_SOURCES.OPENFDA.url,
+                },
+              ],
+            },
+            {
+              lead: 'Decision frameworks',
+              headline:
+                'Sequencing and modality guidance will be tied to clinical outcomes evidence and guideline sources as the section matures.',
+              sources: [{ kind: 'ref', id: 'ref-006', href: '/references#ref-006' }],
+            },
+          ]}
+        />
       </div>
 
       {/* FDA-approved drugs first so they are easy to find */}

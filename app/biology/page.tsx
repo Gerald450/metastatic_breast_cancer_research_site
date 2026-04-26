@@ -1,10 +1,10 @@
 import Section from '@/components/Section';
-import TabSummary from '@/components/TabSummary';
 import ReferenceList from '@/components/ReferenceList';
 import CitationCallout from '@/components/CitationCallout';
 import { references } from '@/lib/references';
 import PageHero from '@/components/PageHero';
 import BiologyIllustration from '@/components/illustrations/BiologyIllustration';
+import TopicDashboardTop from '@/components/insights/TopicDashboardTop';
 import CollapsibleBiologyBlock from '@/components/biology/CollapsibleBiologyBlock';
 import HypoxiaDrivenEscapeSteps from '@/components/biology/HypoxiaDrivenEscapeSteps';
 import CscPathwayGrid from '@/components/biology/CscPathwayGrid';
@@ -23,7 +23,38 @@ export default function BiologyPage() {
           theme="biology"
           illustration={<BiologyIllustration />}
         />
-        <TabSummary section="biology" />
+        <TopicDashboardTop
+          title="Biology"
+          subtitle="A dashboard view of mechanisms: dissemination, microenvironment, and evolution—each tied to key sources."
+          section="biology"
+          dataAnchorId="ctc-cascade"
+          insights={[
+            {
+              lead: 'Dissemination mechanics',
+              headline:
+                'CTCs face mechanical and immune constraints; only a minority complete the metastatic cascade.',
+              sources: [{ kind: 'ref', id: 'ref-014', href: '/references#ref-014' }],
+            },
+            {
+              lead: 'Plasticity programs',
+              headline:
+                'Epithelial–mesenchymal plasticity (EMT/MET and hybrid states) is implicated in invasion and adaptation, with context-dependent roles.',
+              sources: [
+                { kind: 'ref', id: 'ref-018', href: '/references#ref-018' },
+                { kind: 'ref', id: 'ref-021', href: '/references#ref-021' },
+              ],
+            },
+            {
+              lead: 'Evolution & resistance',
+              headline:
+                'Clonal evolution and microenvironmental pressures contribute to heterogeneity and resistance in metastatic disease.',
+              sources: [
+                { kind: 'ref', id: 'ref-012', href: '/references#ref-012' },
+                { kind: 'ref', id: 'ref-023', href: '/references#ref-023' },
+              ],
+            },
+          ]}
+        />
       </div>
 
       <Section
