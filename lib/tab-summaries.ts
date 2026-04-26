@@ -43,8 +43,20 @@ const summaries: Record<SiteSection, TabSummaryEntry> = {
   },
   biology: {
     summary:
-      'Circulating tumor cells (CTCs) as drivers of metastasis, epithelial–mesenchymal plasticity (EMP) and hybrid E/M phenotypes, EMT signaling (TGF-β, Wnt, Notch) and metastatic plasticity, physical biology (stiffness, shear stress, mechanical trapping), molecular heterogeneity revealed by scRNA-seq, circadian and sleep-associated regulation of dissemination, and implications for resistance and treatment. Draws on ref-014 (CTC biology), ref-017 (omic approaches), ref-018 (EM plasticity), ref-019 (EMT signaling and metastatic plasticity), and Thompson et al. (ref-012) for progression and dormancy.',
-    sourceRefIds: ['ref-012', 'ref-014', 'ref-017', 'ref-018', 'ref-019'],
+      'Circulating tumor cells (CTCs) and the metastatic cascade; hypoxia, HIF, and VEGF-mediated angiogenesis and escape; biophysical and ECM-mediated invasion (stiffness, integrins, MMPs) alongside CTC physical biology; the tumor microenvironment (CAF and immune crosstalk, immunosuppressive niches); epithelial–mesenchymal plasticity with in vivo and MET–colonization context (synthesis); molecular heterogeneity and single-cell views; cancer stem cell pathways (Notch, Wnt, Hedgehog); circadian and sleep-associated dissemination; clonal and genomic drivers (e.g. TP53, PIK3CA, instability) with Thompson et al. (ref-012) on research gaps, dormancy, and evolution.',
+    sourceRefIds: [
+      'ref-012',
+      'ref-014',
+      'ref-017',
+      'ref-018',
+      'ref-019',
+      'ref-020',
+      'ref-021',
+      'ref-022',
+      'ref-023',
+      'ref-024',
+      'ref-025',
+    ],
   },
   treatment: {
     summary:

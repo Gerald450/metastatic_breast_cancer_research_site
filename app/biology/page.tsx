@@ -1,11 +1,18 @@
 import Section from '@/components/Section';
-import Placeholder from '@/components/Placeholder';
 import TabSummary from '@/components/TabSummary';
 import ReferenceList from '@/components/ReferenceList';
 import CitationCallout from '@/components/CitationCallout';
 import { references } from '@/lib/references';
 import PageHero from '@/components/PageHero';
 import BiologyIllustration from '@/components/illustrations/BiologyIllustration';
+import CollapsibleBiologyBlock from '@/components/biology/CollapsibleBiologyBlock';
+import HypoxiaDrivenEscapeSteps from '@/components/biology/HypoxiaDrivenEscapeSteps';
+import CscPathwayGrid from '@/components/biology/CscPathwayGrid';
+import HifVegfAxisFigure from '@/components/figures/HifVegfAxisFigure';
+import EcmInvasionLoopFigure from '@/components/figures/EcmInvasionLoopFigure';
+import TmeStromalNicheFigure from '@/components/figures/TmeStromalNicheFigure';
+import GenomicClonalSchematicFigure from '@/components/figures/GenomicClonalSchematicFigure';
+import MolecularHeterogeneityLandscape from '@/components/figures/MolecularHeterogeneityLandscape';
 
 export default function BiologyPage() {
   return (
@@ -19,54 +26,60 @@ export default function BiologyPage() {
         <TabSummary section="biology" />
       </div>
 
-      {/* Story: How does metastasis work? CTCs → Physical forces → Molecular diversity → Circadian → Evolution → Resistance */}
       <Section
+        id="ctc-cascade"
         title="Circulating tumor cells and the metastatic cascade"
         subtitle="How tumor cells leave the primary site, survive circulation, and colonize distant organs"
       >
         <div className="space-y-6">
           <p>
-            Metastatic breast cancer (MBC) remains the primary cause of breast cancer–related
-            mortality, largely due to its complex, multistep dissemination process and resistance
-            to conventional therapies. Central to metastasis is the behavior of circulating tumor
-            cells (CTCs)—tumor cells that detach from the primary tumor, survive mechanical and
-            immune stresses in circulation, and colonize distant organs.
+            Metastatic breast cancer (MBC) remains a leading cause of breast cancer–related
+            mortality, largely due to the multistep nature of dissemination and the evolution of
+            therapy-resistant phenotypes. Circulating tumor cells (CTCs)—cells shed from the
+            primary or metastatic sites that survive the vasculature—are central to understanding
+            how disease becomes systemic.
           </p>
           <CitationCallout
-            claim="Although millions of tumor cells may enter circulation daily, only a small fraction survive to form secondary lesions. CTCs must endure shear stress, immune surveillance, and oxidative damage while retaining the capacity for extravasation and colonization."
+            claim="Although many tumor cells may enter circulation, only a minority complete the cascade; CTCs face shear stress, immune attack, and oxidative damage while retaining capacity for extravasation and organ colonization."
             sources={['ref-014']}
           />
           <p>
-            These constraints favor phenotypically plastic cells capable of rapid mechanical
-            adaptation and transient epithelial–mesenchymal transition (EMT). Notably, CTCs are
-            not a homogeneous population. Clusters of CTCs, rather than single cells, exhibit
-            markedly higher metastatic potential, partly due to enhanced survival signaling and
-            protection from shear forces. In breast cancer, clustered CTCs often retain partial
-            epithelial characteristics, challenging the assumption that complete EMT is required
-            for metastasis—a hybrid phenotype that enables both motility and intercellular
-            adhesion.
+            CTCs are not uniform: clusters can show greater metastatic potential than single cells,
+            and hybrid epithelial / mesenchymal phenotypes support both motility and cohesion. These
+            observations sit within a broader framework of epithelial–mesenchymal plasticity
+            (EMP), where cells move between states along a spectrum rather than as a simple
+            on–off switch.
           </p>
           <CitationCallout
-            claim="Epithelial–mesenchymal plasticity (EMP) is the ability of cancer cells to transition between epithelial and mesenchymal states—both EMT and its reverse, MET. Cells often occupy intermediate, hybrid E/M states rather than being purely epithelial or mesenchymal; these hybrid phenotypes can exhibit higher metastatic and tumor-initiating potential than either extreme."
-            sources={['ref-018']}
+            claim="EMP encompasses both EMT and mesenchymal–epithelial transition (MET). Hybrid E/M states can carry high metastatic and tumor-initiating potential; partial EMT is linked to collective invasion, whereas more mesenchymal programs can favor single-cell dissemination—context and timing matter."
+            sources={['ref-018', 'ref-021']}
           />
           <p>
-            Partial EMT (hybrid states) is associated with collective invasion and is enriched in
-            lung metastases, whereas fully mesenchymal cells tend to invade as single cells.
-            Plasticity of these intermediate states drives phenotypic heterogeneity and disease
-            progression in breast cancer and contributes to therapy resistance across carcinomas.
+            EMT is regulated by conserved pathways (for example TGF-β, Wnt, and Notch) that can be
+            co-opted in malignancy. The EMT–MET idea—that cells may transiently lose epithelial
+            traits to travel and re-acquire them to grow at a secondary site—connects to how CTCs
+            and macrometastases are studied in the clinic and in single-cell data.
           </p>
           <CitationCallout
-            claim="EMT is driven by conserved signaling pathways—including TGF-β, Wnt, and Notch—that promote loss of epithelial identity and gain of migratory, invasive traits. This signaling axis supports metastatic plasticity: the capacity to switch phenotypes in response to microenvironmental cues, enabling dissemination, survival in circulation, and reversion toward an epithelial state (MET) at distant sites for colonization."
+            claim="EMT programs are driven in part by TGF-β, Wnt, and Notch; plasticity between states supports adaptation in circulation, at secondary sites, and under treatment pressure."
             sources={['ref-019']}
           />
-          <p>
-            The EMT–MET cycle is central to the metastatic cascade: cells may undergo MET at
-            secondary sites to form cohesive metastases, and plasticity between states allows
-            tumors to adapt to therapy and hostile microenvironments. In breast cancer, targeting
-            EMT signaling or stabilizing epithelial identity is an active area of therapeutic
-            research.
-          </p>
+          <CollapsibleBiologyBlock title="In vivo evidence, MET, and why “EMT only” is incomplete">
+            <p>
+              Lineage-tracing in mouse models supports that EMT-like programs occur during
+              spontaneous progression; EMT-like cells can be enriched at invasive edges and among
+              CTCs, yet the fraction in “full” EMT is often small—partial or transient states may
+              suffice. Genetic loss of specific EMT transcription factors has{' '}
+              <em>context-specific</em> effects across tumor types, complicating a single rule for
+              all breast cancers. Metastatic deposits often re-express epithelial markers, aligning
+              with a model in which effective colonization and outgrowth may require epithelial
+              characteristics or MET, not permanent mesenchymal locking.
+            </p>
+            <p className="mt-3 text-sm text-gray-600 dark:text-gray-400">
+              Synthesized in ref-021; also see ref-018 and ref-019 for mechanistic and signaling
+              context.
+            </p>
+          </CollapsibleBiologyBlock>
           <figure className="my-8">
             <div className="rounded-lg border border-gray-200 bg-gray-50/50 p-6 dark:border-gray-700 dark:bg-gray-800/30">
               <img
@@ -75,7 +88,8 @@ export default function BiologyPage() {
                 className="max-h-[min(70vh,560px)] w-full max-w-full rounded-lg object-contain"
               />
               <p className="mt-4 text-center text-sm italic text-gray-500 dark:text-gray-400">
-                Metastatic cascade: from primary tumor detachment through circulation, extravasation, and colonization of distant sites. AI-generated illustration.
+                Metastatic cascade: from primary tumor detachment through circulation,
+                extravasation, and colonization of distant sites. AI-generated illustration.
               </p>
             </div>
           </figure>
@@ -83,114 +97,203 @@ export default function BiologyPage() {
       </Section>
 
       <Section
+        id="hypoxia-hif-vegf"
+        title="Hypoxia, HIF, and VEGF-driven angiogenesis"
+        subtitle="Oxygen sensing, neovascularization, and how tumors exploit vascular dysfunction to support escape"
+        className="section-alt"
+      >
+        <div className="space-y-6">
+          <p>
+            As solid tumors outgrow their blood supply, hypoxia becomes an active driver of
+            reprogramming—not merely a passive stress. Hypoxia-inducible factors (HIFs), especially
+            HIF-α together with HIF-β, orchestrate responses to low oxygen, including
+            pro-angiogenic and survival programs; under normoxia, HIF-α is typically hydroxylated
+            and degraded via the VHL pathway, whereas in hypoxia, stabilized HIF-α drives
+            hypoxia-response element (HRE)–mediated transcription.
+          </p>
+          <CitationCallout
+            claim="VEGF is a key HIF-inducible, secreted factor: it promotes endothelial proliferation, migration, and permeability, contributing to the abnormal tumor vasculature that can both support perfusion and facilitate transendothelial escape."
+            sources={['ref-020']}
+          />
+          <p>
+            Dysfunctional angiogenesis can perpetuate hypoxia, selecting for more aggressive
+            behavior; hypoxia, in turn, feeds programs that support invasion, matrix changes, and
+            coordination with the broader EMT and microenvironmental signaling described elsewhere
+            on this page.
+          </p>
+          <HifVegfAxisFigure />
+          <HypoxiaDrivenEscapeSteps />
+          <p className="text-sm text-gray-600 dark:text-gray-400">
+            Anti-VEGF and HIF-related strategies are established in some tumor types; compensatory
+            pathway activation and persisting hypoxia contribute to clinical resistance, underscoring
+            combination and biomarker need (ref-020).
+          </p>
+        </div>
+      </Section>
+
+      <Section
+        id="physical-ctc"
         title="Physical biology of circulating tumor cells"
-        subtitle="Size, stiffness, shear stress—why biophysics determines who survives circulation"
-        className="section-alt"
+        subtitle="Size, stiffness, shear—how biophysical selection shapes who survives in blood"
       >
         <div className="space-y-6">
           <p>
-            The physical properties of CTCs play a critical role in determining metastatic
-            efficiency. Compared to normal blood cells, CTCs are generally larger, stiffer, and
-            less deformable—characteristics that increase their likelihood of becoming
-            mechanically trapped in capillary beds.
+            Physical properties of CTCs help determine which cells persist after intravasation.
+            Relative to many blood elements, CTCs can be larger, stiffer, and less deformable, which
+            influences mechanical trapping in capillary beds; shear in flow also selects for
+            robust cytoskeletal and survival programs.
           </p>
           <CitationCallout
-            claim="While mechanical arrest was once thought to be a passive process, emerging evidence suggests that CTCs actively exploit vascular bottlenecks to initiate extravasation. Shear stress within the bloodstream acts as a selective force, eliminating mechanically fragile cells while enriching for those with reinforced cytoskeletal structures."
+            claim="Data support that mechanical arrest is not only passive: cells can interface with vascular bottlenecks; shear can eliminate fragile cells and enrich for cytoskeletally reinforced, metastasis-prone subpopulations."
             sources={['ref-014']}
           />
           <p>
-            Breast cancer CTCs demonstrate adaptive cytoskeletal remodeling, allowing them to
-            withstand hemodynamic forces that would otherwise induce apoptosis. These findings
-            highlight metastasis as a process governed not only by genetic mutations but also by
-            biophysical fitness.
+            In breast CTCs, adaptive cytoskeletal changes illustrate how metastasis is governed as
+            much by functional cell mechanics as by mutation alone—overlapping conceptually with ECM
+            and integrin-mediated tension in tissues (see below).
           </p>
         </div>
       </Section>
 
       <Section
+        id="ecm-invasion"
+        title="ECM stiffening, integrins, and proteolytic remodeling"
+        subtitle="How matrix mechanics and adhesion co-evolve with invasion in tissue"
+        className="section-alt"
+      >
+        <div className="space-y-6">
+          <p>
+            The extracellular matrix (ECM) is a dynamic source of both structure and instruction.
+            In cancer, increased collagen deposition, cross-linking (e.g. lysyl oxidase–family
+            activity), and fibroblast activity raise stiffness and reorient matrix fibers, feeding
+            migration and EMT programs.
+          </p>
+          <CitationCallout
+            claim="Integrins couple ECM mechanics to the cytoskeleton: focal adhesion kinase, Src, and Rho GTPase pathways translate stiffness into invasive behavior; matrix metalloproteinases (MMPs) break down barriers, release sequestered factors, and participate in a feedback loop with integrin engagement."
+            sources={['ref-022']}
+          />
+          <p>
+            Invasion is therefore a mechanical–biochemical system: stiffer microenvironments can
+            augment integrin signaling, which can increase protease output; MMP activity reshapes the
+            matrix, further biasing cell trajectories. Immune and stromal cells, discussed next, sit
+            within the same three-dimensional and signaling landscape.
+          </p>
+          <EcmInvasionLoopFigure />
+        </div>
+      </Section>
+
+      <Section
+        id="heterogeneity"
         title="Molecular heterogeneity"
-        subtitle="Single-cell profiling reveals diverse CTC populations—and why bulk biopsies miss them"
+        subtitle="Single-cell views of CTCs and how bulk sampling can miss the spread-capable tail"
       >
         <div className="space-y-6">
           <p>
-            Single-cell RNA sequencing (scRNA-seq) has revolutionized the study of CTC biology by
-            uncovering extensive transcriptional heterogeneity within metastatic populations.
-            Analyses of breast cancer CTCs reveal distinct subpopulations associated with
-            stemness, immune evasion, and therapy resistance.
+            scRNA-seq and related approaches show transcriptionally distinct CTC-related states,
+            including programs linked to stemness, stress resistance, and immune evasion, sometimes
+            coexisting within a patient. Dynamic shifts in gene expression as cells move between
+            blood and parenchyma support the view of metastasis as a reversible, selective
+            process—consistent with the plasticity themes above.
           </p>
           <CitationCallout
-            claim="CTCs frequently express stem-cell–associated genes such as ALDH1 and SOX2, supporting the notion that metastatic competence is linked to self-renewal capacity rather than proliferative rate alone. These transcriptional programs often coexist within the same patient, complicating treatment strategies."
-            sources={['ref-014']}
+            claim="Markers of stem-like and plastic states are observed in CTCs; this heterogeneity limits what a one-time primary biopsy may capture and motivates longitudinal, circulating, or multi-site assessment where feasible."
+            sources={['ref-014', 'ref-017', 'ref-018']}
           />
           <p>
-            scRNA-seq data demonstrate dynamic shifts in gene expression as CTCs transition
-            between circulation and colonization, emphasizing metastasis as a reversible and
-            adaptive process. Epithelial–mesenchymal plasticity contributes to this heterogeneity:
-            hybrid E/M phenotypes and plasticity of the intermediate EMT state govern disease
-            progression and therapy resistance in breast cancer.
+            A tumor-initiating / cancer stem cell perspective (next section) intersects with these
+            molecular portraits: the same samples may be interpreted through plasticity, stem
+            program reactivation, or clonal history—complementary, not exclusive, lenses.
           </p>
-          <CitationCallout
-            claim="Hybrid epithelial/mesenchymal phenotypes promote metastasis and therapy resistance across carcinomas; phenotypic heterogeneity driven by plasticity of the intermediate EMT state governs disease progression in breast cancer."
-            sources={['ref-018']}
-          />
-          <p>
-            From a clinical perspective, this heterogeneity undermines the
-            predictive value of bulk tumor biopsies. Precision medicine approaches that
-            incorporate longitudinal CTC profiling may therefore provide a more accurate
-            representation of metastatic risk and therapeutic vulnerability.
-          </p>
-          <figure className="my-8">
-            <div className="rounded-lg border border-gray-200 bg-gray-50/50 p-6 dark:border-gray-700 dark:bg-gray-800/30">
-              <img
-                src="/images/molecular_heterog.png"
-                alt="Exploration of transcriptional heterogeneity across CTC subpopulations"
-                className="mx-auto max-h-[min(70vh,560px)] w-full max-w-full rounded-lg object-contain"
-              />
-              <p className="mt-4 text-center text-sm italic text-gray-500 dark:text-gray-400">
-                Transcriptional diversity across CTC subpopulations. AI-generated illustration.
-              </p>
-            </div>
-          </figure>
+          <MolecularHeterogeneityLandscape />
         </div>
       </Section>
 
       <Section
-        title="Circadian regulation and sleep-associated metastasis"
-        subtitle="When do CTCs disseminate? Sleep-phase release and implications for chronotherapy"
+        id="tme-stromal-immune"
+        title="Tumor microenvironment: stromal and immune crosstalk"
+        subtitle="CAFs, immune populations, and immunosuppressive niches in three-dimensional context"
         className="section-alt"
       >
         <div className="space-y-6">
           <p>
-            One of the most unexpected recent findings in breast cancer metastasis is the role of
-            sleep and circadian rhythms in regulating CTC dissemination. Studies using mouse
-            models and human patient samples have demonstrated that the majority of metastatic
-            spread occurs during the sleep phase rather than during active periods.
+            Cancer-associated fibroblasts (CAFs) and other stromal cells are abundant in many solid
+            tumors, with subtypes (e.g. inflammatory vs myofibroblastic) that differ in spatial
+            pattern and function. Through cytokines, chemokines, growth factors, and matrix
+            remodeling, CAFs help recruit and polarize immune cells—often favoring
+            immune-suppressive populations and excluding effector T cells from tumor regions.
           </p>
           <CitationCallout
-            claim="Breast cancer CTCs collected during sleep exhibited higher proliferative capacity and increased metastatic potential compared to those collected while awake."
-            sources={['ref-014']}
+            claim="Mesenchymal stromal cell–like populations can also dampen T cell activity and modulate checkpoint pathways, contributing to a metabolically and physically hostile milieu. Together, stromal–immune networks generate immunosuppressive niches with consequences for immune therapy sensitivity."
+            sources={['ref-024']}
           />
+          <TmeStromalNicheFigure />
           <p>
-            This phenomenon appears to be hormonally mediated, with circadian fluctuations in
-            melatonin and glucocorticoids influencing tumor cell release and survival. These
-            findings challenge longstanding assumptions about constant metastatic risk and raise
-            critical questions regarding the timing of therapeutic interventions. Chronotherapy
-            (administering treatments at biologically optimal times) may represent an
-            underexplored strategy for limiting metastatic progression in breast cancer.
+            In metastatic settings, the balance between immune control and evasion in primary and
+            secondary sites is an active field; spatial and multi-omic methods increasingly resolve
+            how stroma partitions tumors into functionally different neighborhoods.
           </p>
         </div>
       </Section>
 
       <Section
-        title="Tumor evolution"
-        subtitle="Clonal expansion, subclones, and selection—how tumors diversify over time"
+        id="csc-pathways"
+        title="Stemness, tumor-initiating cells, and developmental signaling"
+        subtitle="Notch, Wnt, and Hedgehog crosstalk in self-renewal, plasticity, and drug resistance"
+      >
+        <div className="space-y-2">
+          <CscPathwayGrid />
+        </div>
+      </Section>
+
+      <Section
+        id="circadian"
+        title="Circadian regulation and sleep-associated dissemination"
+        subtitle="Time-of-day patterns in CTC release and the concept of chronotherapy"
+        className="section-alt"
       >
         <div className="space-y-6">
           <p>
-            Tumor evolution describes how cancer populations change over time through clonal
-            expansion, mutation, and selection. A founding clone acquires mutations that enable
-            growth; subclones emerge with distinct genotypes and phenotypes, some of which may
-            confer resistance to therapy or metastatic potential.
+            In breast cancer models and patient work, a striking fraction of CTC release and
+            pro-metastatic features can be enriched during rest phases—linking the endocrine and
+            circadian milieu to dissemination dynamics, not a constant &quot;steady drip&quot; of
+            risk across the day.
+          </p>
+          <CitationCallout
+            claim="In reported analyses, CTCs collected during sleep can show features associated with higher proliferative and metastatic potential in experimental readouts, with hormonal oscillations proposed as modulators. Chronotherapy (timing treatments to biological rhythm) is being explored, though not yet standard in MBC."
+            sources={['ref-014']}
+          />
+          <p>
+            This area intersects with stress biology, clock genes in tumors, and practical questions
+            about when to sample blood or time systemic therapy—an evolving evidence base.
+          </p>
+        </div>
+      </Section>
+
+      <Section
+        id="evolution-genomics"
+        title="Clonal evolution and genomic drivers"
+        subtitle="From truncal drivers to subclones: TP53, PIK3CA, instability, and how tumors diversify"
+      >
+        <div className="space-y-6">
+          <p>
+            At the genomic level, metastasis is a selective process. Driver alterations such as
+            inactivating <em>TP53</em> and activating <em>PIK3CA</em> (PI3K pathway) are frequently
+            observed; they can appear concordant between primary and matched metastases, consistent
+            with early spread or parallel evolution, while additional changes accumulate in
+            subclones. In HR-positive metastatic disease, <em>PIK3CA</em> is among the most
+            common actionable alterations in contemporary cohorts—interpretation in any patient
+            requires clinical and assay context.
+          </p>
+          <CitationCallout
+            claim="Genomic instability accelerates diversity and can worsen resistance: defective repair, copy-number chaos, and catastrophic events expand the subclone pool and can uncouple from any single “driver” on its own. Knowledge-gap themes from older gap analyses (e.g. progression, dormancy) still frame how we interpret clonal kinetics in MBC (ref-012) alongside modern sequencing."
+            sources={['ref-023', 'ref-012']}
+          />
+          <GenomicClonalSchematicFigure />
+          <p>
+            Integrating clonal information with the phenotypic plasticity, TME, and CTC data above
+            supports a view of MBC as an evolving, multi-layer system rather than a static list of
+            mutations—still compatible with using genomics to guide some targeted options where
+            validated.
           </p>
           <figure className="my-8">
             <div className="rounded-lg border border-gray-200 bg-gray-50/50 p-6 dark:border-gray-700 dark:bg-gray-800/30">
@@ -200,7 +303,8 @@ export default function BiologyPage() {
                 className="max-h-[min(70vh,560px)] w-full max-w-full rounded-lg object-contain"
               />
               <p className="mt-4 text-center text-sm italic text-gray-500 dark:text-gray-400">
-                Clonal evolution: a founding population diversifies into subclones over time through mutation and selection. AI-generated illustration.
+                Clonal expansion and branching over time. AI-generated illustration. Complements the
+                clonal-schematic and molecular themes (ref-012, ref-023).
               </p>
             </div>
           </figure>
@@ -208,27 +312,29 @@ export default function BiologyPage() {
       </Section>
 
       <Section
-        title="Resistance mechanisms"
-        subtitle="From CTC heterogeneity to treatment failure—and future intervention strategies"
+        id="resistance"
+        title="Resistance in a plastic, multi-layer system"
+        subtitle="Heterogeneous CTCs, EMT state, hypoxia, and stem programs—implications for durable control"
         className="section-alt"
       >
         <div className="space-y-6">
           <p>
-            The molecular heterogeneity of CTCs—including stem-cell–like programs and dynamic
-            transcriptional shifts—directly contributes to treatment resistance. Epithelial–
-            mesenchymal plasticity and EMT signaling pathways further underpin resistance: cells
-            that can switch phenotypes in response to therapy or microenvironment are better
-            equipped to survive and recur.
+            Therapeutic failure in metastatic disease often reflects more than a single
+            &quot;escape&quot; mutation: CTCs and parenchymal cells can reconfigure phenotype under
+            drug pressure, hypoxia can support survival and rewire vasculature, and redundant
+            developmental-pathway crosstalk can limit single-agent pathway blockade. Anti-angiogenic
+            regimens, where used, can face evasive revascularization and selection—consistent with
+            the biology summarized for the HIF–VEGF program (ref-020).
           </p>
           <CitationCallout
-            claim="Targeting EMT signaling (e.g., TGF-β, Wnt, Notch) or stabilizing epithelial identity may reduce metastatic plasticity and improve treatment response; understanding the EMT–MET cycle is therefore critical for designing therapies that limit dissemination and colonization."
-            sources={['ref-019']}
+            claim="Targeting EMT or plasticity nodes (TGF-β, Wnt, Notch) or favoring epithelial re-differentiation in defined contexts is an active research space; it must be reconciled with evidence that some epithelial states are required for macrometastatic expansion."
+            sources={['ref-019', 'ref-021']}
           />
           <p>
-            Therapeutic strategies targeting CTC clusters, mechanical adaptability, or time-dependent
-            dissemination may offer novel avenues for intervention. Future research should
-            integrate biophysical modeling, single-cell profiling, and longitudinal patient
-            monitoring to capture the dynamic nature of metastasis.
+            Combinations that pair genomically informed drugs with microenvironment- or
+            schedule-aware strategies (e.g. circadian hypotheses, TME modulators) remain under
+            investigation. Longitudinal monitoring—circulating, imaging, and tissue when
+            possible—remains a central goal.
           </p>
           <figure className="my-8">
             <div className="rounded-lg border border-gray-200 bg-gray-50/50 p-6 dark:border-gray-700 dark:bg-gray-800/30">
@@ -245,9 +351,25 @@ export default function BiologyPage() {
         </div>
       </Section>
 
-      <Section title="References used on this page" className="section-alt">
+      <Section title="References used on this page" className="section-alt" id="references-biology">
         <div className="space-y-4">
-          <ReferenceList references={references} filterBy="biology" />
+          <ReferenceList
+            references={references}
+            filterBy="biology"
+            ensureIds={[
+              'ref-012',
+              'ref-014',
+              'ref-017',
+              'ref-018',
+              'ref-019',
+              'ref-020',
+              'ref-021',
+              'ref-022',
+              'ref-023',
+              'ref-024',
+              'ref-025',
+            ]}
+          />
         </div>
       </Section>
     </div>

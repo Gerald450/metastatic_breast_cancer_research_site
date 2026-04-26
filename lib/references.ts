@@ -508,6 +508,100 @@ export const references: Reference[] = [
       { section: 'Biology', pages: '—', excerptHint: 'EMT–MET cycle and colonization of distant organs' },
     ],
   },
+
+  {
+    id: 'ref-020',
+    title: 'Angiogenesis, Hypoxia, and Metastatic Escape: The Role of VEGF Signaling and HIF Pathways',
+    authors: undefined,
+    year: undefined,
+    journal: undefined,
+    filename: 'Angiogenesis, Hypoxia, and Metastatic Escape- The Role of VEGF Signaling….pdf',
+    localUrl: '/pdfs/Biology/Angiogenesis, Hypoxia, and Metastatic Escape- The Role of VEGF Signaling….pdf',
+    doi: null,
+    usedFor: ['biology'],
+    highlightNotes: [
+      { section: 'Biology', pages: '—', excerptHint: 'HIF–VEGF axis, hypoxia, angiogenesis, and metastatic escape' },
+    ],
+  },
+
+  {
+    id: 'ref-021',
+    title:
+      'Epithelial–Mesenchymal Plasticity in Cancer Metastasis: Context-Dependent Roles of EMT and MET',
+    authors: undefined,
+    year: undefined,
+    journal: undefined,
+    filename: 'EM Plasticity in Cancer Metastasis-1.pdf',
+    localUrl: '/pdfs/Biology/EM Plasticity in Cancer Metastasis-1.pdf',
+    doi: null,
+    usedFor: ['biology'],
+    highlightNotes: [
+      { section: 'Biology', pages: '—', excerptHint: 'In vivo EMT, MET for colonization, plasticity as spectrum' },
+    ],
+  },
+
+  {
+    id: 'ref-022',
+    title:
+      'Extracellular Matrix Remodeling in Cancer: Roles of ECM Stiffness, Integrins, and Metalloproteinases in Tumor Invasion',
+    authors: undefined,
+    year: undefined,
+    journal: undefined,
+    filename: 'Extracellular Matrix Remodeling in Cancer- Roles of ECM Stiffness….pdf',
+    localUrl: '/pdfs/Biology/Extracellular Matrix Remodeling in Cancer- Roles of ECM Stiffness….pdf',
+    doi: null,
+    usedFor: ['biology'],
+    highlightNotes: [
+      { section: 'Biology', pages: '—', excerptHint: 'ECM stiffness, integrin mechanotransduction, MMPs' },
+    ],
+  },
+
+  {
+    id: 'ref-023',
+    title:
+      'Genomic Alterations and Metastatic Drivers: The Role of Key Mutations and Genomic Instability in Cancer Evolution',
+    authors: undefined,
+    year: undefined,
+    journal: undefined,
+    filename: 'Genomic Alterations and Metastatic Drivers- The Role of Key Mutations….pdf',
+    localUrl: '/pdfs/Biology/Genomic Alterations and Metastatic Drivers- The Role of Key Mutations….pdf',
+    doi: null,
+    usedFor: ['biology'],
+    highlightNotes: [
+      { section: 'Biology', pages: '—', excerptHint: 'TP53, PIK3CA, clonal evolution, and instability' },
+    ],
+  },
+
+  {
+    id: 'ref-024',
+    title:
+      'Interactions with Stromal Cells in the Tumor Microenvironment: Fibroblasts, Immune Cells, and Immunosuppressive Niches',
+    authors: undefined,
+    year: undefined,
+    journal: undefined,
+    filename: 'Interactions with Stromal Cells in the Tumor Microenvironment- Fibroblasts….pdf',
+    localUrl: '/pdfs/Biology/Interactions with Stromal Cells in the Tumor Microenvironment- Fibroblasts….pdf',
+    doi: null,
+    usedFor: ['biology'],
+    highlightNotes: [
+      { section: 'Biology', pages: '—', excerptHint: 'CAFs, MSCs, and stromal–immune immunosuppressive niches' },
+    ],
+  },
+
+  {
+    id: 'ref-025',
+    title: 'Stemness and Tumor-Initiating Cells: Roles of Cancer Stem Cells and Metastasis-Driving Signaling Pathways',
+    authors: undefined,
+    year: undefined,
+    journal: undefined,
+    filename: 'Stemness and Tumor-Initiating Cells- Roles of Cancer Stem Cells and….pdf',
+    localUrl: '/pdfs/Biology/Stemness and Tumor-Initiating Cells- Roles of Cancer Stem Cells and….pdf',
+    doi: null,
+    usedFor: ['biology'],
+    highlightNotes: [
+      { section: 'Biology', pages: '—', excerptHint: 'CSCs, Notch, Wnt, Hedgehog, and pathway crosstalk' },
+    ],
+  },
 ];
 
 
